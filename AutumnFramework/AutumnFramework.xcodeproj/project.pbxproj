@@ -7,13 +7,94 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E4BC016E5F0377E0DC7C030 /* AutumnSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC38D2682A105E7B49D11 /* AutumnSession.swift */; };
+		5E4BC0ABC2B84950C99B60E0 /* AutumnUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCF5571C143C3202DF3FD /* AutumnUser.swift */; };
+		5E4BC2C33E32DAA2FC087853 /* AutumnFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC40B2BEDE9DB070B26E6 /* AutumnFeature.swift */; };
+		5E4BC46EB47F1A9B8D4BBB98 /* AutumnEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCBD2D2FF5C1A2C746EC5 /* AutumnEnums.swift */; };
+		5E4BC53215AC407AA981BBE6 /* AutumnTelemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCBAE75B49A15C3E574BB /* AutumnTelemetry.swift */; };
+		5E4BC5DCDC23981153AEC630 /* AutumnViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC2FDB019A168714003EB /* AutumnViewProxy.swift */; };
+		5E4BC61355DD624C83F0A2BE /* AutumnStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC5187CBE67FEFF775D24 /* AutumnStats.swift */; };
+		5E4BC63E9305C3E7D766D03B /* AutumnTestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC2C8E0A7822407644763 /* AutumnTestSetup.swift */; };
+		5E4BC7ECE7B0D4FC459C6B8B /* AutumnSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC48C2096BBE988386D62 /* AutumnSessionManager.swift */; };
+		5E4BCD86DE5610322158E41B /* AutumnScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCFE62C6FEEE83172A7DF /* AutumnScenario.swift */; };
+		5E4BCEBB671FB85C58E632FD /* AutumnLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC1F0921CC72093EADE6B /* AutumnLog.swift */; };
+		62A0B83F204539C3008F6DF2 /* FrequencyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B821204539C2008F6DF2 /* FrequencyTable.swift */; };
+		62A0B840204539C3008F6DF2 /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B822204539C2008F6DF2 /* SortedArray.swift */; };
+		62A0B841204539C3008F6DF2 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B824204539C3008F6DF2 /* Dice.swift */; };
+		62A0B842204539C3008F6DF2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B825204539C3008F6DF2 /* File.swift */; };
+		62A0B843204539C3008F6DF2 /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B826204539C3008F6DF2 /* Interval.swift */; };
+		62A0B844204539C3008F6DF2 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B827204539C3008F6DF2 /* JSON.swift */; };
+		62A0B845204539C3008F6DF2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B828204539C3008F6DF2 /* Log.swift */; };
+		62A0B846204539C3008F6DF2 /* Metatype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B829204539C3008F6DF2 /* Metatype.swift */; };
+		62A0B847204539C3008F6DF2 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B82A204539C3008F6DF2 /* StopWatch.swift */; };
+		62A0B848204539C3008F6DF2 /* CSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B82C204539C3008F6DF2 /* CSVImporter.swift */; };
+		62A0B849204539C3008F6DF2 /* TextFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B82D204539C3008F6DF2 /* TextFile.swift */; };
+		62A0B84A204539C3008F6DF2 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B82E204539C3008F6DF2 /* Globals.swift */; };
+		62A0B84B204539C3008F6DF2 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B830204539C3008F6DF2 /* Array.swift */; };
+		62A0B84C204539C3008F6DF2 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B831204539C3008F6DF2 /* CharacterView.swift */; };
+		62A0B84D204539C3008F6DF2 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B832204539C3008F6DF2 /* Dictionary.swift */; };
+		62A0B84E204539C3008F6DF2 /* DispatchTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B833204539C3008F6DF2 /* DispatchTimeInterval.swift */; };
+		62A0B84F204539C3008F6DF2 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B834204539C3008F6DF2 /* Double.swift */; };
+		62A0B850204539C3008F6DF2 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B835204539C3008F6DF2 /* Encodable.swift */; };
+		62A0B851204539C3008F6DF2 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B836204539C3008F6DF2 /* Int.swift */; };
+		62A0B852204539C3008F6DF2 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B837204539C3008F6DF2 /* NSObject.swift */; };
+		62A0B853204539C3008F6DF2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B838204539C3008F6DF2 /* String.swift */; };
+		62A0B854204539C3008F6DF2 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B839204539C3008F6DF2 /* TimeInterval.swift */; };
+		62A0B855204539C3008F6DF2 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B83A204539C3008F6DF2 /* UIApplication.swift */; };
+		62A0B856204539C3008F6DF2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B83B204539C3008F6DF2 /* UIColor.swift */; };
+		62A0B857204539C3008F6DF2 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B83C204539C3008F6DF2 /* UIDevice.swift */; };
+		62A0B858204539C3008F6DF2 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B83D204539C3008F6DF2 /* UInt.swift */; };
+		62A0B859204539C3008F6DF2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0B83E204539C3008F6DF2 /* UIView.swift */; };
 		62E511E52045340700C2E3E8 /* AutumnFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E511E32045340700C2E3E8 /* AutumnFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB1C83E987FB496328F02864 /* Pods_AutumnFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCD57F7F3B9B935CE1066F8 /* Pods_AutumnFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DCD57F7F3B9B935CE1066F8 /* Pods_AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38A1623B8FA255AA5F8E6259 /* Pods-AutumnFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.release.xcconfig"; sourceTree = "<group>"; };
+		5E4BC1F0921CC72093EADE6B /* AutumnLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnLog.swift; sourceTree = "<group>"; };
+		5E4BC2C8E0A7822407644763 /* AutumnTestSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestSetup.swift; sourceTree = "<group>"; };
+		5E4BC2FDB019A168714003EB /* AutumnViewProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnViewProxy.swift; sourceTree = "<group>"; };
+		5E4BC38D2682A105E7B49D11 /* AutumnSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnSession.swift; sourceTree = "<group>"; };
+		5E4BC40B2BEDE9DB070B26E6 /* AutumnFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnFeature.swift; sourceTree = "<group>"; };
+		5E4BC48C2096BBE988386D62 /* AutumnSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnSessionManager.swift; sourceTree = "<group>"; };
+		5E4BC5187CBE67FEFF775D24 /* AutumnStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnStats.swift; sourceTree = "<group>"; };
+		5E4BCBAE75B49A15C3E574BB /* AutumnTelemetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTelemetry.swift; sourceTree = "<group>"; };
+		5E4BCBD2D2FF5C1A2C746EC5 /* AutumnEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnEnums.swift; sourceTree = "<group>"; };
+		5E4BCF5571C143C3202DF3FD /* AutumnUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnUser.swift; sourceTree = "<group>"; };
+		5E4BCFE62C6FEEE83172A7DF /* AutumnScenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnScenario.swift; sourceTree = "<group>"; };
+		627DAAF82046788400C08EF1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		62A0B821204539C2008F6DF2 /* FrequencyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyTable.swift; sourceTree = "<group>"; };
+		62A0B822204539C2008F6DF2 /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
+		62A0B824204539C3008F6DF2 /* Dice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		62A0B825204539C3008F6DF2 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		62A0B826204539C3008F6DF2 /* Interval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
+		62A0B827204539C3008F6DF2 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		62A0B828204539C3008F6DF2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		62A0B829204539C3008F6DF2 /* Metatype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metatype.swift; sourceTree = "<group>"; };
+		62A0B82A204539C3008F6DF2 /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		62A0B82C204539C3008F6DF2 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVImporter.swift; sourceTree = "<group>"; };
+		62A0B82D204539C3008F6DF2 /* TextFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFile.swift; sourceTree = "<group>"; };
+		62A0B82E204539C3008F6DF2 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		62A0B830204539C3008F6DF2 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		62A0B831204539C3008F6DF2 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		62A0B832204539C3008F6DF2 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		62A0B833204539C3008F6DF2 /* DispatchTimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchTimeInterval.swift; sourceTree = "<group>"; };
+		62A0B834204539C3008F6DF2 /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		62A0B835204539C3008F6DF2 /* Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		62A0B836204539C3008F6DF2 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		62A0B837204539C3008F6DF2 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		62A0B838204539C3008F6DF2 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		62A0B839204539C3008F6DF2 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		62A0B83A204539C3008F6DF2 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		62A0B83B204539C3008F6DF2 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		62A0B83C204539C3008F6DF2 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		62A0B83D204539C3008F6DF2 /* UInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
+		62A0B83E204539C3008F6DF2 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		62E511E02045340700C2E3E8 /* AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AutumnFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E511E32045340700C2E3E8 /* AutumnFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutumnFramework.h; sourceTree = "<group>"; };
 		62E511E42045340700C2E3E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA4406131768E2BDC52630CD /* Pods-AutumnFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,17 +102,138 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB1C83E987FB496328F02864 /* Pods_AutumnFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5ACB6160578567ACE6DD3E72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				627DAAF82046788400C08EF1 /* XCTest.framework */,
+				1DCD57F7F3B9B935CE1066F8 /* Pods_AutumnFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E4BCC76068B6D237682F598 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5E4BC2C8E0A7822407644763 /* AutumnTestSetup.swift */,
+				5E4BCBD2D2FF5C1A2C746EC5 /* AutumnEnums.swift */,
+				5E4BC2FDB019A168714003EB /* AutumnViewProxy.swift */,
+				5E4BC40B2BEDE9DB070B26E6 /* AutumnFeature.swift */,
+				5E4BCFE62C6FEEE83172A7DF /* AutumnScenario.swift */,
+				5E4BC1F0921CC72093EADE6B /* AutumnLog.swift */,
+				5E4BC48C2096BBE988386D62 /* AutumnSessionManager.swift */,
+				5E4BCCA97A971828BA82C39C /* Model */,
+				5E4BCBAE75B49A15C3E574BB /* AutumnTelemetry.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5E4BCCA97A971828BA82C39C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5E4BC38D2682A105E7B49D11 /* AutumnSession.swift */,
+				5E4BCF5571C143C3202DF3FD /* AutumnUser.swift */,
+				5E4BC5187CBE67FEFF775D24 /* AutumnStats.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5F9BE01132D4670DE8A699C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA4406131768E2BDC52630CD /* Pods-AutumnFramework.debug.xcconfig */,
+				38A1623B8FA255AA5F8E6259 /* Pods-AutumnFramework.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		62A0B81E20453975008F6DF2 /* Autumn */ = {
+			isa = PBXGroup;
+			children = (
+				5E4BCC76068B6D237682F598 /* Core */,
+			);
+			path = Autumn;
+			sourceTree = "<group>";
+		};
+		62A0B81F20453998008F6DF2 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				62A0B82E204539C3008F6DF2 /* Globals.swift */,
+				62A0B82F204539C3008F6DF2 /* extensions */,
+				62A0B82B204539C3008F6DF2 /* file */,
+				62A0B820204539C2008F6DF2 /* structs */,
+				62A0B823204539C3008F6DF2 /* utils */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		62A0B820204539C2008F6DF2 /* structs */ = {
+			isa = PBXGroup;
+			children = (
+				62A0B821204539C2008F6DF2 /* FrequencyTable.swift */,
+				62A0B822204539C2008F6DF2 /* SortedArray.swift */,
+			);
+			path = structs;
+			sourceTree = "<group>";
+		};
+		62A0B823204539C3008F6DF2 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				62A0B824204539C3008F6DF2 /* Dice.swift */,
+				62A0B825204539C3008F6DF2 /* File.swift */,
+				62A0B826204539C3008F6DF2 /* Interval.swift */,
+				62A0B827204539C3008F6DF2 /* JSON.swift */,
+				62A0B828204539C3008F6DF2 /* Log.swift */,
+				62A0B829204539C3008F6DF2 /* Metatype.swift */,
+				62A0B82A204539C3008F6DF2 /* StopWatch.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		62A0B82B204539C3008F6DF2 /* file */ = {
+			isa = PBXGroup;
+			children = (
+				62A0B82C204539C3008F6DF2 /* CSVImporter.swift */,
+				62A0B82D204539C3008F6DF2 /* TextFile.swift */,
+			);
+			path = file;
+			sourceTree = "<group>";
+		};
+		62A0B82F204539C3008F6DF2 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				62A0B830204539C3008F6DF2 /* Array.swift */,
+				62A0B831204539C3008F6DF2 /* CharacterView.swift */,
+				62A0B832204539C3008F6DF2 /* Dictionary.swift */,
+				62A0B833204539C3008F6DF2 /* DispatchTimeInterval.swift */,
+				62A0B834204539C3008F6DF2 /* Double.swift */,
+				62A0B835204539C3008F6DF2 /* Encodable.swift */,
+				62A0B836204539C3008F6DF2 /* Int.swift */,
+				62A0B837204539C3008F6DF2 /* NSObject.swift */,
+				62A0B838204539C3008F6DF2 /* String.swift */,
+				62A0B839204539C3008F6DF2 /* TimeInterval.swift */,
+				62A0B83A204539C3008F6DF2 /* UIApplication.swift */,
+				62A0B83B204539C3008F6DF2 /* UIColor.swift */,
+				62A0B83C204539C3008F6DF2 /* UIDevice.swift */,
+				62A0B83D204539C3008F6DF2 /* UInt.swift */,
+				62A0B83E204539C3008F6DF2 /* UIView.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		62E511D62045340700C2E3E8 = {
 			isa = PBXGroup;
 			children = (
 				62E511E22045340700C2E3E8 /* AutumnFramework */,
 				62E511E12045340700C2E3E8 /* Products */,
+				5F9BE01132D4670DE8A699C6 /* Pods */,
+				5ACB6160578567ACE6DD3E72 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +257,8 @@
 		62E511F0204534B800C2E3E8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				62A0B81F20453998008F6DF2 /* Lib */,
+				62A0B81E20453975008F6DF2 /* Autumn */,
 				62E511E32045340700C2E3E8 /* AutumnFramework.h */,
 			);
 			path = Source;
@@ -78,10 +282,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62E511E82045340700C2E3E8 /* Build configuration list for PBXNativeTarget "AutumnFramework" */;
 			buildPhases = (
+				52E5F62E98A357A8CA81455E /* [CP] Check Pods Manifest.lock */,
 				62E511DB2045340700C2E3E8 /* Sources */,
 				62E511DC2045340700C2E3E8 /* Frameworks */,
 				62E511DD2045340700C2E3E8 /* Headers */,
 				62E511DE2045340700C2E3E8 /* Resources */,
+				6032CA294434A7B970978A65 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -103,6 +309,7 @@
 				TargetAttributes = {
 					62E511DF2045340700C2E3E8 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -134,11 +341,82 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52E5F62E98A357A8CA81455E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6032CA294434A7B970978A65 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		62E511DB2045340700C2E3E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62A0B857204539C3008F6DF2 /* UIDevice.swift in Sources */,
+				62A0B855204539C3008F6DF2 /* UIApplication.swift in Sources */,
+				62A0B84F204539C3008F6DF2 /* Double.swift in Sources */,
+				62A0B850204539C3008F6DF2 /* Encodable.swift in Sources */,
+				62A0B851204539C3008F6DF2 /* Int.swift in Sources */,
+				62A0B843204539C3008F6DF2 /* Interval.swift in Sources */,
+				62A0B849204539C3008F6DF2 /* TextFile.swift in Sources */,
+				62A0B859204539C3008F6DF2 /* UIView.swift in Sources */,
+				62A0B858204539C3008F6DF2 /* UInt.swift in Sources */,
+				62A0B845204539C3008F6DF2 /* Log.swift in Sources */,
+				62A0B846204539C3008F6DF2 /* Metatype.swift in Sources */,
+				62A0B840204539C3008F6DF2 /* SortedArray.swift in Sources */,
+				62A0B842204539C3008F6DF2 /* File.swift in Sources */,
+				62A0B84C204539C3008F6DF2 /* CharacterView.swift in Sources */,
+				62A0B844204539C3008F6DF2 /* JSON.swift in Sources */,
+				62A0B847204539C3008F6DF2 /* StopWatch.swift in Sources */,
+				62A0B856204539C3008F6DF2 /* UIColor.swift in Sources */,
+				62A0B84E204539C3008F6DF2 /* DispatchTimeInterval.swift in Sources */,
+				62A0B84A204539C3008F6DF2 /* Globals.swift in Sources */,
+				62A0B84B204539C3008F6DF2 /* Array.swift in Sources */,
+				62A0B84D204539C3008F6DF2 /* Dictionary.swift in Sources */,
+				62A0B841204539C3008F6DF2 /* Dice.swift in Sources */,
+				62A0B852204539C3008F6DF2 /* NSObject.swift in Sources */,
+				62A0B853204539C3008F6DF2 /* String.swift in Sources */,
+				62A0B848204539C3008F6DF2 /* CSVImporter.swift in Sources */,
+				62A0B83F204539C3008F6DF2 /* FrequencyTable.swift in Sources */,
+				62A0B854204539C3008F6DF2 /* TimeInterval.swift in Sources */,
+				5E4BC63E9305C3E7D766D03B /* AutumnTestSetup.swift in Sources */,
+				5E4BC46EB47F1A9B8D4BBB98 /* AutumnEnums.swift in Sources */,
+				5E4BC5DCDC23981153AEC630 /* AutumnViewProxy.swift in Sources */,
+				5E4BC2C33E32DAA2FC087853 /* AutumnFeature.swift in Sources */,
+				5E4BCD86DE5610322158E41B /* AutumnScenario.swift in Sources */,
+				5E4BCEBB671FB85C58E632FD /* AutumnLog.swift in Sources */,
+				5E4BC7ECE7B0D4FC459C6B8B /* AutumnSessionManager.swift in Sources */,
+				5E4BC016E5F0377E0DC7C030 /* AutumnSession.swift in Sources */,
+				5E4BC0ABC2B84950C99B60E0 /* AutumnUser.swift in Sources */,
+				5E4BC61355DD624C83F0A2BE /* AutumnStats.swift in Sources */,
+				5E4BC53215AC407AA981BBE6 /* AutumnTelemetry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +472,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -248,7 +526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -260,7 +538,9 @@
 		};
 		62E511E92045340700C2E3E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA4406131768E2BDC52630CD /* Pods-AutumnFramework.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -268,12 +548,18 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
 				INFOPLIST_FILE = AutumnFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ciathyza.AutumnFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -281,7 +567,9 @@
 		};
 		62E511EA2045340700C2E3E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38A1623B8FA255AA5F8E6259 /* Pods-AutumnFramework.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -289,6 +577,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
 				INFOPLIST_FILE = AutumnFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

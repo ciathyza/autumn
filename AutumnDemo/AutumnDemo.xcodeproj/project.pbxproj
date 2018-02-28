@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27B95ED8496EAB39A05C8344 /* Pods_AutumnDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD752BEA628451EA64C80F0 /* Pods_AutumnDemo.framework */; };
 		62E511B7204533D600C2E3E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E511B6204533D600C2E3E8 /* AppDelegate.swift */; };
 		62E511B9204533D600C2E3E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E511B8204533D600C2E3E8 /* ViewController.swift */; };
 		62E511BC204533D600C2E3E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62E511BA204533D600C2E3E8 /* Main.storyboard */; };
@@ -26,6 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A95E3B716FA2BAC0F5C8336 /* Pods-AutumnDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		2871AC22C849266DF678EF78 /* Pods-AutumnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo.release.xcconfig"; sourceTree = "<group>"; };
+		627DAAF62046786B00C08EF1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		62E511B3204533D600C2E3E8 /* AutumnDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutumnDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E511B6204533D600C2E3E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62E511B8204533D600C2E3E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +40,7 @@
 		62E511C7204533D600C2E3E8 /* AutumnDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutumnDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E511CB204533D600C2E3E8 /* AutumnDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutumnDemoUITests.swift; sourceTree = "<group>"; };
 		62E511CD204533D600C2E3E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AD752BEA628451EA64C80F0 /* Pods_AutumnDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B95ED8496EAB39A05C8344 /* Pods_AutumnDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +62,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0019C752FF0ECFEFF6A3AF29 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A95E3B716FA2BAC0F5C8336 /* Pods-AutumnDemo.debug.xcconfig */,
+				2871AC22C849266DF678EF78 /* Pods-AutumnDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		62E511AA204533D600C2E3E8 = {
 			isa = PBXGroup;
 			children = (
 				62E511B5204533D600C2E3E8 /* AutumnDemo */,
 				62E511CA204533D600C2E3E8 /* AutumnDemoUITests */,
 				62E511B4204533D600C2E3E8 /* Products */,
+				0019C752FF0ECFEFF6A3AF29 /* Pods */,
+				9A418E369A95E862D1C70954 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +153,15 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		9A418E369A95E862D1C70954 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				627DAAF62046786B00C08EF1 /* XCTest.framework */,
+				9AD752BEA628451EA64C80F0 /* Pods_AutumnDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62E511D0204533D600C2E3E8 /* Build configuration list for PBXNativeTarget "AutumnDemo" */;
 			buildPhases = (
+				4330BF4ABDE42D0AE0DB7542 /* [CP] Check Pods Manifest.lock */,
 				62E511AF204533D600C2E3E8 /* Sources */,
 				62E511B0204533D600C2E3E8 /* Frameworks */,
 				62E511B1204533D600C2E3E8 /* Resources */,
+				2CC4C2813CCC6ACF3EA74F56 /* [CP] Embed Pods Frameworks */,
+				090BF9491150ACF327E0FC40 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +262,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		090BF9491150ACF327E0FC40 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2CC4C2813CCC6ACF3EA74F56 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4330BF4ABDE42D0AE0DB7542 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		62E511AF204533D600C2E3E8 /* Sources */ = {
@@ -391,6 +468,7 @@
 		};
 		62E511D1204533D600C2E3E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A95E3B716FA2BAC0F5C8336 /* Pods-AutumnDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -406,6 +484,7 @@
 		};
 		62E511D2204533D600C2E3E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2871AC22C849266DF678EF78 /* Pods-AutumnDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -425,6 +504,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BTBN49W3GE;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				INFOPLIST_FILE = AutumnDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ciathyza.AutumnDemoUITests;
@@ -441,6 +521,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BTBN49W3GE;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				INFOPLIST_FILE = AutumnDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ciathyza.AutumnDemoUITests;
