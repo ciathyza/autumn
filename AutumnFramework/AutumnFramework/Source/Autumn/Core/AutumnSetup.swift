@@ -337,7 +337,7 @@ open class AutumnSetup: XCTestCase
 		{
 			let feature = featureClass.init(self)
 			AutumnSetup.allFeatureClasses.append(featureClass)
-			AutumnLog.debug("Registered feature: \"\(feature.featureName)\".")
+			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
 		}
 	}
 	

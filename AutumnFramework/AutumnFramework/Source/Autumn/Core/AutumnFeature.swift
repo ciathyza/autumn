@@ -35,7 +35,7 @@ public class AutumnFeature
 	
 	public private(set) var app:XCUIApplication
 	public private(set) var autumn:AutumnSetup
-	public internal(set) var featureName = ""
+	public internal(set) var name = ""
 	public internal(set) var tags = [String]()
 	
 	private static var _scenarioQueue:[Metatype<AutumnScenario>] = []
