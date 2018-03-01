@@ -1,14 +1,18 @@
-//
-// AutumnStats.swift
-// AutumnFramework
-//
-// Created by Sascha, Balkau | FINAD on 2018/02/27.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
-//
+/*
+ * ,---..   .--.--.   .,-.-.,   .
+ * |---||   |  |  |   || | ||\  |
+ * |   ||   |  |  |   || | || \ |
+ * `   '`---'  `  `---'` ' '`  `'
+ *  UI Test Automation Framework for Xcode XCTest.
+ *  Written by Sascha Balkau.
+ */
 
 import Foundation
 
 
+/**
+ * Keeps track of all stats values.
+ */
 public class AutumnStats
 {
 	// ----------------------------------------------------------------------------------------------------
@@ -31,6 +35,14 @@ public class AutumnStats
 	public var scenariosIgnored:Int        = 0
 	public var scenarioRetryCount:Int      = 0
 	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Derrived Properties
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Number of iOS test cases that are supported.
+	 */
 	public var scenariosIOSEffective:Int
 	{
 		let v = scenariosTotal - scenariosAndroidOnly - scenariosCannotAutomate
@@ -38,6 +50,9 @@ public class AutumnStats
 		return v
 	}
 	
+	/**
+	 * Number of Android test cases that are supported.
+	 */
 	public var scenariosAndroidEffective:Int
 	{
 		let v = scenariosTotal - scenariosIOSOnly - scenariosCannotAutomate
@@ -45,6 +60,9 @@ public class AutumnStats
 		return v
 	}
 	
+	/**
+	 * The success rate of the current test session.
+	 */
 	public var successRate:Double
 	{
 		let v = ((Double(scenariosPassed) / Double(scenariosTotal)) * 100).rounded(1)

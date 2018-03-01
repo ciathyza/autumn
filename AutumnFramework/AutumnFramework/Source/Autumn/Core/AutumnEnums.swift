@@ -1,10 +1,11 @@
-//
-// AutumnEnums.swift
-// AutumnFramework
-//
-// Created by Sascha, Balkau | FINAD on 2018/02/27.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
-//
+/*
+ * ,---..   .--.--.   .,-.-.,   .
+ * |---||   |  |  |   || | ||\  |
+ * |   ||   |  |  |   || | || \ |
+ * `   '`---'  `  `---'` ' '`  `'
+ *  UI Test Automation Framework for Xcode XCTest.
+ *  Written by Sascha Balkau.
+ */
 
 import Foundation
 

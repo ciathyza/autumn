@@ -1,10 +1,11 @@
-//
-// AutumnViewProxy.swift
-// AutumnFramework
-//
-// Created by Sascha, Balkau | FINAD on 2018/02/27.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
-//
+/*
+ * ,---..   .--.--.   .,-.-.,   .
+ * |---||   |  |  |   || | ||\  |
+ * |   ||   |  |  |   || | || \ |
+ * `   '`---'  `  `---'` ' '`  `'
+ *  UI Test Automation Framework for Xcode XCTest.
+ *  Written by Sascha Balkau.
+ */
 
 import Foundation
 import XCTest
@@ -33,7 +34,7 @@ public class AutumnViewProxy
 	// ----------------------------------------------------------------------------------------------------
 	
 	public var app:XCUIApplication
-	public var setup:AutumnTestSetup
+	public var setup:AutumnSetup
 	public var viewName:String
 	
 	
@@ -41,9 +42,9 @@ public class AutumnViewProxy
 	// MARK: - Initializers
 	// ----------------------------------------------------------------------------------------------------
 	
-	required public init(_ setup:AutumnTestSetup, _ viewName:String = "")
+	required public init(_ setup:AutumnSetup, _ viewName:String = "")
 	{
-		self.app = AutumnTestSetup.app
+		self.app = AutumnSetup.app
 		self.setup = setup
 		self.viewName = viewName
 	}

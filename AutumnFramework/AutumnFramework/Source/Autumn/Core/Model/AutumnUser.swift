@@ -1,16 +1,17 @@
-//
-// AutumnUser.swift
-// AutumnFramework
-//
-// Created by Sascha, Balkau | FINAD on 2018/02/27.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
-//
+/*
+ * ,---..   .--.--.   .,-.-.,   .
+ * |---||   |  |  |   || | ||\  |
+ * |   ||   |  |  |   || | || \ |
+ * `   '`---'  `  `---'` ' '`  `'
+ *  UI Test Automation Framework for Xcode XCTest.
+ *  Written by Sascha Balkau.
+ */
 
 import Foundation
 
 
 /**
- * Defines a test user with that you can test user account.
+ * Defines a user used for logging into an app.
  */
 open class AutumnUser
 {
@@ -53,6 +54,10 @@ open class AutumnUser
 		self.nickname = nickname
 	}
 	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Public Methods
+	// ----------------------------------------------------------------------------------------------------
 	
 	open func toString() -> String
 	{

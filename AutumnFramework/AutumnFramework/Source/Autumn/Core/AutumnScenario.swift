@@ -1,10 +1,11 @@
-//
-// AutumnScenario.swift
-// AutumnFramework
-//
-// Created by Sascha, Balkau | FINAD on 2018/02/27.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
-//
+/*
+ * ,---..   .--.--.   .,-.-.,   .
+ * |---||   |  |  |   || | ||\  |
+ * |   ||   |  |  |   || | || \ |
+ * `   '`---'  `  `---'` ' '`  `'
+ *  UI Test Automation Framework for Xcode XCTest.
+ *  Written by Sascha Balkau.
+ */
 
 import Foundation
 import XCTest
@@ -13,7 +14,7 @@ import XCTest
 /**
  * Represents a test scenario that defines test steps.
  */
-class AutumnScenario
+public class AutumnScenario
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Static
@@ -32,19 +33,17 @@ class AutumnScenario
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	public var app:XCUIApplication
-	public var setup:AutumnTestSetup
-	public var viewName:String
+	public private(set) var app:XCUIApplication
+	public private(set) var autumn:AutumnSetup
 	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Initializers
 	// ----------------------------------------------------------------------------------------------------
 	
-	required public init(_ setup:AutumnTestSetup, _ viewName:String = "")
+	required public init(_ autumn:AutumnSetup)
 	{
-		self.app = AutumnTestSetup.app
-		self.setup = setup
-		self.viewName = viewName
+		self.app = AutumnSetup.app
+		self.autumn = autumn
 	}
 }

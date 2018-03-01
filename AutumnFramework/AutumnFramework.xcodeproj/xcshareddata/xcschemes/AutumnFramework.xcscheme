@@ -43,6 +43,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "62E511B2204533D600C2E3E8"
+            BuildableName = "AutumnDemo.app"
+            BlueprintName = "AutumnDemo"
+            ReferencedContainer = "container:../AutumnDemo/AutumnDemo.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"

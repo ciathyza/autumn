@@ -1,10 +1,11 @@
-//
-// AutumnFeature.swift
-// AutumnFramework
-//
-// Created by Sascha, Balkau | FINAD on 2018/02/27.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
-//
+/*
+ * ,---..   .--.--.   .,-.-.,   .
+ * |---||   |  |  |   || | ||\  |
+ * |   ||   |  |  |   || | || \ |
+ * `   '`---'  `  `---'` ' '`  `'
+ *  UI Test Automation Framework for Xcode XCTest.
+ *  Written by Sascha Balkau.
+ */
 
 import Foundation
 import XCTest
@@ -33,17 +34,9 @@ public class AutumnFeature
 	// ----------------------------------------------------------------------------------------------------
 	
 	public private(set) var app:XCUIApplication
-	public private(set) var autumn:AutumnTestSetup
-	public private(set) var viewName:String
+	public private(set) var autumn:AutumnSetup
 	public internal(set) var featureName = ""
 	public internal(set) var tags = [String]()
-	
-	var tagsString:String
-	{
-		var s = ""
-		for t in tags { s += "\(t) " }
-		return s.trimmed
-	}
 	
 	private static var _scenarioQueue:[Metatype<AutumnScenario>] = []
 	private var _currentScenarioIndex = 0
@@ -52,14 +45,28 @@ public class AutumnFeature
 	
 	
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Derrived Properties
+	// ----------------------------------------------------------------------------------------------------
+	
+	public var tagsString:String
+	{
+		var s = ""
+		for t in tags { s += "\(t) " }
+		return s.trimmed
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Initializers
 	// ----------------------------------------------------------------------------------------------------
 	
-	required public init(_ autumn:AutumnTestSetup, _ viewName:String = "")
+	/**
+	 * Initializes the feature.
+	 */
+	required public init(_ autumn:AutumnSetup)
 	{
-		self.app = AutumnTestSetup.app
+		self.app = AutumnSetup.app
 		self.autumn = autumn
-		self.viewName = viewName
 	}
 	
 	
@@ -118,5 +125,129 @@ public class AutumnFeature
 	{
 		/* Abstract method! */
 		preconditionFailure("This method must be overridden!")
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Public Methods
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Registers a test scenario for the feature.
+	 */
+	public func registerScenario(_ scenarioClass:AutumnScenario.Type)
+	{
+	}
+	
+	/**
+	 * Returns the ID of the specified scenario class. The class must include the Testrail ID.
+	 * It can be written in one of two ways, e.g.: ScenarioClassName_C110134 or C110134.
+	 */
+	public func getScenarioID(_ scenarioClass:AutumnScenario.Type) -> String
+	{
+		return ""
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Internal Methods
+	// ----------------------------------------------------------------------------------------------------
+
+	/**
+	 * Starts testing the feature.
+	 */
+	func start()
+	{
+		startNextScenario()
+	}
+	
+	
+	/**
+	 * Executes the next scenario in the queue.
+	 */
+	func startNextScenario()
+	{
+	}
+	
+	
+	/**
+	 * Executes a specific scenario.
+	 */
+	func startScenario(_ scenarioClass:AutumnScenario.Type)
+	{
+	}
+	
+	
+	/**
+	 * Starts a single, specific scenario. Used for classic test execution mode only!
+	 */
+	func startSingleScenario(_ scenarioClass:AutumnScenario.Type)
+	{
+	}
+	
+	
+	/**
+	 * Ends testing the feature.
+	 */
+	func end()
+	{
+	}
+	
+	
+	/**
+	 * Returns next scenario class or nil.
+	 */
+	func getNextScenarioClass() -> AutumnScenario.Type?
+	{
+		return nil
+	}
+	
+	
+	/**
+	 * Waits for the currently executed scenario to be finished.
+	 */
+	func waitForScenarioComplete(_ scenario:AutumnScenario)
+	{
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Handlers
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Invoked when a scenario has completed test execution.
+	 */
+	func onScenarioComplete(_ success:Bool)
+	{
+	}
+}
+
+
+/**
+ * Empty default feature class used for non-optional instantiation.
+ */
+class AutumnEmptyFeature : AutumnFeature
+{
+	override func setup()
+	{
+	}
+	
+	override func registerScenarios()
+	{
+	}
+	
+	override func preLaunch()
+	{
+	}
+	
+	override func resetApp() -> Bool
+	{
+		return false
+	}
+	
+	override func gotoView(_ viewID:AutumnViewProxy.Type, _ ready:Bool) -> Bool
+	{
+		return false
 	}
 }

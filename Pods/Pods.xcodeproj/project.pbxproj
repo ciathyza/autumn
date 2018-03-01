@@ -22,7 +22,7 @@
 		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C037B4034EDA3D7955BC5E4E9D9D6 /* TaskDelegate.swift */; };
 		39BBFB43C54F91A211B72CA9C47C4F89 /* AutumnFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A022C5CC6794E3B91EF2ECE9CDCC4B9 /* AutumnFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43877D5BEE66085EB1D7FB1FB38D3EAD /* AutumnFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19DC844E15A9A06040B0510FF902D5E /* AutumnFeature.swift */; };
-		45BF38D901D0E8DF38ACD24513C45D99 /* AutumnTestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7802D85E69DD98A7310A7F4131AED77D /* AutumnTestSetup.swift */; };
+		45BF38D901D0E8DF38ACD24513C45D99 /* AutumnSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7802D85E69DD98A7310A7F4131AED77D /* AutumnSetup.swift */; };
 		50BAF80B75918F3DFDB694B8154C0656 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A2CCECE5D91439DC59BCB19AFDE1B4 /* String.swift */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E230A0448B394DE26E688DAC8E6201E /* Request.swift */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */; };
@@ -162,7 +162,7 @@
 		755BEB947AF8F98D2909EAA25A79798B /* autumn-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "autumn-prefix.pch"; sourceTree = "<group>"; };
 		779FCB363C07261DAA18D98B97404C1C /* Pods-AutumnDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AutumnDemo-dummy.m"; sourceTree = "<group>"; };
 		77B3F58A95AC0A9EB6C888A0F3ED1A0B /* Pods-AutumnDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AutumnDemo.modulemap"; sourceTree = "<group>"; };
-		7802D85E69DD98A7310A7F4131AED77D /* AutumnTestSetup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestSetup.swift; sourceTree = "<group>"; };
+		7802D85E69DD98A7310A7F4131AED77D /* AutumnSetup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnSetup.swift; sourceTree = "<group>"; };
 		781447DD53BBCFB17C5B584A6128178E /* autumn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = autumn.framework; path = autumn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D141D1953E5C6E67E362CE73090E48A /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		8598B32D12F01FD6B703BE570396A5F5 /* DispatchTimeInterval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DispatchTimeInterval.swift; sourceTree = "<group>"; };
@@ -409,7 +409,7 @@
 				3A317E754265BE240BEB683BFB70FDEE /* AutumnScenario.swift */,
 				EDB9B71FD3D9867E9CCB2A52EB1D0375 /* AutumnSessionManager.swift */,
 				A97C973DAF56CC8ED164F4DC0295571C /* AutumnTelemetry.swift */,
-				7802D85E69DD98A7310A7F4131AED77D /* AutumnTestSetup.swift */,
+				7802D85E69DD98A7310A7F4131AED77D /* AutumnSetup.swift */,
 				74EC31605704B3C544EB8813ED40E518 /* AutumnViewProxy.swift */,
 				EE26EF759734E4CF5D860A4ECC227FB9 /* Model */,
 			);
@@ -724,7 +724,7 @@
 				D204EA927D43A91D8B805F1B232F050F /* AutumnSessionManager.swift in Sources */,
 				AFB2F032C256E051A22E4C66AFC4E412 /* AutumnStats.swift in Sources */,
 				81C16B64A81DD540ADDA29FA4B17B864 /* AutumnTelemetry.swift in Sources */,
-				45BF38D901D0E8DF38ACD24513C45D99 /* AutumnTestSetup.swift in Sources */,
+				45BF38D901D0E8DF38ACD24513C45D99 /* AutumnSetup.swift in Sources */,
 				CE04A91B71CD4D4D3982ED1721B3EE99 /* AutumnUser.swift in Sources */,
 				30B332511DB1956DEFDAED2821BD9E1C /* AutumnViewProxy.swift in Sources */,
 				0093017A02C98058EA6BB75B9EE77489 /* CharacterView.swift in Sources */,

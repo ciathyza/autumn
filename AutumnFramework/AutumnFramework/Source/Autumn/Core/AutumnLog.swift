@@ -1,10 +1,11 @@
-//
-// AutumnLog.swift
-// AutumnFramework
-//
-// Created by Sascha, Balkau | FINAD on 2018/02/27.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
-//
+/*
+ * ,---..   .--.--.   .,-.-.,   .
+ * |---||   |  |  |   || | ||\  |
+ * |   ||   |  |  |   || | || \ |
+ * `   '`---'  `  `---'` ' '`  `'
+ *  UI Test Automation Framework for Xcode XCTest.
+ *  Written by Sascha Balkau.
+ */
 
 import Foundation
 import XCTest
@@ -101,6 +102,6 @@ open class AutumnLog
 			AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Debug, app.debugDescription)
 			return
 		}
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Debug, AutumnTestSetup.app.debugDescription)
+		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Debug, AutumnSetup.app.debugDescription)
 	}
 }

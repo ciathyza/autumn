@@ -1,10 +1,11 @@
-//
-// AutumnTestSetup.swift
-// AutumnFramework
-//
-// Created by Sascha, Balkau | FINAD on 2018/02/27.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
-//
+/*
+ * ,---..   .--.--.   .,-.-.,   .
+ * |---||   |  |  |   || | ||\  |
+ * |   ||   |  |  |   || | || \ |
+ * `   '`---'  `  `---'` ' '`  `'
+ *  UI Test Automation Framework for Xcode XCTest.
+ *  Written by Sascha Balkau.
+ */
 
 import Foundation
 import XCTest
@@ -14,7 +15,7 @@ import XCTest
  * Represents the single test class with single XCUITest test method for use with Autumn.
  * Subclass this class in your project to configure the UI test setup!
  */
-open class AutumnTestSetup : XCTestCase
+open class AutumnSetup: XCTestCase
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Constants
@@ -323,7 +324,7 @@ open class AutumnTestSetup : XCTestCase
 	public func registerFeature(_ featureClass:AutumnFeature.Type)
 	{
 		var featureAlreadyRegistered = false
-		for clazz in AutumnTestSetup.allFeatureClasses
+		for clazz in AutumnSetup.allFeatureClasses
 		{
 			if clazz.metatype == featureClass.metatype
 			{
@@ -335,7 +336,7 @@ open class AutumnTestSetup : XCTestCase
 		if !featureAlreadyRegistered
 		{
 			let feature = featureClass.init(self)
-			AutumnTestSetup.allFeatureClasses.append(featureClass)
+			AutumnSetup.allFeatureClasses.append(featureClass)
 			AutumnLog.debug("Registered feature: \"\(feature.featureName)\".")
 		}
 	}
@@ -347,7 +348,7 @@ open class AutumnTestSetup : XCTestCase
 	
 	internal func registerScenarios()
 	{
-		for featureClass in AutumnTestSetup.allFeatureClasses
+		for featureClass in AutumnSetup.allFeatureClasses
 		{
 			let feature = featureClass.init(self)
 			feature.registerScenarios()
@@ -359,10 +360,10 @@ open class AutumnTestSetup : XCTestCase
 	///
 	internal func dequeueNextFeatureClass() -> AutumnFeature.Type?
 	{
-		if (AutumnTestSetup.allFeatureClasses.count > 0)
+		if (AutumnSetup.allFeatureClasses.count > 0)
 		{
 			_session.currentFeatureIndex += 1
-			return AutumnTestSetup.allFeatureClasses.removeFirst()
+			return AutumnSetup.allFeatureClasses.removeFirst()
 		}
 		return nil
 	}
