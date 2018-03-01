@@ -16,8 +16,16 @@ import XCTest
  */
 open class AutumnLog
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Constants
+	// ----------------------------------------------------------------------------------------------------
+	
 	static let CATEGORY = "Autumn"
 	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
 	
 	public static func log(level:LogLevel, data:Any)
 	{
@@ -36,72 +44,74 @@ open class AutumnLog
 	
 	public static func system(_ data:Any)
 	{
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.System, data)
+		Log.system(CATEGORY, data)
 	}
 	
 	
 	public static func trace(_ data:Any)
 	{
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Trace, data)
+		Log.trace(CATEGORY, data)
 	}
 	
 	
 	public static func debug(_ data:Any)
 	{
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Debug, data)
+		Log.debug(CATEGORY, data)
 	}
 	
 	
 	public static func info(_ data:Any)
 	{
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Info, data)
+		Log.info(CATEGORY, data)
 	}
 	
 	
 	public static func notice(_ data:Any)
 	{
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Notice, data)
+		Log.notice(CATEGORY, data)
 	}
 	
 	
 	public static func warning(_ data:Any)
 	{
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Warning, data)
+		Log.warning(CATEGORY, data)
 	}
 	
 	
 	public static func error(_ data:Any)
 	{
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Error, data)
+		Log.error(CATEGORY, data)
 	}
 	
 	
 	public static func fatal(_ data:Any)
 	{
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Fatal, data)
+		Log.fatal(CATEGORY, data)
 	}
 	
 	
 	public static func delimiter()
 	{
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Debug, Log.DELIMITER)
+		Log.delimiter(CATEGORY)
 	}
 	
 	
 	public static func delimiterStrong()
 	{
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Debug, Log.DELIMITER_STRONG)
+		Log.delimiterStrong(CATEGORY)
 	}
 	
 	
-	/// Logs the complete structure of the current view hierarchy to the console.
+	/**
+	 * Logs the complete structure of the current view hierarchy to the console.
+	 */
 	public class func dumpViewStructure(_ app:XCUIApplication? = nil)
 	{
 		if let app = app
 		{
-			AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Debug, app.debugDescription)
+			Log.debug(CATEGORY, app.debugDescription)
 			return
 		}
-		AutumnSessionManager.instance.record(type: .Log, args: LogLevel.Debug, AutumnSetup.app.debugDescription)
+		Log.debug(CATEGORY, AutumnSetup.app.debugDescription)
 	}
 }

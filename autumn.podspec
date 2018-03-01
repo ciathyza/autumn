@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
 	spec.source         = { :git => 'https://github.com/ciathyza/autumn.git', :tag => spec.version.to_s }
 	spec.source_files   = 'AutumnFramework/AutumnFramework/Source/**/*.{swift,h,m}'
 	spec.requires_arc   = true
-	spec.weak_framework = "XCTest"
+	spec.framework      = "XCTest"
 	spec.dependency     'Alamofire', '~> 4.5'
 	spec.pod_target_xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited) "$(PLATFORM_DIR)/Developer/Library/Frameworks"' }
 end
