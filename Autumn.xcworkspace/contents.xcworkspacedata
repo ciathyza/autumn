@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:AutumnFramework/AutumnFramework.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:AutumnDemo/AutumnDemo.xcodeproj">
    </FileRef>
    <FileRef

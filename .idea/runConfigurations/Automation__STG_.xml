@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Automation (STG)" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AutumnDemo" TARGET_NAME="AutumnDemoUITests" CONFIG_NAME="Debug" SCHEME_NAME="Automation (STG)" TEST_CLASS="AutumnDemoUITests" TEST_MODE="SUITE_TEST" XCODE_SKIPPED_TESTS_HASH_CODE="1661697511">
+    <envs />
+    <method />
+  </configuration>
+</component>
