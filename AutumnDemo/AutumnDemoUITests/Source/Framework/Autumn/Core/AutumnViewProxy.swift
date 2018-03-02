@@ -34,7 +34,7 @@ public class AutumnViewProxy
 	// ----------------------------------------------------------------------------------------------------
 	
 	public var app:XCUIApplication
-	public var setup:AutumnSetup
+	public var runner:AutumnTestRunner
 	public var viewName:String
 	
 	
@@ -42,10 +42,10 @@ public class AutumnViewProxy
 	// MARK: - Initializers
 	// ----------------------------------------------------------------------------------------------------
 	
-	required public init(_ setup:AutumnSetup, _ viewName:String = "")
+	required public init(_ runner:AutumnTestRunner, _ viewName:String = "")
 	{
-		self.app = AutumnSetup.app
-		self.setup = setup
+		self.app = AutumnTestRunner.app
+		self.runner = runner
 		self.viewName = viewName
 	}
 }

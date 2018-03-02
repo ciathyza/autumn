@@ -9,7 +9,7 @@
 import XCTest
 
 
-class AutumnDemoUITests : AutumnSetup
+class AutumnDemoUITests : AutumnTestRunner
 {
 	override func configure()
 	{
@@ -38,10 +38,12 @@ class AutumnDemoUITests : AutumnSetup
 	
 	override func registerViewProxies()
 	{
+		registerViewProxy(AutumnDemoViewProxy.self, "Demo View Proxy")
 	}
 	
 	
 	override func registerFeatures()
 	{
+		registerFeature(AutumnDemoFeature.self)
 	}
 }

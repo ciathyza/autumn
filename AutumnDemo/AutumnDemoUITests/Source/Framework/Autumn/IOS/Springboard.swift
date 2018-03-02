@@ -48,7 +48,7 @@ class Springboard
 			XCUIDevice.shared.press(.home)
 			XCUIDevice.shared.press(.home)
 			Thread.sleep(forTimeInterval: 1.0)
-			let appTask = app.otherElements[AutumnSetup.instance.appID]
+			let appTask = app.otherElements[AutumnTestRunner.instance.appID]
 			if appTask.isHittable
 			{
 				appTask.swipeUp()
@@ -131,7 +131,7 @@ class Springboard
 			}
 			else
 			{
-				AutumnLog.notice("App icon for \(AutumnSetup.instance.appName) not found!")
+				AutumnLog.notice("App icon for \(AutumnTestRunner.instance.appName) not found!")
 			}
 		}
 		else
@@ -146,25 +146,25 @@ class Springboard
 	
 	class func getAppIcon() -> XCUIElement?
 	{
-		if let icon = springboard?.icons[AutumnSetup.instance.appName]
+		if let icon = springboard?.icons[AutumnTestRunner.instance.appName]
 		{
 			if icon.exists && icon.isHittable { return icon }
 		}
 		XCUIDevice.shared.press(.home)
 		Thread.sleep(forTimeInterval: 0.5)
-		if let icon = springboard?.icons[AutumnSetup.instance.appName]
+		if let icon = springboard?.icons[AutumnTestRunner.instance.appName]
 		{
 			if icon.exists && icon.isHittable { return icon }
 		}
 		springboard?.swipeLeft()
 		Thread.sleep(forTimeInterval: 0.5)
-		if let icon = springboard?.icons[AutumnSetup.instance.appName]
+		if let icon = springboard?.icons[AutumnTestRunner.instance.appName]
 		{
 			if icon.exists && icon.isHittable { return icon }
 		}
 		springboard?.swipeLeft()
 		Thread.sleep(forTimeInterval: 0.5)
-		if let icon = springboard?.icons[AutumnSetup.instance.appName]
+		if let icon = springboard?.icons[AutumnTestRunner.instance.appName]
 		{
 			if icon.exists && icon.isHittable { return icon }
 		}

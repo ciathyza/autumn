@@ -33,6 +33,11 @@ public class AutumnScenario
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
+	public var uninstallBefore = true
+	public var resetBefore = true
+	public var resetAfter = false
+	public var terminateAfter = true
+	
 	public internal(set) var id = ""
 	public internal(set) var name = ""
 	public internal(set) var descr = ""
@@ -41,9 +46,9 @@ public class AutumnScenario
 	
 	public private(set) var feature:AutumnFeature
 	public private(set) var app:XCUIApplication
-	public private(set) var autumn:AutumnSetup
+	public private(set) var runner:AutumnTestRunner
 	
-	internal private(set) var status = AutumnTestStatus.Pending
+	internal var status = AutumnTestStatus.Pending
 	internal private(set) var steps = [AutumnTestStep]()
 	
 	
@@ -64,17 +69,28 @@ public class AutumnScenario
 	
 	
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Query Convenience API
+	// ----------------------------------------------------------------------------------------------------
+	
+	public var isAppRunningInForeground:Bool { return AutumnTestRunner.app.state == .runningForeground }
+	public var isAppRunningInBackground:Bool { return AutumnTestRunner.app.state == .runningBackground }
+	public var isAppSuspendedInBackground:Bool { return AutumnTestRunner.app.state == .runningBackgroundSuspended }
+	public var isAppInstalled:Bool { return Springboard.isAppInstalled }
+	public var isAppKilled:Bool { return AutumnTestRunner.app.state != .runningForeground && AutumnTestRunner.app.state != .runningBackground && AutumnTestRunner.app.state != .runningBackgroundSuspended }
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Initializers
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
 	 * Initializes a new scenario.as
 	 */
-	required public init(feature:AutumnFeature)
+	required public init(_ feature:AutumnFeature)
 	{
 		self.feature = feature
 		app = feature.app
-		autumn = feature.autumn
+		runner = feature.runner
 		
 		setup()
 	}

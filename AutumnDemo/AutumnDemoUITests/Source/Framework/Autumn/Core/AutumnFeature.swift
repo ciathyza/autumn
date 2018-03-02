@@ -34,13 +34,11 @@ public class AutumnFeature
 	// ----------------------------------------------------------------------------------------------------
 	
 	public private(set) var app:XCUIApplication
-	public private(set) var autumn:AutumnSetup
+	public private(set) var runner:AutumnTestRunner
 	public internal(set) var name = ""
 	public internal(set) var tags = [String]()
 	
 	private static var _scenarioQueue:[Metatype<AutumnScenario>] = []
-	private var _currentScenarioIndex = 0
-	private var _currentScenario:AutumnScenario?
 	private var _interval = Interval()
 	
 	
@@ -63,10 +61,10 @@ public class AutumnFeature
 	/**
 	 * Initializes the feature.
 	 */
-	required public init(_ autumn:AutumnSetup)
+	required public init(_ runner:AutumnTestRunner)
 	{
-		self.app = AutumnSetup.app
-		self.autumn = autumn
+		self.app = AutumnTestRunner.app
+		self.runner = runner
 	}
 	
 	
@@ -137,6 +135,25 @@ public class AutumnFeature
 	 */
 	public func registerScenario(_ scenarioClass:AutumnScenario.Type)
 	{
+		if AutumnTestRunner.allScenarioClasses[scenarioClass.metatype] == nil
+		{
+			let scenario = scenarioClass.init(self)
+			/* Add all feature tags to all its scenarios, too. */
+			scenario.tags = scenario.tags + tags
+			AutumnTestRunner.allScenarioClasses[scenarioClass.metatype] = scenarioClass
+			let scenarioID = getScenarioID(scenarioClass)
+			if !scenarioID.isEmpty
+			{
+				AutumnTestRunner.allScenarioIDs[scenarioClass.metatype] = scenarioID
+				AutumnLog.debug("Registered test scenario with ID \(scenarioID).")
+			}
+			else
+			{
+				AutumnLog.warning("Scenario \"\(scenarioClass)\" has no ID!")
+			}
+		}
+		
+		AutumnFeature._scenarioQueue.append(scenarioClass.metatype)
 	}
 	
 	/**
@@ -145,7 +162,31 @@ public class AutumnFeature
 	 */
 	public func getScenarioID(_ scenarioClass:AutumnScenario.Type) -> String
 	{
-		return ""
+		let className = "\(scenarioClass)"
+		let array = className.split("_")
+		var result = ""
+		
+		/* Format: ScenarioClassName_C110134 */
+		if array.count > 1
+		{
+			let s = array[array.count - 1]
+			result = s
+		}
+		/* Format: C110134 */
+		else if array.count == 1
+		{
+			let s = array[0]
+			if (s.starts(with: "C"))
+			{
+				result = s.substring(1)
+			}
+		}
+		if result.isEmpty
+		{
+			let scenario = scenarioClass.init(self)
+			result = scenario.id
+		}
+		return result
 	}
 	
 	
@@ -167,6 +208,16 @@ public class AutumnFeature
 	 */
 	func startNextScenario()
 	{
+		if let scenarioClass = getNextScenarioClass()
+		{
+			startScenario(scenarioClass)
+		}
+		else
+		{
+			AutumnLog.debug("All scenarios in feature completed.")
+			runner.session.currentScenario = nil
+			end()
+		}
 	}
 	
 	
@@ -175,6 +226,71 @@ public class AutumnFeature
 	 */
 	func startScenario(_ scenarioClass:AutumnScenario.Type)
 	{
+		runner.session.currentScenarioIndex += 1
+		
+		if let scenarioClass = AutumnTestRunner.allScenarioClasses[scenarioClass.metatype]
+		{
+			let scenario = scenarioClass.init(self)
+			
+			/* Use scenario ID that was retrieved from the class name. */
+			if let scenarioID = AutumnTestRunner.allScenarioIDs[scenarioClass.metatype]
+			{
+				scenario.id = scenarioID
+			}
+			
+			let scenarioLink = scenario.link.length > 0 ? scenario.link : runner.testrailFeatureBaseURL.length > 0 ? runner.testrailFeatureBaseURL + scenario.id : ""
+			scenario.tags = scenario.tags + tags
+			
+			runner.session.currentScenario = scenario
+			
+			/* Is the scenario unsupported? */
+			if scenario.tags.contains(AutumnTag.UNSUPPORTED)
+			{
+				//AutumnTelemetry.instance.record(type: .IgnoreScenario, args: self, scenario, scenarioLink)
+				runner.session.stats.scenariosIgnored += 1
+			}
+			else
+			{
+				if scenario.resetBefore
+				{
+					AutumnUI.sleep(2)
+					AutumnLog.debug("Resetting app state before scenario ...")
+					_ = resetApp()
+				}
+				if scenario.uninstallBefore
+				{
+					AutumnUI.sleep(2)
+					AutumnLog.debug("Uninstalling app before scenario ...")
+					_ = AutumnUI.uninstallApp()
+				}
+				
+				//AutumnTelemetry.instance.record(type: .BeginScenario, args: self, scenario, scenarioLink)
+				AutumnLog.debug("Establishing scenario preconditions ...")
+				scenario.status = .Started
+				scenario.establish()
+				AutumnLog.debug("Executing scenario steps ...")
+				scenario.execute()
+				//scenario.status = scenario.steps.contains(where: { $0.successStatus == AutumnTestStatus.Failed }) ? .Failed : .Passed
+				//AutumnTelemetry.instance.record(type: .EndScenario, args: self, scenario)
+				
+				if scenario.terminateAfter
+				{
+					_ = AutumnUI.terminateApp()
+				}
+				else
+				{
+					if scenario.resetAfter
+					{
+						AutumnLog.debug("Resetting app state after scenario [\(scenario.name)] ...")
+						_ = resetApp()
+					}
+				}
+			}
+		}
+		else
+		{
+			AutumnLog.notice("No scenario was registered for class [\(scenarioClass.metatype)].")
+		}
 	}
 	
 	
@@ -183,6 +299,7 @@ public class AutumnFeature
 	 */
 	func startSingleScenario(_ scenarioClass:AutumnScenario.Type)
 	{
+		startScenario(scenarioClass)
 	}
 	
 	
@@ -191,6 +308,7 @@ public class AutumnFeature
 	 */
 	func end()
 	{
+		runner.session.startNextFeature()
 	}
 	
 	
@@ -199,6 +317,11 @@ public class AutumnFeature
 	 */
 	func getNextScenarioClass() -> AutumnScenario.Type?
 	{
+		if (AutumnFeature._scenarioQueue.count > 0)
+		{
+			let metatype = AutumnFeature._scenarioQueue.removeFirst()
+			return AutumnTestRunner.allScenarioClasses[metatype]
+		}
 		return nil
 	}
 	
@@ -208,6 +331,13 @@ public class AutumnFeature
 	 */
 	func waitForScenarioComplete(_ scenario:AutumnScenario)
 	{
+		/* XCUITest won't wait for us to finish the async HTTP requests so we wait here before tearng down
+		   to have a clean division between every scenario run. */
+		AutumnUI.waitForWithInterval(completeBlock: onScenarioComplete, timeout: 20)
+		{
+			return true
+			//return AutumnTelemetrySession.isTestRailSubmitComplete
+		}
 	}
 	
 	
@@ -220,6 +350,9 @@ public class AutumnFeature
 	 */
 	func onScenarioComplete(_ success:Bool)
 	{
+		AutumnTestRunner.instance.tearDown()
+		AutumnUI.sleep(1)
+		startNextScenario()
 	}
 }
 

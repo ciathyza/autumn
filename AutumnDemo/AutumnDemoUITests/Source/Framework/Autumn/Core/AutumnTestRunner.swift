@@ -15,7 +15,7 @@ import XCTest
  * Represents the single test class with single XCUITest test method for use with Autumn.
  * Subclass this class in your project to configure the UI test setup!
  */
-open class AutumnSetup : XCTestCase
+open class AutumnTestRunner : XCTestCase
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Constants
@@ -30,7 +30,7 @@ open class AutumnSetup : XCTestCase
 	// MARK: - Singleton Instance
 	// ----------------------------------------------------------------------------------------------------
 	
-	public static let instance = AutumnSetup()
+	public static let instance = AutumnTestRunner()
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -177,12 +177,9 @@ open class AutumnSetup : XCTestCase
 			&& testrailPassword.length > 0
 	}
 	
-	public private(set) var defaultUserSTG:AutumnUser?
-	public private(set) var defaultUserPRD:AutumnUser?
-	
+	internal var session = AutumnSession()
 	private var _users:[String:AutumnUser] = [:]
 	private var _viewProxyClasses:[Metatype<AutumnViewProxy>:AutumnViewProxy] = [:]
-	private var _session = AutumnSession()
 	
 	internal static var app = XCUIApplication()
 	internal static var allFeatureClasses:[AutumnFeature.Type] = []
@@ -243,21 +240,21 @@ open class AutumnSetup : XCTestCase
 		if (_users[user.id] == nil)
 		{
 			_users[user.id] = user
-			_session.stats.testUserTotal += 1
+			session.stats.testUserTotal += 1
 			if isDefaultSTG
 			{
-				defaultUserSTG = user
-				if isStagingBuild && _session.currentTestUser == nil
+				session.defaultUserSTG = user
+				if isStagingBuild && session.currentTestUser == nil
 				{
-					_session.currentTestUser = defaultUserSTG
+					session.currentTestUser = session.defaultUserSTG
 				}
 			}
 			if isDefaultPRD
 			{
-				defaultUserPRD = user
-				if isStagingBuild && _session.currentTestUser == nil
+				session.defaultUserPRD = user
+				if isStagingBuild && session.currentTestUser == nil
 				{
-					_session.currentTestUser = defaultUserPRD
+					session.currentTestUser = session.defaultUserPRD
 				}
 			}
 		}
@@ -291,7 +288,7 @@ open class AutumnSetup : XCTestCase
 		{
 			let viewProxy = viewProxyClass.init(self, viewName)
 			_viewProxyClasses[viewProxyClass.metatype] = viewProxy
-			_session.stats.viewProxiesTotal += 1
+			session.stats.viewProxiesTotal += 1
 			AutumnLog.debug("Registered view proxy class [\(viewProxyClass)].")
 		}
 		else
@@ -321,7 +318,7 @@ open class AutumnSetup : XCTestCase
 	public func registerFeature(_ featureClass:AutumnFeature.Type)
 	{
 		var featureAlreadyRegistered = false
-		for clazz in AutumnSetup.allFeatureClasses
+		for clazz in AutumnTestRunner.allFeatureClasses
 		{
 			if clazz.metatype == featureClass.metatype
 			{
@@ -333,7 +330,7 @@ open class AutumnSetup : XCTestCase
 		if !featureAlreadyRegistered
 		{
 			let feature = featureClass.init(self)
-			AutumnSetup.allFeatureClasses.append(featureClass)
+			AutumnTestRunner.allFeatureClasses.append(featureClass)
 			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
 		}
 	}
@@ -345,7 +342,7 @@ open class AutumnSetup : XCTestCase
 	
 	internal func registerScenarios()
 	{
-		for featureClass in AutumnSetup.allFeatureClasses
+		for featureClass in AutumnTestRunner.allFeatureClasses
 		{
 			let feature = featureClass.init(self)
 			feature.registerScenarios()
@@ -357,10 +354,10 @@ open class AutumnSetup : XCTestCase
 	///
 	internal func dequeueNextFeatureClass() -> AutumnFeature.Type?
 	{
-		if (AutumnSetup.allFeatureClasses.count > 0)
+		if (AutumnTestRunner.allFeatureClasses.count > 0)
 		{
-			_session.currentFeatureIndex += 1
-			return AutumnSetup.allFeatureClasses.removeFirst()
+			session.currentFeatureIndex += 1
+			return AutumnTestRunner.allFeatureClasses.removeFirst()
 		}
 		return nil
 	}
@@ -381,9 +378,9 @@ open class AutumnSetup : XCTestCase
 	 */
 	override open func run()
 	{
-		if !AutumnSetup.isSetupComplete
+		if !AutumnTestRunner.isSetupComplete
 		{
-			AutumnLog.info("*** Welcome to \(AutumnSetup.FRAMEWORK_NAME) v\(AutumnSetup.FRAMEWORK_VERSION) ***")
+			AutumnLog.info("*** Welcome to \(AutumnTestRunner.FRAMEWORK_NAME) v\(AutumnTestRunner.FRAMEWORK_VERSION) ***")
 		}
 		AutumnLog.debug("Creating testRunClass ...")
 		super.run()
@@ -416,7 +413,7 @@ open class AutumnSetup : XCTestCase
 	 */
 	override open func tearDown()
 	{
-		if !_session.allowTearDown { return }
+		if !session.allowTearDown { return }
 		AutumnLog.debug("Tearing down test ...")
 		super.tearDown()
 	}
@@ -434,7 +431,7 @@ open class AutumnSetup : XCTestCase
 	func test()
 	{
 		/* Only execute this once! */
-		if !AutumnSetup.isSetupComplete
+		if !AutumnTestRunner.isSetupComplete
 		{
 			AutumnLog.debug("Setting up test session ...")
 			configure()
@@ -450,16 +447,16 @@ open class AutumnSetup : XCTestCase
 			
 			AutumnLog.debug("Registered \(_users.count) users.")
 			AutumnLog.debug("Registered \(_viewProxyClasses.count) view proxy classes.")
-			AutumnLog.debug("Registered \(AutumnSetup.allFeatureClasses.count) feature classes.")
+			AutumnLog.debug("Registered \(AutumnTestRunner.allFeatureClasses.count) feature classes.")
 			
-			_session.initialize(self)
-			AutumnSetup.isSetupComplete = true
+			session.initialize(self)
+			AutumnTestRunner.isSetupComplete = true
 			
 			AutumnLog.debug("Starting tests in a jiffy ...")
 			AutumnUI.sleep(4)
 		}
 		
-		_session.start()
-		_session.end()
+		session.start()
+		session.end()
 	}
 }

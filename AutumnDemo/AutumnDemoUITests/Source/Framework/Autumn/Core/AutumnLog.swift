@@ -112,6 +112,6 @@ open class AutumnLog
 			Log.debug(CATEGORY, app.debugDescription)
 			return
 		}
-		Log.debug(CATEGORY, AutumnSetup.app.debugDescription)
+		Log.debug(CATEGORY, AutumnTestRunner.app.debugDescription)
 	}
 }

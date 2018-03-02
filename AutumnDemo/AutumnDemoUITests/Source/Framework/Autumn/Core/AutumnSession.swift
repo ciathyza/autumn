@@ -21,6 +21,8 @@ internal class AutumnSession
 	
 	internal var stats = AutumnStats()
 	
+	public internal(set) var defaultUserSTG:AutumnUser?
+	public internal(set) var defaultUserPRD:AutumnUser?
 	public internal(set) var currentTestUser:AutumnUser?
 	public internal(set) var currentFeature:AutumnFeature?
 	public internal(set) var currentScenario:AutumnScenario?
@@ -29,19 +31,19 @@ internal class AutumnSession
 	public internal(set) var loginAttemptCount:UInt = 0
 	public internal(set) var allowTearDown = true
 	
-	private var _autumnSetup:AutumnSetup!
+	private var _runner:AutumnTestRunner!
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Methods
+	// MARK: - Internal Methods
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
 	 * Initializes the test session.
 	 */
-	internal func initialize(_ autumnSetup:AutumnSetup)
+	internal func initialize(_ autumnSetup:AutumnTestRunner)
 	{
-		_autumnSetup = autumnSetup
+		_runner = autumnSetup
 	}
 	
 	
@@ -51,17 +53,7 @@ internal class AutumnSession
 	internal func start()
 	{
 		AutumnLog.debug("Starting test session ...")
-		
-		for i in 1 ... 50
-		{
-			AutumnLog.debug("Testcase \(i)")
-			_autumnSetup.setUp()
-			AutumnUI.launchApp()
-			AutumnUI.sleep(1)
-			AutumnUI.terminateApp()
-			AutumnUI.sleep(1)
-			_autumnSetup.tearDown()
-		}
+		startNextFeature()
 	}
 	
 	
@@ -71,6 +63,74 @@ internal class AutumnSession
 	internal func end()
 	{
 		AutumnLog.debug("Ending test session ...")
-		AutumnUI.sleep(2)
+		AutumnUI.decelerate()
+	}
+	
+	
+	/**
+	 * Starts a feature. If no feature class was given it will start the next in the queue.
+	 */
+	internal func startFeature(_ featureClass:AutumnFeature.Type? = nil)
+	{
+		if let clazz = featureClass
+		{
+			let feature = clazz.init(_runner)
+			currentFeature = feature
+			feature.preLaunch()
+		}
+		else
+		{
+			/* Without a specified feature class, start with the next registered feature class. */
+			startNextFeature()
+		}
+	}
+	
+	
+	/**
+	 * Starts the next feature in the queue.
+	 */
+	internal func startNextFeature()
+	{
+		if let featureClass = dequeueNextFeatureClass()
+		{
+			let feature = featureClass.init(_runner)
+			currentFeature = feature
+			feature.preLaunch()
+			feature.start()
+		}
+	}
+	
+	
+	/**
+	 * Ends the currently running feature.
+	 */
+	internal func endFeature()
+	{
+		if let feature = currentFeature
+		{
+			feature.end()
+		}
+		else
+		{
+			AutumnLog.warning("Cannot end feature! No feature was currently started.")
+		}
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Private Methods
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Removes and returns next feature class.
+	 */
+	public func dequeueNextFeatureClass() -> AutumnFeature.Type?
+	{
+		if (AutumnTestRunner.allFeatureClasses.count > 0)
+		{
+			currentFeatureIndex += 1
+			return AutumnTestRunner.allFeatureClasses.removeFirst()
+		}
+		return nil
 	}
 }

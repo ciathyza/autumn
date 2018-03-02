@@ -23,54 +23,73 @@ public class AutumnUI
 	/**
 	 * Launches the app to running in foreground state.
 	 */
-	public class func launchApp() -> Bool
+	public class func launchApp(_ app:XCUIApplication? = nil) -> Bool
 	{
-		AutumnSetup.app.launchArguments = ["--uitesting", "-StartFromCleanState", "YES"]
-		AutumnSetup.app.launch()
-		let success = AutumnSetup.app.state == .runningForeground
-		return success
+		if let app = app
+		{
+			app.launchArguments = ["--uitesting", "-StartFromCleanState", "YES"]
+			app.launch()
+			return app.state == .runningForeground
+		}
+		AutumnTestRunner.app.launchArguments = ["--uitesting", "-StartFromCleanState", "YES"]
+		AutumnTestRunner.app.launch()
+		return AutumnTestRunner.app.state == .runningForeground
 	}
 	
 	
 	/**
 	 * Launches the app to running in foreground state.
 	 */
-	public class func activateApp() -> Bool
+	public class func activateApp(_ app:XCUIApplication? = nil) -> Bool
 	{
-		AutumnSetup.app.activate()
-		let success = AutumnSetup.app.state == .runningForeground
-		return success
+		if let app = app
+		{
+			app.activate()
+			return app.state == .runningForeground
+		}
+		AutumnTestRunner.app.activate()
+		return AutumnTestRunner.app.state == .runningForeground
 	}
 	
 	
 	/**
 	 * Terminates the app.
 	 */
-	public class func terminateApp() -> Bool
+	public class func terminateApp(_ app:XCUIApplication? = nil) -> Bool
 	{
-		AutumnSetup.app.terminate()
-		let success = AutumnSetup.app.state == .notRunning
-		return success
+		if let app = app
+		{
+			app.terminate()
+			return app.state == .notRunning
+		}
+		AutumnTestRunner.app.terminate()
+		return AutumnTestRunner.app.state == .notRunning
 	}
 	
 	
 	/**
 	 * Task-kills the app.
 	 */
-	public class func killApp() -> Bool
+	public class func killApp(_ app:XCUIApplication? = nil) -> Bool
 	{
-		let success = Springboard.killApp(app: AutumnSetup.app)
-		return success
+		if let app = app
+		{
+			return Springboard.killApp(app: app)
+		}
+		return Springboard.killApp(app: AutumnTestRunner.app)
 	}
 	
 	
 	/**
 	 * Uninstalls the app.
 	 */
-	public class func uninstallApp() -> Bool
+	public class func uninstallApp(_ app:XCUIApplication? = nil) -> Bool
 	{
-		let success = Springboard.uninstallApp(app: AutumnSetup.app)
-		return success
+		if let app = app
+		{
+			return Springboard.uninstallApp(app: app)
+		}
+		return Springboard.uninstallApp(app: AutumnTestRunner.app)
 	}
 	
 	
@@ -110,7 +129,7 @@ public class AutumnUI
 	public class func waitForHittable(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "hittable == true"
-		let timeout = timeout == 0 ? AutumnSetup.instance.viewPresentTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.viewPresentTimeout : timeout
 		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
@@ -127,7 +146,7 @@ public class AutumnUI
 	public class func waitForNotHittable(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "hittable == false"
-		let timeout = timeout == 0 ? AutumnSetup.instance.viewPresentTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.viewPresentTimeout : timeout
 		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
@@ -143,7 +162,7 @@ public class AutumnUI
 	public class func waitForExists(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "exists == true"
-		let timeout = timeout == 0 ? AutumnSetup.instance.viewPresentTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.viewPresentTimeout : timeout
 		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
@@ -159,7 +178,7 @@ public class AutumnUI
 	public class func waitForNotExists(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "exists == false"
-		let timeout = timeout == 0 ? AutumnSetup.instance.viewPresentTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.viewPresentTimeout : timeout
 		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
@@ -176,7 +195,7 @@ public class AutumnUI
 	public class func waitForIsTrue(_ object:NSObject, _ property:String, timeout:UInt = 0) -> Bool
 	{
 		let clause = "\(property) == true"
-		let timeout = timeout == 0 ? AutumnSetup.instance.networkLoginTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.networkLoginTimeout : timeout
 		let success = AutumnUI.waitFor(object, clause: clause, timeout: timeout)
 		return success
 	}
@@ -187,9 +206,9 @@ public class AutumnUI
 	 */
 	public class func waitFor(_ element:Any, clause:String, timeout:UInt = 0) -> Bool
 	{
-		let timeout = timeout == 0 ? AutumnSetup.instance.viewPresentTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.viewPresentTimeout : timeout
 		let predicate = NSPredicate(format: clause)
-		let expectation = AutumnSetup.instance.expectation(for: predicate, evaluatedWith: element)
+		let expectation = AutumnTestRunner.instance.expectation(for: predicate, evaluatedWith: element)
 		let result = XCTWaiter.wait(for: [expectation], timeout: TimeInterval(timeout))
 		
 		switch result
@@ -268,7 +287,7 @@ public class AutumnUI
 	 */
 	public class func decelerate()
 	{
-		if (AutumnSetup.instance.slowSeconds > 0) { AutumnUI.wait(AutumnSetup.instance.slowSeconds) }
+		if (AutumnTestRunner.instance.slowSeconds > 0) { AutumnUI.wait(AutumnTestRunner.instance.slowSeconds) }
 	}
 	
 	
