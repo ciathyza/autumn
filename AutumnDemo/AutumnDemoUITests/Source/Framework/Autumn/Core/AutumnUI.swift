@@ -20,8 +20,9 @@ public class AutumnUI
 	// MARK: - App
 	// ----------------------------------------------------------------------------------------------------
 	
-	/// Launches the app to running in foreground state.
-	///
+	/**
+	 * Launches the app to running in foreground state.
+	 */
 	public class func launchApp() -> Bool
 	{
 		AutumnSetup.app.launchArguments = ["--uitesting", "-StartFromCleanState", "YES"]
@@ -31,8 +32,9 @@ public class AutumnUI
 	}
 	
 	
-	/// Launches the app to running in foreground state.
-	///
+	/**
+	 * Launches the app to running in foreground state.
+	 */
 	public class func activateApp() -> Bool
 	{
 		AutumnSetup.app.activate()
@@ -41,8 +43,9 @@ public class AutumnUI
 	}
 	
 	
-	/// Terminates the app.
-	///
+	/**
+	 * Terminates the app.
+	 */
 	public class func terminateApp() -> Bool
 	{
 		AutumnSetup.app.terminate()
@@ -51,8 +54,9 @@ public class AutumnUI
 	}
 	
 	
-	/// Task-kills the app.
-	///
+	/**
+	 * Task-kills the app.
+	 */
 	public class func killApp() -> Bool
 	{
 		let success = Springboard.killApp(app: AutumnSetup.app)
@@ -60,8 +64,9 @@ public class AutumnUI
 	}
 	
 	
-	/// Uninstalls the app.
-	///
+	/**
+	 * Uninstalls the app.
+	 */
 	public class func uninstallApp() -> Bool
 	{
 		let success = Springboard.uninstallApp(app: AutumnSetup.app)
@@ -73,57 +78,57 @@ public class AutumnUI
 	// MARK: - Wait
 	// ----------------------------------------------------------------------------------------------------
 	
-	/// Same as wait() method but without logging.
-	///
-	/// - Parameters:
-	/// 	- interval: The time to wait in seconds.
-	///
+	/**
+	 * Same as wait() method but without logging.
+	 *
+	 * @param interval The time to wait in seconds.
+	 */
 	public class func sleep(_ interval:UInt)
 	{
 		Darwin.sleep(UInt32(interval))
 	}
 	
 	
-	/// Waits for x seconds.
-	///
-	/// - Parameters:
-	/// 	- interval: The time to wait in seconds.
-	///
+	/**
+	 * Waits for x seconds.
+	 *
+	 * @param interval The time to wait in seconds.
+	 */
 	public class func wait(_ interval:UInt)
 	{
 		sleep(interval)
 	}
 	
 	
-	/// Wait for an element to exist and be hittable (visible and onscreen).
-	///
-	/// - Parameters:
-	/// 	- element: Element to wait for.
-	/// 	- timeout: Seconds until the wait will time-out as failure.
-	///
-	/// - Returns: true if element was hittable within time limit, otherwise false.
-	///
-	public class func waitForHittable(_ element:XCUIElement, skipTelemetry:Bool = false, timeout:UInt = 0) -> Bool
+	/**
+	 * Wait for an element to exist and be hittable (visible and onscreen).
+	 *
+	 * @param element Element to wait for.
+	 * @param timeout Seconds until the wait will time-out as failure.
+	 * @return true if element was hittable within time limit, otherwise false.
+	 */
+	public class func waitForHittable(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "hittable == true"
 		let timeout = timeout == 0 ? AutumnSetup.instance.viewPresentTimeout : timeout
-		let success = AutumnUI.waitFor(element, clause: clause, skipTelemetry:skipTelemetry, timeout: timeout)
+		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
 	
 	
 	/**
-	 * Wait until an element is no longer hittable (might still exist, but is either not visible or not onscreen).
+	 * Wait until an element is no longer hittable (might still exist, but is either not visible
+	 * or not onscreen).
 	 *
 	 * @param element Element to wait for.
 	 * @param timeout Seconds until the wait will time-out as failure.
-	 * @return true if element was not hittable within time limit, otherwise false.
+	 * @return true if element was hittable within time limit, otherwise false.
 	 */
-	public class func waitForNotHittable(_ element:XCUIElement, skipTelemetry:Bool = false, timeout:UInt = 0) -> Bool
+	public class func waitForNotHittable(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "hittable == false"
 		let timeout = timeout == 0 ? AutumnSetup.instance.viewPresentTimeout : timeout
-		let success = AutumnUI.waitFor(element, clause: clause, skipTelemetry:skipTelemetry, timeout: timeout)
+		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
 	
@@ -133,13 +138,13 @@ public class AutumnUI
 	 *
 	 * @param element Element to wait for.
 	 * @param timeout Seconds until the wait will time-out as failure.
-	 * @return true if element was found within time limit, otherwise false.
+	 * @return true if element was hittable within time limit, otherwise false.
 	 */
-	public class func waitForExists(_ element:XCUIElement, skipTelemetry:Bool = false, timeout:UInt = 0) -> Bool
+	public class func waitForExists(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "exists == true"
 		let timeout = timeout == 0 ? AutumnSetup.instance.viewPresentTimeout : timeout
-		let success = AutumnUI.waitFor(element, clause: clause, skipTelemetry:skipTelemetry, timeout: timeout)
+		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
 	
@@ -151,20 +156,28 @@ public class AutumnUI
 	 * @param timeout Seconds until the wait will time-out as failure.
 	 * @return true if element was not found within time limit, otherwise false.
 	 */
-	public class func waitForNotExists(_ element:XCUIElement, skipTelemetry:Bool = false, timeout:UInt = 0) -> Bool
+	public class func waitForNotExists(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "exists == false"
 		let timeout = timeout == 0 ? AutumnSetup.instance.viewPresentTimeout : timeout
-		let success = AutumnUI.waitFor(element, clause: clause, skipTelemetry:skipTelemetry, timeout: timeout)
+		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
 	
 	
-	public class func waitForIsTrue(_ object:NSObject, _ property:String, skipTelemetry:Bool = false, timeout:UInt = 0) -> Bool
+	/**
+	 * Wait for a property of an element to become true.
+	 *
+	 * @param element Element to wait for.
+	 * @param property The element's property.
+	 * @param timeout Seconds until the wait will time-out as failure.
+	 * @return true if element was hittable within time limit, otherwise false.
+	 */
+	public class func waitForIsTrue(_ object:NSObject, _ property:String, timeout:UInt = 0) -> Bool
 	{
 		let clause = "\(property) == true"
 		let timeout = timeout == 0 ? AutumnSetup.instance.networkLoginTimeout : timeout
-		let success = AutumnUI.waitFor(object, clause: clause, skipTelemetry:skipTelemetry, timeout: timeout)
+		let success = AutumnUI.waitFor(object, clause: clause, timeout: timeout)
 		return success
 	}
 	
@@ -172,7 +185,7 @@ public class AutumnUI
 	/**
 	 * Waits for an element with a specified conditional clause.
 	 */
-	public class func waitFor(_ element:Any, clause:String, skipTelemetry:Bool = false, timeout:UInt = 0) -> Bool
+	public class func waitFor(_ element:Any, clause:String, timeout:UInt = 0) -> Bool
 	{
 		let timeout = timeout == 0 ? AutumnSetup.instance.viewPresentTimeout : timeout
 		let predicate = NSPredicate(format: clause)
@@ -199,13 +212,14 @@ public class AutumnUI
 	}
 	
 	
-	/// Alternative wait method that uses an interval.
-	///
-	/// - Parameters:
-	/// 	- completeBlock: Block that is executed after the evalblock evaluates to true or the timeout is reached.
-	/// 	- timeout: Max. time in seconds to wait before giving up.
-	/// 	- evalblock: Block that needs to return true for the wait to result in a success.
-	///
+	/**
+	 * Alternative wait method that uses an interval.
+	 *
+	 * @param completeBlock Block that is executed after the evalblock evaluates to true or the
+	 *                      timeout is reached.
+	 * @param timeout Max. time in seconds to wait before giving up.
+	 * @param evalblock Block that needs to return true for the wait to result in a success.
+	 */
 	public class func waitForWithInterval(completeBlock:((_ success:Bool) -> Void)? = nil, timeout:Int = 30, evalblock:@escaping (() -> Bool))
 	{
 		var count = 0
@@ -223,8 +237,12 @@ public class AutumnUI
 	}
 	
 	
-	/// Ass-simple brute force wait method for when nothing else works.
-	///
+	/**
+	 * Ass-simple brute force wait method for when nothing else works.
+	 *
+	 * @param timeout Max. time in seconds to wait before giving up.
+	 * @param evalblock Block that needs to return true for the wait to result in a success.
+	 */
 	public class func waitUntil(timeout:Int = 30, evalblock:@escaping (() -> Bool))
 	{
 		var count = 0
@@ -241,6 +259,16 @@ public class AutumnUI
 			count += 1
 		}
 		while true
+	}
+	
+	
+	/**
+	 * Used to decelerate test execution if slow mode is active. Can be used for debugging the
+	 * framework during development.
+	 */
+	public class func decelerate()
+	{
+		if (AutumnSetup.instance.slowSeconds > 0) { AutumnUI.wait(AutumnSetup.instance.slowSeconds) }
 	}
 	
 	
@@ -360,6 +388,9 @@ public class AutumnUI
 	}
 	
 	
+	/**
+	 * As of yet unsupported!
+	 */
 	public class func customSwipe(refElement:XCUIElement, startCoord:CGVector, endCoord:CGVector)
 	{
 		let swipeStartPoint = refElement.coordinate(withNormalizedOffset: startCoord)
@@ -375,7 +406,6 @@ public class AutumnUI
 	public class func verifyExists(_ element:XCUIElement) -> Bool
 	{
 		let result = element.exists
-		AutumnLog.debug("Verify exists [\(element)]: \(result)")
 		return result
 	}
 	
@@ -383,7 +413,6 @@ public class AutumnUI
 	public class func verifyHittable(_ element:XCUIElement) -> Bool
 	{
 		let result = element.isHittable
-		AutumnLog.debug("Verify hittable [\(element)]: \(result)")
 		return result
 	}
 }

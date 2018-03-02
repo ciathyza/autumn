@@ -159,15 +159,6 @@ open class AutumnSetup : XCTestCase
 	public var maxScenarioRetries:UInt = 1
 	
 	/**
-	 * If set to true, the framework will run all tests internally initiated by a single test method.
-	 * If false, every test will have to be initiated from its own test method in your AutumnTestSetup
-	 * subclass.
-	 *
-	 * NOTE: Combined mode is currently not supported!
-	 */
-	public var combinedTestExecutionMode = false
-	
-	/**
 	 * Setting this to true will provide more detailed debug log output.
 	 */
 	public var debug = false
@@ -269,7 +260,6 @@ open class AutumnSetup : XCTestCase
 					_session.currentTestUser = defaultUserPRD
 				}
 			}
-			AutumnLog.debug("Registered user with ID \"\(user.id)\".")
 		}
 		else
 		{
@@ -377,6 +367,12 @@ open class AutumnSetup : XCTestCase
 	
 	
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Private Methods
+	// ----------------------------------------------------------------------------------------------------
+	
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - XCTest
 	// ----------------------------------------------------------------------------------------------------
 	
@@ -409,6 +405,7 @@ open class AutumnSetup : XCTestCase
 	 */
 	override open func setUp()
 	{
+		AutumnLog.debug("Setting up test ...")
 		super.setUp()
 		continueAfterFailure = true
 	}
@@ -430,14 +427,16 @@ open class AutumnSetup : XCTestCase
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
-	 * The first called test method.
+	 * This method gets called automatically by XCTest. Normally we'd have to put every test case into
+	 * a dedicated test method but we want Autumn to control the flow of test case execution therefore
+	 * we initiate test case launches from within this single test method.
 	 */
-	func test00000000()
+	func test()
 	{
 		/* Only execute this once! */
 		if !AutumnSetup.isSetupComplete
 		{
-			AutumnLog.debug("Setting up test ...")
+			AutumnLog.debug("Setting up test session ...")
 			configure()
 			
 			/* Configure Testrail. */
@@ -449,18 +448,18 @@ open class AutumnSetup : XCTestCase
 			registerFeatures()
 			registerScenarios()
 			
+			AutumnLog.debug("Registered \(_users.count) users.")
+			AutumnLog.debug("Registered \(_viewProxyClasses.count) view proxy classes.")
+			AutumnLog.debug("Registered \(AutumnSetup.allFeatureClasses.count) feature classes.")
+			
+			_session.initialize(self)
 			AutumnSetup.isSetupComplete = true
 			
 			AutumnLog.debug("Starting tests in a jiffy ...")
 			AutumnUI.sleep(4)
 		}
-	}
-	
-	
-	/**
-	 * The last called test method.
-	 */
-	func test99999999()
-	{
+		
+		_session.start()
+		_session.end()
 	}
 }

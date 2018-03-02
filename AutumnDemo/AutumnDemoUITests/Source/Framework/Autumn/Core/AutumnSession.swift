@@ -27,11 +27,50 @@ internal class AutumnSession
 	public internal(set) var currentFeatureIndex:UInt = 0
 	public internal(set) var currentScenarioIndex:UInt = 0
 	public internal(set) var loginAttemptCount:UInt = 0
-	public internal(set) var allowTearDown = false
+	public internal(set) var allowTearDown = true
+	
+	private var _autumnSetup:AutumnSetup!
 	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Initializes the test session.
+	 */
+	internal func initialize(_ autumnSetup:AutumnSetup)
+	{
+		_autumnSetup = autumnSetup
+	}
+	
+	
+	/**
+	 * Starts the test session.
+	 */
+	internal func start()
+	{
+		AutumnLog.debug("Starting test session ...")
+		
+		for i in 1 ... 50
+		{
+			AutumnLog.debug("Testcase \(i)")
+			_autumnSetup.setUp()
+			AutumnUI.launchApp()
+			AutumnUI.sleep(1)
+			AutumnUI.terminateApp()
+			AutumnUI.sleep(1)
+			_autumnSetup.tearDown()
+		}
+	}
+	
+	
+	/**
+	 * Marks the end of a test session.
+	 */
+	internal func end()
+	{
+		AutumnLog.debug("Ending test session ...")
+		AutumnUI.sleep(2)
+	}
 }
