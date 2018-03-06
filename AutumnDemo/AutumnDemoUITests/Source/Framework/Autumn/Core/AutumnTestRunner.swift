@@ -30,7 +30,7 @@ open class AutumnTestRunner : XCTestCase
 	// MARK: - Singleton Instance
 	// ----------------------------------------------------------------------------------------------------
 	
-	public static let instance = AutumnTestRunner()
+	public private(set) static var instance:AutumnTestRunner!
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -380,6 +380,7 @@ open class AutumnTestRunner : XCTestCase
 	{
 		if !AutumnTestRunner.isSetupComplete
 		{
+			AutumnTestRunner.instance = self
 			AutumnLog.info("*** Welcome to \(AutumnTestRunner.FRAMEWORK_NAME) v\(AutumnTestRunner.FRAMEWORK_VERSION) ***")
 		}
 		AutumnLog.debug("Creating testRunClass ...")
