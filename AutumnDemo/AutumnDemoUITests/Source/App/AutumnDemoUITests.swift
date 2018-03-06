@@ -13,16 +13,16 @@ class AutumnDemoUITests : AutumnTestRunner
 {
 	override func configure()
 	{
-		networkRequestTimeout = 20
+		config.networkRequestTimeout = 20
 		
-		projectName       = "PointPartner"
-		appName           = "AutumnDemo"
-		appID             = "com.ciathyza.AutumnDemo"
-		testrailHost      = "https://pointpartner.testrail.net"
-		testrailUsername  = "ts-balkau.sascha@rakuten.com"
-		testrailPassword  = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
-		testrailProjectID = "4"
-		testrailPlatform  = .iOS
+		config.projectName       = "PointPartner"
+		config.appName           = "AutumnDemo"
+		config.appID             = "com.ciathyza.AutumnDemo"
+		config.testrailHost      = "https://pointpartner.testrail.net"
+		config.testrailUsername  = "ts-balkau.sascha@rakuten.com"
+		config.testrailPassword  = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
+		config.testrailProjectID = "4"
+		config.testrailPlatform  = .iOS
 	}
 	
 	

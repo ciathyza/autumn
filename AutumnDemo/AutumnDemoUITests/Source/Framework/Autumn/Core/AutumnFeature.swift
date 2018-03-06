@@ -238,7 +238,7 @@ public class AutumnFeature
 				scenario.id = scenarioID
 			}
 			
-			let scenarioLink = scenario.link.length > 0 ? scenario.link : runner.testrailFeatureBaseURL.length > 0 ? runner.testrailFeatureBaseURL + scenario.id : ""
+			let scenarioLink = scenario.link.length > 0 ? scenario.link : runner.config.testrailFeatureBaseURL.length > 0 ? runner.config.testrailFeatureBaseURL + scenario.id : ""
 			scenario.tags = scenario.tags + tags
 			
 			runner.session.currentScenario = scenario

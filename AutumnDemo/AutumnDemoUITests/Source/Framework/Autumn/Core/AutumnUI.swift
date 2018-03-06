@@ -129,7 +129,7 @@ public class AutumnUI
 	public class func waitForHittable(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "hittable == true"
-		let timeout = timeout == 0 ? AutumnTestRunner.instance.viewPresentTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.config.viewPresentTimeout : timeout
 		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
@@ -146,7 +146,7 @@ public class AutumnUI
 	public class func waitForNotHittable(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "hittable == false"
-		let timeout = timeout == 0 ? AutumnTestRunner.instance.viewPresentTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.config.viewPresentTimeout : timeout
 		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
@@ -162,7 +162,7 @@ public class AutumnUI
 	public class func waitForExists(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "exists == true"
-		let timeout = timeout == 0 ? AutumnTestRunner.instance.viewPresentTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.config.viewPresentTimeout : timeout
 		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
@@ -178,7 +178,7 @@ public class AutumnUI
 	public class func waitForNotExists(_ element:XCUIElement, timeout:UInt = 0) -> Bool
 	{
 		let clause = "exists == false"
-		let timeout = timeout == 0 ? AutumnTestRunner.instance.viewPresentTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.config.viewPresentTimeout : timeout
 		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
 		return success
 	}
@@ -195,7 +195,7 @@ public class AutumnUI
 	public class func waitForIsTrue(_ object:NSObject, _ property:String, timeout:UInt = 0) -> Bool
 	{
 		let clause = "\(property) == true"
-		let timeout = timeout == 0 ? AutumnTestRunner.instance.networkLoginTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.config.networkLoginTimeout : timeout
 		let success = AutumnUI.waitFor(object, clause: clause, timeout: timeout)
 		return success
 	}
@@ -206,7 +206,7 @@ public class AutumnUI
 	 */
 	public class func waitFor(_ element:Any, clause:String, timeout:UInt = 0) -> Bool
 	{
-		let timeout = timeout == 0 ? AutumnTestRunner.instance.viewPresentTimeout : timeout
+		let timeout = timeout == 0 ? AutumnTestRunner.instance.config.viewPresentTimeout : timeout
 		let predicate = NSPredicate(format: clause)
 		let expectation = AutumnTestRunner.instance.expectation(for: predicate, evaluatedWith: element)
 		let result = XCTWaiter.wait(for: [expectation], timeout: TimeInterval(timeout))
@@ -287,7 +287,7 @@ public class AutumnUI
 	 */
 	public class func decelerate()
 	{
-		if (AutumnTestRunner.instance.slowSeconds > 0) { AutumnUI.wait(AutumnTestRunner.instance.slowSeconds) }
+		if (AutumnTestRunner.instance.config.slowSeconds > 0) { AutumnUI.wait(AutumnTestRunner.instance.config.slowSeconds) }
 	}
 	
 	

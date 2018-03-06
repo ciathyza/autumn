@@ -40,7 +40,7 @@ extension String
 	
 	public var length:Int
 	{
-		return self.characters.count
+		return self.count
 	}
 	
 	public var ns:NSString
@@ -83,6 +83,21 @@ extension String
 	}
 	
 	
+	/// Returns a random character from the `ChracterView`.
+	///
+	/// - Returns: A random character from the `CharacterView` or `nil` if empty.
+	public var sample:Character?
+	{
+		return isEmpty ? nil : self[index(startIndex, offsetBy: Int(randomBelow: count)!)]
+	}
+	
+	
+	public var obscured:String
+	{
+		return String(repeating: "*", count: count)
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Init
 	// ----------------------------------------------------------------------------------------------------
@@ -106,13 +121,35 @@ extension String
 			}
 		}()
 		
-		self.init(allowedCharsString.characters.sample(size: length)!)
+		self.init(allowedCharsString.sample(size: length)!)
 	}
 	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
+	
+	/// Returns a given number of random characters from the `CharacterView`.
+	///
+	/// - Parameters:
+	///   - size: The number of random characters wanted.
+	/// - Returns: A `CharacterView` with the given number of random characters or `nil` if empty.
+	public func sample(size:Int) -> String?
+	{
+		if isEmpty
+		{
+			return nil
+		}
+		
+		var sampleElements = String()
+		size.times
+		{
+			sampleElements.append(sample!)
+		}
+		
+		return sampleElements
+	}
+	
 	
 	public func split(_ separator:String) -> [String]
 	{
