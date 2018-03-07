@@ -163,4 +163,22 @@ extension String
 		let endIndex = self.index(startIndex, offsetBy: end < 0 ? self.characters.count - 2 : end)
 		return self.substring(from: startIndex).substring(to: endIndex)
 	}
+	
+	
+	func matches(for regex:String) -> [String]
+	{
+		do
+		{
+			let regex = try NSRegularExpression()
+			let results = regex.matches(in: self, range: NSRange(self.startIndex..., in: self))
+			return results.map
+			{
+				String(self[Range($0.range, in: self)!])
+			}
+		}
+		catch
+		{
+			return []
+		}
+	}
 }

@@ -259,12 +259,43 @@ public class TabularText
 	//-----------------------------------------------------------------------------------------
 	
 	/**
-	 * Neat little method that sorts all the arrays in _columns by using indices
-	 * provided with Array.RETURNINDEXEDARRAY.
+	 * Neat little method that sorts all the arrays in _columns by using sort indices.
 	 */
 	private static func sort(_ columns:inout [[String]], _ hasHeader:Bool)
 	{
-	
+		var h = [String]()
+		
+		/* If the text has headers we don't want those to be sorted so remove them temporarily! */
+		if (hasHeader)
+		{
+			for c in 0 ..< columns.count
+			{
+				h.append(columns[c].remove(at: 0))
+			}
+		}
+		
+		/* Sort the whole row caboodle ... */
+		var indices = columns[0].enumerated().sorted(by: {$0.element < $1.element}).map({$0.offset})
+		for c in 0 ..< columns.count
+		{
+			var col:[String] = columns[c]
+			var tmp = [String]()
+			for i in 0 ..< col.count
+			{
+				let index = indices[i]
+				tmp.append(col[index])
+			}
+			columns[c] = tmp
+		}
+
+		/* And add back headers if they were removed before */
+		if hasHeader
+		{
+			for c in 0 ..< h.count
+			{
+				columns[c].insert(h[c], at:0)
+			}
+		}
 	}
 
 	

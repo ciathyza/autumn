@@ -317,7 +317,7 @@ open class AutumnTestRunner : XCTestCase
 			AutumnUI.sleep(4)
 		}
 		
-		//session.start()
-		//session.end()
+		session.start()
+		session.end()
 	}
 }
