@@ -97,6 +97,22 @@ public class AutumnScenario
 	
 	
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Executes a given test step.
+	 */
+	public func step(_ s:AutumnTestStep)
+	{
+		s.scenario = self
+		let type = s.type == .Given ? "Given" : s.type == .When ? "When" : s.type == .Then ? "Then" : "None"
+		let result = s.execute()
+		AutumnLog.debug("Step: \"\(type) \(s.name)\" --> \(result.evaluate() ? "OK" : "Failed")")
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Abstract Methods
 	// ----------------------------------------------------------------------------------------------------
 	

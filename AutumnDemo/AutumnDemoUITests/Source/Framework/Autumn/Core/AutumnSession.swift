@@ -98,6 +98,11 @@ internal class AutumnSession
 			feature.preLaunch()
 			feature.start()
 		}
+		else
+		{
+			/* No more features in queue! */
+			end()
+		}
 	}
 	
 	

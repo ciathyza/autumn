@@ -318,6 +318,5 @@ open class AutumnTestRunner : XCTestCase
 		}
 		
 		session.start()
-		session.end()
 	}
 }
