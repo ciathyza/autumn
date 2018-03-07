@@ -54,7 +54,7 @@ extension NSObject
 	
 	public func dumpTable() -> String
 	{
-		let table = TabularText(2, true, " ", " ", "", 120, ["Property", "Value"])
+		let table = TabularText(2, true, "", " ", "", 120, ["Property", "Value"])
 		let mirror = Mirror(reflecting: self)
 		mirror.children.forEach
 		{

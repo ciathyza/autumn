@@ -176,7 +176,7 @@ public class TabularText
 	{
 		if _sort && !_isSorted
 		{
-			//TabularText.sort(_columns, _hasHeader)
+			TabularText.sort(&_columns, _hasHeader)
 			_isSorted = true
 		}
 		
@@ -205,6 +205,7 @@ public class TabularText
 						col[r] = TabularText.pad(str, maxLen, _fill)
 					}
 				}
+				_columns[c] = col
 			}
 		}
 		
@@ -256,6 +257,16 @@ public class TabularText
 	//-----------------------------------------------------------------------------------------
 	// Private Methods
 	//-----------------------------------------------------------------------------------------
+	
+	/**
+	 * Neat little method that sorts all the arrays in _columns by using indices
+	 * provided with Array.RETURNINDEXEDARRAY.
+	 */
+	private static func sort(_ columns:inout [[String]], _ hasHeader:Bool)
+	{
+	
+	}
+
 	
 	/**
 	 * Ultility method to add whitespace padding to the specified string.

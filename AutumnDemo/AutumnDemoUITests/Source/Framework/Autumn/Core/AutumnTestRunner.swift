@@ -311,7 +311,7 @@ open class AutumnTestRunner : XCTestCase
 			session.initialize(self)
 			AutumnTestRunner.isSetupComplete = true
 			
-			AutumnLog.debug(config.dumpTable())
+			AutumnLog.debug("\n\(config.dumpTable())")
 			
 			AutumnLog.debug("Starting tests in a jiffy ...")
 			AutumnUI.sleep(4)
