@@ -8,27 +8,30 @@
  */
 
 import Foundation
+import XCTest
 
 
 /**
- * A test step that let's the app wait for X seconds.
+ * A test step that waits for a given UI element to exist.
  */
-public class WhenWait : AutumnTestStep
+public class WhenWaitForExists : AutumnTestStep
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	private var _seconds:UInt = 0
-
+	private var _element:XCUIElement!
+	private var _timeout:UInt = 0
+	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Init
 	// ----------------------------------------------------------------------------------------------------
 	
-	public init(_ seconds:UInt)
+	public init(_ element:XCUIElement, _ timeout:UInt = 0)
 	{
-		_seconds = seconds
+		_element = element
+		_timeout = timeout > 0 ? timeout : AutumnTestRunner.instance.config.viewPresentTimeout
 		super.init()
 	}
 	
@@ -40,13 +43,13 @@ public class WhenWait : AutumnTestStep
 	public override func setup()
 	{
 		type = .When
-		name = "the user waits for \(_seconds) seconds"
+		name = "\(_element.identifier) exists within \(_timeout) seconds"
 	}
 	
 	
 	public override func execute() -> AutumnTestStepResult
 	{
-		result.add("Wait \(_seconds) Seconds", AutumnUI.wait(_seconds))
+		result.add("Wait for [\(_element.identifier)] to exist within \(_timeout) seconds", AutumnUI.waitForExists(_element, timeout: _timeout))
 		return result
 	}
 }

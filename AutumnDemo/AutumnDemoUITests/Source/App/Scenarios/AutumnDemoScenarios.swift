@@ -25,6 +25,7 @@ class AutumnDemoScenario001 : AutumnScenario
 	
 	override func execute()
 	{
+		step(WhenWaitForExists(app.otherElements[ACI.APP_VIEW]))
 		step(WhenWait(5))
 	}
 }

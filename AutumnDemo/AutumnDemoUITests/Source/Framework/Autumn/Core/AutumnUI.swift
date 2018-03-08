@@ -214,20 +214,21 @@ public class AutumnUI
 		switch result
 		{
 			case .completed:
-				AutumnLog.debug("Waiting for [\(element)] to become [\(clause)] within \(timeout) seconds ... Result: completed")
+				//AutumnLog.debug("Waiting for [\(element)] to become [\(clause)] within \(timeout) seconds ... Result: completed")
 				return true
 			case .invertedFulfillment:
-				AutumnLog.debug("Waiting for [\(element)] to become [\(clause)] within \(timeout) seconds ... Result: invertedFulfillment")
+				//AutumnLog.debug("Waiting for [\(element)] to become [\(clause)] within \(timeout) seconds ... Result: invertedFulfillment")
 				return true
 			case .timedOut:
-				AutumnLog.debug("Waiting for [\(element)] to become [\(clause)] within \(timeout) seconds ... Result: timedOut")
+				//AutumnLog.debug("Waiting for [\(element)] to become [\(clause)] within \(timeout) seconds ... Result: timedOut")
+				return false
 			case .incorrectOrder:
-				AutumnLog.debug("Waiting for [\(element)] to become [\(clause)] within \(timeout) seconds ... Result: incorrectOrder")
+				//AutumnLog.debug("Waiting for [\(element)] to become [\(clause)] within \(timeout) seconds ... Result: incorrectOrder")
+				return false
 			case .interrupted:
-				AutumnLog.debug("Waiting for [\(element)] to become [\(clause)] within \(timeout) seconds ... Result: interrupted")
+				//AutumnLog.debug("Waiting for [\(element)] to become [\(clause)] within \(timeout) seconds ... Result: interrupted")
+				return false
 		}
-		
-		return false
 	}
 	
 	

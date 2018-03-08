@@ -12,6 +12,8 @@
 		5E4BC0861F18C4EEA1EB044A /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCF9B5D7AE7220DCD55F6 /* Springboard.swift */; };
 		5E4BC4641928BCB676F59283 /* AutumnDemoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCFF34590F538DE0F69BB /* AutumnDemoFeature.swift */; };
 		5E4BC50AB8F3E378BAFF1C5A /* AutumnUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC90CCDB1E33889D74349 /* AutumnUI.swift */; };
+		5E4BC54EBC9803DB5BD63666 /* ACI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC5752A2F7801A65B425F /* ACI.swift */; };
+		5E4BC61676563650CA778AC0 /* ACI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC5752A2F7801A65B425F /* ACI.swift */; };
 		5E4BC6EABEEA9E6FEFADB9CB /* AutumnDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC20D152279EC5C597D84 /* AutumnDemoUITests.swift */; };
 		5E4BC71B0954FF7CE66A01C7 /* AutumnSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC1F9ECD79F1996A66456 /* AutumnSession.swift */; };
 		5E4BC76625FBD3BB12CA8C60 /* AutumnConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC04D1C39E61D72FC1DFA /* AutumnConfig.swift */; };
@@ -19,6 +21,7 @@
 		5E4BC90C746D995AF6AB034C /* WhenWait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC1F5A8E53A3DA36AECF2 /* WhenWait.swift */; };
 		5E4BCAAE96EDBBBD6C46A29A /* AutumnConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCCF05CF3FD16DFE221C2 /* AutumnConstants.swift */; };
 		5E4BCD0731E300E7BDF91663 /* AutumnTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCCCCC3547ED049B71CDE /* AutumnTestStepResult.swift */; };
+		5E4BCDF0E6DA9EF5BC8F56F6 /* WhenWaitForExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCB3BAB7C195554CEEAF1 /* WhenWaitForExists.swift */; };
 		5E4BCE32B89DC6DC6DDB4F2C /* TabularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC502C243C6C2B2C5B5DA /* TabularText.swift */; };
 		5E4BCEACF29ED1D18F75BC2F /* AutumnDemoViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCDFB29097D00DD8A6DB8 /* AutumnDemoViewProxy.swift */; };
 		5E4BCF82E5F7F83D527873CC /* AutumnDemoScenarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3943AF51EFEB3CCD4D2 /* AutumnDemoScenarios.swift */; };
@@ -95,6 +98,7 @@
 		5E4BC3943AF51EFEB3CCD4D2 /* AutumnDemoScenarios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoScenarios.swift; sourceTree = "<group>"; };
 		5E4BC3F4DCEF258746FBCCE2 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		5E4BC502C243C6C2B2C5B5DA /* TabularText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabularText.swift; sourceTree = "<group>"; };
+		5E4BC5752A2F7801A65B425F /* ACI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACI.swift; sourceTree = "<group>"; };
 		5E4BC62B7257BABCC79D05A8 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		5E4BC637B969856E18AB73CB /* AutumnTestStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestStep.swift; sourceTree = "<group>"; };
 		5E4BC69C2862B42C1D864F92 /* TextFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFile.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		5E4BCA3A41039C95CF998345 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5E4BCAD9C40884FD0E32831F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		5E4BCB3694CC7B7BE6111F32 /* AutumnTelemetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTelemetry.swift; sourceTree = "<group>"; };
+		5E4BCB3BAB7C195554CEEAF1 /* WhenWaitForExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhenWaitForExists.swift; sourceTree = "<group>"; };
 		5E4BCB3DEA6B0E66088289D8 /* Interval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		5E4BCB56BC3BFC1901D0E874 /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		5E4BCC97AFFC9B30A8665008 /* Dice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
@@ -244,6 +249,7 @@
 			children = (
 				5E4BCECF96C6C8A4C378E678 /* GivenLaunchApp.swift */,
 				5E4BC1F5A8E53A3DA36AECF2 /* WhenWait.swift */,
+				5E4BCB3BAB7C195554CEEAF1 /* WhenWaitForExists.swift */,
 			);
 			path = Steps;
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 			children = (
 				62E511B6204533D600C2E3E8 /* AppDelegate.swift */,
 				62E511B8204533D600C2E3E8 /* ViewController.swift */,
+				5E4BC5752A2F7801A65B425F /* ACI.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -591,6 +598,7 @@
 			files = (
 				62E511B9204533D600C2E3E8 /* ViewController.swift in Sources */,
 				62E511B7204533D600C2E3E8 /* AppDelegate.swift in Sources */,
+				5E4BC61676563650CA778AC0 /* ACI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +658,8 @@
 				5E4BC8DD8E982AB0468CA8BE /* GivenLaunchApp.swift in Sources */,
 				5E4BCD0731E300E7BDF91663 /* AutumnTestStepResult.swift in Sources */,
 				5E4BC90C746D995AF6AB034C /* WhenWait.swift in Sources */,
+				5E4BC54EBC9803DB5BD63666 /* ACI.swift in Sources */,
+				5E4BCDF0E6DA9EF5BC8F56F6 /* WhenWaitForExists.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
