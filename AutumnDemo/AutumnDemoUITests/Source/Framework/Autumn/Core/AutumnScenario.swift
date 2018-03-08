@@ -106,9 +106,22 @@ public class AutumnScenario
 	public func step(_ s:AutumnTestStep)
 	{
 		s.scenario = self
-		let type = s.type == .Given ? "Given" : s.type == .When ? "When" : s.type == .Then ? "Then" : "None"
+		steps.append(s)
 		let result = s.execute()
-		AutumnLog.debug("Step: \"\(type) \(s.name)\" --> \(result.evaluate() ? "OK" : "Failed")")
+		
+		/* Prepare result log output. */
+		let resultText = TabularText(3, false, " ", " ", "                   ")
+		for dict in result.instructions
+		{
+			for (key, value) in dict
+			{
+				resultText.add(["Instruction:", "\"\(key)\"", "--> \(value == true ? "OK" : "Failed")"])
+			}
+		}
+		resultText.add(["Step:",
+			"\"\(s.type.rawValue) \(s.name)\"",
+			"--> \(result.evaluate() ? AutumnTestStatus.Passed.rawValue : AutumnTestStatus.Failed.rawValue)"])
+		AutumnLog.debug("\n\(resultText.toString())")
 	}
 	
 	

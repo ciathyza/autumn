@@ -8,33 +8,28 @@
  */
 
 import Foundation
-import XCTest
 
 
 /**
- * Represents a test step that is executed in a test scenario.
+ * A test step that let's the app wait for X seconds.
  */
-public class AutumnTestStep
+public class WhenWait : AutumnTestStep
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	public var type = AutumnStepType.None
-	public var status = AutumnTestStatus.Normal
-	public var name = ""
-	
-	open private(set) var result = AutumnTestStepResult()
-	internal var scenario:AutumnScenario!
-	
+	private var _seconds:UInt = 0;
+
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Init
 	// ----------------------------------------------------------------------------------------------------
 	
-	public init()
+	public init(_ seconds:UInt)
 	{
-		setup()
+		_seconds = seconds
+		super.init()
 	}
 	
 	
@@ -42,19 +37,16 @@ public class AutumnTestStep
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
 	
-	/**
-	 * Abstract method! Override and set type, status, and name here!
-	 */
-	open func setup()
+	public override func setup()
 	{
+		type = .When
+		name = "the user waits for \(_seconds) seconds"
 	}
 	
 	
-	/**
-	 * Abstract method! Override and execute test instructions here and return the result!
-	 */
-	open func execute() -> AutumnTestStepResult
+	public override func execute() -> AutumnTestStepResult
 	{
-		return AutumnTestStepResult()
+		result.add("Wait \(_seconds) Seconds", AutumnUI.wait(_seconds))
+		return result
 	}
 }

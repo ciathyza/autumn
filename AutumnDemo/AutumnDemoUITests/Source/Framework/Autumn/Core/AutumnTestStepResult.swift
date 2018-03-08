@@ -9,30 +9,40 @@
 import Foundation
 
 
+/**
+ * Used to keep track of test step instructions and their results.
+ */
 open class AutumnTestStepResult
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	private var details = [[String:Bool]]()
+	internal private(set) var instructions = [[String:Bool]]()
 	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Adds a new test instruction.
+	 */
 	public func add(_ instruction:String, _ success:Bool)
 	{
-		details.append([instruction: success])
+		instructions.append([instruction: success])
 	}
 	
 	
+	/**
+	 * Evaluates all instructions to have the test step succeeded or failed.
+	 * Only returns true if all instructions have succeeded.
+	 */
 	public func evaluate() -> Bool
 	{
-		for dict in details
+		for dict in instructions
 		{
-			for (key, value) in dict
+			for (_, value) in dict
 			{
 				if value == false
 				{

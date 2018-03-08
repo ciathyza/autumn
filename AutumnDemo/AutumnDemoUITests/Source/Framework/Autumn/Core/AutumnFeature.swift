@@ -264,6 +264,8 @@ public class AutumnFeature
 					_ = AutumnUI.uninstallApp()
 				}
 				
+				AutumnLog.delimiter()
+				AutumnLog.debug("Starting scenario: \"[\(scenario.id)] \(scenario.name)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
 				//AutumnTelemetry.instance.record(type: .BeginScenario, args: self, scenario, scenarioLink)
 				AutumnLog.debug("Establishing scenario preconditions ...")
 				scenario.status = .Started

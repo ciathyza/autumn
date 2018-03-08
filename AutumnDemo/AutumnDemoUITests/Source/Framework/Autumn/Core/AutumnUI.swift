@@ -113,9 +113,9 @@ public class AutumnUI
 	 *
 	 * @param interval The time to wait in seconds.
 	 */
-	public class func wait(_ interval:UInt)
+	public class func wait(_ interval:UInt) -> Bool
 	{
-		sleep(interval)
+		return Darwin.sleep(UInt32(interval)) >= 0
 	}
 	
 	
@@ -287,7 +287,7 @@ public class AutumnUI
 	 */
 	public class func decelerate()
 	{
-		if (AutumnTestRunner.instance.config.slowSeconds > 0) { AutumnUI.wait(AutumnTestRunner.instance.config.slowSeconds) }
+		if (AutumnTestRunner.instance.config.slowSeconds > 0) { _ = AutumnUI.wait(AutumnTestRunner.instance.config.slowSeconds) }
 	}
 	
 	

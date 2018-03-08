@@ -20,11 +20,11 @@ class AutumnDemoScenario001 : AutumnScenario
 	
 	override func establish()
 	{
-		step(AutumnLaunchAppStep())
+		step(GivenLaunchApp())
 	}
 	
 	override func execute()
 	{
-		AutumnUI.wait(2)
+		step(WhenWait(5))
 	}
 }
