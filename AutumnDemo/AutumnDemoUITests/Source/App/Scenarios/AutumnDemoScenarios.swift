@@ -50,5 +50,8 @@ class AutumnDemoScenario002 : AutumnScenario
 	{
 		when(Wait(2))
 		when(Tap(app.otherElements[ACI.APP_VIEW]))
+		
+		/* TODO Change how the XCUIElement is obtained! */
+		//when(Tap(app.otherElements["something_not_there"]))
 	}
 }

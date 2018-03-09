@@ -65,7 +65,6 @@ public class Wait : AutumnTestStep
  */
 public class WaitForExists : AutumnTestStep
 {
-	
 	private var _element:XCUIElement!
 	private var _timeout:UInt = 0
 	
@@ -95,7 +94,6 @@ public class WaitForExists : AutumnTestStep
  */
 public class Tap : AutumnTestStep
 {
-	
 	private var _element:XCUIElement!
 	
 	public init(_ element:XCUIElement)
