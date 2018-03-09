@@ -269,9 +269,12 @@ public class AutumnFeature
 				//AutumnTelemetry.instance.record(type: .BeginScenario, args: self, scenario, scenarioLink)
 				AutumnLog.debug("Establishing scenario preconditions ...")
 				scenario.status = .Started
+				scenario.phase = .Precondition
 				scenario.establish()
 				AutumnLog.debug("Executing scenario steps ...")
+				scenario.phase = .Execute
 				scenario.execute()
+				scenario.evaluate()
 				//scenario.status = scenario.steps.contains(where: { $0.successStatus == AutumnTestStatus.Failed }) ? .Failed : .Passed
 				//AutumnTelemetry.instance.record(type: .EndScenario, args: self, scenario)
 				

@@ -48,8 +48,10 @@ public class AutumnScenario
 	public private(set) var app:XCUIApplication
 	public private(set) var runner:AutumnTestRunner
 	
+	internal var phase = AutumnScenarioPhase.None
 	internal var status = AutumnTestStatus.Pending
 	internal private(set) var steps = [AutumnTestStep]()
+	internal private(set) var results = [[AutumnTestStep:AutumnTestStepResult]]()
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -103,24 +105,39 @@ public class AutumnScenario
 	/**
 	 * Executes a given test step.
 	 */
-	public func step(_ s:AutumnTestStep)
+	public func step(_ step:AutumnTestStep)
 	{
-		s.scenario = self
-		steps.append(s)
-		let result = s.execute()
-		
-		/* Prepare result log output. */
-		let resultText = TabularText(3, false, " ", " ", "                   ")
-		for dict in result.instructions
+		step.scenario = self
+		step.phase = phase
+		steps.append(step)
+		let result = step.execute()
+		results.append([step:result])
+	}
+	
+	
+	/**
+	 * Evaluates the test step's results after all steps have been executed.
+	 */
+	internal func evaluate()
+	{
+		let resultText = TabularText(4, false, " ", " ", "                   ", 0, ["PHASE", "TYPE", "NAME", "RESULT"])
+		for record in results.enumerated()
 		{
-			for (key, value) in dict
+			for (step, result) in record.element
 			{
-				resultText.add(["Instruction:", "\"\(key)\"", "--> \(value == true ? "OK" : "Failed")"])
+				for dict in result.instructions
+				{
+					for (key, value) in dict
+					{
+						resultText.add([step.phase.rawValue, "Instruction", "\"\(key)\"", "--> \(value == true ? "OK" : "Failed")"])
+					}
+				}
+				resultText.add([step.phase.rawValue,
+					"Step",
+					"\"\(step.type.rawValue) \(step.name)\"",
+					"--> \(result.evaluate() ? AutumnTestStatus.Passed.rawValue : AutumnTestStatus.Failed.rawValue)"])
 			}
 		}
-		resultText.add(["Step:",
-			"\"\(s.type.rawValue) \(s.name)\"",
-			"--> \(result.evaluate() ? AutumnTestStatus.Passed.rawValue : AutumnTestStatus.Failed.rawValue)"])
 		AutumnLog.debug("\n\(resultText.toString())")
 	}
 	

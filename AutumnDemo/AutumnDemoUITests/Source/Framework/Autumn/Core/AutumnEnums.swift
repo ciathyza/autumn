@@ -34,6 +34,13 @@ public enum AutumnStepType : String
 	case Then  = "Then"
 }
 
+public enum AutumnScenarioPhase : String
+{
+	case None         = "None"
+	case Precondition = "Precond"
+	case Execute      = "Execute"
+}
+
 public enum AutumnRecordType : String
 {
 	case Activate       = "Activate"

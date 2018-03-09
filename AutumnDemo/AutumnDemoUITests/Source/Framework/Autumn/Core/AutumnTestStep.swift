@@ -14,7 +14,7 @@ import XCTest
 /**
  * Represents a test step that is executed in a test scenario.
  */
-public class AutumnTestStep
+public class AutumnTestStep : Hashable, Equatable
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties
@@ -25,7 +25,13 @@ public class AutumnTestStep
 	public var name = ""
 	
 	open private(set) var result = AutumnTestStepResult()
+	internal var phase = AutumnScenarioPhase.None
 	internal var scenario:AutumnScenario!
+	
+	public var hashValue:Int
+	{
+		return name.hashValue
+	}
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -41,6 +47,12 @@ public class AutumnTestStep
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
+	
+	public static func ==(lhs:AutumnTestStep, rhs:AutumnTestStep) -> Bool
+	{
+		return lhs.hashValue == rhs.hashValue
+	}
+	
 	
 	/**
 	 * Abstract method! Override and set type, status, and name here!
