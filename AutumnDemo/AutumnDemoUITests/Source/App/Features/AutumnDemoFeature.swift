@@ -21,6 +21,7 @@ class AutumnDemoFeature : AutumnFeature
 	override func registerScenarios()
 	{
 		registerScenario(AutumnDemoScenario001.self)
+		registerScenario(AutumnDemoScenario002.self)
 	}
 	
 	

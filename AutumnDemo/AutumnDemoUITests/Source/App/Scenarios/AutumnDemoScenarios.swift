@@ -43,11 +43,12 @@ class AutumnDemoScenario002 : AutumnScenario
 	override func establish()
 	{
 		given(LaunchApp())
+		given(WaitForExists(app.otherElements[ACI.APP_VIEW]))
 	}
 	
 	override func execute()
 	{
-		when(WaitForExists(app.otherElements[ACI.APP_VIEW]))
-		when(Wait(5))
+		when(Wait(2))
+		when(Tap(app.otherElements[ACI.APP_VIEW]))
 	}
 }

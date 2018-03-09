@@ -290,6 +290,8 @@ public class AutumnFeature
 						_ = resetApp()
 					}
 				}
+				
+				waitForScenarioComplete(scenario)
 			}
 		}
 		else

@@ -87,3 +87,31 @@ public class WaitForExists : AutumnTestStep
 		return result
 	}
 }
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * A test step that waits for a given UI element to exist.
+ */
+public class Tap : AutumnTestStep
+{
+	
+	private var _element:XCUIElement!
+	
+	public init(_ element:XCUIElement)
+	{
+		_element = element
+		super.init()
+	}
+	
+	public override func setup()
+	{
+		name = "\(_element.identifier) is tapped"
+	}
+	
+	public override func execute() -> AutumnTestStepResult
+	{
+		result.add("Tap [\(_element.identifier)]", AutumnUI.tap(_element))
+		return result
+	}
+}
