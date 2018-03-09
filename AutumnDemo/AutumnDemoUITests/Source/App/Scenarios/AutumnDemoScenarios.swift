@@ -20,12 +20,34 @@ class AutumnDemoScenario001 : AutumnScenario
 	
 	override func establish()
 	{
-		step(GivenLaunchApp())
+		given(LaunchApp())
 	}
 	
 	override func execute()
 	{
-		step(WhenWaitForExists(app.otherElements[ACI.APP_VIEW]))
-		step(WhenWait(5))
+		when(WaitForExists(app.otherElements[ACI.APP_VIEW]))
+		when(Wait(5))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario002 : AutumnScenario
+{
+	override func setup()
+	{
+		id = "scenario002"
+		name = "Autumn Demo Scenario 002"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(app.otherElements[ACI.APP_VIEW]))
+		when(Wait(5))
 	}
 }

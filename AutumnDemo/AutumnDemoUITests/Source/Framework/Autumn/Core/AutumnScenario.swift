@@ -105,9 +105,37 @@ public class AutumnScenario
 	/**
 	 * Executes a given test step.
 	 */
-	public func step(_ step:AutumnTestStep)
+	public func given(_ step:AutumnTestStep)
+	{
+		self.step(AutumnStepType.Given, step)
+	}
+	
+	
+	/**
+	 * Executes a when test step.
+	 */
+	public func when(_ step:AutumnTestStep)
+	{
+		self.step(AutumnStepType.When, step)
+	}
+	
+	
+	/**
+	 * Executes a then test step.
+	 */
+	public func then(_ step:AutumnTestStep)
+	{
+		self.step(AutumnStepType.Then, step)
+	}
+	
+	
+	/**
+	 * Executes a test step.
+	 */
+	internal func step(_ type:AutumnStepType, _ step:AutumnTestStep)
 	{
 		step.scenario = self
+		step.type = type
 		step.phase = phase
 		steps.append(step)
 		let result = step.execute()
