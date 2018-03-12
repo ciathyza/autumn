@@ -50,6 +50,8 @@ class AutumnDemoScenario002 : AutumnScenario
 	override func execute()
 	{
 		when(Wait(2))
-		when(Tap(ACI.APP_VIEW))
+		when(WaitForExists(ACI.APP_TITLE_TEXT))
+		when(Tap(ACI.APP_TEST_BUTTON))
+		when(Tap(ACI.APP_INPUT_FIELD))
 	}
 }
