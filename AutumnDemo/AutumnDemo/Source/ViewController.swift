@@ -15,7 +15,7 @@ class ViewController : UIViewController
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
-		view.accessibilityIdentifier = ACI.APP_VIEW
+		view.accessibilityIdentifier = ACI.APP_VIEW.id
 	}
 	
 	

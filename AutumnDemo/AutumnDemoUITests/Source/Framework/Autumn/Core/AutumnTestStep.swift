@@ -70,3 +70,29 @@ public class AutumnTestStep : Hashable, Equatable
 		return AutumnTestStepResult()
 	}
 }
+
+
+/**
+ * Represents a test step with UI interaction that is executed in a test scenario.
+ */
+public class AutumnTestStepAdv : AutumnTestStep
+{
+	public internal(set) var elementID:String
+	public internal(set) var elementName:String
+	public internal(set) var elementType:XCUIElement.ElementType
+	public internal(set) var element:XCUIElement?
+	
+	public var id:String
+	{
+		return "\(AutumnUI.getElementTypeName(elementType)).\(elementID)"
+	}
+	
+	public init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
+	{
+		self.elementID = aci.id
+		self.elementName = aci.name
+		self.elementType = elementType
+		self.element = AutumnUI.getElement(elementID, elementType)
+		super.init()
+	}
+}

@@ -25,8 +25,9 @@ class AutumnDemoScenario001 : AutumnScenario
 	
 	override func execute()
 	{
-		when(WaitForExists(app.otherElements[ACI.APP_VIEW]))
-		when(Wait(5))
+		when(WaitForExists(ACI.APP_VIEW, .other))
+		when(Wait(2))
+		when(Tap(ACI.NON_EXISTING_VIEW))
 	}
 }
 
@@ -43,15 +44,12 @@ class AutumnDemoScenario002 : AutumnScenario
 	override func establish()
 	{
 		given(LaunchApp())
-		given(WaitForExists(app.otherElements[ACI.APP_VIEW]))
+		when(WaitForExists(ACI.APP_VIEW, .other))
 	}
 	
 	override func execute()
 	{
 		when(Wait(2))
-		when(Tap(app.otherElements[ACI.APP_VIEW]))
-		
-		/* TODO Change how the XCUIElement is obtained! */
-		//when(Tap(app.otherElements["something_not_there"]))
+		when(Tap(ACI.APP_VIEW))
 	}
 }

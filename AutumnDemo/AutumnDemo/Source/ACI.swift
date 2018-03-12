@@ -11,5 +11,6 @@ import Foundation
 
 class ACI
 {
-	public static let APP_VIEW = "app_view"
+	public static let APP_VIEW = (name: "the application view", id: "app_view")
+	public static let NON_EXISTING_VIEW = (name: "the non-existing view", id: "non_existing_view")
 }
