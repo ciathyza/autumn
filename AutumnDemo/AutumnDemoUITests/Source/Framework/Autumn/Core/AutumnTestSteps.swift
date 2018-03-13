@@ -131,7 +131,6 @@ public class TypeText : AutumnTestStepAdv
 	
 	public override func execute() -> AutumnTestStepResult
 	{
-		//result.add("Wait for [\(id)] to become hittable", AutumnUI.waitForHittable(element))
 		result.add("Tap [\(id)]", AutumnUI.tap(element))
 		result.add("Tap [\(id) clear button] if available", AutumnUI.tapOptional(element?.buttons[AutumnStringConstant.TEXTFIELD_CLEAR_BUTTON]))
 		result.add("Enter '\(_text)' into [\(id)]", AutumnUI.typeText(element, text: _text))
@@ -146,7 +145,7 @@ public class TypeText : AutumnTestStepAdv
  */
 public class TypePassword : TypeText
 {
-	public override init(_ aci:(name:String, id:String), _ text:String, _ elementType:XCUIElement.ElementType = .textField)
+	public override init(_ aci:(name:String, id:String), _ text:String, _ elementType:XCUIElement.ElementType = .secureTextField)
 	{
 		super.init(aci, text, elementType)
 	}
@@ -158,7 +157,6 @@ public class TypePassword : TypeText
 	
 	public override func execute() -> AutumnTestStepResult
 	{
-		//result.add("Wait for [\(id)] to become hittable", AutumnUI.waitForHittable(element))
 		result.add("Tap [\(id)]", AutumnUI.tap(element))
 		result.add("Tap [\(id) clear button] if available", AutumnUI.tapOptional(element?.buttons[AutumnStringConstant.TEXTFIELD_CLEAR_BUTTON]))
 		result.add("Enter '\(_text.obscured)' into [\(id)]", AutumnUI.typeText(element, text: _text))

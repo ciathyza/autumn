@@ -20,6 +20,7 @@ class ViewController : UIViewController
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
+		
 		view.accessibilityIdentifier = ACI.APP_VIEW.id
 		loginPromptLabel.accessibilityIdentifier = ACI.APP_LOGIN_PROMPT_LABEL.id
 		usernameInputField.accessibilityIdentifier = ACI.APP_USERNAME_INPUT_FIELD.id
