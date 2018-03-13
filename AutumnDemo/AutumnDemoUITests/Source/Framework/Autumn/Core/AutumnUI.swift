@@ -217,12 +217,16 @@ public class AutumnUI
 	 * @param timeout Seconds until the wait will time-out as failure.
 	 * @return true if element was hittable within time limit, otherwise false.
 	 */
-	public class func waitForHittable(_ element:XCUIElement, timeout:UInt = 0) -> Bool
+	public class func waitForHittable(_ element:XCUIElement?, timeout:UInt = 0) -> Bool
 	{
-		let clause = "hittable == true"
-		let timeout = timeout == 0 ? AutumnTestRunner.instance.config.viewPresentTimeout : timeout
-		let success = AutumnUI.waitFor(element, clause: clause, timeout: timeout)
-		return success
+		if let e = element
+		{
+			let clause = "hittable == true"
+			let timeout = timeout == 0 ? AutumnTestRunner.instance.config.viewPresentTimeout : timeout
+			let success = AutumnUI.waitFor(e, clause: clause, timeout: timeout)
+			return success
+		}
+		return false
 	}
 	
 	
@@ -610,14 +614,16 @@ public class AutumnUI
 	 *
 	 * @param element
 	 */
-	public class func tapOptional(_ element:XCUIElement) -> Bool
+	public class func tapOptional(_ element:XCUIElement?) -> Bool
 	{
-		if element.exists && element.isHittable
+		if let e = element
 		{
-			element.tap()
-			return true
+			if e.exists && e.isHittable
+			{
+				e.tap()
+			}
 		}
-		return false
+		return true
 	}
 	
 	
@@ -631,12 +637,15 @@ public class AutumnUI
 	 * @param element
 	 * @param text
 	 */
-	public class func typeText(_ element:XCUIElement, text:String) -> Bool
+	public class func typeText(_ element:XCUIElement?, text:String) -> Bool
 	{
-		if element.exists && element.isHittable
+		if let e = element
 		{
-			element.typeText(text)
-			return true
+			if e.exists && e.isHittable
+			{
+				e.typeText(text)
+				return true
+			}
 		}
 		return false
 	}

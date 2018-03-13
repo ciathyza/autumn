@@ -11,23 +11,34 @@ import UIKit
 
 class ViewController : UIViewController
 {
-	@IBOutlet var titleText:UILabel!
-	@IBOutlet var testButton:UIButton!
-	@IBOutlet var inputField:UITextField!
-	
+	@IBOutlet var loginPromptLabel:UILabel!
+	@IBOutlet var usernameInputField:UITextField!
+	@IBOutlet var passwordInputField:UITextField!
+	@IBOutlet var loginButton:UIButton!
+
 	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
 		view.accessibilityIdentifier = ACI.APP_VIEW.id
-		titleText.accessibilityIdentifier = ACI.APP_TITLE_TEXT.id
-		testButton.accessibilityIdentifier = ACI.APP_TEST_BUTTON.id
-		inputField.accessibilityIdentifier = ACI.APP_INPUT_FIELD.id
+		loginPromptLabel.accessibilityIdentifier = ACI.APP_LOGIN_PROMPT_LABEL.id
+		usernameInputField.accessibilityIdentifier = ACI.APP_USERNAME_INPUT_FIELD.id
+		passwordInputField.accessibilityIdentifier = ACI.APP_PASSWORD_INPUT_FIELD.id
+		loginButton.accessibilityIdentifier = ACI.APP_LOGIN_BUTTON.id
+		
+		self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onDismissKeyboard)))
+		
 	}
 	
 	
 	override func didReceiveMemoryWarning()
 	{
 		super.didReceiveMemoryWarning()
+	}
+	
+	@objc
+	func onDismissKeyboard()
+	{
+		view.endEditing(true)
 	}
 }

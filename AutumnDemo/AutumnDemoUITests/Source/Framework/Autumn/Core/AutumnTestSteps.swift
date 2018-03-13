@@ -88,7 +88,7 @@ public class WaitForExists : AutumnTestStepAdv
 // ------------------------------------------------------------------------------------------------
 
 /**
- * A test step that waits for a given UI element to exist.
+ * A test step that taps a given UI element.
  */
 public class Tap : AutumnTestStepAdv
 {
@@ -105,6 +105,88 @@ public class Tap : AutumnTestStepAdv
 	public override func execute() -> AutumnTestStepResult
 	{
 		result.add("Tap [\(id)]", AutumnUI.tap(element))
+		return result
+	}
+}
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * A test step that types text into a given UI input field.
+ */
+public class TypeText : AutumnTestStepAdv
+{
+	internal var _text:String
+	
+	public init(_ aci:(name:String, id:String), _ text:String, _ elementType:XCUIElement.ElementType = .textField)
+	{
+		_text = text
+		super.init(aci, elementType)
+	}
+	
+	public override func setup()
+	{
+		name = "the user enters '\(_text)' into \(elementName)"
+	}
+	
+	public override func execute() -> AutumnTestStepResult
+	{
+		//result.add("Wait for [\(id)] to become hittable", AutumnUI.waitForHittable(element))
+		result.add("Tap [\(id)]", AutumnUI.tap(element))
+		result.add("Tap [\(id) clear button] if available", AutumnUI.tapOptional(element?.buttons[AutumnStringConstant.TEXTFIELD_CLEAR_BUTTON]))
+		result.add("Enter '\(_text)' into [\(id)]", AutumnUI.typeText(element, text: _text))
+		return result
+	}
+}
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * A test step that types a password into a given UI input field.
+ */
+public class TypePassword : TypeText
+{
+	public override init(_ aci:(name:String, id:String), _ text:String, _ elementType:XCUIElement.ElementType = .textField)
+	{
+		super.init(aci, text, elementType)
+	}
+	
+	public override func setup()
+	{
+		name = "the user enters '\(_text.obscured)' into \(elementName)"
+	}
+	
+	public override func execute() -> AutumnTestStepResult
+	{
+		//result.add("Wait for [\(id)] to become hittable", AutumnUI.waitForHittable(element))
+		result.add("Tap [\(id)]", AutumnUI.tap(element))
+		result.add("Tap [\(id) clear button] if available", AutumnUI.tapOptional(element?.buttons[AutumnStringConstant.TEXTFIELD_CLEAR_BUTTON]))
+		result.add("Enter '\(_text.obscured)' into [\(id)]", AutumnUI.typeText(element, text: _text))
+		return result
+	}
+}
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * A test step that clears a given UI input field.
+ */
+public class ClearInputField : AutumnTestStepAdv
+{
+	public init(_ aci:(name:String, id:String))
+	{
+		super.init(aci, .textField)
+	}
+	
+	public override func setup()
+	{
+		name = "the user clears \(elementName)"
+	}
+	
+	public override func execute() -> AutumnTestStepResult
+	{
+		result.add("Tap [\(id)]", AutumnUI.tap(element))
+		result.add("Tap [\(id) clear button] if available", AutumnUI.tapOptional(element?.buttons[AutumnStringConstant.TEXTFIELD_CLEAR_BUTTON]))
 		return result
 	}
 }

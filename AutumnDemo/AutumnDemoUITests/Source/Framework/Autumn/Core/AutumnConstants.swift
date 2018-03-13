@@ -44,3 +44,9 @@ public struct AutumnFileConstant
 	public static let INDENTATION_LEVEL_1  = "  "
 	public static let INDENTATION_LEVEL_2  = "    "
 }
+
+public struct AutumnStringConstant
+{
+	public static let RESULT_DELIMITER       = ": "
+	public static let TEXTFIELD_CLEAR_BUTTON = "Clear text"
+}

@@ -157,13 +157,13 @@ public class AutumnScenario
 				{
 					for (key, value) in dict
 					{
-						resultText.add([step.phase.rawValue, "Instruction", "\"\(key)\"", "--> \(value == true ? "OK" : "Failed")"])
+						resultText.add([step.phase.rawValue, "Instruction", "\"\(key)\"", "\(AutumnStringConstant.RESULT_DELIMITER)\(value == true ? "OK" : "Failed")"])
 					}
 				}
 				resultText.add([step.phase.rawValue,
 					"Step",
 					"\"\(step.type.rawValue) \(step.name)\"",
-					"--> \(result.evaluate() ? AutumnTestStatus.Passed.rawValue : AutumnTestStatus.Failed.rawValue)"])
+					"\(AutumnStringConstant.RESULT_DELIMITER)\(result.evaluate() ? AutumnTestStatus.Passed.rawValue : AutumnTestStatus.Failed.rawValue)"])
 			}
 		}
 		AutumnLog.debug("\n\(resultText.toString())")

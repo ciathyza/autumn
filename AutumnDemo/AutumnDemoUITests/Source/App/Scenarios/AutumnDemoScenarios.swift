@@ -27,7 +27,6 @@ class AutumnDemoScenario001 : AutumnScenario
 	{
 		when(WaitForExists(ACI.APP_VIEW, .other))
 		when(Wait(2))
-		when(Tap(ACI.NON_EXISTING_VIEW))
 	}
 }
 
@@ -49,9 +48,10 @@ class AutumnDemoScenario002 : AutumnScenario
 	
 	override func execute()
 	{
-		when(Wait(2))
-		when(WaitForExists(ACI.APP_TITLE_TEXT))
-		when(Tap(ACI.APP_TEST_BUTTON))
-		when(Tap(ACI.APP_INPUT_FIELD))
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(TypeText(ACI.APP_USERNAME_INPUT_FIELD, "James Seth Lynch"))
+		when(TypePassword(ACI.APP_PASSWORD_INPUT_FIELD, "MyUltraSecretExtraLongPassword12345%!"))
+		when(Tap(ACI.APP_LOGIN_BUTTON))
+		when(Wait(5))
 	}
 }

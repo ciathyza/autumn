@@ -11,9 +11,10 @@ import Foundation
 
 class ACI
 {
-	public static let APP_VIEW          = (name: "the application view", id: "app_view")
-	public static let APP_TITLE_TEXT    = (name: "the title text", id: "title_text")
-	public static let APP_TEST_BUTTON   = (name: "the test button", id: "test_button")
-	public static let APP_INPUT_FIELD   = (name: "the input field", id: "input_field")
-	public static let NON_EXISTING_VIEW = (name: "the non-existing view", id: "non_existing_view")
+	public static let APP_VIEW                 = (name: "the application view", id: "app_view")
+	public static let APP_LOGIN_PROMPT_LABEL   = (name: "the login prompt label", id: "login_prompt_label")
+	public static let APP_USERNAME_INPUT_FIELD = (name: "the username input field", id: "username_input_field")
+	public static let APP_PASSWORD_INPUT_FIELD = (name: "the password input field", id: "password_input_field")
+	public static let APP_LOGIN_BUTTON         = (name: "the login button", id: "login_button")
+	public static let NON_EXISTING_VIEW        = (name: "the non-existing view", id: "non_existing_view")
 }
