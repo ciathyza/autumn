@@ -9,13 +9,13 @@
 import UIKit
 
 
-class ViewController : UIViewController
+class ViewController: UIViewController
 {
 	@IBOutlet var loginPromptLabel:UILabel!
 	@IBOutlet var usernameInputField:UITextField!
 	@IBOutlet var passwordInputField:UITextField!
 	@IBOutlet var loginButton:UIButton!
-
+	
 	
 	override func viewDidLoad()
 	{
@@ -36,6 +36,7 @@ class ViewController : UIViewController
 	{
 		super.didReceiveMemoryWarning()
 	}
+	
 	
 	@objc
 	func onDismissKeyboard()

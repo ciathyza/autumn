@@ -53,6 +53,7 @@ class AutumnDemoScenario002 : AutumnScenario
 		when(TypeText(ACI.APP_USERNAME_INPUT_FIELD, "James Seth Lynch"))
 		when(TypePassword(ACI.APP_PASSWORD_INPUT_FIELD, "MyUltraSecretExtraLongPassword12345%!"))
 		when(Tap(ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
 		when(Wait(5))
 	}
 }

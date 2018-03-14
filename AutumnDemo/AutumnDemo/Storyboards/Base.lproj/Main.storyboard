@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Demo App-->
+        <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AutumnDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,12 +45,15 @@
                                 <color key="backgroundColor" red="1" green="0.90304000770000004" blue="0.70912000870000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="OFb-fS-eUF" kind="show" identifier="loginSegue" id="bfG-ia-T2B"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Demo App" id="0xY-84-Xd4"/>
+                    <navigationItem key="navigationItem" title="Login" id="0xY-84-Xd4"/>
                     <connections>
                         <outlet property="loginButton" destination="20T-GK-n1X" id="bbk-95-t1c"/>
                         <outlet property="loginPromptLabel" destination="EGr-a7-RZd" id="DZO-dz-TrJ"/>
@@ -61,6 +64,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="456.80000000000001" y="118.29085457271366"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="Pcb-Ce-en8">
+            <objects>
+                <viewController title="Search" id="V5n-N9-zOg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Faj-mL-gsk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4N-yT-FCe">
+                                <rect key="frame" x="16" y="97" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="SGi-aa-kMd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="TtM-1O-vqX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b17-x6-Hep" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2069.5999999999999" y="537.48125937031489"/>
+        </scene>
+        <!--More-->
+        <scene sceneID="Jvl-7W-Uh8">
+            <objects>
+                <viewController title="More" id="URL-Rd-1SO" customClass="MoreStuffViewController" customModule="AutumnDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ygR-ZY-4h1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="More Stuff" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8t-iD-9IF">
+                                <rect key="frame" x="16" y="85" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Lbg-zK-PJG"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="0fP-pR-zuX"/>
+                    <connections>
+                        <outlet property="moreStuffLabel" destination="W8t-iD-9IF" id="maL-uF-auT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Qo-Nn-ZdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2069.5999999999999" y="-126.38680659670166"/>
+        </scene>
+        <!--Demo App-->
+        <scene sceneID="ZeH-QZ-NLe">
+            <objects>
+                <tabBarController title="Demo App" id="OFb-fS-eUF" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IuT-Rx-nKa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="URL-Rd-1SO" kind="relationship" relationship="viewControllers" id="n3q-Cc-k7k"/>
+                        <segue destination="V5n-N9-zOg" kind="relationship" relationship="viewControllers" id="5zU-9i-q0y"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kbb-hU-HHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="owE-zU-bxx">

@@ -17,4 +17,7 @@ class ACI
 	public static let APP_PASSWORD_INPUT_FIELD = (name: "the password input field", id: "password_input_field")
 	public static let APP_LOGIN_BUTTON         = (name: "the login button", id: "login_button")
 	public static let NON_EXISTING_VIEW        = (name: "the non-existing view", id: "non_existing_view")
+	
+	public static let APP_MORE_STUFF_VIEW      = (name: "the more stuff view", id: "more_stuff_view")
+	public static let APP_MORE_STUFF_LABEL     = (name: "the more stuff label", id: "more_stuff_label")
 }
