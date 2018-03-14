@@ -27,6 +27,7 @@ class AutumnDemoScenario001 : AutumnScenario
 	{
 		when(WaitForExists(ACI.APP_VIEW, .other))
 		when(Wait(2))
+		when(WaitForExists(ACI.NON_EXISTING_VIEW))
 	}
 }
 

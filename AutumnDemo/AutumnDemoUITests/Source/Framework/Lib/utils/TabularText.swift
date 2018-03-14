@@ -43,6 +43,7 @@ public class TabularText
 	private var _sort:Bool
 	private var _isSorted = false
 	private var _hasHeader = false
+	private var _hasFooter = false
 	
 	
 	//-----------------------------------------------------------------------------------------
@@ -89,11 +90,12 @@ public class TabularText
 	 *        very long column texts from wrapping to the next line.
 	 * @param header An array of header items.
 	 */
-	public init(_ columns:Int, _ sort:Bool = false, _ div:String = " ", _ fill:String = " ", _ rowLeading:String = "", _ colMaxLength:Int = 0, _ header:[String]? = nil)
+	public init(_ columns:Int, _ sort:Bool = false, _ div:String = " ", _ fill:String = " ", _ rowLeading:String = "", _ colMaxLength:Int = 0, _ header:[String]? = nil, _ hasFooter:Bool = false)
 	{
 		_div = div
 		_fill = fill
 		_rowLeading = rowLeading
+		_hasFooter = hasFooter
 		
 		if colMaxLength > 0 { _colMaxLength = colMaxLength }
 		else if TabularText._lineWidth > 0 { _colMaxLength = TabularText._lineWidth / columns }
@@ -174,29 +176,28 @@ public class TabularText
 	 */
 	public func toString() -> String
 	{
+		var result = ""
+		let colCount = _columns.count
+		let rowCount = _columns[0].count
+		
 		if _sort && !_isSorted
 		{
-			TabularText.sort(&_columns, _hasHeader)
+			TabularText.sort(&_columns, rowCount, _hasHeader, _hasFooter)
 			_isSorted = true
 		}
 		
-		var result = ""
-		let header = ""
-		let cols = _columns.count
-		let rows = _columns[0].count
-		
 		/* Process columns and add padding to strings */
-		for c in 0 ..< cols
+		for c in 0 ..< colCount
 		{
 			var col = _columns[c]
 			let maxLen = _lengths[c]
 			
-			for r in 0 ..< rows
+			for r in 0 ..< rowCount
 			{
 				let str:String = col[r]
 				if str.count < maxLen
 				{
-					if _hasHeader && r == 0
+					if (_hasHeader && r == 0) || (_hasFooter && r == rowCount - 1)
 					{
 						col[r] = TabularText.pad(str, maxLen, " ")
 					}
@@ -210,21 +211,21 @@ public class TabularText
 		}
 		
 		/* Combine rows */
-		for r in 0 ..< rows
+		for r in 0 ..< rowCount
 		{
 			var row = _rowLeading
-			for c in 0 ..< cols
+			for c in 0 ..< colCount
 			{
 				row = "\(row)\(_columns[c][r])"
 				/* Last column does not need a following divider */
-				if c < cols - 1
+				if c < colCount - 1
 				{
 					row = "\(row)\(_div)"
 				}
 			}
 			
 			/* If we have a header we want a nice line dividing the header and the rest */
-			if _hasHeader && r == 0
+			if (_hasHeader && r == 0) || (_hasFooter && r == rowCount - 2)
 			{
 				row = "\(row)\n\(_rowLeading)"
 				var i =  0
@@ -238,7 +239,7 @@ public class TabularText
 			result = "\(result)\(row)\n"
 		}
 		
-		return "\(header)\(result)"
+		return "\(result)"
 	}
 	
 	
@@ -261,16 +262,25 @@ public class TabularText
 	/**
 	 * Neat little method that sorts all the arrays in _columns by using sort indices.
 	 */
-	private static func sort(_ columns:inout [[String]], _ hasHeader:Bool)
+	private static func sort(_ columns:inout [[String]], _ rowCount:Int, _ hasHeader:Bool, _ hasFooter:Bool)
 	{
-		var h = [String]()
+		var tmpHeader = [String]()
+		var tmpFooter = [String]()
 		
-		/* If the text has headers we don't want those to be sorted so remove them temporarily! */
+		/* If the text has headers/footers we don't want those to be sorted so remove them temporarily! */
 		if (hasHeader)
 		{
 			for c in 0 ..< columns.count
 			{
-				h.append(columns[c].remove(at: 0))
+				tmpHeader.append(columns[c].remove(at: 0))
+			}
+		}
+		if (hasFooter)
+		{
+			
+			for c in 0 ..< columns.count
+			{
+				tmpFooter.append(columns[c].remove(at: rowCount - 2))
 			}
 		}
 		
@@ -288,12 +298,19 @@ public class TabularText
 			columns[c] = tmp
 		}
 
-		/* And add back headers if they were removed before */
+		/* And add back headers and footers if they were removed before */
 		if hasHeader
 		{
-			for c in 0 ..< h.count
+			for c in 0 ..< tmpHeader.count
 			{
-				columns[c].insert(h[c], at:0)
+				columns[c].insert(tmpHeader[c], at:0)
+			}
+		}
+		if hasFooter
+		{
+			for c in 0 ..< tmpFooter.count
+			{
+				columns[c].append(tmpFooter[c])
 			}
 		}
 	}

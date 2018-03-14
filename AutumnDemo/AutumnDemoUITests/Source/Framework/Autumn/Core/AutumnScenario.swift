@@ -145,10 +145,12 @@ public class AutumnScenario
 	
 	/**
 	 * Evaluates the test step's results after all steps have been executed.
+	 * Also determines the final status of the scenario.
 	 */
 	internal func evaluate()
 	{
-		let resultText = TabularText(4, false, " ", " ", "                   ", 0, ["PHASE", "TYPE", "NAME", "RESULT"])
+		var success = true
+		let resultText = TabularText(4, false, " ", " ", "                   ", 0, ["PHASE", "TYPE", "NAME", "RESULT"], true)
 		for record in results.enumerated()
 		{
 			for (step, result) in record.element
@@ -157,15 +159,25 @@ public class AutumnScenario
 				{
 					for (key, value) in dict
 					{
-						resultText.add([step.phase.rawValue, "Instruction", "\"\(key)\"", "\(AutumnStringConstant.RESULT_DELIMITER)\(value == true ? "OK" : "Failed")"])
+						if !value { success = false }
+						resultText.add([step.phase.rawValue, "Instr", "\"\(key)\"", "\(AutumnStringConstant.RESULT_DELIMITER)\(value == true ? "OK" : "Failed")"])
 					}
 				}
+				let resultValue = result.evaluate()
+				if !resultValue { success = false }
 				resultText.add([step.phase.rawValue,
 					"Step",
 					"\"\(step.type.rawValue) \(step.name)\"",
-					"\(AutumnStringConstant.RESULT_DELIMITER)\(result.evaluate() ? AutumnTestStatus.Passed.rawValue : AutumnTestStatus.Failed.rawValue)"])
+					"\(AutumnStringConstant.RESULT_DELIMITER)\(resultValue ? AutumnTestStatus.Passed.rawValue : AutumnTestStatus.Failed.rawValue)"])
 			}
 		}
+		
+		/* Add footer row. */
+		resultText.add(["Scenario",
+			"",
+			"",
+			"\(AutumnStringConstant.RESULT_DELIMITER)\(success ? AutumnTestStatus.Passed.rawValue.uppercased() : AutumnTestStatus.Failed.rawValue.uppercased())"])
+		
 		AutumnLog.debug("\n\(resultText.toString())")
 	}
 	
