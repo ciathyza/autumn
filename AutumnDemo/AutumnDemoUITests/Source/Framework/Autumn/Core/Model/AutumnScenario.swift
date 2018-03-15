@@ -160,7 +160,10 @@ public class AutumnScenario
 					for (key, value) in dict
 					{
 						if !value { success = false }
-						resultText.add([step.phase.rawValue, "Instr", "\"\(key)\"", "\(AutumnStringConstant.RESULT_DELIMITER)\(value == true ? "OK" : "Failed")"])
+						if runner.config.logInstructions
+						{
+							resultText.add([step.phase.rawValue, "Instr", "\"\(key)\"", "\(AutumnStringConstant.RESULT_DELIMITER)\(value == true ? "OK" : "Failed")"])
+						}
 					}
 				}
 				let resultValue = result.evaluate()

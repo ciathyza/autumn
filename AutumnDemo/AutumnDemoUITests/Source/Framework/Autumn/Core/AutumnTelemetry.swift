@@ -10,6 +10,9 @@
 import Foundation
 
 
+/**
+ * Takes care of all test result data recording.
+ */
 class AutumnTelemetry
 {
 }

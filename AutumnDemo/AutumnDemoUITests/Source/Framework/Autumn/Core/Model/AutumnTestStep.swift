@@ -45,7 +45,7 @@ public class AutumnTestStep : Hashable, Equatable
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Methods
+	// MARK: - Equatable
 	// ----------------------------------------------------------------------------------------------------
 	
 	public static func ==(lhs:AutumnTestStep, rhs:AutumnTestStep) -> Bool
@@ -53,6 +53,10 @@ public class AutumnTestStep : Hashable, Equatable
 		return lhs.hashValue == rhs.hashValue
 	}
 	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
 	
 	/**
 	 * Abstract method! Override and set type, status, and name here!
@@ -77,6 +81,10 @@ public class AutumnTestStep : Hashable, Equatable
  */
 public class AutumnTestStepAdv : AutumnTestStep
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Properties
+	// ----------------------------------------------------------------------------------------------------
+	
 	public internal(set) var elementID:String
 	public internal(set) var elementName:String
 	public internal(set) var elementType:XCUIElement.ElementType
@@ -86,6 +94,11 @@ public class AutumnTestStepAdv : AutumnTestStep
 	{
 		return "\(AutumnUI.getElementTypeName(elementType)).\(elementID)"
 	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Init
+	// ----------------------------------------------------------------------------------------------------
 	
 	public init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
 	{

@@ -135,6 +135,11 @@ public class AutumnConfig : NSObject
 	public var maxScenarioRetries:UInt = 1
 	
 	/**
+	 * If set to false instructions will not be included in log output.
+	 */
+	public var logInstructions = true
+	
+	/**
 	 * Setting this to true will provide more detailed debug log output.
 	 */
 	public var debug = false

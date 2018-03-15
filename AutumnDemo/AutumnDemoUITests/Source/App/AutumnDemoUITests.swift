@@ -22,7 +22,8 @@ class AutumnDemoUITests : AutumnTestRunner
 		config.testrailUsername  = "ts-balkau.sascha@rakuten.com"
 		config.testrailPassword  = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
 		config.testrailProjectID = "4"
-		config.testrailPlatform  = .iOS
+		config.isStagingBuild    = true
+		config.logInstructions   = true
 	}
 	
 	
