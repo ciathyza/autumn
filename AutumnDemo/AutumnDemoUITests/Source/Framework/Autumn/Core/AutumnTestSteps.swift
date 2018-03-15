@@ -126,7 +126,7 @@ public class Tap : AutumnTestStepAdv
 	
 	public override func setup()
 	{
-		name = "\(elementName) is tapped"
+		name = "the user taps \(elementName)"
 	}
 	
 	public override func execute() -> AutumnTestStepResult
