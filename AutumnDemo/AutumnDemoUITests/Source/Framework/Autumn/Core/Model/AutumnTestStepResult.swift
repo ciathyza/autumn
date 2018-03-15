@@ -18,7 +18,7 @@ open class AutumnTestStepResult
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	internal private(set) var instructions = [[String:Bool]]()
+	internal private(set) var instructions = [[String:AutumnUIActionResult]]()
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -28,9 +28,9 @@ open class AutumnTestStepResult
 	/**
 	 * Adds a new test instruction.
 	 */
-	public func add(_ instruction:String, _ success:Bool)
+	public func add(_ instruction:String, _ actionResult:AutumnUIActionResult)
 	{
-		instructions.append([instruction: success])
+		instructions.append([instruction: actionResult])
 	}
 	
 	
@@ -44,7 +44,7 @@ open class AutumnTestStepResult
 		{
 			for (_, value) in dict
 			{
-				if value == false
+				if value != .Success
 				{
 					return false
 				}

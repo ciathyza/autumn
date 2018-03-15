@@ -47,6 +47,6 @@ public struct AutumnFileConstant
 
 public struct AutumnStringConstant
 {
-	public static let RESULT_DELIMITER       = ": "
+	public static let RESULT_DELIMITER       = "--> "
 	public static let TEXTFIELD_CLEAR_BUTTON = "Clear text"
 }

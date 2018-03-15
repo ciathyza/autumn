@@ -26,7 +26,7 @@ public class LaunchApp : AutumnTestStep
 	public override func execute() -> AutumnTestStepResult
 	{
 		result.add("Launch App", AutumnUI.launchApp())
-		result.add("Is App Running In Foreground", scenario.isAppRunningInForeground)
+		result.add("Is App Running In Foreground", AutumnUI.isAppRunningInForeground)
 		return result
 	}
 }

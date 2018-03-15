@@ -317,79 +317,111 @@ public class AutumnUI
 	
 	
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Query Convenience API
+	// ----------------------------------------------------------------------------------------------------
+	
+	public static var isAppRunningInForeground:AutumnUIActionResult
+	{
+		return AutumnTestRunner.app.state == .runningForeground ? .Success : .FailedIncorrectState
+	}
+	
+	public static var isAppRunningInBackground:AutumnUIActionResult
+	{
+		return AutumnTestRunner.app.state == .runningBackground ? .Success : .FailedIncorrectState
+	}
+	
+	public static var isAppSuspendedInBackground:AutumnUIActionResult
+	{
+		return AutumnTestRunner.app.state == .runningBackgroundSuspended ? .Success : .FailedIncorrectState
+	}
+	
+	public static var isAppInstalled:AutumnUIActionResult
+	{
+		return Springboard.isAppInstalled ? .Success : .FailedIncorrectState
+	}
+	
+	public static var isAppKilled:AutumnUIActionResult
+	{
+		return (AutumnTestRunner.app.state != .runningForeground
+			&& AutumnTestRunner.app.state != .runningBackground
+			&& AutumnTestRunner.app.state != .runningBackgroundSuspended) ? .Success : .FailedIncorrectState
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - App
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
 	 * Launches the app to running in foreground state.
 	 */
-	public class func launchApp(_ app:XCUIApplication? = nil) -> Bool
+	public class func launchApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
 		if let app = app
 		{
 			app.launchArguments = ["--uitesting", "-StartFromCleanState", "YES"]
 			app.launch()
-			return app.state == .runningForeground
+			return app.state == .runningForeground ? .Success : .FailedIncorrectState
 		}
 		AutumnTestRunner.app.launchArguments = ["--uitesting", "-StartFromCleanState", "YES"]
 		AutumnTestRunner.app.launch()
-		return AutumnTestRunner.app.state == .runningForeground
+		return AutumnTestRunner.app.state == .runningForeground ? .Success : .FailedIncorrectState
 	}
 	
 	
 	/**
 	 * Launches the app to running in foreground state.
 	 */
-	public class func activateApp(_ app:XCUIApplication? = nil) -> Bool
+	public class func activateApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
 		if let app = app
 		{
 			app.activate()
-			return app.state == .runningForeground
+			return app.state == .runningForeground ? .Success : .FailedIncorrectState
 		}
 		AutumnTestRunner.app.activate()
-		return AutumnTestRunner.app.state == .runningForeground
+		return AutumnTestRunner.app.state == .runningForeground ? .Success : .FailedIncorrectState
 	}
 	
 	
 	/**
 	 * Terminates the app.
 	 */
-	public class func terminateApp(_ app:XCUIApplication? = nil) -> Bool
+	public class func terminateApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
 		if let app = app
 		{
 			app.terminate()
-			return app.state == .notRunning
+			return app.state == .notRunning ? .Success : .FailedIncorrectState
 		}
 		AutumnTestRunner.app.terminate()
-		return AutumnTestRunner.app.state == .notRunning
+		return AutumnTestRunner.app.state == .notRunning ? .Success : .FailedIncorrectState
 	}
 	
 	
 	/**
 	 * Task-kills the app.
 	 */
-	public class func killApp(_ app:XCUIApplication? = nil) -> Bool
+	public class func killApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
 		if let app = app
 		{
-			return Springboard.killApp(app: app)
+			return Springboard.killApp(app: app) ? .Success : .FailedOperationNotSupported
 		}
-		return Springboard.killApp(app: AutumnTestRunner.app)
+		return Springboard.killApp(app: AutumnTestRunner.app) ? .Success : .FailedOperationNotSupported
 	}
 	
 	
 	/**
 	 * Uninstalls the app.
 	 */
-	public class func uninstallApp(_ app:XCUIApplication? = nil) -> Bool
+	public class func uninstallApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
 		if let app = app
 		{
-			return Springboard.uninstallApp(app: app)
+			return Springboard.uninstallApp(app: app) ? .Success : .FailedOperationFailed
 		}
-		return Springboard.uninstallApp(app: AutumnTestRunner.app)
+		return Springboard.uninstallApp(app: AutumnTestRunner.app) ? .Success : .FailedOperationFailed
 	}
 	
 	
@@ -413,9 +445,9 @@ public class AutumnUI
 	 *
 	 * @param interval The time to wait in seconds.
 	 */
-	public class func wait(_ interval:UInt) -> Bool
+	public class func wait(_ interval:UInt) -> AutumnUIActionResult
 	{
-		return Darwin.sleep(UInt32(interval)) >= 0
+		return Darwin.sleep(UInt32(interval)) >= 0 ? .Success : .Failed
 	}
 	
 	
@@ -426,7 +458,7 @@ public class AutumnUI
 	 * @param timeout Seconds until the wait will time-out as failure.
 	 * @return true if element was hittable within time limit, otherwise false.
 	 */
-	public class func waitForHittable(_ element:XCUIElement?, timeout:UInt = 0) -> Bool
+	public class func waitForHittable(_ element:XCUIElement?, timeout:UInt = 0) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
@@ -435,7 +467,7 @@ public class AutumnUI
 			let success = AutumnUI.waitFor(e, clause: clause, timeout: timeout)
 			return success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	
@@ -447,7 +479,7 @@ public class AutumnUI
 	 * @param timeout Seconds until the wait will time-out as failure.
 	 * @return true if element was hittable within time limit, otherwise false.
 	 */
-	public class func waitForNotHittable(_ element:XCUIElement?, timeout:UInt = 0) -> Bool
+	public class func waitForNotHittable(_ element:XCUIElement?, timeout:UInt = 0) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
@@ -456,7 +488,7 @@ public class AutumnUI
 			let success = AutumnUI.waitFor(e, clause: clause, timeout: timeout)
 			return success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	
@@ -467,7 +499,7 @@ public class AutumnUI
 	 * @param timeout Seconds until the wait will time-out as failure.
 	 * @return true if element was hittable within time limit, otherwise false.
 	 */
-	public class func waitForExists(_ element:XCUIElement?, timeout:UInt = 0) -> Bool
+	public class func waitForExists(_ element:XCUIElement?, timeout:UInt = 0) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
@@ -476,7 +508,7 @@ public class AutumnUI
 			let success = AutumnUI.waitFor(e, clause: clause, timeout: timeout)
 			return success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	
@@ -487,7 +519,7 @@ public class AutumnUI
 	 * @param timeout Seconds until the wait will time-out as failure.
 	 * @return true if element was not found within time limit, otherwise false.
 	 */
-	public class func waitForNotExists(_ element:XCUIElement?, timeout:UInt = 0) -> Bool
+	public class func waitForNotExists(_ element:XCUIElement?, timeout:UInt = 0) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
@@ -496,7 +528,7 @@ public class AutumnUI
 			let success = AutumnUI.waitFor(e, clause: clause, timeout: timeout)
 			return success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	
@@ -508,7 +540,7 @@ public class AutumnUI
 	 * @param timeout Seconds until the wait will time-out as failure.
 	 * @return true if element was hittable within time limit, otherwise false.
 	 */
-	public class func waitForIsTrue(_ object:NSObject?, _ property:String, timeout:UInt = 0) -> Bool
+	public class func waitForIsTrue(_ object:NSObject?, _ property:String, timeout:UInt = 0) -> AutumnUIActionResult
 	{
 		if let obj = object
 		{
@@ -517,14 +549,14 @@ public class AutumnUI
 			let success = AutumnUI.waitFor(obj, clause: clause, timeout: timeout)
 			return success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	
 	/**
 	 * Waits for an element with a specified conditional clause.
 	 */
-	public class func waitFor(_ element:Any, clause:String, timeout:UInt = 0) -> Bool
+	public class func waitFor(_ element:Any, clause:String, timeout:UInt = 0) -> AutumnUIActionResult
 	{
 		let timeout = timeout == 0 ? AutumnTestRunner.instance.config.viewPresentTimeout : timeout
 		let predicate = NSPredicate(format: clause)
@@ -534,15 +566,15 @@ public class AutumnUI
 		switch result
 		{
 			case .completed:
-				return true
+				return .Success
 			case .invertedFulfillment:
-				return true
+				return .Success
 			case .timedOut:
-				return false
+				return .FailedTimeOut
 			case .incorrectOrder:
-				return false
+				return .FailedIncorrectOrder
 			case .interrupted:
-				return false
+				return .FailedInterrupted
 		}
 	}
 	
@@ -616,35 +648,31 @@ public class AutumnUI
 	 *
 	 * @param element
 	 */
-	public class func tap(_ element:XCUIElement?) -> Bool
+	public class func tap(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
-			if e.exists && e.isHittable
-			{
-				e.tap()
-			}
-			return true
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.tap()
+			return .Success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	
 	/**
-	 * Sends a tap event to a hittable point computed for the element. Does not fail if the eleemnt isn't hittable or doesn't exist.
+	 * Sends a tap event to a hittable point computed for the element. Does not fail if the element isn't hittable or doesn't exist.
 	 *
 	 * @param element
 	 */
-	public class func tapOptional(_ element:XCUIElement?) -> Bool
+	public class func tapOptional(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
-			if e.exists && e.isHittable
-			{
-				e.tap()
-			}
+			if e.exists && e.isHittable { e.tap() }
 		}
-		return true
+		return .Success
 	}
 	
 	
@@ -658,17 +686,16 @@ public class AutumnUI
 	 * @param element
 	 * @param text
 	 */
-	public class func typeText(_ element:XCUIElement?, text:String) -> Bool
+	public class func typeText(_ element:XCUIElement?, text:String) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
-			if e.exists && e.isHittable
-			{
-				e.typeText(text)
-				return true
-			}
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.typeText(text)
+			return .Success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	
@@ -676,17 +703,16 @@ public class AutumnUI
 	 * Sends a swipe-up gesture.
 	 * @param element
 	 */
-	public class func swipeUp(_ element:XCUIElement?) -> Bool
+	public class func swipeUp(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
-			if e.exists && e.isHittable
-			{
-				e.swipeUp()
-				return true
-			}
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.swipeUp()
+			return .Success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	
@@ -694,17 +720,16 @@ public class AutumnUI
 	 * Sends a swipe-down gesture.
 	 * @param element
 	 */
-	public class func swipeDown(_ element:XCUIElement?) -> Bool
+	public class func swipeDown(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
-			if e.exists && e.isHittable
-			{
-				e.swipeDown()
-				return true
-			}
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.swipeDown()
+			return .Success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	
@@ -712,34 +737,32 @@ public class AutumnUI
 	 * Sends a swipe-left gesture.
 	 * @param element
 	 */
-	public class func swipeLeft(_ element:XCUIElement?) -> Bool
+	public class func swipeLeft(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
-			if e.exists && e.isHittable
-			{
-				e.swipeLeft()
-				return true
-			}
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.swipeLeft()
+			return .Success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	/**
 	 * Sends a swipe-right gesture.
 	 * @param element
 	 */
-	public class func swipeRight(_ element:XCUIElement?) -> Bool
+	public class func swipeRight(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
 		if let e = element
 		{
-			if e.exists && e.isHittable
-			{
-				e.swipeRight()
-				return true
-			}
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.swipeRight()
+			return .Success
 		}
-		return false
+		return .FailedIsNil
 	}
 	
 	

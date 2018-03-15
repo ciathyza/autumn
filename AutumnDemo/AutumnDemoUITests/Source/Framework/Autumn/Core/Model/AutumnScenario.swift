@@ -71,17 +71,6 @@ public class AutumnScenario
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Query Convenience API
-	// ----------------------------------------------------------------------------------------------------
-	
-	public var isAppRunningInForeground:Bool { return AutumnTestRunner.app.state == .runningForeground }
-	public var isAppRunningInBackground:Bool { return AutumnTestRunner.app.state == .runningBackground }
-	public var isAppSuspendedInBackground:Bool { return AutumnTestRunner.app.state == .runningBackgroundSuspended }
-	public var isAppInstalled:Bool { return Springboard.isAppInstalled }
-	public var isAppKilled:Bool { return AutumnTestRunner.app.state != .runningForeground && AutumnTestRunner.app.state != .runningBackground && AutumnTestRunner.app.state != .runningBackgroundSuspended }
-	
-	
-	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Initializers
 	// ----------------------------------------------------------------------------------------------------
 	
@@ -159,10 +148,13 @@ public class AutumnScenario
 				{
 					for (key, value) in dict
 					{
-						if !value { success = false }
+						if value != .Success { success = false }
 						if runner.config.logInstructions
 						{
-							resultText.add([step.phase.rawValue, "Instr", "\"\(key)\"", "\(AutumnStringConstant.RESULT_DELIMITER)\(value == true ? "OK" : "Failed")"])
+							resultText.add([step.phase.rawValue,
+								"Instr",
+								"\"\(key)\"",
+								"\(AutumnStringConstant.RESULT_DELIMITER)\(value.rawValue)"])
 						}
 					}
 				}
