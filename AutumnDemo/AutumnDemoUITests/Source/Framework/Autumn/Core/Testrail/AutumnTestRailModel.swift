@@ -781,3 +781,138 @@ struct TestRailCustomTestStepResult : Codable
 		statusID = try values.decodeIfPresent(Int.self,    forKey: .statusID)
 	}
 }
+
+
+// ------------------------------------------------------------------------------------------------
+struct TestRailTestResultField : Codable
+{
+	let id:Int?
+	let isActive:Bool?
+	let typeID:Int?
+	let name:String?
+	let systemName:String?
+	let label:String?
+	let description:String?
+	let configs:[TestRailConfig]?
+	let displayOrder:Int?
+	let includeAll:Bool?
+	let templateIDs:[Int]?
+	
+	enum CodingKeys : String, CodingKey
+	{
+		case id           = "id"
+		case isActive     = "is_active"
+		case typeID       = "type_id"
+		case name         = "name"
+		case systemName   = "system_name"
+		case label        = "label"
+		case description  = "description"
+		case configs      = "configs"
+		case displayOrder = "display_order"
+		case includeAll   = "include_all"
+		case templateIDs  = "template_ids"
+	}
+	
+	init(from decoder:Decoder) throws
+	{
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		id           = try values.decodeIfPresent(Int.self,              forKey: .id)
+		isActive     = try values.decodeIfPresent(Bool.self,             forKey: .isActive)
+		typeID       = try values.decodeIfPresent(Int.self,              forKey: .typeID)
+		name         = try values.decodeIfPresent(String.self,           forKey: .name)
+		systemName   = try values.decodeIfPresent(String.self,           forKey: .systemName)
+		label        = try values.decodeIfPresent(String.self,           forKey: .label)
+		description  = try values.decodeIfPresent(String.self,           forKey: .description)
+		configs      = try values.decodeIfPresent([TestRailConfig].self, forKey: .configs)
+		displayOrder = try values.decodeIfPresent(Int.self,              forKey: .displayOrder)
+		includeAll   = try values.decodeIfPresent(Bool.self,             forKey: .includeAll)
+		templateIDs  = try values.decodeIfPresent([Int].self,            forKey: .templateIDs)
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+struct TestRailSection : Codable
+{
+	let id:Int?
+	let suiteID:Int?
+	let name:String?
+	let description:String?
+	let parentID:String?
+	let displayOrder:Int?
+	let depth:Int?
+	
+	enum CodingKeys : String, CodingKey
+	{
+		case id           = "id"
+		case suiteID      = "suite_id"
+		case name         = "name"
+		case description  = "description"
+		case parentID     = "parent_id"
+		case displayOrder = "display_order"
+		case depth        = "depth"
+	}
+	
+	init(from decoder:Decoder) throws
+	{
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		id           = try values.decodeIfPresent(Int.self,    forKey: .id)
+		suiteID      = try values.decodeIfPresent(Int.self,    forKey: .suiteID)
+		name         = try values.decodeIfPresent(String.self, forKey: .name)
+		description  = try values.decodeIfPresent(String.self, forKey: .description)
+		parentID     = try values.decodeIfPresent(String.self, forKey: .parentID)
+		displayOrder = try values.decodeIfPresent(Int.self,    forKey: .displayOrder)
+		depth        = try values.decodeIfPresent(Int.self,    forKey: .depth)
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+struct TestRailTemplate : Codable
+{
+	let id:Int?
+	let name:String?
+	let isDefault:Bool?
+	
+	enum CodingKeys : String, CodingKey
+	{
+		case id        = "id"
+		case name      = "name"
+		case isDefault = "is_default"
+	}
+	
+	init(from decoder:Decoder) throws
+	{
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		id        = try values.decodeIfPresent(Int.self,    forKey: .id)
+		name      = try values.decodeIfPresent(String.self, forKey: .name)
+		isDefault = try values.decodeIfPresent(Bool.self,   forKey: .isDefault)
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+struct TestRailUser : Codable
+{
+	let id:Int?
+	let name:String?
+	let email:String?
+	let isActive:Bool?
+	
+	enum CodingKeys : String, CodingKey
+	{
+		case id       = "id"
+		case name     = "name"
+		case email    = "email"
+		case isActive = "is_active"
+	}
+	
+	init(from decoder:Decoder) throws
+	{
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		id       = try values.decodeIfPresent(Int.self,    forKey: .id)
+		name     = try values.decodeIfPresent(String.self, forKey: .name)
+		email    = try values.decodeIfPresent(String.self, forKey: .email)
+		isActive = try values.decodeIfPresent(Bool.self,   forKey: .isActive)
+	}
+}
