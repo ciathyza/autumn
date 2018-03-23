@@ -604,3 +604,180 @@ struct TestRailPriority : Codable
 		priority  = try values.decodeIfPresent(Int.self,    forKey: .priority)
 	}
 }
+
+
+// ------------------------------------------------------------------------------------------------
+struct TestRailTest : Codable
+{
+	let id:Int?
+	let caseID:Int?
+	let statusID:Int?
+	let assignedToID:Int?
+	let runID:Int?
+	let title:String?
+	let templateID:Int?
+	let typeID:Int?
+	let priorityID:Int?
+	let estimate:String?
+	let estimateForecast:String?
+	let refs:String?
+	let milestoneID:String?
+	let customAutomated:String?
+	let customPreconds:String?
+	let customSteps:String?
+	let customExpected:String?
+	let customStepsSeparated:[TestRailCustomTestStep]?
+	let customMission:String?
+	let customGoals:String?
+	let customLabel:[String]?
+	let customOS:[Int]?
+	
+	enum CodingKeys : String, CodingKey
+	{
+		case id                   = "id"
+		case caseID               = "case_id"
+		case statusID             = "status_id"
+		case assignedToID         = "assignedto_id"
+		case runID                = "run_id"
+		case title                = "title"
+		case templateID           = "template_id"
+		case typeID               = "type_id"
+		case priorityID           = "priority_id"
+		case estimate             = "estimate"
+		case estimateForecast     = "estimate_forecast"
+		case refs                 = "refs"
+		case milestoneID          = "milestone_id"
+		case customAutomated      = "custom_automated"
+		case customPreconds       = "custom_preconds"
+		case customSteps          = "custom_steps"
+		case customExpected       = "custom_expected"
+		case customStepsSeparated = "custom_steps_separated"
+		case customMission        = "custom_mission"
+		case customGoals          = "custom_goals"
+		case customLabel          = "custom_label"
+		case customOS             = "custom_os"
+	}
+	
+	init(from decoder:Decoder) throws
+	{
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		id                   = try values.decodeIfPresent(Int.self,                      forKey: .id)
+		caseID               = try values.decodeIfPresent(Int.self,                      forKey: .caseID)
+		statusID             = try values.decodeIfPresent(Int.self,                      forKey: .statusID)
+		assignedToID         = try values.decodeIfPresent(Int.self,                      forKey: .assignedToID)
+		runID                = try values.decodeIfPresent(Int.self,                      forKey: .runID)
+		title                = try values.decodeIfPresent(String.self,                   forKey: .title)
+		templateID           = try values.decodeIfPresent(Int.self,                      forKey: .templateID)
+		typeID               = try values.decodeIfPresent(Int.self,                      forKey: .typeID)
+		priorityID           = try values.decodeIfPresent(Int.self,                      forKey: .priorityID)
+		estimate             = try values.decodeIfPresent(String.self,                   forKey: .estimate)
+		estimateForecast     = try values.decodeIfPresent(String.self,                   forKey: .estimateForecast)
+		refs                 = try values.decodeIfPresent(String.self,                   forKey: .refs)
+		milestoneID          = try values.decodeIfPresent(String.self,                   forKey: .milestoneID)
+		customAutomated      = try values.decodeIfPresent(String.self,                   forKey: .customAutomated)
+		customPreconds       = try values.decodeIfPresent(String.self,                   forKey: .customPreconds)
+		customSteps          = try values.decodeIfPresent(String.self,                   forKey: .customSteps)
+		customExpected       = try values.decodeIfPresent(String.self,                   forKey: .customExpected)
+		customStepsSeparated = try values.decodeIfPresent([TestRailCustomTestStep].self, forKey: .customStepsSeparated)
+		customMission        = try values.decodeIfPresent(String.self,                   forKey: .customMission)
+		customGoals          = try values.decodeIfPresent(String.self,                   forKey: .customGoals)
+		customLabel          = try values.decodeIfPresent([String].self,                 forKey: .customLabel)
+		customOS             = try values.decodeIfPresent([Int].self,                    forKey: .customOS)
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+struct TestRailCustomTestStep : Codable
+{
+	let content:String?
+	let expected:String?
+	
+	enum CodingKeys : String, CodingKey
+	{
+		case content  = "content"
+		case expected = "expected"
+	}
+	
+	init(from decoder:Decoder) throws
+	{
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		content  = try values.decodeIfPresent(String.self, forKey: .content)
+		expected = try values.decodeIfPresent(String.self, forKey: .expected)
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+struct TestRailTestResult : Codable
+{
+	let id:Int?
+	let testID:Int?
+	let statusID:Int?
+	let createdBy:Int?
+	let createdOn:Int?
+	let assignedToID:Int?
+	let comment:String?
+	let version:String?
+	let elapsed:String?
+	let defects:String?
+	let customStepResults:[TestRailCustomTestStepResult]?
+	
+	enum CodingKeys : String, CodingKey
+	{
+		case id                = "id"
+		case testID            = "test_id"
+		case statusID          = "status_id"
+		case createdBy         = "created_by"
+		case createdOn         = "created_on"
+		case assignedToID      = "assignedto_id"
+		case comment           = "comment"
+		case version           = "version"
+		case elapsed           = "elapsed"
+		case defects           = "defects"
+		case customStepResults = "custom_step_results"
+	}
+	
+	init(from decoder:Decoder) throws
+	{
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		id                = try values.decodeIfPresent(Int.self,                            forKey: .id)
+		testID            = try values.decodeIfPresent(Int.self,                            forKey: .testID)
+		statusID          = try values.decodeIfPresent(Int.self,                            forKey: .statusID)
+		createdBy         = try values.decodeIfPresent(Int.self,                            forKey: .createdBy)
+		createdOn         = try values.decodeIfPresent(Int.self,                            forKey: .createdOn)
+		assignedToID      = try values.decodeIfPresent(Int.self,                            forKey: .assignedToID)
+		comment           = try values.decodeIfPresent(String.self,                         forKey: .comment)
+		version           = try values.decodeIfPresent(String.self,                         forKey: .version)
+		elapsed           = try values.decodeIfPresent(String.self,                         forKey: .elapsed)
+		defects           = try values.decodeIfPresent(String.self,                         forKey: .defects)
+		customStepResults = try values.decodeIfPresent([TestRailCustomTestStepResult].self, forKey: .customStepResults)
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+struct TestRailCustomTestStepResult : Codable
+{
+	let content:String?
+	let expected:String?
+	let actual:String?
+	let statusID:Int?
+	
+	enum CodingKeys : String, CodingKey
+	{
+		case content  = "content"
+		case expected = "expected"
+		case actual   = "actual"
+		case statusID = "status_id"
+	}
+	
+	init(from decoder:Decoder) throws
+	{
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		content  = try values.decodeIfPresent(String.self, forKey: .content)
+		expected = try values.decodeIfPresent(String.self, forKey: .expected)
+		actual   = try values.decodeIfPresent(String.self, forKey: .actual)
+		statusID = try values.decodeIfPresent(Int.self,    forKey: .statusID)
+	}
+}
