@@ -28,7 +28,6 @@ class ViewController: UIViewController
 		loginButton.accessibilityIdentifier = ACI.APP_LOGIN_BUTTON.id
 		
 		self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onDismissKeyboard)))
-		
 	}
 	
 	

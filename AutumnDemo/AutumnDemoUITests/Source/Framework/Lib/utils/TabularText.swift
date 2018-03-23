@@ -4,10 +4,10 @@
  * / /_/ / __/ / (_-<
  * \____/\__/_/_/___/
  *
- * Utils & Extensions for Swiift Projects..
+ * Utils & Extensions for Swiift Projects.
  *
- * Written by Sascha Balkau | ts-balkau.sascha@rakuten.com
- * Copyright (c) 2017 Rakuten, Inc. All rights reserved.
+ * Written by Ciathyza | ciathyza@ciathyza.com
+ * Copyright (c) 2017 Ciathyza All rights reserved.
  */
 
 import Foundation
@@ -260,7 +260,7 @@ public class TabularText
 	//-----------------------------------------------------------------------------------------
 	
 	/**
-	 * Neat little method that sorts all the arrays in _columns by using sort indices.
+	 * Sorts all the arrays in _columns by using sort indices.
 	 */
 	private static func sort(_ columns:inout [[String]], _ rowCount:Int, _ hasHeader:Bool, _ hasFooter:Bool)
 	{
