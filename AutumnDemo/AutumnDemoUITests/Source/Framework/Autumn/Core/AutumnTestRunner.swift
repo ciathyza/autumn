@@ -41,6 +41,7 @@ open class AutumnTestRunner : XCTestCase
 	internal var session = AutumnSession()
 	private var _users:[String:AutumnUser] = [:]
 	private var _viewProxyClasses:[Metatype<AutumnViewProxy>:AutumnViewProxy] = [:]
+	private var _testrailClient = AutumnTestRailClient()
 	
 	internal static var app = XCUIApplication()
 	internal static var allFeatureClasses:[AutumnFeature.Type] = []
@@ -297,6 +298,9 @@ open class AutumnTestRunner : XCTestCase
 		{
 			AutumnLog.debug("Setting up test session ...")
 			configure()
+			
+			AutumnLog.debug("Getting TestRail data ...")
+			_testrailClient.getProjects()
 			
 			AutumnLog.debug("Registering objects ...")
 			registerUsers()
