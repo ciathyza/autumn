@@ -299,8 +299,22 @@ open class AutumnTestRunner : XCTestCase
 			AutumnLog.debug("Setting up test session ...")
 			configure()
 			
-			AutumnLog.debug("Getting TestRail data ...")
+			AutumnLog.debug("Retrieving TestRail data ...")
 			_testrailClient.getProjects()
+			{
+				(model:[TestRailProject]?, error:String?) in
+				if let error = error
+				{
+					AutumnLog.error(error)
+				}
+				if let model = model
+				{
+					for i in model
+					{
+						Log.debug("\(i.id), \(i.name), \(i.url)")
+					}
+				}
+			}
 			
 			AutumnLog.debug("Registering objects ...")
 			registerUsers()

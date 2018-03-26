@@ -30,9 +30,9 @@ class AutumnTestRailClient
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
 	
-	func getProjects(callback:((Codable) -> Void)? = nil)
+	func getProjects(callback: @escaping (([TestRailProject]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_projects", model: [TestRailProject](), callback: callback)
+		httpGet(path: "get_projects", type: [TestRailProject].self, callback: callback)
 	}
 	
 	
@@ -47,17 +47,19 @@ class AutumnTestRailClient
 	/// 	- model: The data model object used to contain fetched data.
 	/// 	- callback: Optional closure that is invoked after the request completed.
 	///
-	func httpGet(path:String, model:[Codable], callback:((Codable) -> Void)? = nil)
+	func httpGet<T:Codable>(path:String, type:T.Type, callback: @escaping ((T?, String?) -> Void))
 	{
 		let urlString = getURLFor(path)
 		guard let url = URL(string: urlString) else
 		{
-			onHTTPRequestError(result: nil, error: "Failed to create URL from \"\(urlString)\"", model: model, callback: callback)
+			let errorString = "HTTP request failed: Failed to create URL from \"\(urlString)\"."
+			//if let cb = callback { cb(model) }
 			return
 		}
 		guard let authData = self.authData else
 		{
-			onHTTPRequestError(result: nil, error: "Failed to create auth data", model: model, callback: callback)
+			let errorString = "HTTP request failed: Failed to create auth data."
+			//if let cb = callback { cb(model) }
 			return
 		}
 		
@@ -78,42 +80,30 @@ class AutumnTestRailClient
 			.responseJSON(queue: dispatchQueue, options: .allowFragments, completionHandler:
 			{
 				(response:DataResponse<Any>) in
-				if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
-				{
-					//Log.debug(">>>" , "\(utf8Text)")
-				}
-				switch (response.result)
-				{
-					case .success(_):
-						self.onHTTPRequestComplete(result: response.result, model: model, callback: callback)
-					case .failure(_):
-						self.onHTTPRequestError(result: response.result, error: "\(response.error!)", model: model, callback: callback)
-				}
+					switch (response.result)
+					{
+						case .success(_):
+							if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
+							{
+								let decoder = JSONDecoder()
+								var decodedModel:T?
+								do
+								{
+									decodedModel = try! decoder.decode(type, from: data)
+									callback(decodedModel, nil)
+								}
+								catch let error as Error
+								{
+									callback(nil, "Failed to decode JSON response. Error was: \(error.localizedDescription)")
+								}
+							}
+						case .failure(_):
+							let errorDescr = response.error != nil ? response.error!.localizedDescription : ""
+							callback(nil, "HTTP request failed: \(errorDescr)")
+					}
 			})
 	}
 	
-	
-	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Handlers
-	// ----------------------------------------------------------------------------------------------------
-	
-	func onHTTPRequestComplete(result:Result<Any>, model:[Codable], callback:((Codable) -> Void)? = nil)
-	{
-		if let closure = callback
-		{
-			//let parsedModel = parseResultDataToModel(result: result, model: model)
-			//closure(parsedModel)
-		}
-	}
-	
-	
-	func onHTTPRequestError(result:Result<Any>?, error:String, model:[Codable], callback:((Codable) -> Void)? = nil)
-	{
-		let errorString = "HTTP request failed: \(error).\(result != nil ? " Result: \(result!)" : "")"
-		//let parsedModel = parseResultDataToModel(result: result, model: model)
-		//parsedModel.error = errorString
-		//if let closure = callback { closure(parsedModel) }
-	}
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Helpers
