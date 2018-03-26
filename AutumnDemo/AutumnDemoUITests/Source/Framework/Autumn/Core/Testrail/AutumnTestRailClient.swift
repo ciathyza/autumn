@@ -36,6 +36,12 @@ class AutumnTestRailClient
 	}
 	
 	
+	func getSuites(projectID:String, callback: @escaping (([TestRailSuite]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_suites/\(projectID)", type: [TestRailSuite].self, callback: callback)
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - HTTP Methods
 	// ----------------------------------------------------------------------------------------------------

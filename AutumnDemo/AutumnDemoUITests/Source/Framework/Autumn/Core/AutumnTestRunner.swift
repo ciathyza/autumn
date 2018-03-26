@@ -311,7 +311,22 @@ open class AutumnTestRunner : XCTestCase
 				{
 					for i in model
 					{
-						Log.debug("\(i.id), \(i.name), \(i.url)")
+						Log.debug("Project: \(i.id), \(i.name), \(i.url)")
+					}
+				}
+			}
+			_testrailClient.getSuites(projectID: config.testrailProjectID)
+			{
+				(model:[TestRailSuite]?, error:String?) in
+				if let error = error
+				{
+					AutumnLog.error(error)
+				}
+				if let model = model
+				{
+					for i in model
+					{
+						Log.debug("Suite: \(i.id), \(i.name), \(i.url)")
 					}
 				}
 			}
