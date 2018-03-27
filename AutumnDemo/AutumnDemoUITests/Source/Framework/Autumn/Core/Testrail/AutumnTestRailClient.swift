@@ -16,6 +16,7 @@ class AutumnTestRailClient
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
+	private var _isTestRailStatusesRetrievalComplete = false
 	private var _isTestRailProjectsRetrievalComplete = false
 	private var _isTestRailSuitesRetrievalComplete = false
 	private var _isTestRailMilestonesRetrievalComplete = false
@@ -49,6 +50,8 @@ class AutumnTestRailClient
 	{
 		/* Yep, this cumbersome structure for fetching async data from server is required for the wait API to work with XCTest. */
 		
+		getTestRailStatuses()
+		AutumnUI.waitUntil { return self._isTestRailStatusesRetrievalComplete }
 		getTestRailProjects()
 		AutumnUI.waitUntil { return self._isTestRailProjectsRetrievalComplete }
 		getTestRailSuites()
@@ -61,6 +64,23 @@ class AutumnTestRailClient
 		AutumnUI.waitUntil { return self._isTestRailTestRunsRetrievalComplete }
 		getTestRailTestCases()
 		AutumnUI.waitUntil { return self._isTestRailTestCasesRetrievalComplete }
+	}
+	
+	
+	private func getTestRailStatuses()
+	{
+		_isTestRailStatusesRetrievalComplete = false
+		getStatuses()
+		{
+			(response:[TestRailStatus]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				AutumnTestRunner.instance.testRailModel.statuses = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail statuses.")
+			}
+			self._isTestRailStatusesRetrievalComplete = true
+		}
 	}
 	
 	
@@ -178,6 +198,11 @@ class AutumnTestRailClient
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Get API
 	// ----------------------------------------------------------------------------------------------------
+	
+	func getStatuses(callback: @escaping (([TestRailStatus]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_statuses", type: [TestRailStatus].self, callback: callback)
+	}
 	
 	func getProjects(callback: @escaping (([TestRailProject]?, _:String?) -> Void))
 	{

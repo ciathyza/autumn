@@ -20,6 +20,7 @@ class TestRailModel
 	var testPlans  = [TestRailTestPlan]()
 	var testRuns   = [TestRailTestRun]()
 	var testCases  = [TestRailTestCase]()
+	var statuses   = [TestRailStatus]()
 }
 
 
@@ -417,15 +418,15 @@ struct TestRailTestCaseCustom : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailStatus : Codable
 {
-	let id:Int?
-	let name:String?
-	let label:String?
-	let colorDark:Int?
-	let colorMedium:Int?
-	let colorBright:Int?
-	let isSystem:Bool?
-	let isUntested:Bool?
-	let isFinal:Bool?
+	let id:Int
+	let name:String
+	let label:String
+	let colorDark:Int
+	let colorMedium:Int
+	let colorBright:Int
+	let isSystem:Bool
+	let isUntested:Bool
+	let isFinal:Bool
 	
 	enum CodingKeys : String, CodingKey
 	{
@@ -443,15 +444,15 @@ struct TestRailStatus : Codable
 	init(from decoder:Decoder) throws
 	{
 		let values  = try decoder.container(keyedBy: CodingKeys.self)
-		id          = try values.decode(Int.self,           forKey: .id)
-		name        = try values.decode(String.self,        forKey: .name)
-		label       = try values.decode(String.self,        forKey: .label)
-		colorDark   = try values.decode(Int.self,           forKey: .colorDark)
-		colorMedium = try values.decode(Int.self,           forKey: .colorMedium)
-		colorBright = try values.decode(Int.self,           forKey: .colorBright)
-		isSystem    = try values.decode(Bool.self,          forKey: .isSystem)
-		isUntested  = try values.decode(Bool.self,          forKey: .isUntested)
-		isFinal     = try values.decode(Bool.self,          forKey: .isFinal)
+		do { id          = try values.decode(Int.self,    forKey: .id) }          catch { id = 0 }
+		do { name        = try values.decode(String.self, forKey: .name) }        catch { name = "" }
+		do { label       = try values.decode(String.self, forKey: .label) }       catch { label = "" }
+		do { colorDark   = try values.decode(Int.self,    forKey: .colorDark) }   catch { colorDark = 0 }
+		do { colorMedium = try values.decode(Int.self,    forKey: .colorMedium) } catch { colorMedium = 0 }
+		do { colorBright = try values.decode(Int.self,    forKey: .colorBright) } catch { colorBright = 0 }
+		do { isSystem    = try values.decode(Bool.self,   forKey: .isSystem) }    catch { isSystem = false }
+		do { isUntested  = try values.decode(Bool.self,   forKey: .isUntested) }  catch { isUntested = false }
+		do { isFinal     = try values.decode(Bool.self,   forKey: .isFinal) }     catch { isFinal = false }
 	}
 }
 
