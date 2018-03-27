@@ -38,7 +38,8 @@ open class AutumnTestRunner : XCTestCase
 	// ----------------------------------------------------------------------------------------------------
 	
 	public let config = AutumnConfig()
-	internal var session = AutumnSession()
+	internal private(set) var session = AutumnSession()
+	internal private(set) var testRailModel = TestRailModel()
 	private var _users:[String:AutumnUser] = [:]
 	private var _viewProxyClasses:[Metatype<AutumnViewProxy>:AutumnViewProxy] = [:]
 	private var _testrailClient = AutumnTestRailClient()

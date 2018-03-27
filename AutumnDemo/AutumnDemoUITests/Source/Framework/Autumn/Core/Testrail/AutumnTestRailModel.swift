@@ -10,6 +10,20 @@ import Foundation
 
 
 // ------------------------------------------------------------------------------------------------
+class TestRailModel
+{
+	var masterSuiteID = ""
+	
+	var projects   = [TestRailProject]()
+	var suites     = [TestRailSuite]()
+	var milestones = [TestRailMilestone]()
+	var testPlans  = [TestRailTestPlan]()
+	var testRuns   = [TestRailTestRun]()
+	var testCases  = [TestRailTestCase]()
+}
+
+
+// ------------------------------------------------------------------------------------------------
 struct TestRailProject : Codable
 {
 	let id:Int?
@@ -93,41 +107,67 @@ struct TestRailSuite : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailMilestone : Codable
 {
-	let id:Int?
-	let name:String?
-	let description:String?
-	let projectID:Int?
-	let isMaster:Bool?
-	let isBaseline:Bool?
-	let isCompleted:Bool?
-	let completedOn:String?
-	let url:String?
+	let id:Int
+	let projectID:Int
+	let parentID:Int?
+	let name:String
+	let description:String
+	let url:String
+	let startOn:Date?
+	let startedOn:Date?
+	let dueOn:Date?
+	let completedOn:Date?
+	let isStarted:Bool
+	let isCompleted:Bool
 	
 	enum CodingKeys: String, CodingKey
 	{
 		case id          = "id"
+		case projectID   = "project_id"
+		case parentID    = "parent_id"
 		case name        = "name"
 		case description = "description"
-		case projectID   = "project_id"
-		case isMaster    = "is_master"
-		case isBaseline  = "is_baseline"
-		case isCompleted = "is_completed"
-		case completedOn = "completed_on"
 		case url         = "url"
+		case startOn     = "start_on"
+		case startedOn   = "started_on"
+		case dueOn       = "due_on"
+		case completedOn = "completed_on"
+		case isStarted   = "is_started"
+		case isCompleted = "is_completed"
 	}
 	
 	init(from decoder:Decoder) throws
 	{
-		let values  = try decoder.container(keyedBy: CodingKeys.self)
-		id          = try values.decodeIfPresent(Int.self,    forKey: .id)
-		name        = try values.decodeIfPresent(String.self, forKey: .name)
-		description = try values.decodeIfPresent(String.self, forKey: .description)
-		projectID   = try values.decodeIfPresent(Int.self,    forKey: .projectID)
-		isMaster    = try values.decodeIfPresent(Bool.self,   forKey: .isMaster)
-		isBaseline  = try values.decodeIfPresent(Bool.self,   forKey: .isBaseline)
-		isCompleted = try values.decodeIfPresent(Bool.self,   forKey: .isCompleted)
-		completedOn = try values.decodeIfPresent(String.self, forKey: .completedOn)
-		url         = try values.decodeIfPresent(String.self, forKey: .url)
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		
+		do    { id = try values.decode(Int.self, forKey: .id) }
+		catch { id = try values.decode(String.self, forKey: .id).toInt }
+		catch { id = 0 }
+		do    { projectID = try values.decode(Int.self, forKey: .projectID) }
+		catch { projectID = 0 }
+		do    { parentID = try values.decode(Int.self, forKey: .parentID) }
+		catch { parentID = nil }
+		
+		do    { name = try values.decode(String.self, forKey: .name) }
+		catch { name = "" }
+		do    { description = try values.decode(String.self, forKey: .description) }
+		catch { description = "" }
+		do    { url = try values.decode(String.self, forKey: .url) }
+		catch { url = "" }
+		
+		do    { startOn = try values.decode(Int.self, forKey: .startOn).toDate }
+		catch { startOn = nil }
+		do    { startedOn = try values.decode(Int.self, forKey: .startedOn).toDate }
+		catch { startedOn = nil }
+		do    { dueOn = try values.decode(Int.self, forKey: .dueOn).toDate }
+		catch { dueOn = nil }
+		do    { completedOn = try values.decode(Int.self, forKey: .completedOn).toDate }
+		catch { completedOn = nil }
+		
+		do    { isStarted = try values.decode(Bool.self, forKey: .isStarted) }
+		catch { isStarted = false }
+		do    { isCompleted = try values.decode(Bool.self, forKey: .isCompleted) }
+		catch { isCompleted = false }
 	}
 }
 

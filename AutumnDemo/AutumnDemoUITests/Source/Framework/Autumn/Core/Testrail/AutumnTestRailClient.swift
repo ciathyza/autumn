@@ -13,6 +13,13 @@ import Alamofire
 class AutumnTestRailClient
 {
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Properties
+	// ----------------------------------------------------------------------------------------------------
+	
+	private var _isTestRailDataRetriveStepDone = false
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Derived Properties
 	// ----------------------------------------------------------------------------------------------------
 	
@@ -25,8 +32,6 @@ class AutumnTestRailClient
 	
 	let dispatchQueue = DispatchQueue(label: "com.autumn.manager-response-queue", qos: .userInitiated, attributes:.concurrent)
 	
-	private var _isTestRailDataRetrievalDone = false
-	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Methods
@@ -37,45 +42,107 @@ class AutumnTestRailClient
 	 */
 	func retrieveTestRailData()
 	{
-		_isTestRailDataRetrievalDone = false
+		let model = AutumnTestRunner.instance.testRailModel
+		let projectID = AutumnTestRunner.instance.config.testrailProjectID
+		
+		/* Projects */
+		_isTestRailDataRetriveStepDone = false
 		getProjects()
 		{
-			(model:[TestRailProject]?, error:String?) in
-			if let error = error
+			(response:[TestRailProject]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
 			{
-				AutumnLog.error(error)
+				model.projects = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail projects.")
 			}
-			if let model = model
-			{
-				for i in model
-				{
-					//Log.debug("Project: \(i.id), \(i.name), \(i.url)")
-				}
-				AutumnLog.debug("Retrieved \(model.count) TestRail projects.")
-			}
-			self._isTestRailDataRetrievalDone = true
+			self._isTestRailDataRetriveStepDone = true
 		}
-		AutumnUI.waitUntil { return self._isTestRailDataRetrievalDone }
+		AutumnUI.waitUntil { return self._isTestRailDataRetriveStepDone }
 		
-		_isTestRailDataRetrievalDone = false
-		getSuites(projectID: AutumnTestRunner.instance.config.testrailProjectID)
+		/* Suites */
+		_isTestRailDataRetriveStepDone = false
+		getSuites(projectID: projectID)
 		{
-			(model:[TestRailSuite]?, error:String?) in
-			if let error = error
+			(response:[TestRailSuite]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
 			{
-				AutumnLog.error(error)
-			}
-			if let model = model
-			{
-				for i in model
+				model.suites = r
+				/* Find ID of master suite. */
+				for suite in model.suites
 				{
-					//Log.debug("Suite: \(i.id), \(i.name), \(i.url)")
+					if let isMaster = suite.isMaster, isMaster == true
+					{
+						model.masterSuiteID = "\(suite.id!)"
+						break
+					}
 				}
-				AutumnLog.debug("Retrieved \(model.count) TestRail suites.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail suites. (MasterID: \(model.masterSuiteID))")
 			}
-			self._isTestRailDataRetrievalDone = true
+			self._isTestRailDataRetriveStepDone = true
 		}
-		AutumnUI.waitUntil { return self._isTestRailDataRetrievalDone }
+		AutumnUI.waitUntil { return self._isTestRailDataRetriveStepDone }
+		
+		/* Milestones */
+		_isTestRailDataRetriveStepDone = false
+		getMilestones(projectID: projectID)
+		{
+			(response:[TestRailMilestone]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				model.milestones = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail milestones.")
+			}
+			self._isTestRailDataRetriveStepDone = true
+		}
+		AutumnUI.waitUntil { return self._isTestRailDataRetriveStepDone }
+		
+		/* Test plans */
+		_isTestRailDataRetriveStepDone = false
+		getTestPlans(projectID: projectID)
+		{
+			(response:[TestRailTestPlan]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				model.testPlans = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail test plans.")
+			}
+			self._isTestRailDataRetriveStepDone = true
+		}
+		AutumnUI.waitUntil { return self._isTestRailDataRetriveStepDone }
+		
+		/* Test runs */
+		_isTestRailDataRetriveStepDone = false
+		getTestRuns(projectID: projectID)
+		{
+			(response:[TestRailTestRun]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				model.testRuns = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail test runs.")
+			}
+			self._isTestRailDataRetriveStepDone = true
+		}
+		AutumnUI.waitUntil { return self._isTestRailDataRetriveStepDone }
+		
+		/* Test cases */
+		_isTestRailDataRetriveStepDone = false
+		getTestCases(projectID: projectID, suiteID: model.masterSuiteID)
+		{
+			(response:[TestRailTestCase]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				model.testCases = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail test cases.")
+			}
+			self._isTestRailDataRetriveStepDone = true
+		}
+		AutumnUI.waitUntil { return self._isTestRailDataRetriveStepDone }
 	}
 	
 	
@@ -92,6 +159,30 @@ class AutumnTestRailClient
 	func getSuites(projectID:String, callback: @escaping (([TestRailSuite]?, _:String?) -> Void))
 	{
 		httpGet(path: "get_suites/\(projectID)", type: [TestRailSuite].self, callback: callback)
+	}
+	
+	
+	func getMilestones(projectID:String, callback: @escaping (([TestRailMilestone]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_milestones/\(projectID)", type: [TestRailMilestone].self, callback: callback)
+	}
+	
+	
+	func getTestPlans(projectID:String, callback: @escaping (([TestRailTestPlan]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_plans/\(projectID)", type: [TestRailTestPlan].self, callback: callback)
+	}
+	
+	
+	func getTestRuns(projectID:String, callback: @escaping (([TestRailTestRun]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_runs/\(projectID)", type: [TestRailTestRun].self, callback: callback)
+	}
+	
+	
+	func getTestCases(projectID:String, suiteID:String, callback: @escaping (([TestRailTestCase]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_cases/4\(projectID)&suite_id=\(suiteID)&section_id=/", type: [TestRailTestCase].self, callback: callback)
 	}
 	
 	
@@ -144,6 +235,10 @@ class AutumnTestRailClient
 						case .success(_):
 							if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
 							{
+								if AutumnTestRunner.instance.config.debug
+								{
+									Log.debug("Debug", "\(utf8Text)")
+								}
 								let decoder = JSONDecoder()
 								var decodedModel:T?
 								do
@@ -151,9 +246,13 @@ class AutumnTestRailClient
 									decodedModel = try! decoder.decode(type, from: data)
 									callback(decodedModel, nil)
 								}
-								catch let error as Error
+								catch let e as DecodingError
 								{
-									callback(nil, "Failed to decode JSON response. Error was: \(error.localizedDescription)")
+									callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
+								}
+								catch let e as Error
+								{
+									callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
 								}
 							}
 						case .failure(_):

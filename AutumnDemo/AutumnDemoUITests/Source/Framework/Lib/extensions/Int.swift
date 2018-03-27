@@ -26,6 +26,14 @@ extension Int
 		return Double(self) / 1000
 	}
 	
+	/**
+	 * Returns a date with the value of self as the Unix timestamp.
+	 */
+	public var toDate:Date
+	{
+		return Date(timeIntervalSince1970: Double(self))
+	}
+	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Init

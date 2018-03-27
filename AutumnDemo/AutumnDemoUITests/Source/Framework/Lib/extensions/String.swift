@@ -58,8 +58,9 @@ extension String
 		return ns.deletingPathExtension
 	}
 	
-	/// Trims whitespace from start and end of string.
-	///
+	/**
+	 * Trims whitespace from start and end of string.
+	 */
 	public var trimmed:String
 	{
 		return self.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -75,26 +76,37 @@ extension String
 		return !self.isEmpty && self.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
 	}
 	
-	
-	/// - Returns: `true` if contains any cahracters other than whitespace or newline characters, else `no`.
+	/**
+	 * Returns: `true` if contains any cahracters other than whitespace or newline characters, else `no`.
+	 */
 	public var isBlank:Bool
 	{
 		return trimmed.isEmpty
 	}
 	
-	
-	/// Returns a random character from the `ChracterView`.
-	///
-	/// - Returns: A random character from the `CharacterView` or `nil` if empty.
+	/**
+	 * Returns: A random character from the `CharacterView` or `nil` if empty.
+	 */
 	public var sample:Character?
 	{
 		return isEmpty ? nil : self[index(startIndex, offsetBy: Int(randomBelow: count)!)]
 	}
 	
-	
 	public var obscured:String
 	{
 		return String(repeating: "*", count: count)
+	}
+	
+	public var toInt:Int
+	{
+		if let n = Int(self) { return n }
+		return 0
+	}
+	
+	public var toUInt:UInt
+	{
+		if let n = UInt(self) { return n }
+		return 0
 	}
 	
 	
@@ -157,7 +169,7 @@ extension String
 	}
 	
 	
-	func substring(_ start:Int, _ end:Int = -1) -> String
+	public func substring(_ start:Int, _ end:Int = -1) -> String
 	{
 		let startIndex = self.index(self.startIndex, offsetBy: start)
 		let endIndex = self.index(startIndex, offsetBy: end < 0 ? self.characters.count - 2 : end)
@@ -165,7 +177,7 @@ extension String
 	}
 	
 	
-	func matches(for regex:String) -> [String]
+	public func matches(for regex:String) -> [String]
 	{
 		do
 		{
