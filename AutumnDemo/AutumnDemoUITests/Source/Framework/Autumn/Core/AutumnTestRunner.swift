@@ -230,7 +230,6 @@ open class AutumnTestRunner : XCTestCase
 	// ----------------------------------------------------------------------------------------------------
 	
 	
-	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - XCTest
 	// ----------------------------------------------------------------------------------------------------
@@ -300,36 +299,7 @@ open class AutumnTestRunner : XCTestCase
 			configure()
 			
 			AutumnLog.debug("Retrieving TestRail data ...")
-			_testrailClient.getProjects()
-			{
-				(model:[TestRailProject]?, error:String?) in
-				if let error = error
-				{
-					AutumnLog.error(error)
-				}
-				if let model = model
-				{
-					for i in model
-					{
-						Log.debug("Project: \(i.id), \(i.name), \(i.url)")
-					}
-				}
-			}
-			_testrailClient.getSuites(projectID: config.testrailProjectID)
-			{
-				(model:[TestRailSuite]?, error:String?) in
-				if let error = error
-				{
-					AutumnLog.error(error)
-				}
-				if let model = model
-				{
-					for i in model
-					{
-						Log.debug("Suite: \(i.id), \(i.name), \(i.url)")
-					}
-				}
-			}
+			_testrailClient.retrieveTestRailData()
 			
 			AutumnLog.debug("Registering objects ...")
 			registerUsers()

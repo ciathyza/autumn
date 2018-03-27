@@ -25,9 +25,62 @@ class AutumnTestRailClient
 	
 	let dispatchQueue = DispatchQueue(label: "com.autumn.manager-response-queue", qos: .userInitiated, attributes:.concurrent)
 	
+	private var _isTestRailDataRetrievalDone = false
+	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Non-Async method to retrieve all TestRail data.
+	 */
+	func retrieveTestRailData()
+	{
+		_isTestRailDataRetrievalDone = false
+		getProjects()
+		{
+			(model:[TestRailProject]?, error:String?) in
+			if let error = error
+			{
+				AutumnLog.error(error)
+			}
+			if let model = model
+			{
+				for i in model
+				{
+					//Log.debug("Project: \(i.id), \(i.name), \(i.url)")
+				}
+				AutumnLog.debug("Retrieved \(model.count) TestRail projects.")
+			}
+			self._isTestRailDataRetrievalDone = true
+		}
+		AutumnUI.waitUntil { return self._isTestRailDataRetrievalDone }
+		
+		_isTestRailDataRetrievalDone = false
+		getSuites(projectID: AutumnTestRunner.instance.config.testrailProjectID)
+		{
+			(model:[TestRailSuite]?, error:String?) in
+			if let error = error
+			{
+				AutumnLog.error(error)
+			}
+			if let model = model
+			{
+				for i in model
+				{
+					//Log.debug("Suite: \(i.id), \(i.name), \(i.url)")
+				}
+				AutumnLog.debug("Retrieved \(model.count) TestRail suites.")
+			}
+			self._isTestRailDataRetrievalDone = true
+		}
+		AutumnUI.waitUntil { return self._isTestRailDataRetrievalDone }
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Get API
 	// ----------------------------------------------------------------------------------------------------
 	
 	func getProjects(callback: @escaping (([TestRailProject]?, _:String?) -> Void))
