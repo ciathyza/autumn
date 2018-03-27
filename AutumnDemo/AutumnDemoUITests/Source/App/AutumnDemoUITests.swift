@@ -21,7 +21,7 @@ class AutumnDemoUITests : AutumnTestRunner
 		config.testrailHost      = "https://pointpartner.testrail.net"
 		config.testrailUsername  = "ts-balkau.sascha@rakuten.com"
 		config.testrailPassword  = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
-		config.testrailProjectID = "4"
+		config.testrailProjectID = 4
 		config.isStagingBuild    = true
 		config.logInstructions   = true
 		config.debug             = true

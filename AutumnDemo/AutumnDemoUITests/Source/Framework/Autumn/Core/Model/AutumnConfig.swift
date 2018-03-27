@@ -67,7 +67,7 @@ public class AutumnConfig : NSObject
 	/**
 	 * The nummeric TestRail project ID, e.g. 4
 	 */
-	public var testrailProjectID = ""
+	public var testrailProjectID = 0
 	
 	/**
 	 * The ID of the TestRail test run used to submit test results, e.g. 562
