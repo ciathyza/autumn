@@ -21,6 +21,8 @@ class TestRailModel
 	var testRuns   = [TestRailTestRun]()
 	var testCases  = [TestRailTestCase]()
 	var statuses   = [TestRailStatus]()
+	var testCaseFields = [TestRailTestCaseField]()
+	var testCaseTypes = [TestRailTestCaseType]()
 }
 
 
@@ -460,47 +462,47 @@ struct TestRailStatus : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailTestCaseField : Codable
 {
-	let id:Int?
-	let is_active:Bool?
-	let type_id:Int?
-	let name:String?
-	let system_name:String?
-	let label:String?
-	let description:String?
-	let configs:[TestRailConfig]?
-	let display_order:Int?
-	let include_all:Bool?
-	let template_ids:[Int]?
+	let id:Int
+	let typeID:Int
+	let displayOrder:Int
+	let templateIDs:[Int]
+	let name:String
+	let systemName:String
+	let label:String
+	let description:String
+	let configs:[TestRailConfig]
+	let isActive:Bool
+	let includeAll:Bool
 	
 	enum CodingKeys : String, CodingKey
 	{
 		case id = "id"
-		case is_active = "is_active"
-		case type_id = "type_id"
+		case typeID = "type_id"
+		case displayOrder = "display_order"
+		case templateIDs = "template_ids"
 		case name = "name"
-		case system_name = "system_name"
+		case systemName = "system_name"
 		case label = "label"
 		case description = "description"
 		case configs = "configs"
-		case display_order = "display_order"
-		case include_all = "include_all"
-		case template_ids = "template_ids"
+		case isActive = "is_active"
+		case includeAll = "include_all"
 	}
 	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		id = try values.decode(Int.self, forKey: .id)
-		is_active = try values.decode(Bool.self, forKey: .is_active)
-		type_id = try values.decode(Int.self, forKey: .type_id)
-		name = try values.decode(String.self, forKey: .name)
-		system_name = try values.decode(String.self, forKey: .system_name)
-		label = try values.decode(String.self, forKey: .label)
-		description = try values.decode(String.self, forKey: .description)
-		configs = try values.decode([TestRailConfig].self, forKey: .configs)
-		display_order = try values.decode(Int.self, forKey: .display_order)
-		include_all = try values.decode(Bool.self, forKey: .include_all)
-		template_ids = try values.decode([Int].self, forKey: .template_ids)
+		do { id           = try values.decode(Int.self,              forKey: .id) }           catch { id = 0 }
+		do { typeID       = try values.decode(Int.self,              forKey: .typeID) }       catch { typeID = 0 }
+		do { displayOrder = try values.decode(Int.self,              forKey: .displayOrder) } catch { displayOrder = 0 }
+		do { templateIDs  = try values.decode([Int].self,            forKey: .templateIDs) }  catch { templateIDs = [Int]() }
+		do { name         = try values.decode(String.self,           forKey: .name) }         catch { name = "" }
+		do { systemName   = try values.decode(String.self,           forKey: .systemName) }   catch { systemName = "" }
+		do { label        = try values.decode(String.self,           forKey: .label) }        catch { label = "" }
+		do { description  = try values.decode(String.self,           forKey: .description) }  catch { description = "" }
+		do { configs      = try values.decode([TestRailConfig].self, forKey: .configs) }      catch { configs = [TestRailConfig]() }
+		do { isActive     = try values.decode(Bool.self,             forKey: .isActive) }     catch { isActive = false }
+		do { includeAll   = try values.decode(Bool.self,             forKey: .includeAll) }   catch { includeAll = false }
 	}
 }
 
@@ -508,81 +510,81 @@ struct TestRailTestCaseField : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailConfig : Codable
 {
+	let id:Int
 	let context:TestRailContext?
 	let options:TestRailOptions?
-	let id:String?
 	
 	enum CodingKeys : String, CodingKey
 	{
+		case id = "id"
 		case context
 		case options
-		case id = "id"
 	}
 	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		context = try TestRailContext(from: decoder)
-		options = try TestRailOptions(from: decoder)
-		id = try values.decode(String.self, forKey: .id)
+		do { id = try values.decode(Int.self, forKey: .id) } catch { id = 0 }
+		do { context = try TestRailContext(from: decoder) } catch { context = nil }
+		do { options = try TestRailOptions(from: decoder) } catch { options = nil }
 	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailContext: Codable
+struct TestRailContext : Codable
 {
-	let isGlobal:Bool?
-	let projectIDs:String?
+	let projectIDs:[Int]
+	let isGlobal:Bool
 	
 	enum CodingKeys : String, CodingKey
 	{
-		case isGlobal   = "is_global"
 		case projectIDs = "project_ids"
+		case isGlobal   = "is_global"
 	}
 	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		isGlobal   = try values.decode(Bool.self,   forKey: .isGlobal)
-		projectIDs = try values.decode(String.self, forKey: .projectIDs)
+		do { projectIDs = try values.decode([Int].self, forKey: .projectIDs) } catch { projectIDs = [Int]() }
+		do { isGlobal = try values.decode(Bool.self, forKey: .isGlobal) } catch { isGlobal = false }
 	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailOptions: Codable
+struct TestRailOptions : Codable
 {
-	let isRequired:Bool?
-	let defaultValue:String?
-	let format:String?
-	let rows:Int?
+	let rows:String
+	let defaultValue:String
+	let format:String
+	let isRequired:Bool
 	
 	enum CodingKeys : String, CodingKey
 	{
-		case isRequired   = "is_required"
+		case rows         = "rows"
 		case defaultValue = "default_value"
 		case format       = "format"
-		case rows         = "rows"
+		case isRequired   = "is_required"
 	}
 	
 	init(from decoder:Decoder) throws
 	{
-		let values   = try decoder.container(keyedBy: CodingKeys.self)
-		isRequired   = try values.decode(Bool.self,   forKey: .isRequired)
-		defaultValue = try values.decode(String.self, forKey: .defaultValue)
-		format       = try values.decode(String.self, forKey: .format)
-		rows         = try values.decode(Int.self,    forKey: .rows)
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+		do { rows         = try values.decode(String.self,    forKey: .rows) }      catch { rows = "" }
+		do { defaultValue = try values.decode(String.self, forKey: .defaultValue) } catch { defaultValue = "" }
+		do { format       = try values.decode(String.self, forKey: .format) }       catch { format = "" }
+		do { isRequired   = try values.decode(Bool.self,   forKey: .isRequired) }   catch { isRequired = false }
 	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailType : Codable
+struct TestRailTestCaseType : Codable
 {
-	let id:Int?
-	let name:String?
-	let isDefault:Bool?
+	let id:Int
+	let name:String
+	let isDefault:Bool
 	
 	enum CodingKeys : String, CodingKey
 	{
@@ -594,9 +596,9 @@ struct TestRailType : Codable
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		id        = try values.decode(Int.self,    forKey: .id)
-		name      = try values.decode(String.self, forKey: .name)
-		isDefault = try values.decode(Bool.self,   forKey: .isDefault)
+		do { id = try values.decode(Int.self, forKey: .id) } catch { id = 0 }
+		do { name = try values.decode(String.self, forKey: .name) } catch { name = "" }
+		do { isDefault = try values.decode(Bool.self, forKey: .isDefault) } catch { isDefault = false }
 	}
 }
 

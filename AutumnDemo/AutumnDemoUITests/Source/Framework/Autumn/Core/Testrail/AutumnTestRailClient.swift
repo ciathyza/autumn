@@ -17,6 +17,8 @@ class AutumnTestRailClient
 	// ----------------------------------------------------------------------------------------------------
 	
 	private var _isTestRailStatusesRetrievalComplete = false
+	private var _isTestRailTestCaseFieldsRetrievalComplete = false
+	private var _isTestRailTestCaseTypesRetrievalComplete = false
 	private var _isTestRailProjectsRetrievalComplete = false
 	private var _isTestRailSuitesRetrievalComplete = false
 	private var _isTestRailMilestonesRetrievalComplete = false
@@ -52,6 +54,10 @@ class AutumnTestRailClient
 		
 		getTestRailStatuses()
 		AutumnUI.waitUntil { return self._isTestRailStatusesRetrievalComplete }
+		getTestRailTestCaseFields()
+		AutumnUI.waitUntil { return self._isTestRailTestCaseFieldsRetrievalComplete }
+		getTestRailTestCaseTypes()
+		AutumnUI.waitUntil { return self._isTestRailTestCaseTypesRetrievalComplete }
 		getTestRailProjects()
 		AutumnUI.waitUntil { return self._isTestRailProjectsRetrievalComplete }
 		getTestRailSuites()
@@ -80,6 +86,40 @@ class AutumnTestRailClient
 				AutumnLog.debug("Retrieved \(r.count) TestRail statuses.")
 			}
 			self._isTestRailStatusesRetrievalComplete = true
+		}
+	}
+	
+	
+	private func getTestRailTestCaseFields()
+	{
+		_isTestRailTestCaseFieldsRetrievalComplete = false
+		getTestCaseFields()
+		{
+			(response:[TestRailTestCaseField]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				AutumnTestRunner.instance.testRailModel.testCaseFields = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail test case fields.")
+			}
+			self._isTestRailTestCaseFieldsRetrievalComplete = true
+		}
+	}
+	
+	
+	private func getTestRailTestCaseTypes()
+	{
+		_isTestRailTestCaseTypesRetrievalComplete = false
+		getTestCaseTypes()
+		{
+			(response:[TestRailTestCaseType]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				AutumnTestRunner.instance.testRailModel.testCaseTypes = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail test case types.")
+			}
+			self._isTestRailTestCaseTypesRetrievalComplete = true
 		}
 	}
 	
@@ -203,6 +243,19 @@ class AutumnTestRailClient
 	{
 		httpGet(path: "get_statuses", type: [TestRailStatus].self, callback: callback)
 	}
+	
+	
+	func getTestCaseFields(callback: @escaping (([TestRailTestCaseField]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_case_fields", type: [TestRailTestCaseField].self, callback: callback)
+	}
+	
+	
+	func getTestCaseTypes(callback: @escaping (([TestRailTestCaseType]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_case_types", type: [TestRailTestCaseType].self, callback: callback)
+	}
+	
 	
 	func getProjects(callback: @escaping (([TestRailProject]?, _:String?) -> Void))
 	{
