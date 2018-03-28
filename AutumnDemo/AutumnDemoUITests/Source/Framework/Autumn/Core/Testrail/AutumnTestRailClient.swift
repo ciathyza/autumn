@@ -16,16 +16,7 @@ class AutumnTestRailClient
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	private var _isTestRailStatusesRetrievalComplete = false
-	private var _isTestRailTestCaseFieldsRetrievalComplete = false
-	private var _isTestRailTestCaseTypesRetrievalComplete = false
-	private var _isTestRailProjectsRetrievalComplete = false
-	private var _isTestRailSuitesRetrievalComplete = false
-	private var _isTestRailMilestonesRetrievalComplete = false
-	private var _isTestRailTestPlansRetrievalComplete = false
-	private var _isTestRailTestRunsRetrievalComplete = false
-	private var _isTestRailTestCasesRetrievalComplete = false
-	private var _isTestRailTestsRetrievalComplete = false
+	private var _isTestRailRetrievalComplete = false
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -54,29 +45,29 @@ class AutumnTestRailClient
 		/* Yep, this cumbersome structure for fetching async data from server is required for the wait API to work with XCTest. */
 		
 		getTestRailStatuses()
-		AutumnUI.waitUntil { return self._isTestRailStatusesRetrievalComplete }
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestCaseFields()
-		AutumnUI.waitUntil { return self._isTestRailTestCaseFieldsRetrievalComplete }
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestCaseTypes()
-		AutumnUI.waitUntil { return self._isTestRailTestCaseTypesRetrievalComplete }
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailProjects()
-		AutumnUI.waitUntil { return self._isTestRailProjectsRetrievalComplete }
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailSuites()
-		AutumnUI.waitUntil { return self._isTestRailSuitesRetrievalComplete }
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailMilestones()
-		AutumnUI.waitUntil { return self._isTestRailMilestonesRetrievalComplete }
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestPlans()
-		AutumnUI.waitUntil { return self._isTestRailTestPlansRetrievalComplete }
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestRuns()
-		AutumnUI.waitUntil { return self._isTestRailTestRunsRetrievalComplete }
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestCases()
-		AutumnUI.waitUntil { return self._isTestRailTestCasesRetrievalComplete }
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 	}
 	
 	
 	private func getTestRailStatuses()
 	{
-		_isTestRailStatusesRetrievalComplete = false
+		_isTestRailRetrievalComplete = false
 		getStatuses()
 		{
 			(response:[TestRailStatus]?, error:String?) in
@@ -86,14 +77,14 @@ class AutumnTestRailClient
 				AutumnTestRunner.instance.testRailModel.statuses = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail statuses.")
 			}
-			self._isTestRailStatusesRetrievalComplete = true
+			self._isTestRailRetrievalComplete = true
 		}
 	}
 	
 	
 	private func getTestRailTestCaseFields()
 	{
-		_isTestRailTestCaseFieldsRetrievalComplete = false
+		_isTestRailRetrievalComplete = false
 		getTestCaseFields()
 		{
 			(response:[TestRailTestCaseField]?, error:String?) in
@@ -103,14 +94,14 @@ class AutumnTestRailClient
 				AutumnTestRunner.instance.testRailModel.testCaseFields = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail test case fields.")
 			}
-			self._isTestRailTestCaseFieldsRetrievalComplete = true
+			self._isTestRailRetrievalComplete = true
 		}
 	}
 	
 	
 	private func getTestRailTestCaseTypes()
 	{
-		_isTestRailTestCaseTypesRetrievalComplete = false
+		_isTestRailRetrievalComplete = false
 		getTestCaseTypes()
 		{
 			(response:[TestRailTestCaseType]?, error:String?) in
@@ -120,14 +111,14 @@ class AutumnTestRailClient
 				AutumnTestRunner.instance.testRailModel.testCaseTypes = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail test case types.")
 			}
-			self._isTestRailTestCaseTypesRetrievalComplete = true
+			self._isTestRailRetrievalComplete = true
 		}
 	}
 	
 	
 	private func getTestRailProjects()
 	{
-		_isTestRailProjectsRetrievalComplete = false
+		_isTestRailRetrievalComplete = false
 		getProjects()
 		{
 			(response:[TestRailProject]?, error:String?) in
@@ -137,14 +128,14 @@ class AutumnTestRailClient
 				AutumnTestRunner.instance.testRailModel.projects = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail projects.")
 			}
-			self._isTestRailProjectsRetrievalComplete = true
+			self._isTestRailRetrievalComplete = true
 		}
 	}
 	
 	
 	private func getTestRailSuites()
 	{
-		_isTestRailSuitesRetrievalComplete = false
+		_isTestRailRetrievalComplete = false
 		getSuites(projectID: AutumnTestRunner.instance.config.testrailProjectID)
 		{
 			(response:[TestRailSuite]?, error:String?) in
@@ -163,14 +154,14 @@ class AutumnTestRailClient
 				}
 				AutumnLog.debug("Retrieved \(r.count) TestRail suites. (MasterID: \(AutumnTestRunner.instance.testRailModel.masterSuiteID))")
 			}
-			self._isTestRailSuitesRetrievalComplete = true
+			self._isTestRailRetrievalComplete = true
 		}
 	}
 	
 	
 	private func getTestRailMilestones()
 	{
-		_isTestRailMilestonesRetrievalComplete = false
+		_isTestRailRetrievalComplete = false
 		getMilestones(projectID: AutumnTestRunner.instance.config.testrailProjectID)
 		{
 			(response:[TestRailMilestone]?, error:String?) in
@@ -180,14 +171,14 @@ class AutumnTestRailClient
 				AutumnTestRunner.instance.testRailModel.milestones = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail milestones.")
 			}
-			self._isTestRailMilestonesRetrievalComplete = true
+			self._isTestRailRetrievalComplete = true
 		}
 	}
 	
 	
 	private func getTestRailTestPlans()
 	{
-		_isTestRailTestPlansRetrievalComplete = false
+		_isTestRailRetrievalComplete = false
 		getTestPlans(projectID: AutumnTestRunner.instance.config.testrailProjectID)
 		{
 			(response:[TestRailTestPlan]?, error:String?) in
@@ -197,14 +188,14 @@ class AutumnTestRailClient
 				AutumnTestRunner.instance.testRailModel.testPlans = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail test plans.")
 			}
-			self._isTestRailTestPlansRetrievalComplete = true
+			self._isTestRailRetrievalComplete = true
 		}
 	}
 	
 	
 	private func getTestRailTestRuns()
 	{
-		_isTestRailTestRunsRetrievalComplete = false
+		_isTestRailRetrievalComplete = false
 		getTestRuns(projectID: AutumnTestRunner.instance.config.testrailProjectID)
 		{
 			(response:[TestRailTestRun]?, error:String?) in
@@ -214,14 +205,14 @@ class AutumnTestRailClient
 				AutumnTestRunner.instance.testRailModel.testRuns = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail test runs.")
 			}
-			self._isTestRailTestRunsRetrievalComplete = true
+			self._isTestRailRetrievalComplete = true
 		}
 	}
 	
 	
 	private func getTestRailTestCases()
 	{
-		_isTestRailTestCasesRetrievalComplete = false
+		_isTestRailRetrievalComplete = false
 		getTestCases(projectID: AutumnTestRunner.instance.config.testrailProjectID, suiteID: AutumnTestRunner.instance.testRailModel.masterSuiteID)
 		{
 			(response:[TestRailTestCase]?, error:String?) in
@@ -231,14 +222,14 @@ class AutumnTestRailClient
 				AutumnTestRunner.instance.testRailModel.testCases = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail test cases.")
 			}
-			self._isTestRailTestCasesRetrievalComplete = true
+			self._isTestRailRetrievalComplete = true
 		}
 	}
 	
 	
 	private func getTestRailTests()
 	{
-		_isTestRailTestsRetrievalComplete = false
+		_isTestRailRetrievalComplete = false
 		getTests(testRunID: AutumnTestRunner.instance.config.testrailTestRunID)
 		{
 			(response:[TestRailTest]?, error:String?) in
@@ -248,7 +239,7 @@ class AutumnTestRailClient
 				AutumnTestRunner.instance.testRailModel.tests = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail tests.")
 			}
-			self._isTestRailTestsRetrievalComplete = true
+			self._isTestRailRetrievalComplete = true
 		}
 	}
 	
