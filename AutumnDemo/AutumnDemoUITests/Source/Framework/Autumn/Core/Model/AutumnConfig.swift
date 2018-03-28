@@ -72,7 +72,7 @@ public class AutumnConfig : NSObject
 	/**
 	 * The ID of the TestRail test run used to submit test results, e.g. 562
 	 */
-	public var testrailTestRunID = ""
+	public var testrailTestRunID = 0
 	
 	/**
 	 * Platform IDs used by TestRail to distinguish between Android and iOS test cases.
@@ -163,7 +163,6 @@ public class AutumnConfig : NSObject
 	{
 		return testrailHost.length > 0
 				&& testrailFeatureBaseURL.length > 0
-				&& testrailTestRunID.length > 0
 				&& testrailUsername.length > 0
 				&& testrailPassword.length > 0
 	}

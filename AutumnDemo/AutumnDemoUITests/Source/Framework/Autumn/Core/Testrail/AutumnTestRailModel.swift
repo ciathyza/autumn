@@ -23,6 +23,7 @@ class TestRailModel
 	var statuses   = [TestRailStatus]()
 	var testCaseFields = [TestRailTestCaseField]()
 	var testCaseTypes = [TestRailTestCaseType]()
+	var tests = [TestRailTest]()
 }
 
 
@@ -606,29 +607,29 @@ struct TestRailTestCaseType : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailPriority : Codable
 {
-	let id:Int?
-	let name:String?
-	let shortName:String?
-	let isDefault:Bool?
-	let priority:Int?
+	let id:Int
+	let priority:Int
+	let name:String
+	let shortName:String
+	let isDefault:Bool
 	
 	enum CodingKeys : String, CodingKey
 	{
 		case id        = "id"
+		case priority  = "priority"
 		case name      = "name"
 		case shortName = "short_name"
 		case isDefault = "is_default"
-		case priority  = "priority"
 	}
 	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		id        = try values.decode(Int.self,    forKey: .id)
-		name      = try values.decode(String.self, forKey: .name)
-		shortName = try values.decode(String.self, forKey: .shortName)
-		isDefault = try values.decode(Bool.self,   forKey: .isDefault)
-		priority  = try values.decode(Int.self,    forKey: .priority)
+		do { id        = try values.decode(Int.self,    forKey: .id) }        catch { id = 0 }
+		do { priority  = try values.decode(Int.self,    forKey: .priority) }  catch { priority = 0 }
+		do { name      = try values.decode(String.self, forKey: .name) }      catch { name = "'" }
+		do { shortName = try values.decode(String.self, forKey: .shortName) } catch { shortName = "" }
+		do { isDefault = try values.decode(Bool.self,   forKey: .isDefault) } catch { isDefault = false }
 	}
 }
 
@@ -636,28 +637,28 @@ struct TestRailPriority : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailTest : Codable
 {
-	let id:Int?
-	let caseID:Int?
-	let statusID:Int?
-	let assignedToID:Int?
-	let runID:Int?
-	let title:String?
-	let templateID:Int?
-	let typeID:Int?
-	let priorityID:Int?
-	let estimate:String?
-	let estimateForecast:String?
-	let refs:String?
-	let milestoneID:String?
-	let customAutomated:String?
-	let customPreconds:String?
-	let customSteps:String?
-	let customExpected:String?
-	let customStepsSeparated:[TestRailCustomTestStep]?
-	let customMission:String?
-	let customGoals:String?
-	let customLabel:[String]?
-	let customOS:[Int]?
+	let id:Int
+	let caseID:Int
+	let statusID:Int
+	let assignedToID:Int
+	let runID:Int
+	let templateID:Int
+	let typeID:Int
+	let priorityID:Int
+	let milestoneID:Int
+	let customOS:[Int]
+	let title:String
+	let estimate:String
+	let estimateForecast:String
+	let refs:String
+	let customAutomated:String
+	let customPreconds:String
+	let customSteps:String
+	let customExpected:String
+	let customMission:String
+	let customGoals:String
+	let customLabel:[String]
+	let customStepsSeparated:[TestRailCustomTestStep]
 	
 	enum CodingKeys : String, CodingKey
 	{
@@ -666,50 +667,50 @@ struct TestRailTest : Codable
 		case statusID             = "status_id"
 		case assignedToID         = "assignedto_id"
 		case runID                = "run_id"
-		case title                = "title"
 		case templateID           = "template_id"
 		case typeID               = "type_id"
 		case priorityID           = "priority_id"
+		case milestoneID          = "milestone_id"
+		case customOS             = "custom_os"
+		case title                = "title"
 		case estimate             = "estimate"
 		case estimateForecast     = "estimate_forecast"
 		case refs                 = "refs"
-		case milestoneID          = "milestone_id"
 		case customAutomated      = "custom_automated"
 		case customPreconds       = "custom_preconds"
 		case customSteps          = "custom_steps"
 		case customExpected       = "custom_expected"
-		case customStepsSeparated = "custom_steps_separated"
 		case customMission        = "custom_mission"
 		case customGoals          = "custom_goals"
 		case customLabel          = "custom_label"
-		case customOS             = "custom_os"
+		case customStepsSeparated = "custom_steps_separated"
 	}
 	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		id                   = try values.decode(Int.self,                      forKey: .id)
-		caseID               = try values.decode(Int.self,                      forKey: .caseID)
-		statusID             = try values.decode(Int.self,                      forKey: .statusID)
-		assignedToID         = try values.decode(Int.self,                      forKey: .assignedToID)
-		runID                = try values.decode(Int.self,                      forKey: .runID)
-		title                = try values.decode(String.self,                   forKey: .title)
-		templateID           = try values.decode(Int.self,                      forKey: .templateID)
-		typeID               = try values.decode(Int.self,                      forKey: .typeID)
-		priorityID           = try values.decode(Int.self,                      forKey: .priorityID)
-		estimate             = try values.decode(String.self,                   forKey: .estimate)
-		estimateForecast     = try values.decode(String.self,                   forKey: .estimateForecast)
-		refs                 = try values.decode(String.self,                   forKey: .refs)
-		milestoneID          = try values.decode(String.self,                   forKey: .milestoneID)
-		customAutomated      = try values.decode(String.self,                   forKey: .customAutomated)
-		customPreconds       = try values.decode(String.self,                   forKey: .customPreconds)
-		customSteps          = try values.decode(String.self,                   forKey: .customSteps)
-		customExpected       = try values.decode(String.self,                   forKey: .customExpected)
-		customStepsSeparated = try values.decode([TestRailCustomTestStep].self, forKey: .customStepsSeparated)
-		customMission        = try values.decode(String.self,                   forKey: .customMission)
-		customGoals          = try values.decode(String.self,                   forKey: .customGoals)
-		customLabel          = try values.decode([String].self,                 forKey: .customLabel)
-		customOS             = try values.decode([Int].self,                    forKey: .customOS)
+		do { id                   = try values.decode(Int.self,                      forKey: .id) }                   catch { id = 0 }
+		do { caseID               = try values.decode(Int.self,                      forKey: .caseID) }               catch { caseID = 0 }
+		do { statusID             = try values.decode(Int.self,                      forKey: .statusID) }             catch { statusID = 0 }
+		do { assignedToID         = try values.decode(Int.self,                      forKey: .assignedToID) }         catch { assignedToID = 0 }
+		do { runID                = try values.decode(Int.self,                      forKey: .runID) }                catch { runID = 0 }
+		do { templateID           = try values.decode(Int.self,                      forKey: .templateID) }           catch { templateID = 0 }
+		do { typeID               = try values.decode(Int.self,                      forKey: .typeID) }               catch { typeID = 0 }
+		do { priorityID           = try values.decode(Int.self,                      forKey: .priorityID) }           catch { priorityID = 0 }
+		do { milestoneID          = try values.decode(Int.self,                      forKey: .milestoneID) }          catch { milestoneID = 0 }
+		do { customOS             = try values.decode([Int].self,                    forKey: .customOS) }             catch { customOS = [Int]() }
+		do { title                = try values.decode(String.self,                   forKey: .title) }                catch { title = "" }
+		do { estimate             = try values.decode(String.self,                   forKey: .estimate) }             catch { estimate = "" }
+		do { estimateForecast     = try values.decode(String.self,                   forKey: .estimateForecast) }     catch { estimateForecast = "" }
+		do { refs                 = try values.decode(String.self,                   forKey: .refs) }                 catch { refs = "" }
+		do { customAutomated      = try values.decode(String.self,                   forKey: .customAutomated) }      catch { customAutomated = "" }
+		do { customPreconds       = try values.decode(String.self,                   forKey: .customPreconds) }       catch { customPreconds = "" }
+		do { customSteps          = try values.decode(String.self,                   forKey: .customSteps) }          catch { customSteps = "" }
+		do { customExpected       = try values.decode(String.self,                   forKey: .customExpected) }       catch { customExpected = "" }
+		do { customMission        = try values.decode(String.self,                   forKey: .customMission) }        catch { customMission = "" }
+		do { customGoals          = try values.decode(String.self,                   forKey: .customGoals) }          catch { customGoals = "" }
+		do { customLabel          = try values.decode([String].self,                 forKey: .customLabel) }          catch { customLabel = [String]() }
+		do { customStepsSeparated = try values.decode([TestRailCustomTestStep].self, forKey: .customStepsSeparated) } catch { customStepsSeparated = [TestRailCustomTestStep]() }
 	}
 }
 
@@ -717,8 +718,8 @@ struct TestRailTest : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailCustomTestStep : Codable
 {
-	let content:String?
-	let expected:String?
+	let content:String
+	let expected:String
 	
 	enum CodingKeys : String, CodingKey
 	{
@@ -729,8 +730,8 @@ struct TestRailCustomTestStep : Codable
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		content  = try values.decode(String.self, forKey: .content)
-		expected = try values.decode(String.self, forKey: .expected)
+		do { content  = try values.decode(String.self, forKey: .content) } catch { content = "" }
+		do { expected = try values.decode(String.self, forKey: .expected) } catch { expected = "" }
 	}
 }
 
@@ -738,17 +739,17 @@ struct TestRailCustomTestStep : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailTestResult : Codable
 {
-	let id:Int?
-	let testID:Int?
-	let statusID:Int?
-	let createdBy:Int?
-	let createdOn:Int?
-	let assignedToID:Int?
-	let comment:String?
-	let version:String?
-	let elapsed:String?
-	let defects:String?
-	let customStepResults:[TestRailCustomTestStepResult]?
+	let id:Int
+	let testID:Int
+	let statusID:Int
+	let createdBy:Int
+	let createdOn:Date?
+	let assignedToID:Int
+	let comment:String
+	let version:String
+	let elapsed:String
+	let defects:String
+	let customStepResults:[TestRailCustomTestStepResult]
 	
 	enum CodingKeys : String, CodingKey
 	{
@@ -768,17 +769,17 @@ struct TestRailTestResult : Codable
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		id                = try values.decode(Int.self,                            forKey: .id)
-		testID            = try values.decode(Int.self,                            forKey: .testID)
-		statusID          = try values.decode(Int.self,                            forKey: .statusID)
-		createdBy         = try values.decode(Int.self,                            forKey: .createdBy)
-		createdOn         = try values.decode(Int.self,                            forKey: .createdOn)
-		assignedToID      = try values.decode(Int.self,                            forKey: .assignedToID)
-		comment           = try values.decode(String.self,                         forKey: .comment)
-		version           = try values.decode(String.self,                         forKey: .version)
-		elapsed           = try values.decode(String.self,                         forKey: .elapsed)
-		defects           = try values.decode(String.self,                         forKey: .defects)
-		customStepResults = try values.decode([TestRailCustomTestStepResult].self, forKey: .customStepResults)
+		do { id                = try values.decode(Int.self,                            forKey: .id) }                catch { id = 0 }
+		do { testID            = try values.decode(Int.self,                            forKey: .testID) }            catch { testID = 0 }
+		do { statusID          = try values.decode(Int.self,                            forKey: .statusID) }          catch { statusID = 0 }
+		do { createdBy         = try values.decode(Int.self,                            forKey: .createdBy) }         catch { createdBy = 0 }
+		do { createdOn         = try values.decode(Int.self,                            forKey: .createdOn).toDate }  catch { createdOn = nil }
+		do { assignedToID      = try values.decode(Int.self,                            forKey: .assignedToID) }      catch { assignedToID = 0 }
+		do { comment           = try values.decode(String.self,                         forKey: .comment) }           catch { comment = "" }
+		do { version           = try values.decode(String.self,                         forKey: .version) }           catch { version = "" }
+		do { elapsed           = try values.decode(String.self,                         forKey: .elapsed) }           catch { elapsed = "" }
+		do { defects           = try values.decode(String.self,                         forKey: .defects) }           catch { defects = ""}
+		do { customStepResults = try values.decode([TestRailCustomTestStepResult].self, forKey: .customStepResults) } catch { customStepResults = [TestRailCustomTestStepResult]() }
 	}
 }
 
@@ -786,26 +787,26 @@ struct TestRailTestResult : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailCustomTestStepResult : Codable
 {
-	let content:String?
-	let expected:String?
-	let actual:String?
-	let statusID:Int?
+	let statusID:Int
+	let content:String
+	let expected:String
+	let actual:String
 	
 	enum CodingKeys : String, CodingKey
 	{
+		case statusID = "status_id"
 		case content  = "content"
 		case expected = "expected"
 		case actual   = "actual"
-		case statusID = "status_id"
 	}
 	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		content  = try values.decode(String.self, forKey: .content)
-		expected = try values.decode(String.self, forKey: .expected)
-		actual   = try values.decode(String.self, forKey: .actual)
-		statusID = try values.decode(Int.self,    forKey: .statusID)
+		do { statusID = try values.decode(Int.self,    forKey: .statusID) } catch { statusID = 0 }
+		do { content  = try values.decode(String.self, forKey: .content) }  catch { content = "" }
+		do { expected = try values.decode(String.self, forKey: .expected) } catch { expected = "" }
+		do { actual   = try values.decode(String.self, forKey: .actual) }   catch { actual = "" }
 	}
 }
 
@@ -813,47 +814,47 @@ struct TestRailCustomTestStepResult : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailTestResultField : Codable
 {
-	let id:Int?
-	let isActive:Bool?
-	let typeID:Int?
-	let name:String?
-	let systemName:String?
-	let label:String?
-	let description:String?
-	let configs:[TestRailConfig]?
-	let displayOrder:Int?
-	let includeAll:Bool?
-	let templateIDs:[Int]?
+	let id:Int
+	let typeID:Int
+	let displayOrder:Int
+	let templateIDs:[Int]
+	let name:String
+	let systemName:String
+	let label:String
+	let description:String
+	let configs:[TestRailConfig]
+	let isActive:Bool
+	let includeAll:Bool
 	
 	enum CodingKeys : String, CodingKey
 	{
 		case id           = "id"
-		case isActive     = "is_active"
 		case typeID       = "type_id"
+		case displayOrder = "display_order"
+		case templateIDs  = "template_ids"
+		case configs      = "configs"
 		case name         = "name"
 		case systemName   = "system_name"
 		case label        = "label"
 		case description  = "description"
-		case configs      = "configs"
-		case displayOrder = "display_order"
+		case isActive     = "is_active"
 		case includeAll   = "include_all"
-		case templateIDs  = "template_ids"
 	}
 	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		id           = try values.decode(Int.self,              forKey: .id)
-		isActive     = try values.decode(Bool.self,             forKey: .isActive)
-		typeID       = try values.decode(Int.self,              forKey: .typeID)
-		name         = try values.decode(String.self,           forKey: .name)
-		systemName   = try values.decode(String.self,           forKey: .systemName)
-		label        = try values.decode(String.self,           forKey: .label)
-		description  = try values.decode(String.self,           forKey: .description)
-		configs      = try values.decode([TestRailConfig].self, forKey: .configs)
-		displayOrder = try values.decode(Int.self,              forKey: .displayOrder)
-		includeAll   = try values.decode(Bool.self,             forKey: .includeAll)
-		templateIDs  = try values.decode([Int].self,            forKey: .templateIDs)
+		do { id           = try values.decode(Int.self,              forKey: .id) }           catch { id = 0 }
+		do { typeID       = try values.decode(Int.self,              forKey: .typeID) }       catch { typeID = 0 }
+		do { displayOrder = try values.decode(Int.self,              forKey: .displayOrder) } catch { displayOrder = 0 }
+		do { templateIDs  = try values.decode([Int].self,            forKey: .templateIDs) }  catch { templateIDs = [Int]() }
+		do { name         = try values.decode(String.self,           forKey: .name) }         catch { name = "" }
+		do { systemName   = try values.decode(String.self,           forKey: .systemName) }   catch { systemName = "" }
+		do { label        = try values.decode(String.self,           forKey: .label) }        catch { label = "" }
+		do { description  = try values.decode(String.self,           forKey: .description) }  catch { description = "" }
+		do { configs      = try values.decode([TestRailConfig].self, forKey: .configs) }      catch { configs = [TestRailConfig]() }
+		do { isActive     = try values.decode(Bool.self,             forKey: .isActive) }     catch { isActive = false }
+		do { includeAll   = try values.decode(Bool.self,             forKey: .includeAll) }   catch { includeAll = false }
 	}
 }
 
@@ -861,35 +862,35 @@ struct TestRailTestResultField : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailSection : Codable
 {
-	let id:Int?
-	let suiteID:Int?
-	let name:String?
-	let description:String?
-	let parentID:String?
-	let displayOrder:Int?
-	let depth:Int?
+	let id:Int
+	let suiteID:Int
+	let parentID:Int
+	let depth:Int
+	let displayOrder:Int
+	let name:String
+	let description:String
 	
 	enum CodingKeys : String, CodingKey
 	{
 		case id           = "id"
 		case suiteID      = "suite_id"
-		case name         = "name"
-		case description  = "description"
 		case parentID     = "parent_id"
 		case displayOrder = "display_order"
 		case depth        = "depth"
+		case name         = "name"
+		case description  = "description"
 	}
 	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		id           = try values.decode(Int.self,    forKey: .id)
-		suiteID      = try values.decode(Int.self,    forKey: .suiteID)
-		name         = try values.decode(String.self, forKey: .name)
-		description  = try values.decode(String.self, forKey: .description)
-		parentID     = try values.decode(String.self, forKey: .parentID)
-		displayOrder = try values.decode(Int.self,    forKey: .displayOrder)
-		depth        = try values.decode(Int.self,    forKey: .depth)
+		do { id           = try values.decode(Int.self,    forKey: .id) }           catch { id = 0 }
+		do { suiteID      = try values.decode(Int.self,    forKey: .suiteID) }      catch { suiteID = 0 }
+		do { parentID     = try values.decode(Int.self,    forKey: .parentID) }     catch { parentID = 0 }
+		do { depth        = try values.decode(Int.self,    forKey: .depth) }        catch { depth = 0}
+		do { displayOrder = try values.decode(Int.self,    forKey: .displayOrder) } catch { displayOrder = 0 }
+		do { name         = try values.decode(String.self, forKey: .name) }         catch { name = ""}
+		do { description  = try values.decode(String.self, forKey: .description) }  catch { description = "" }
 	}
 }
 
@@ -897,9 +898,9 @@ struct TestRailSection : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailTemplate : Codable
 {
-	let id:Int?
-	let name:String?
-	let isDefault:Bool?
+	let id:Int
+	let name:String
+	let isDefault:Bool
 	
 	enum CodingKeys : String, CodingKey
 	{
@@ -911,9 +912,9 @@ struct TestRailTemplate : Codable
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		id        = try values.decode(Int.self,    forKey: .id)
-		name      = try values.decode(String.self, forKey: .name)
-		isDefault = try values.decode(Bool.self,   forKey: .isDefault)
+		do { id        = try values.decode(Int.self,    forKey: .id) }        catch { id = 0 }
+		do { name      = try values.decode(String.self, forKey: .name) }      catch { name = "'" }
+		do { isDefault = try values.decode(Bool.self,   forKey: .isDefault) } catch { isDefault = false }
 	}
 }
 
@@ -921,10 +922,10 @@ struct TestRailTemplate : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailUser : Codable
 {
-	let id:Int?
-	let name:String?
-	let email:String?
-	let isActive:Bool?
+	let id:Int
+	let name:String
+	let email:String
+	let isActive:Bool
 	
 	enum CodingKeys : String, CodingKey
 	{
@@ -937,9 +938,9 @@ struct TestRailUser : Codable
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		id       = try values.decode(Int.self,    forKey: .id)
-		name     = try values.decode(String.self, forKey: .name)
-		email    = try values.decode(String.self, forKey: .email)
-		isActive = try values.decode(Bool.self,   forKey: .isActive)
+		do { id = try values.decode(Int.self, forKey: .id) } catch { id = 0 }
+		do { name = try values.decode(String.self, forKey: .name) } catch { name = "" }
+		do { email = try values.decode(String.self, forKey: .email) } catch { email = "" }
+		do { isActive = try values.decode(Bool.self, forKey: .isActive) } catch { isActive = false }
 	}
 }

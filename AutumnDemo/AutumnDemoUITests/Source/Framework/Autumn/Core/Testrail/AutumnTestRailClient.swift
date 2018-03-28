@@ -25,6 +25,7 @@ class AutumnTestRailClient
 	private var _isTestRailTestPlansRetrievalComplete = false
 	private var _isTestRailTestRunsRetrievalComplete = false
 	private var _isTestRailTestCasesRetrievalComplete = false
+	private var _isTestRailTestsRetrievalComplete = false
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -235,6 +236,23 @@ class AutumnTestRailClient
 	}
 	
 	
+	private func getTestRailTests()
+	{
+		_isTestRailTestsRetrievalComplete = false
+		getTests(testRunID: AutumnTestRunner.instance.config.testrailTestRunID)
+		{
+			(response:[TestRailTest]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				AutumnTestRunner.instance.testRailModel.tests = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail tests.")
+			}
+			self._isTestRailTestsRetrievalComplete = true
+		}
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Get API
 	// ----------------------------------------------------------------------------------------------------
@@ -290,6 +308,12 @@ class AutumnTestRailClient
 	func getTestCases(projectID:Int, suiteID:Int, callback: @escaping (([TestRailTestCase]?, _:String?) -> Void))
 	{
 		httpGet(path: "get_cases/\(projectID)&suite_id=\(suiteID)&section_id=", type: [TestRailTestCase].self, callback: callback)
+	}
+	
+	
+	func getTests(testRunID:Int, callback: @escaping (([TestRailTest]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_tests/\(testRunID)", type: [TestRailTest].self, callback: callback)
 	}
 	
 	
