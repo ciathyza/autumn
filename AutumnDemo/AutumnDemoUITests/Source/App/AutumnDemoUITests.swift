@@ -30,11 +30,14 @@ class AutumnDemoUITests : AutumnTestRunner
 	
 	override func registerUsers()
 	{
-		registerUser(AutumnUser("pp.qa001", "aaaaaa", "PP QA001"), isDefaultSTG: true)
-		registerUser(AutumnUser("saschab", "Opal23#", "Production User"), isDefaultPRD: true)
-		registerUser(AutumnUser("pvtest4-183@test.com", "rakuten", "Black-Listed User 3,001"))
-		registerUser(AutumnUser("pvtest3-185@test.com", "rakuten7", "Black-Listed User 2,999"))
-		registerUser(AutumnUser("pvtest3-186@test.com", "rakuten8", "Black-Listed User 3,000"))
+		registerUser(AutumnUser("James Seth Lynch", "MyUltraSecretExtraLongPassword12345%!", "Lynch"), isDefaultSTG: true)
+		registerUser(AutumnUser("Norman Bates", "MyMotherIsMyLove", "Bates"), isDefaultPRD: true)
+		registerUser(AutumnUser("Patrick Bateman", "HeadsInFridges", "Bateman"))
+		registerUser(AutumnUser("Freddy Krueger", "Claws666!LOLwut#", "Freddy"))
+		registerUser(AutumnUser("Hannibal Lecter", "Bodies123OmnomnomFTW$", "Lecter"))
+		registerUser(AutumnUser("Michael Myers", "LookUnderYourBedBeforeSleeping!", "MaskFace"))
+		registerUser(AutumnUser("Catherine Tramell", "BetweenTeheLegs", "Cathy"))
+		registerUser(AutumnUser("Jason Voorhees", "ILoveTeenies!$^*%", "Jason"))
 	}
 	
 	

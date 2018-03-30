@@ -49,11 +49,12 @@ class AutumnDemoScenario002 : AutumnScenario
 	
 	override func execute()
 	{
-		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
-		when(TypeText(ACI.APP_USERNAME_INPUT_FIELD, "James Seth Lynch"))
-		when(TypePassword(ACI.APP_PASSWORD_INPUT_FIELD, "MyUltraSecretExtraLongPassword12345%!"))
-		when(Tap(ACI.APP_LOGIN_BUTTON))
-		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
-		when(Wait(5))
+		if let user = runner.getUser("Patrick Bateman")
+		{
+			when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+			when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+			then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+			when(Wait(5))
+		}
 	}
 }

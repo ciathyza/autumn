@@ -15,6 +15,10 @@ import Foundation
 
 extension Dictionary
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
+	
 	/// Initializes a new `Dictionary` and fills it with keys and values arrays.
 	///
 	/// - Parameters:

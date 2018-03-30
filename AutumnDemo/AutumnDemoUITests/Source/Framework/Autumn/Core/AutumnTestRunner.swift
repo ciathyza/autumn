@@ -43,6 +43,7 @@ open class AutumnTestRunner : XCTestCase
 	private var _users:[String:AutumnUser] = [:]
 	private var _viewProxyClasses:[Metatype<AutumnViewProxy>:AutumnViewProxy] = [:]
 	private var _testrailClient = AutumnTestRailClient()
+	private let _fallbackUser = AutumnUser("NONE", "NONE", "NONE")
 	
 	internal static var app = XCUIApplication()
 	internal static var allFeatureClasses:[AutumnFeature.Type] = []
@@ -133,12 +134,33 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	public func getUser(_ userID:String) -> AutumnUser?
 	{
-		if (_users[userID] != nil)
+		if _users[userID] != nil
 		{
 			return _users[userID]
 		}
 		AutumnLog.warning("No user with ID \"\(userID)\" was registered.")
 		return nil
+	}
+	
+	
+	/**
+	 * Returns a random test user.
+	 */
+	public func getRandomUser() -> AutumnUser?
+	{
+		if _users.count < 1 { return nil }
+		let i = Int(arc4random_uniform(UInt32(_users.count)))
+		let v = Array(_users.values)[i]
+		return v
+	}
+	
+	
+	/**
+	 * Returns a fallback test user.
+	 */
+	public func getFallbackUser() -> AutumnUser
+	{
+		return _fallbackUser
 	}
 	
 	
@@ -318,7 +340,7 @@ open class AutumnTestRunner : XCTestCase
 			AutumnLog.debug("\n\(config.dumpTable())")
 			
 			AutumnLog.debug("Starting tests in a jiffy ...")
-			AutumnUI.sleep(4)
+			AutumnUI.sleep(2)
 		}
 		
 		session.start()
