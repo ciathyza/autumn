@@ -44,19 +44,21 @@ class AutumnTestRailClient
 	{
 		/* Yep, this cumbersome structure for fetching async data from server is required for the wait API to work with XCTest. */
 		
-		getTestRailStatuses()
-		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
-		getTestRailTestCaseFields()
-		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
-		getTestRailTestCaseTypes()
-		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailProjects()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailSuites()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailMilestones()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+		getTestRailStatuses()
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+		getTestRailTestCaseFields()
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+		getTestRailTestCaseTypes()
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestPlans()
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+		getTestRailTestCaseSections()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestRuns()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
@@ -110,6 +112,23 @@ class AutumnTestRailClient
 			{
 				AutumnTestRunner.instance.testRailModel.testCaseTypes = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail test case types.")
+			}
+			self._isTestRailRetrievalComplete = true
+		}
+	}
+	
+	
+	private func getTestRailTestCaseSections()
+	{
+		_isTestRailRetrievalComplete = false
+		getTestCaseSections(projectID: AutumnTestRunner.instance.config.testrailProjectID, suiteID: AutumnTestRunner.instance.testRailModel.masterSuiteID)
+		{
+			(response:[TestRailSection]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				AutumnTestRunner.instance.testRailModel.sections = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail test case sections.")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -244,6 +263,45 @@ class AutumnTestRailClient
 	}
 	
 	
+	func ensureServerState()
+	{
+		ensureTestCaseSection()
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+	}
+	
+	
+	func ensureTestCaseSection()
+	{
+		_isTestRailRetrievalComplete = false
+		AutumnLog.debug("Getting section used for generated test cases ...")
+		let sectionName = AutumnTestRunner.instance.config.testrailSectionName
+		if let section = AutumnTestRunner.instance.testRailModel.getSection(sectionName: sectionName)
+		{
+			/* A section with the name already exists. */
+			AutumnTestRunner.instance.testRailModel.section = section
+			AutumnLog.debug("Found existing \(sectionName) section with ID \(section.id).")
+			_isTestRailRetrievalComplete = true
+		}
+		else
+		{
+			/* Create new section to work with! */
+			let section = TestRailSection(name: sectionName, description: "Autumn test cases.")
+			createNewSection(section: section, projectID: AutumnTestRunner.instance.config.testrailProjectID)
+			{
+				(response:TestRailSection?, error:String?) in
+				if let error = error { AutumnLog.error(error) }
+				if let r = response
+				{
+					AutumnTestRunner.instance.testRailModel.section = r
+					AutumnTestRunner.instance.testRailModel.addSection(section: r)
+					AutumnLog.debug("Created new \(sectionName) section with ID \(r.id).")
+				}
+				self._isTestRailRetrievalComplete = true
+			}
+		}
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Get API
 	// ----------------------------------------------------------------------------------------------------
@@ -263,6 +321,12 @@ class AutumnTestRailClient
 	func getTestCaseTypes(callback: @escaping (([TestRailTestCaseType]?, _:String?) -> Void))
 	{
 		httpGet(path: "get_case_types", type: [TestRailTestCaseType].self, callback: callback)
+	}
+	
+	
+	func getTestCaseSections(projectID:Int, suiteID:Int, callback: @escaping (([TestRailSection]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_sections/\(projectID)&suite_id=\(suiteID)", type: [TestRailSection].self, callback: callback)
 	}
 	
 	
@@ -309,29 +373,36 @@ class AutumnTestRailClient
 	
 	
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Set API
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Creates a new section for test cases on the TestRail server.
+	 */
+	func createNewSection(section:TestRailSection, projectID:Int, callback: @escaping ((TestRailSection?, _:String?) -> Void))
+	{
+		httpPost(path: "add_section/\(projectID)", model: section, type: TestRailSection.self, callback: callback)
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - HTTP Methods
 	// ----------------------------------------------------------------------------------------------------
 	
-	/// Sends HTTP GET requests to TestRail.
-	///
-	/// - Parameters:
-	/// 	- path: The URL path of the Testrail API.
-	/// 	- model: The data model object used to contain fetched data.
-	/// 	- callback: Optional closure that is invoked after the request completed.
-	///
+	/**
+	 * Sends HTTP GET requests to TestRail.
+	 */
 	func httpGet<T:Codable>(path:String, type:T.Type, callback: @escaping ((T?, String?) -> Void))
 	{
 		let urlString = getURLFor(path)
 		guard let url = URL(string: urlString) else
 		{
-			let errorString = "HTTP request failed: Failed to create URL from \"\(urlString)\"."
-			//if let cb = callback { cb(model) }
+			callback(nil, "HTTP request failed: Failed to create URL from \"\(urlString)\".")
 			return
 		}
 		guard let authData = self.authData else
 		{
-			let errorString = "HTTP request failed: Failed to create auth data."
-			//if let cb = callback { cb(model) }
+			callback(nil, "HTTP request failed: Failed to create auth data.")
 			return
 		}
 		
@@ -342,46 +413,116 @@ class AutumnTestRailClient
 			"Content-Length": "0"
 		]
 		
-		//if AutumnTestRunner.instance.config.debug
-		//{
-		//	Log.debug("Debug", "Making HTTP GET request to \"\(urlString)\" ...")
-		//}
-		
 		Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
 			.validate(statusCode: 200 ..< 300)
 			.responseJSON(queue: dispatchQueue, options: .allowFragments, completionHandler:
+		{
+			(response:DataResponse<Any>) in
+			switch (response.result)
+			{
+				case .success(_):
+					if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
+					{
+						let decoder = JSONDecoder()
+						var decodedModel:T?
+						do
+						{
+							decodedModel = try! decoder.decode(type, from: data)
+							callback(decodedModel, nil)
+						}
+						catch let e as DecodingError
+						{
+							callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
+						}
+						catch let e as Error
+						{
+							callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
+						}
+					}
+				case .failure(_):
+					let errorDescr = response.error != nil ? response.error!.localizedDescription : ""
+					callback(nil, "HTTP request for \(url.absoluteString) failed: \(errorDescr)")
+			}
+		})
+	}
+	
+	
+	/**
+	 * Sends HTTP POST requests to TestRail.
+	 */
+	func httpPost<T:Codable>(path:String, model:T, type:T.Type, callback: @escaping ((T?, String?) -> Void))
+	{
+		let encoder = JSONEncoder()
+		var encodedJSON:Any?
+		do
+		{
+			encodedJSON = try! encoder.encode(model)
+		}
+		catch let e as Error
+		{
+			callback(nil, "Failed to encode data model. EncodingError: \(e.localizedDescription)")
+		}
+		
+		if let jsonData = encodedJSON as? Data
+		{
+			let urlString = getURLFor(path)
+			guard let url = URL(string: urlString) else
+			{
+				callback(nil, "HTTP request failed: Failed to create URL from \"\(urlString)\".")
+				return
+			}
+			guard let authData = self.authData else
+			{
+				callback(nil, "HTTP request failed: Failed to create auth data.")
+				return
+			}
+			
+//			if let utf8Text = String(data: jsonData, encoding: .utf8)
+//			{
+//				Log.debug(">>>", "\(utf8Text)")
+//			}
+			
+			var request = URLRequest(url: url)
+			request.httpMethod = "POST"
+			request.setValue("Basic \(authData.base64EncodedString())", forHTTPHeaderField: "Authorization")
+			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			request.setValue("\(jsonData.count)", forHTTPHeaderField: "Content-Length")
+			request.httpBody = jsonData
+			
+			Alamofire.request(request)
+				.validate(statusCode: 200 ..< 300)
+				.responseJSON(queue: dispatchQueue, options: .allowFragments, completionHandler:
 			{
 				(response:DataResponse<Any>) in
-					switch (response.result)
-					{
-						case .success(_):
-							if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
+				switch (response.result)
+				{
+					case .success(_):
+						if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
+						{
+							let decoder = JSONDecoder()
+							var decodedModel:T?
+							do
 							{
-								//if AutumnTestRunner.instance.config.debug
-								//{
-								//	Log.debug("Debug", "\(utf8Text)")
-								//}
-								let decoder = JSONDecoder()
-								var decodedModel:T?
-								do
-								{
-									decodedModel = try! decoder.decode(type, from: data)
-									callback(decodedModel, nil)
-								}
-								catch let e as DecodingError
-								{
-									callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
-								}
-								catch let e as Error
-								{
-									callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
-								}
+								decodedModel = try! decoder.decode(type, from: data)
+								callback(decodedModel, nil)
 							}
-						case .failure(_):
-							let errorDescr = response.error != nil ? response.error!.localizedDescription : ""
-							callback(nil, "HTTP request for \(url.absoluteString) failed: \(errorDescr)")
-					}
+							catch let e as DecodingError
+							{
+								callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
+							}
+							catch let e as Error
+							{
+								callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
+							}
+						}
+						return
+					case .failure(_):
+						let errorDescr = response.error != nil ? response.error!.localizedDescription : ""
+						callback(nil, "HTTP request for \(url.absoluteString) failed: \(errorDescr)")
+						return
+				}
 			})
+		}
 	}
 	
 	

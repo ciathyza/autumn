@@ -65,6 +65,11 @@ public class AutumnConfig : NSObject
 	public var testrailPassword = ""
 	
 	/**
+	 * The name for the test case section in which all Autumn-generated test cases are stored.
+	 */
+	public var testrailSectionName = "Autumn"
+	
+	/**
 	 * The nummeric TestRail project ID, e.g. 4
 	 */
 	public var testrailProjectID = 0

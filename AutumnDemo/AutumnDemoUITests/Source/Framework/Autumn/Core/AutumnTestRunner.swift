@@ -324,6 +324,8 @@ open class AutumnTestRunner : XCTestCase
 			AutumnLog.debug("Retrieving TestRail data ...")
 			_testrailClient.retrieveTestRailData()
 			
+			_testrailClient.ensureServerState()
+			
 			AutumnLog.debug("Registering objects ...")
 			registerUsers()
 			registerViewProxies()

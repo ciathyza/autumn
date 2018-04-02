@@ -13,6 +13,7 @@ import Foundation
 class TestRailModel
 {
 	var masterSuiteID = 0
+	var section:TestRailSection?
 	
 	var projects   = [TestRailProject]()
 	var suites     = [TestRailSuite]()
@@ -21,9 +22,40 @@ class TestRailModel
 	var testRuns   = [TestRailTestRun]()
 	var testCases  = [TestRailTestCase]()
 	var statuses   = [TestRailStatus]()
+	var sections   = [TestRailSection]()
 	var testCaseFields = [TestRailTestCaseField]()
 	var testCaseTypes = [TestRailTestCaseType]()
 	var tests = [TestRailTest]()
+	
+	
+	func getSection(sectionName:String) -> TestRailSection?
+	{
+		for s in sections
+		{
+			if s.name == sectionName { return s }
+		}
+		return nil
+	}
+	
+	func addSection(section:TestRailSection)
+	{
+		sections.append(section)
+	}
+	
+	func replaceSection(sectionName:String, withSection:TestRailSection)
+	{
+		var i = 0
+		for s in sections
+		{
+			if s.name == sectionName
+			{
+				sections.remove(at: i)
+				sections.append(withSection)
+				break
+			}
+			i += 1
+		}
+	}
 }
 
 
@@ -864,7 +896,7 @@ struct TestRailSection : Codable
 {
 	let id:Int
 	let suiteID:Int
-	let parentID:Int
+	let parentID:Int?
 	let depth:Int
 	let displayOrder:Int
 	let name:String
@@ -881,16 +913,39 @@ struct TestRailSection : Codable
 		case description  = "description"
 	}
 	
+	init(name:String, description:String, suiteID:Int? = nil, parentID:Int? = nil)
+	{
+		id = 0
+		depth = 0
+		displayOrder = 0
+		self.name = name
+		self.description = description
+		self.suiteID = suiteID != nil ? suiteID! : AutumnTestRunner.instance.testRailModel.masterSuiteID
+		self.parentID = parentID
+	}
+	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		do { id           = try values.decode(Int.self,    forKey: .id) }           catch { id = 0 }
 		do { suiteID      = try values.decode(Int.self,    forKey: .suiteID) }      catch { suiteID = 0 }
-		do { parentID     = try values.decode(Int.self,    forKey: .parentID) }     catch { parentID = 0 }
+		do { parentID     = try values.decode(Int.self,    forKey: .parentID) }     catch { parentID = nil }
 		do { depth        = try values.decode(Int.self,    forKey: .depth) }        catch { depth = 0}
 		do { displayOrder = try values.decode(Int.self,    forKey: .displayOrder) } catch { displayOrder = 0 }
 		do { name         = try values.decode(String.self, forKey: .name) }         catch { name = ""}
 		do { description  = try values.decode(String.self, forKey: .description) }  catch { description = "" }
+	}
+	
+	func encode(to encoder:Encoder) throws
+	{
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(id, forKey: .id)
+		try container.encode(suiteID, forKey: .suiteID)
+		try container.encode(parentID, forKey: .parentID)
+		try container.encode(depth, forKey: .depth)
+		try container.encode(displayOrder, forKey: .displayOrder)
+		try container.encode(name, forKey: .name)
+		try container.encode(description, forKey: .description)
 	}
 }
 
