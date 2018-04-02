@@ -39,10 +39,10 @@ open class AutumnTestRunner : XCTestCase
 	
 	public let config = AutumnConfig()
 	internal private(set) var session = AutumnSession()
-	internal private(set) var testRailModel = TestRailModel()
+	internal private(set) var testRailModel:TestRailModel!
 	private var _users:[String:AutumnUser] = [:]
 	private var _viewProxyClasses:[Metatype<AutumnViewProxy>:AutumnViewProxy] = [:]
-	private var _testrailClient = AutumnTestRailClient()
+	private var _testrailClient:AutumnTestRailClient!
 	private let _fallbackUser = AutumnUser("NONE", "NONE", "NONE")
 	
 	internal static var app = XCUIApplication()
@@ -318,6 +318,9 @@ open class AutumnTestRunner : XCTestCase
 		/* Only execute this once! */
 		if !AutumnTestRunner.isSetupComplete
 		{
+			testRailModel = TestRailModel(config)
+			_testrailClient = AutumnTestRailClient(config, testRailModel)
+			
 			AutumnLog.debug("Setting up test session ...")
 			configure()
 			

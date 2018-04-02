@@ -12,20 +12,32 @@ import Foundation
 // ------------------------------------------------------------------------------------------------
 class TestRailModel
 {
-	var masterSuiteID = 0
-	var section:TestRailSection?
+	let config:AutumnConfig
 	
-	var projects   = [TestRailProject]()
-	var suites     = [TestRailSuite]()
-	var milestones = [TestRailMilestone]()
-	var testPlans  = [TestRailTestPlan]()
-	var testRuns   = [TestRailTestRun]()
-	var testCases  = [TestRailTestCase]()
-	var statuses   = [TestRailStatus]()
-	var sections   = [TestRailSection]()
+	var projects       = [TestRailProject]()
+	var suites         = [TestRailSuite]()
+	var milestones     = [TestRailMilestone]()
+	var testPlans      = [TestRailTestPlan]()
+	var testRuns       = [TestRailTestRun]()
+	var testCases      = [TestRailTestCase]()
+	var statuses       = [TestRailStatus]()
+	var sections       = [TestRailSection]()
 	var testCaseFields = [TestRailTestCaseField]()
-	var testCaseTypes = [TestRailTestCaseType]()
-	var tests = [TestRailTest]()
+	var testCaseTypes  = [TestRailTestCaseType]()
+	var tests          = [TestRailTest]()
+	
+	var masterSuiteID = 0
+	
+	var section:TestRailSection?
+	{
+		for s in sections { if s.name == config.testrailSectionName { return s } }
+		return nil
+	}
+	
+	init(_ config:AutumnConfig)
+	{
+		self.config = config
+	}
 	
 	
 	func getSection(sectionName:String) -> TestRailSection?
