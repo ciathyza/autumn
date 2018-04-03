@@ -14,6 +14,7 @@ class AutumnDemoFeature : AutumnFeature
 	override func setup()
 	{
 		name = "Autumn Demo Feature"
+		descr = "Feature for demoing the framework."
 		tags = ["autumn", "demo"]
 	}
 	

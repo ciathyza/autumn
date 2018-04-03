@@ -33,10 +33,12 @@ public class AutumnFeature
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
+	public internal(set) var name = ""
+	public internal(set) var descr = ""
+	public internal(set) var tags = [String]()
+	
 	public private(set) var app:XCUIApplication
 	public private(set) var runner:AutumnTestRunner
-	public internal(set) var name = ""
-	public internal(set) var tags = [String]()
 	
 	private static var _scenarioQueue:[Metatype<AutumnScenario>] = []
 	private var _interval = Interval()
@@ -156,6 +158,7 @@ public class AutumnFeature
 		AutumnFeature._scenarioQueue.append(scenarioClass.metatype)
 	}
 	
+	
 	/**
 	 * Returns the ID of the specified scenario class. The class must include the Testrail ID.
 	 * It can be written in one of two ways, e.g.: ScenarioClassName_C110134 or C110134.
@@ -187,6 +190,57 @@ public class AutumnFeature
 			result = scenario.id
 		}
 		return result
+	}
+	
+	
+	/**
+	 * Returns an array with all scenario metatypes that are used by this feature.
+	 */
+	public func getScenarioMetatypes() -> [Metatype<AutumnScenario>]
+	{
+		var metatypes = [Metatype<AutumnScenario>]()
+		for c in AutumnFeature._scenarioQueue
+		{
+			metatypes.append(c)
+		}
+		return metatypes
+	}
+	
+	
+	/**
+	 * Returns an array with all scenario classes that are used by this feature.
+	 */
+	public func getScenarioClasses() -> [AutumnScenario.Type]
+	{
+		let scenarioMetatypes = getScenarioMetatypes()
+		var scenarioClasses = [AutumnScenario.Type]()
+		for metatype in scenarioMetatypes
+		{
+			if let scenarioClass = AutumnTestRunner.allScenarioClasses[metatype]
+			{
+				scenarioClasses.append(scenarioClass)
+			}
+		}
+		return scenarioClasses
+	}
+	
+	
+	/**
+	 * Returns an array with all instantiated scenarios that are used by this feature.
+	 */
+	public func getScenarios() -> [AutumnScenario]
+	{
+		let scenarioMetatypes = getScenarioMetatypes()
+		var scenarios = [AutumnScenario]()
+		for metatype in scenarioMetatypes
+		{
+			if let scenarioClass = AutumnTestRunner.allScenarioClasses[metatype]
+			{
+				let scenario = scenarioClass.init(self)
+				scenarios.append(scenario)
+			}
+		}
+		return scenarios
 	}
 	
 	

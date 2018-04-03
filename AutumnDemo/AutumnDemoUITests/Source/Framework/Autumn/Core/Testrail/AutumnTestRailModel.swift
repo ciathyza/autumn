@@ -28,9 +28,13 @@ class TestRailModel
 	
 	var masterSuiteID = 0
 	
-	var section:TestRailSection?
+	/**
+	 * Returns the root section used for generated test cases.
+	 */
+	var rootSection:TestRailSection?
 	{
-		for s in sections { if s.name == config.testrailSectionName { return s } }
+		for s in sections { if s.name == config.testrailRootSectionName
+		{ return s } }
 		return nil
 	}
 	
@@ -40,7 +44,7 @@ class TestRailModel
 	}
 	
 	
-	func getSection(sectionName:String) -> TestRailSection?
+	func getSection(_ sectionName:String) -> TestRailSection?
 	{
 		for s in sections
 		{
@@ -49,24 +53,44 @@ class TestRailModel
 		return nil
 	}
 	
-	func addSection(section:TestRailSection)
-	{
-		sections.append(section)
-	}
 	
-	func replaceSection(sectionName:String, withSection:TestRailSection)
+	/**
+	 * Adds a section to the model. If a section with the same name already exists it will be replaced.
+	 */
+	func addSection(_ section:TestRailSection)
 	{
 		var i = 0
 		for s in sections
 		{
-			if s.name == sectionName
-			{
-				sections.remove(at: i)
-				sections.append(withSection)
-				break
-			}
+			if s.name == section.name { sections.remove(at: i) }
 			i += 1
 		}
+		sections.append(section)
+	}
+	
+	
+	func getTestCase(_ testCaseTitle:String) -> TestRailTestCase?
+	{
+		for c in testCases
+		{
+			if c.title == testCaseTitle { return c }
+		}
+		return nil
+	}
+	
+	
+	/**
+	 * Adds a test case to the model. If a test case with the same title already exists it will be replaced.
+	 */
+	func addTestCase(_ testCase:TestRailTestCase)
+	{
+		var i = 0
+		for c in testCases
+		{
+			if c.title == testCase.title { testCases.remove(at: i) }
+			i += 1
+		}
+		testCases.append(testCase)
 	}
 }
 
@@ -356,31 +380,31 @@ struct TestRailTestRun : Codable
 // ------------------------------------------------------------------------------------------------
 struct TestRailTestCase : Codable
 {
-	let id:Int
 	let suiteID:Int
-	let milestoneID:Int
 	let sectionID:Int
-	let templateID:Int
-	let typeID:Int
-	let priorityID:Int
-	let createdBy:Int
-	let updatedBy:Int
 	let title:String
-	let refs:String
-	let estimate:String
-	let estimateForecast:String
+	let id:Int?
+	let typeID:Int?
+	let milestoneID:Int?
+	let templateID:Int?
+	let priorityID:Int?
+	let createdBy:Int?
+	let updatedBy:Int?
+	let refs:String?
+	let estimate:String?
+	let estimateForecast:String?
 	let createdOn:Date?
 	let updatedOn:Date?
 	
-	let customAutomated:Int
-	let customPreconds:String
-	let customSteps:[String]
-	let customExpected:String
-	let customStepsSeparated:[TestRailTestCaseCustom]
-	let customMission:String
-	let customGoals:String
-	let customLabel:[String]
-	let customOS:[Int]
+	let customAutomated:Int?
+	let customPreconds:String?
+	let customSteps:[String]?
+	let customExpected:String?
+	let customStepsSeparated:[TestRailTestCaseCustom]?
+	let customMission:String?
+	let customGoals:String?
+	let customLabel:[String]?
+	let customOS:[Int]?
 	
 	enum CodingKeys : String, CodingKey
 	{
@@ -410,33 +434,91 @@ struct TestRailTestCase : Codable
 		case customOS             = "custom_os"
 	}
 	
+	init(_ suiteID:Int, _ sectionID:Int, _ title:String)
+	{
+		self.suiteID = suiteID
+		self.sectionID = sectionID
+		self.title = title
+		id = nil
+		typeID = nil
+		milestoneID = nil
+		templateID = nil
+		priorityID = nil
+		createdBy = nil
+		updatedBy = nil
+		refs = nil
+		estimate = nil
+		estimateForecast = nil
+		createdOn = nil
+		updatedOn = nil
+		customAutomated = nil
+		customPreconds = nil
+		customSteps = nil
+		customExpected = nil
+		customStepsSeparated = nil
+		customMission = nil
+		customGoals = nil
+		customLabel = nil
+		customOS = nil
+	}
+	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		do { id                   = try values.decode(Int.self,                      forKey: .id) }                   catch { id = 0 }
 		do { suiteID              = try values.decode(Int.self,                      forKey: .suiteID) }              catch { suiteID = 0 }
-		do { milestoneID          = try values.decode(Int.self,                      forKey: .milestoneID) }          catch { milestoneID = 0 }
 		do { sectionID            = try values.decode(Int.self,                      forKey: .sectionID) }            catch { sectionID = 0 }
-		do { templateID           = try values.decode(Int.self,                      forKey: .templateID) }           catch { templateID = 0 }
-		do { typeID               = try values.decode(Int.self,                      forKey: .typeID) }               catch { typeID = 0 }
-		do { priorityID           = try values.decode(Int.self,                      forKey: .priorityID) }           catch { priorityID = 0 }
-		do { createdBy            = try values.decode(Int.self,                      forKey: .createdBy) }            catch { createdBy = 0 }
-		do { updatedBy            = try values.decode(Int.self,                      forKey: .updatedBy) }            catch { updatedBy = 0 }
 		do { title                = try values.decode(String.self,                   forKey: .title) }                catch { title = "" }
-		do { refs                 = try values.decode(String.self,                   forKey: .refs) }                 catch { refs = "" }
-		do { estimate             = try values.decode(String.self,                   forKey: .estimate) }             catch { estimate = "" }
-		do { estimateForecast     = try values.decode(String.self,                   forKey: .estimateForecast) }     catch { estimateForecast = "" }
+		do { id                   = try values.decode(Int.self,                      forKey: .id) }                   catch { id = nil }
+		do { typeID               = try values.decode(Int.self,                      forKey: .typeID) }               catch { typeID = nil }
+		do { milestoneID          = try values.decode(Int.self,                      forKey: .milestoneID) }          catch { milestoneID = nil }
+		do { templateID           = try values.decode(Int.self,                      forKey: .templateID) }           catch { templateID = nil }
+		do { priorityID           = try values.decode(Int.self,                      forKey: .priorityID) }           catch { priorityID = nil }
+		do { createdBy            = try values.decode(Int.self,                      forKey: .createdBy) }            catch { createdBy = nil }
+		do { updatedBy            = try values.decode(Int.self,                      forKey: .updatedBy) }            catch { updatedBy = nil }
+		do { refs                 = try values.decode(String.self,                   forKey: .refs) }                 catch { refs = nil }
+		do { estimate             = try values.decode(String.self,                   forKey: .estimate) }             catch { estimate = nil }
+		do { estimateForecast     = try values.decode(String.self,                   forKey: .estimateForecast) }     catch { estimateForecast = nil }
 		do { createdOn            = try values.decode(Int.self,                      forKey: .createdOn).toDate }     catch { createdOn = nil }
 		do { updatedOn            = try values.decode(Int.self,                      forKey: .updatedOn).toDate }     catch { updatedOn = nil }
-		do { customAutomated      = try values.decode(Int.self,                      forKey: .customAutomated) }      catch { customAutomated = 0 }
-		do { customPreconds       = try values.decode(String.self,                   forKey: .customPreconds) }       catch { customPreconds = "" }
-		do { customSteps          = try values.decode([String].self,                 forKey: .customSteps) }          catch { customSteps = [String]() }
-		do { customExpected       = try values.decode(String.self,                   forKey: .customExpected) }       catch { customExpected = "" }
-		do { customStepsSeparated = try values.decode([TestRailTestCaseCustom].self, forKey: .customStepsSeparated) } catch { customStepsSeparated = [TestRailTestCaseCustom]() }
-		do { customMission        = try values.decode(String.self,                   forKey: .customMission) }        catch { customMission = "" }
-		do { customGoals          = try values.decode(String.self,                   forKey: .customGoals) }          catch { customGoals = "" }
-		do { customLabel          = try values.decode([String].self,                 forKey: .customLabel) }          catch { customLabel = [String]() }
-		do { customOS             = try values.decode([Int].self,                    forKey: .customOS) }             catch { customOS = [Int]() }
+		do { customAutomated      = try values.decode(Int.self,                      forKey: .customAutomated) }      catch { customAutomated = nil }
+		do { customPreconds       = try values.decode(String.self,                   forKey: .customPreconds) }       catch { customPreconds = nil }
+		do { customSteps          = try values.decode([String].self,                 forKey: .customSteps) }          catch { customSteps = nil }
+		do { customExpected       = try values.decode(String.self,                   forKey: .customExpected) }       catch { customExpected = nil }
+		do { customStepsSeparated = try values.decode([TestRailTestCaseCustom].self, forKey: .customStepsSeparated) } catch { customStepsSeparated = nil }
+		do { customMission        = try values.decode(String.self,                   forKey: .customMission) }        catch { customMission = nil }
+		do { customGoals          = try values.decode(String.self,                   forKey: .customGoals) }          catch { customGoals = nil }
+		do { customLabel          = try values.decode([String].self,                 forKey: .customLabel) }          catch { customLabel = nil }
+		do { customOS             = try values.decode([Int].self,                    forKey: .customOS) }             catch { customOS = nil }
+	}
+	
+	
+	func encode(to encoder:Encoder) throws
+	{
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(suiteID,              forKey: .suiteID)
+		try container.encode(sectionID,            forKey: .sectionID)
+		try container.encode(title,                forKey: .title)
+		try container.encode(id,                   forKey: .id)
+		try container.encode(typeID,               forKey: .typeID)
+		try container.encode(milestoneID,          forKey: .milestoneID)
+		try container.encode(templateID,           forKey: .templateID)
+		try container.encode(priorityID,           forKey: .priorityID)
+		try container.encode(createdBy,            forKey: .createdBy)
+		try container.encode(updatedBy,            forKey: .updatedBy)
+		try container.encode(refs,                 forKey: .refs)
+		try container.encode(estimate,             forKey: .estimate)
+		try container.encode(estimateForecast,     forKey: .estimateForecast)
+		try container.encode(createdOn,            forKey: .createdOn)
+		try container.encode(updatedOn,            forKey: .updatedOn)
+		try container.encode(customAutomated,      forKey: .customAutomated)
+		try container.encode(customPreconds,       forKey: .customPreconds)
+		try container.encode(customSteps,          forKey: .customSteps)
+		try container.encode(customExpected,       forKey: .customExpected)
+		try container.encode(customStepsSeparated, forKey: .customStepsSeparated)
+		try container.encode(customMission,        forKey: .customMission)
+		try container.encode(customGoals,          forKey: .customGoals)
+		try container.encode(customLabel,          forKey: .customLabel)
+		try container.encode(customOS,             forKey: .customOS)
 	}
 }
 
@@ -912,7 +994,7 @@ struct TestRailSection : Codable
 	let depth:Int
 	let displayOrder:Int
 	let name:String
-	let description:String
+	let description:String?
 	
 	enum CodingKeys : String, CodingKey
 	{
@@ -925,7 +1007,7 @@ struct TestRailSection : Codable
 		case description  = "description"
 	}
 	
-	init(name:String, description:String, suiteID:Int? = nil, parentID:Int? = nil)
+	init(name:String, description:String?, suiteID:Int? = nil, parentID:Int? = nil)
 	{
 		id = 0
 		depth = 0
@@ -945,19 +1027,19 @@ struct TestRailSection : Codable
 		do { depth        = try values.decode(Int.self,    forKey: .depth) }        catch { depth = 0}
 		do { displayOrder = try values.decode(Int.self,    forKey: .displayOrder) } catch { displayOrder = 0 }
 		do { name         = try values.decode(String.self, forKey: .name) }         catch { name = ""}
-		do { description  = try values.decode(String.self, forKey: .description) }  catch { description = "" }
+		do { description  = try values.decode(String.self, forKey: .description) }  catch { description = nil }
 	}
 	
 	func encode(to encoder:Encoder) throws
 	{
 		var container = encoder.container(keyedBy: CodingKeys.self)
-		try container.encode(id, forKey: .id)
-		try container.encode(suiteID, forKey: .suiteID)
-		try container.encode(parentID, forKey: .parentID)
-		try container.encode(depth, forKey: .depth)
+		try container.encode(id,           forKey: .id)
+		try container.encode(suiteID,      forKey: .suiteID)
+		try container.encode(parentID,     forKey: .parentID)
+		try container.encode(depth,        forKey: .depth)
 		try container.encode(displayOrder, forKey: .displayOrder)
-		try container.encode(name, forKey: .name)
-		try container.encode(description, forKey: .description)
+		try container.encode(name,         forKey: .name)
+		try container.encode(description,  forKey: .description)
 	}
 }
 

@@ -215,6 +215,7 @@ open class AutumnTestRunner : XCTestCase
 		if !featureAlreadyRegistered
 		{
 			let feature = featureClass.init(self)
+			feature.setup()
 			AutumnTestRunner.allFeatureClasses.append(featureClass)
 			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
 		}
@@ -230,7 +231,9 @@ open class AutumnTestRunner : XCTestCase
 		for featureClass in AutumnTestRunner.allFeatureClasses
 		{
 			let feature = featureClass.init(self)
+			feature.setup()
 			feature.registerScenarios()
+			_testrailClient.createTestRailFeature(feature)
 		}
 	}
 	
@@ -327,6 +330,7 @@ open class AutumnTestRunner : XCTestCase
 			AutumnLog.debug("Retrieving TestRail data ...")
 			_testrailClient.retrieveTestRailData()
 			
+			AutumnLog.debug("Establishing model ...")
 			_testrailClient.ensureServerState()
 			
 			AutumnLog.debug("Registering objects ...")

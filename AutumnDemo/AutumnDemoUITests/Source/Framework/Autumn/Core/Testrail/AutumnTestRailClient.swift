@@ -286,26 +286,99 @@ class AutumnTestRailClient
 	{
 		_isTestRailRetrievalComplete = false
 		AutumnLog.debug("Getting section used for generated test cases ...")
-		let sectionName = config.testrailSectionName
-		if let section = model.section
+		createTestRailSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
+	}
+	
+	
+	/**
+	 * Creates a TestRail feature with all included scenarios and submits it to TestRail as a test case
+	 * If the test case already exists on TestRail it will be updated.
+	 */
+	func createTestRailFeature(_ feature:AutumnFeature)
+	{
+		if let rootSection = model.rootSection
+		{
+			AutumnLog.debug("Creating TestRail feature for \"\(feature.name)\" ...")
+			_isTestRailRetrievalComplete = false
+			createTestRailSection(feature.name, feature.descr, rootSection.id)
+			AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+			
+			if let section = model.getSection(feature.name)
+			{
+				let scenarios = feature.getScenarios()
+				for s in scenarios
+				{
+					var testCase = TestRailTestCase(model.masterSuiteID, section.id, s.name)
+					// TODO Create test case steps and all other properties!
+					createTestRailTestCase(testCase, sectionID: section.id)
+					AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+				}
+			}
+		}
+		else
+		{
+			AutumnLog.error("No TestRail root section was found!")
+		}
+	}
+	
+	
+	/**
+	 * Creates a new TestRail section.
+	 * If the section with the same name already exists on TestRail it will be re-used.
+	 */
+	func createTestRailSection(_ sectionName:String, _ description:String?, _ parentID:Int?)
+	{
+		_isTestRailRetrievalComplete = false
+		if let section = model.getSection(sectionName)
 		{
 			/* A section with the name already exists. */
-			AutumnLog.debug("Found existing \(sectionName) section with ID \(section.id).")
+			AutumnLog.debug("Found existing \"\(sectionName)\" section.")
 			_isTestRailRetrievalComplete = true
 		}
 		else
 		{
 			/* Create new section to work with! */
-			let section = TestRailSection(name: sectionName, description: "Autumn test cases.")
+			let section = TestRailSection(name: sectionName, description: description, parentID: parentID)
 			createNewSection(section: section, projectID: config.testrailProjectID)
 			{
 				(response:TestRailSection?, error:String?) in
 				if let error = error { AutumnLog.error(error) }
 				if let r = response
 				{
-					self.model.addSection(section: r)
-					AutumnLog.debug("Created new \(sectionName) section with ID \(r.id).")
+					self.model.addSection(r)
 				}
+				AutumnLog.debug("Created new \"\(sectionName)\" section.")
+				self._isTestRailRetrievalComplete = true
+			}
+		}
+	}
+	
+	
+	/**
+	 * Creates a new TestRail test case.
+	 * If the case with the same name already exists on TestRail it will be re-used.
+	 */
+	func createTestRailTestCase(_ testCase:TestRailTestCase, sectionID:Int)
+	{
+		_isTestRailRetrievalComplete = false
+		if let tc = model.getTestCase(testCase.title)
+		{
+			/* A testCase with the name already exists. */
+			AutumnLog.debug("Found existing \"\(testCase.title)\" test case.")
+			_isTestRailRetrievalComplete = true
+		}
+		else
+		{
+			/* Create new test case to work with! */
+			createNewTestCase(testCase: testCase, sectionID: sectionID)
+			{
+				(response:TestRailTestCase?, error:String?) in
+				if let error = error { AutumnLog.error(error) }
+				if let r = response
+				{
+					self.model.addTestCase(r)
+				}
+				AutumnLog.debug("Created new \"\(testCase.title)\" test case.")
 				self._isTestRailRetrievalComplete = true
 			}
 		}
@@ -392,6 +465,15 @@ class AutumnTestRailClient
 	func createNewSection(section:TestRailSection, projectID:Int, callback: @escaping ((TestRailSection?, _:String?) -> Void))
 	{
 		httpPost(path: "add_section/\(projectID)", model: section, type: TestRailSection.self, callback: callback)
+	}
+	
+	
+	/**
+	 * Creates a new test case on the TestRail server.
+	 */
+	func createNewTestCase(testCase:TestRailTestCase, sectionID:Int, callback:@escaping ((TestRailTestCase?, _:String?) -> Void))
+	{
+		httpPost(path: "add_case/\(sectionID)", model: testCase, type: TestRailTestCase.self, callback: callback)
 	}
 	
 	
