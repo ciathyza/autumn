@@ -68,6 +68,8 @@ class AutumnTestRailClient
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestCaseTypes()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+		getTestRailTemplates()
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestPlans()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestCaseSections()
@@ -89,7 +91,7 @@ class AutumnTestRailClient
 			if let r = response
 			{
 				self.model.statuses = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail statuses.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail statuses.\(self.config.debug ? ("\(self.dump(self.model.statuses))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -106,7 +108,7 @@ class AutumnTestRailClient
 			if let r = response
 			{
 				self.model.testCaseFields = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail test case fields.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail test case fields.\(self.config.debug ? ("\(self.dump(self.model.testCaseFields))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -123,7 +125,24 @@ class AutumnTestRailClient
 			if let r = response
 			{
 				self.model.testCaseTypes = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail test case types.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail test case types.\(self.config.debug ? ("\(self.dump(self.model.testCaseTypes))") : "")")
+			}
+			self._isTestRailRetrievalComplete = true
+		}
+	}
+	
+	
+	private func getTestRailTemplates()
+	{
+		_isTestRailRetrievalComplete = false
+		getTemplates(projectID: config.testrailProjectID)
+		{
+			(response:[TestRailTemplate]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				self.model.templates = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail templates.\(self.config.debug ? ("\(self.dump(self.model.templates))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -140,7 +159,7 @@ class AutumnTestRailClient
 			if let r = response
 			{
 				self.model.sections = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail test case sections.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail test case sections.\(self.config.debug ? ("\(self.dump(self.model.sections))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -157,7 +176,7 @@ class AutumnTestRailClient
 			if let r = response
 			{
 				self.model.projects = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail projects.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail projects.\(self.config.debug ? ("\(self.dump(self.model.projects))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -183,7 +202,7 @@ class AutumnTestRailClient
 						break
 					}
 				}
-				AutumnLog.debug("Retrieved \(r.count) TestRail suites. (MasterID: \(self.model.masterSuiteID))")
+				AutumnLog.debug("Retrieved \(r.count) TestRail suites. (MasterID: \(self.model.masterSuiteID))\(self.config.debug ? ("\(self.dump(self.model.suites))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -200,7 +219,7 @@ class AutumnTestRailClient
 			if let r = response
 			{
 				self.model.milestones = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail milestones.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail milestones.\(self.config.debug ? ("\(self.dump(self.model.milestones))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -217,7 +236,7 @@ class AutumnTestRailClient
 			if let r = response
 			{
 				self.model.testPlans = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail test plans.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail test plans.\(self.config.debug ? ("\(self.dump(self.model.testPlans))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -234,7 +253,7 @@ class AutumnTestRailClient
 			if let r = response
 			{
 				self.model.testRuns = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail test runs.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail test runs.\(self.config.debug ? ("\(self.dump(self.model.testRuns))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -251,7 +270,7 @@ class AutumnTestRailClient
 			if let r = response
 			{
 				self.model.testCases = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail test cases.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail test cases.\(self.config.debug ? ("\(self.dump(self.model.testCases))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -268,7 +287,7 @@ class AutumnTestRailClient
 			if let r = response
 			{
 				self.model.tests = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail tests.")
+				AutumnLog.debug("Retrieved \(r.count) TestRail tests.\(self.config.debug ? ("\(self.dump(self.model.tests))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -404,6 +423,12 @@ class AutumnTestRailClient
 	func getTestCaseTypes(callback: @escaping (([TestRailTestCaseType]?, _:String?) -> Void))
 	{
 		httpGet(path: "get_case_types", type: [TestRailTestCaseType].self, callback: callback)
+	}
+	
+	
+	func getTemplates(projectID:Int, callback: @escaping (([TestRailTemplate]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_templates/\(projectID)", type: [TestRailTemplate].self, callback: callback)
 	}
 	
 	
@@ -628,5 +653,24 @@ class AutumnTestRailClient
 	func getURLFor(_ path:String) -> String
 	{
 		return "\(config.testrailHost)/index.php?/api/v2/\(path)"
+	}
+	
+	
+	func dump(_ model:[TestRailCodable], _ maxRows:Int = 20) -> String
+	{
+		if model.count > 0
+		{
+			let headers = model[0].tableHeader()
+			let table = TabularText(headers.count, false, " ", " ", "", 100, headers)
+			var i = 0
+			for obj in model
+			{
+				table.add(obj.toTableRow())
+				i += 1
+				if maxRows > 0 && i >= maxRows { break }
+			}
+			return "\n\(table.toString())"
+		}
+		return ""
 	}
 }

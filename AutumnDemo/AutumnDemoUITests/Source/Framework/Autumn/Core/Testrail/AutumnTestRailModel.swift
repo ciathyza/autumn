@@ -24,6 +24,7 @@ class TestRailModel
 	var sections       = [TestRailSection]()
 	var testCaseFields = [TestRailTestCaseField]()
 	var testCaseTypes  = [TestRailTestCaseType]()
+	var templates      = [TestRailTemplate]()
 	var tests          = [TestRailTest]()
 	
 	var masterSuiteID = 0
@@ -96,7 +97,15 @@ class TestRailModel
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailProject : Codable
+protocol TestRailCodable : Codable
+{
+	func tableHeader() -> [String]
+	func toTableRow() -> [String]
+}
+
+
+// ------------------------------------------------------------------------------------------------
+struct TestRailProject : TestRailCodable
 {
 	let id:Int
 	let suiteMode:Int
@@ -131,11 +140,21 @@ struct TestRailProject : Codable
 		do { showAnnouncement = try values.decode(Bool.self,   forKey: .showAnnouncement) }   catch { showAnnouncement = false }
 		do { isCompleted      = try values.decode(Bool.self,   forKey: .isCompleted) }        catch { isCompleted = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "Name", "SuitMode", "Announcement", "URL"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(name)", "\(suiteMode)", "\(announcement)", "\(url)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailSuite : Codable
+struct TestRailSuite : TestRailCodable
 {
 	let id:Int
 	let projectID:Int
@@ -173,11 +192,21 @@ struct TestRailSuite : Codable
 		do { isBaseline  = try values.decode(Bool.self,   forKey: .isBaseline) }         catch { isBaseline = false }
 		do { isCompleted = try values.decode(Bool.self,   forKey: .isCompleted) }        catch { isCompleted = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "ProjectID", "Name", "Description", "isMaster"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(projectID)", "\(name)", "\(description)", "\(isMaster)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailMilestone : Codable
+struct TestRailMilestone : TestRailCodable
 {
 	let id:Int
 	let projectID:Int
@@ -224,11 +253,21 @@ struct TestRailMilestone : Codable
 		do { isStarted   = try values.decode(Bool.self,   forKey: .isStarted) }          catch { isStarted = false }
 		do { isCompleted = try values.decode(Bool.self,   forKey: .isCompleted) }        catch { isCompleted = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "ProjectID", "ParentID", "Name", "Description"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(projectID)", "\(parentID)", "\(name)", "\(description)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailTestPlan : Codable
+struct TestRailTestPlan : TestRailCodable
 {
 	let id:Int
 	let projectID:Int
@@ -275,11 +314,21 @@ struct TestRailTestPlan : Codable
 		do { isStarted   = try values.decode(Bool.self,   forKey: .isStarted) }          catch { isStarted = false }
 		do { isCompleted = try values.decode(Bool.self,   forKey: .isCompleted) }        catch { isCompleted = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "ProjectID", "ParentID", "Name", "Description"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(projectID)", "\(parentID)", "\(name)", "\(description)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailTestRun : Codable
+struct TestRailTestRun : TestRailCodable
 {
 	let id:Int
 	let suiteID:Int
@@ -374,11 +423,21 @@ struct TestRailTestRun : Codable
 		do { includeAll         = try values.decode(Bool.self,     forKey: .includeAll) }         catch { includeAll = false }
 		do { isCompleted        = try values.decode(Bool.self,     forKey: .isCompleted) }        catch { isCompleted = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "ProjectID", "Name", "Description"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(projectID)", "\(name)", "\(description)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailTestCase : Codable
+struct TestRailTestCase : TestRailCodable
 {
 	let suiteID:Int
 	let sectionID:Int
@@ -520,11 +579,21 @@ struct TestRailTestCase : Codable
 		try container.encode(customLabel,          forKey: .customLabel)
 		try container.encode(customOS,             forKey: .customOS)
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "SuiteID", "SectionID", "Title", "TypeID"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id!)", "\(suiteID)", "\(sectionID)", "\(title)", "\(typeID!)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailTestCaseCustom : Codable
+struct TestRailTestCaseCustom : TestRailCodable
 {
 	let content:String
 	let expected:String
@@ -541,11 +610,21 @@ struct TestRailTestCaseCustom : Codable
 		do { content  = try values.decode(String.self, forKey: .content) }  catch { content = "" }
 		do { expected = try values.decode(String.self, forKey: .expected) } catch { expected = "" }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["content", "expected"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(content)", "\(expected)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailStatus : Codable
+struct TestRailStatus : TestRailCodable
 {
 	let id:Int
 	let name:String
@@ -583,11 +662,21 @@ struct TestRailStatus : Codable
 		do { isUntested  = try values.decode(Bool.self,   forKey: .isUntested) }  catch { isUntested = false }
 		do { isFinal     = try values.decode(Bool.self,   forKey: .isFinal) }     catch { isFinal = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "Name", "Label"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(name)", "\(label)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailTestCaseField : Codable
+struct TestRailTestCaseField : TestRailCodable
 {
 	let id:Int
 	let typeID:Int
@@ -631,11 +720,21 @@ struct TestRailTestCaseField : Codable
 		do { isActive     = try values.decode(Bool.self,             forKey: .isActive) }     catch { isActive = false }
 		do { includeAll   = try values.decode(Bool.self,             forKey: .includeAll) }   catch { includeAll = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "TypeID", "Name", "Label", "TemplateIDs"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(typeID)", "\(name)", "\(label)", "\(templateIDs)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailConfig : Codable
+struct TestRailConfig : TestRailCodable
 {
 	let id:Int
 	let context:TestRailContext?
@@ -655,11 +754,21 @@ struct TestRailConfig : Codable
 		do { context = try TestRailContext(from: decoder) } catch { context = nil }
 		do { options = try TestRailOptions(from: decoder) } catch { options = nil }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "context", "options"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(context)", "\(options)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailContext : Codable
+struct TestRailContext : TestRailCodable
 {
 	let projectIDs:[Int]
 	let isGlobal:Bool
@@ -676,11 +785,21 @@ struct TestRailContext : Codable
 		do { projectIDs = try values.decode([Int].self, forKey: .projectIDs) } catch { projectIDs = [Int]() }
 		do { isGlobal = try values.decode(Bool.self, forKey: .isGlobal) } catch { isGlobal = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ProjectIDs", "IsGlobal"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(projectIDs)", "\(isGlobal)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailOptions : Codable
+struct TestRailOptions : TestRailCodable
 {
 	let rows:String
 	let defaultValue:String
@@ -703,11 +822,21 @@ struct TestRailOptions : Codable
 		do { format       = try values.decode(String.self, forKey: .format) }       catch { format = "" }
 		do { isRequired   = try values.decode(Bool.self,   forKey: .isRequired) }   catch { isRequired = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["Rows", "DefaultValue", "Format", "IsRequired"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(rows)", "\(defaultValue)", "\(format)", "\(isRequired)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailTestCaseType : Codable
+struct TestRailTestCaseType : TestRailCodable
 {
 	let id:Int
 	let name:String
@@ -727,11 +856,21 @@ struct TestRailTestCaseType : Codable
 		do { name = try values.decode(String.self, forKey: .name) } catch { name = "" }
 		do { isDefault = try values.decode(Bool.self, forKey: .isDefault) } catch { isDefault = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["id", "name", "isDefault"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(name)", "\(isDefault)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailPriority : Codable
+struct TestRailPriority : TestRailCodable
 {
 	let id:Int
 	let priority:Int
@@ -757,11 +896,21 @@ struct TestRailPriority : Codable
 		do { shortName = try values.decode(String.self, forKey: .shortName) } catch { shortName = "" }
 		do { isDefault = try values.decode(Bool.self,   forKey: .isDefault) } catch { isDefault = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["id", "name", "priority", "shortName", "isDefault"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(name)", "\(priority)", "\(shortName)", "\(isDefault)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailTest : Codable
+struct TestRailTest : TestRailCodable
 {
 	let id:Int
 	let caseID:Int
@@ -838,11 +987,21 @@ struct TestRailTest : Codable
 		do { customLabel          = try values.decode([String].self,                 forKey: .customLabel) }          catch { customLabel = [String]() }
 		do { customStepsSeparated = try values.decode([TestRailCustomTestStep].self, forKey: .customStepsSeparated) } catch { customStepsSeparated = [TestRailCustomTestStep]() }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "Title", "CaseID", "StatusID", "AssignedToID"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(title)", "\(caseID)", "\(statusID)", "\(assignedToID)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailCustomTestStep : Codable
+struct TestRailCustomTestStep : TestRailCodable
 {
 	let content:String
 	let expected:String
@@ -859,11 +1018,21 @@ struct TestRailCustomTestStep : Codable
 		do { content  = try values.decode(String.self, forKey: .content) } catch { content = "" }
 		do { expected = try values.decode(String.self, forKey: .expected) } catch { expected = "" }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["content", "expected"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(content)", "\(expected)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailTestResult : Codable
+struct TestRailTestResult : TestRailCodable
 {
 	let id:Int
 	let testID:Int
@@ -907,11 +1076,21 @@ struct TestRailTestResult : Codable
 		do { defects           = try values.decode(String.self,                         forKey: .defects) }           catch { defects = ""}
 		do { customStepResults = try values.decode([TestRailCustomTestStepResult].self, forKey: .customStepResults) } catch { customStepResults = [TestRailCustomTestStepResult]() }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["id", "testID"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(testID)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailCustomTestStepResult : Codable
+struct TestRailCustomTestStepResult : TestRailCodable
 {
 	let statusID:Int
 	let content:String
@@ -934,11 +1113,21 @@ struct TestRailCustomTestStepResult : Codable
 		do { expected = try values.decode(String.self, forKey: .expected) } catch { expected = "" }
 		do { actual   = try values.decode(String.self, forKey: .actual) }   catch { actual = "" }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["statusID", "content"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(statusID)", "\(content)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailTestResultField : Codable
+struct TestRailTestResultField : TestRailCodable
 {
 	let id:Int
 	let typeID:Int
@@ -982,11 +1171,21 @@ struct TestRailTestResultField : Codable
 		do { isActive     = try values.decode(Bool.self,             forKey: .isActive) }     catch { isActive = false }
 		do { includeAll   = try values.decode(Bool.self,             forKey: .includeAll) }   catch { includeAll = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["id", "name"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(name)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailSection : Codable
+struct TestRailSection : TestRailCodable
 {
 	let id:Int
 	let suiteID:Int
@@ -1041,11 +1240,21 @@ struct TestRailSection : Codable
 		try container.encode(name,         forKey: .name)
 		try container.encode(description,  forKey: .description)
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["id", "name"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(name)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailTemplate : Codable
+struct TestRailTemplate : TestRailCodable
 {
 	let id:Int
 	let name:String
@@ -1065,11 +1274,21 @@ struct TestRailTemplate : Codable
 		do { name      = try values.decode(String.self, forKey: .name) }      catch { name = "'" }
 		do { isDefault = try values.decode(Bool.self,   forKey: .isDefault) } catch { isDefault = false }
 	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["ID", "Name", "IsDefault"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(name)", "\(isDefault)"]
+	}
 }
 
 
 // ------------------------------------------------------------------------------------------------
-struct TestRailUser : Codable
+struct TestRailUser : TestRailCodable
 {
 	let id:Int
 	let name:String
@@ -1091,5 +1310,15 @@ struct TestRailUser : Codable
 		do { name = try values.decode(String.self, forKey: .name) } catch { name = "" }
 		do { email = try values.decode(String.self, forKey: .email) } catch { email = "" }
 		do { isActive = try values.decode(Bool.self, forKey: .isActive) } catch { isActive = false }
+	}
+	
+	func tableHeader() -> [String]
+	{
+		return ["id", "name"]
+	}
+	
+	func toTableRow() -> [String]
+	{
+		return ["\(id)", "\(name)"]
 	}
 }

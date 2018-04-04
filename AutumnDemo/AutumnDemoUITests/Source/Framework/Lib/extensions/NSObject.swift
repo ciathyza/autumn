@@ -15,6 +15,22 @@ import Foundation
 
 extension NSObject
 {
+	public class func dump(_ obj:Any) -> String
+	{
+		let table = TabularText(2, true, " ", " ", "", 120, ["Property", "Value"])
+		let mirror = Mirror(reflecting: obj)
+		mirror.children.forEach
+		{
+			child in
+			if let label = child.label
+			{
+				table.add([label, "\(child.value)"])
+			}
+		}
+		return table.toString()
+	}
+	
+	
 	public class func swizzleMethods(_ origSelector:Selector, withSelector:Selector, forClass:AnyClass)
 	{
 		let originalMethod = class_getInstanceMethod(forClass, origSelector)
@@ -39,7 +55,7 @@ extension NSObject
 	}
 	
 	
-	public func dump() -> String
+	public func dumpObj() -> String
 	{
 		var result = "[\(String(describing: type(of: self))) "
 		let mirror = Mirror(reflecting: self)
@@ -54,16 +70,6 @@ extension NSObject
 	
 	public func dumpTable() -> String
 	{
-		let table = TabularText(2, true, "", " ", "", 120, ["Property", "Value"])
-		let mirror = Mirror(reflecting: self)
-		mirror.children.forEach
-		{
-			child in
-			if let label = child.label
-			{
-				table.add([label, "\(child.value)"])
-			}
-		}
-		return table.toString()
+		return NSObject.dump(self)
 	}
 }
