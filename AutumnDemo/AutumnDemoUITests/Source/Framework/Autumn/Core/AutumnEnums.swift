@@ -142,3 +142,37 @@ public enum AutumnUIActionResult : String
 	case FailedOperationFailed       = "Failed: Operation Failed"
 	case FailedOperationNotSupported = "Failed: Operation Not Supported"
 }
+
+
+public enum TestRailTestCaseTemplateOption: String
+{
+	case TestCaseText       = "Test Case (Text)"
+	case TestCaseSteps      = "Test Case (Steps)"
+	case ExploratorySession = "Exploratory Session"
+}
+
+
+public enum TestRailTestCaseTypeOption : String
+{
+	case Acceptance     = "Acceptance"
+	case Accessibility  = "Accessibility"
+	case Automated      = "Automated"
+	case Compatibility  = "Compatibility"
+	case Destructive    = "Destructive"
+	case Functional     = "Functional"
+	case Other          = "Other"
+	case Performance    = "Performance"
+	case Regression     = "Regression"
+	case Security       = "Security"
+	case SmokeAndSanity = "Smoke & Sanity"
+	case Usability      = "Usability"
+}
+
+
+public enum TestRailTestCasePriorityOption : Int
+{
+	case Low       = 1
+	case Medium    = 2
+	case High      = 3
+	case Critical  = 4
+}

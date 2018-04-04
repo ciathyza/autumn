@@ -43,6 +43,7 @@ public class AutumnScenario
 	public internal(set) var descr = ""
 	public internal(set) var link = ""
 	public internal(set) var tags = [String]()
+	public internal(set) var priority = TestRailTestCasePriorityOption.Medium
 	
 	public private(set) var feature:AutumnFeature
 	public private(set) var app:XCUIApplication

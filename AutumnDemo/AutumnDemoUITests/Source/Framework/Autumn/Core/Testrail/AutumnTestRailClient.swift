@@ -328,6 +328,10 @@ class AutumnTestRailClient
 				for s in scenarios
 				{
 					var testCase = TestRailTestCase(model.masterSuiteID, section.id, s.name)
+					testCase.templateID = model.getTestCaseTemplateIDFor(template: config.testrailTemplate)
+					testCase.typeID = model.getTestCaseTypeIDFor(type: .Functional)
+					testCase.priorityID = s.priority.rawValue
+					
 					// TODO Create test case steps and all other properties!
 					createTestRailTestCase(testCase, sectionID: section.id)
 					AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }

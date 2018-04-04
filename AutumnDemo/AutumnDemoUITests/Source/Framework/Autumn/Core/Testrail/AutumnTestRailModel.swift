@@ -93,6 +93,26 @@ class TestRailModel
 		}
 		testCases.append(testCase)
 	}
+	
+	
+	func getTestCaseTemplateIDFor(template:TestRailTestCaseTemplateOption) -> Int?
+	{
+		for i in templates
+		{
+			if i.name == template.rawValue { return i.id }
+		}
+		return nil
+	}
+	
+	
+	func getTestCaseTypeIDFor(type:TestRailTestCaseTypeOption) -> Int?
+	{
+		for i in testCaseTypes
+		{
+			if i.name == type.rawValue { return i.id }
+		}
+		return nil
+	}
 }
 
 
@@ -443,10 +463,10 @@ struct TestRailTestCase : TestRailCodable
 	let sectionID:Int
 	let title:String
 	let id:Int?
-	let typeID:Int?
+	var typeID:Int?
 	let milestoneID:Int?
-	let templateID:Int?
-	let priorityID:Int?
+	var templateID:Int?
+	var priorityID:Int?
 	let createdBy:Int?
 	let updatedBy:Int?
 	let refs:String?
