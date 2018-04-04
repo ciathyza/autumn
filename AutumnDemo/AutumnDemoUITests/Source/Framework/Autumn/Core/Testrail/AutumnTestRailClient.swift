@@ -327,10 +327,27 @@ class AutumnTestRailClient
 				let scenarios = feature.getScenarios()
 				for s in scenarios
 				{
+					s.setup()
+					
 					var testCase = TestRailTestCase(model.masterSuiteID, section.id, s.name)
 					testCase.templateID = model.getTestCaseTemplateIDFor(template: config.testrailTemplate)
 					testCase.typeID = model.getTestCaseTypeIDFor(type: .Functional)
 					testCase.priorityID = s.priority.rawValue
+					testCase.customPreconds = ""
+					s.resetNameRecords()
+					s.establish()
+					for n in s.namesGiven
+					{
+						testCase.customPreconds! += "Given \(n).\n"
+					}
+					for n in s.namesWhen
+					{
+						Log.debug(">>>", "When \(n).")
+					}
+					for n in s.namesThen
+					{
+						Log.debug(">>>", "Then \(n).")
+					}
 					
 					// TODO Create test case steps and all other properties!
 					createTestRailTestCase(testCase, sectionID: section.id)

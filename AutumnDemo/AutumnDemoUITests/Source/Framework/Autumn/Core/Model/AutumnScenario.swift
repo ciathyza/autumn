@@ -54,6 +54,10 @@ public class AutumnScenario
 	internal private(set) var steps = [AutumnTestStep]()
 	internal private(set) var results = [[AutumnTestStep:AutumnTestStepResult]]()
 	
+	internal var namesGiven = [String]()
+	internal var namesWhen = [String]()
+	internal var namesThen = [String]()
+	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Derrived Properties
@@ -84,6 +88,7 @@ public class AutumnScenario
 		app = feature.app
 		runner = feature.runner
 		
+		resetNameRecords()
 		setup()
 	}
 	
@@ -92,11 +97,24 @@ public class AutumnScenario
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
 	
+	func resetNameRecords()
+	{
+		namesGiven = [String]()
+		namesWhen = [String]()
+		namesThen = [String]()
+	}
+	
+	
 	/**
 	 * Executes a given test step.
 	 */
 	public func given(_ step:AutumnTestStep)
 	{
+		if AutumnTestRunner.isDryRun
+		{
+			namesGiven.append(step.name)
+			return
+		}
 		self.step(AutumnStepType.Given, step)
 	}
 	
@@ -106,6 +124,11 @@ public class AutumnScenario
 	 */
 	public func when(_ step:AutumnTestStep)
 	{
+		if AutumnTestRunner.isDryRun
+		{
+			namesWhen.append(step.name)
+			return
+		}
 		self.step(AutumnStepType.When, step)
 	}
 	
@@ -115,6 +138,11 @@ public class AutumnScenario
 	 */
 	public func then(_ step:AutumnTestStep)
 	{
+		if AutumnTestRunner.isDryRun
+		{
+			namesThen.append(step.name)
+			return
+		}
 		self.step(AutumnStepType.Then, step)
 	}
 	

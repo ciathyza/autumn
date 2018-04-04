@@ -476,7 +476,7 @@ struct TestRailTestCase : TestRailCodable
 	let updatedOn:Date?
 	
 	let customAutomated:Int?
-	let customPreconds:String?
+	var customPreconds:String?
 	let customSteps:[String]?
 	let customExpected:String?
 	let customStepsSeparated:[TestRailTestCaseCustom]?
