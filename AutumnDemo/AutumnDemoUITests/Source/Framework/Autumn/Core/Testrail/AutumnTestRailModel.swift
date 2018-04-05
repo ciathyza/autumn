@@ -95,6 +95,22 @@ class TestRailModel
 	}
 	
 	
+	func replaceTestCase(_ testCase:TestRailTestCase) -> Bool
+	{
+		if let id = testCase.id
+		{
+			var i = 0
+			for c in testCases
+			{
+				if c.id == id { testCases.remove(at: i) }
+				i += 1
+			}
+			testCases.append(testCase)
+		}
+		return false
+	}
+	
+	
 	func getTestCaseTemplateIDFor(template:TestRailTestCaseTemplateOption) -> Int?
 	{
 		for i in templates
@@ -482,7 +498,7 @@ struct TestRailTestCase : TestRailCodable
 	var customStepsSeparated:[TestRailTestCaseCustom]?
 	let customMission:String?
 	let customGoals:String?
-	let customLabel:[String]?
+	let customLabel:[String]
 	var customOS:[Int]?
 	
 	enum CodingKeys : String, CodingKey
@@ -537,7 +553,7 @@ struct TestRailTestCase : TestRailCodable
 		customStepsSeparated = nil
 		customMission = nil
 		customGoals = nil
-		customLabel = nil
+		customLabel = [String]()
 		customOS = nil
 	}
 	
@@ -566,7 +582,7 @@ struct TestRailTestCase : TestRailCodable
 		do { customStepsSeparated = try values.decode([TestRailTestCaseCustom].self, forKey: .customStepsSeparated) } catch { customStepsSeparated = nil }
 		do { customMission        = try values.decode(String.self,                   forKey: .customMission) }        catch { customMission = nil }
 		do { customGoals          = try values.decode(String.self,                   forKey: .customGoals) }          catch { customGoals = nil }
-		do { customLabel          = try values.decode([String].self,                 forKey: .customLabel) }          catch { customLabel = nil }
+		do { customLabel          = try values.decode([String].self,                 forKey: .customLabel) }          catch { customLabel = [String]() }
 		do { customOS             = try values.decode([Int].self,                    forKey: .customOS) }             catch { customOS = nil }
 	}
 	

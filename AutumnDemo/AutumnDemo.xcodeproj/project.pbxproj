@@ -23,6 +23,7 @@
 		5E4BC76625FBD3BB12CA8C60 /* AutumnConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC04D1C39E61D72FC1DFA /* AutumnConfig.swift */; };
 		5E4BC9BCD0BEF3E74CD6A728 /* AutumnTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC8DD041F1504D35AA526 /* AutumnTestStepResult.swift */; };
 		5E4BCAAE96EDBBBD6C46A29A /* AutumnConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCCF05CF3FD16DFE221C2 /* AutumnConstants.swift */; };
+		5E4BCB07C2F143D162A916C7 /* AutumnDemoFeature2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3C90000231FF1CC4503 /* AutumnDemoFeature2.swift */; };
 		5E4BCBD4450CF50C2858FEEF /* AutumnTestStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3BB46ADC127DE2D60D3 /* AutumnTestStep.swift */; };
 		5E4BCC3075BE0A2389446F9D /* AutumnViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC0E9582C50152BDA3D6A /* AutumnViewProxy.swift */; };
 		5E4BCC7B96F8E9AA60EF882A /* AutumnTestRailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC69BC339DAC9EFA16E0C /* AutumnTestRailModel.swift */; };
@@ -100,6 +101,7 @@
 		5E4BC337D222CE2CE91EE753 /* AutumnSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnSessionManager.swift; sourceTree = "<group>"; };
 		5E4BC3943AF51EFEB3CCD4D2 /* AutumnDemoScenarios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoScenarios.swift; sourceTree = "<group>"; };
 		5E4BC3BB46ADC127DE2D60D3 /* AutumnTestStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestStep.swift; sourceTree = "<group>"; };
+		5E4BC3C90000231FF1CC4503 /* AutumnDemoFeature2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoFeature2.swift; sourceTree = "<group>"; };
 		5E4BC3F4DCEF258746FBCCE2 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		5E4BC4ABB4CAC83A26D2DC41 /* MoreStuffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreStuffViewController.swift; sourceTree = "<group>"; };
 		5E4BC502C243C6C2B2C5B5DA /* TabularText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabularText.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				5E4BCFF34590F538DE0F69BB /* AutumnDemoFeature.swift */,
+				5E4BC3C90000231FF1CC4503 /* AutumnDemoFeature2.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				5E4BCC3075BE0A2389446F9D /* AutumnViewProxy.swift in Sources */,
 				5E4BCD12891911F8C6783203 /* AutumnTestRailClient.swift in Sources */,
 				5E4BCC7B96F8E9AA60EF882A /* AutumnTestRailModel.swift in Sources */,
+				5E4BCB07C2F143D162A916C7 /* AutumnDemoFeature2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

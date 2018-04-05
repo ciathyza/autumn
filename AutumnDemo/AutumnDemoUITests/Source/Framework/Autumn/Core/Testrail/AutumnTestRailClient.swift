@@ -352,7 +352,7 @@ class AutumnTestRailClient
 					for n in s.namesPrecondition
 					{
 						testCase.customPreconds! += "\(n)"
-						if n < s.namesPrecondition.count - 1 { testCase.customPreconds! += "\n" }
+						if index < s.namesPrecondition.count - 1 { testCase.customPreconds! += "\n" }
 						index += 1
 					}
 					
@@ -365,7 +365,7 @@ class AutumnTestRailClient
 						if n.starts(with: AutumnStepType.When.rawValue)
 						{
 							whenStepsBatch += "\(n)"
-							if n < s.namesExecution.count - 1 { whenStepsBatch += "\n" }
+							if index < s.namesExecution.count - 1 { whenStepsBatch += "\n" }
 							index += 1
 						}
 						else if n.starts(with: AutumnStepType.Then.rawValue)
@@ -427,11 +427,23 @@ class AutumnTestRailClient
 	func createTestRailTestCase(_ testCase:TestRailTestCase, sectionID:Int)
 	{
 		_isTestRailRetrievalComplete = false
-		if let tc = model.getTestCase(testCase.title)
+		if let tc = model.getTestCase(testCase.title), let testCaseID = tc.id
 		{
-			/* A testCase with the name already exists. */
-			AutumnLog.debug("Found existing \"\(testCase.title)\" test case.")
-			_isTestRailRetrievalComplete = true
+			Log.debug("\(testCaseID)")
+			/* Update existing test case. */
+			updateTestCase(testCase: testCase, caseID: testCaseID)
+			{
+				(response:TestRailTestCase?, error:String?) in
+				if let error = error { AutumnLog.error(error) }
+				if let r = response
+				{
+					if self.model.replaceTestCase(r)
+					{
+						AutumnLog.debug("Updated existing \"\(testCase.title)\" test case with ID \(testCase.id).")
+					}
+				}
+				self._isTestRailRetrievalComplete = true
+			}
 		}
 		else
 		{
@@ -549,6 +561,15 @@ class AutumnTestRailClient
 	}
 	
 	
+	/**
+	 * Updates a test case on the TestRail server.
+	 */
+	func updateTestCase(testCase:TestRailTestCase, caseID:Int, callback:@escaping ((TestRailTestCase?, _:String?) -> Void))
+	{
+		httpPost(path: "update_case/\(caseID)", model: testCase, type: TestRailTestCase.self, callback: callback)
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - HTTP Methods
 	// ----------------------------------------------------------------------------------------------------
@@ -605,7 +626,12 @@ class AutumnTestRailClient
 					}
 				case .failure(_):
 					let errorDescr = response.error != nil ? response.error!.localizedDescription : ""
-					callback(nil, "HTTP request for \(url.absoluteString) failed: \(errorDescr)")
+					var content = "(No JSON in response)"
+					if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
+					{
+						content = utf8Text
+					}
+					callback(nil, "HTTP request for \(url.absoluteString) failed: \(errorDescr) \(content)")
 			}
 		})
 	}
@@ -641,10 +667,10 @@ class AutumnTestRailClient
 				return
 			}
 			
-//			if let utf8Text = String(data: jsonData, encoding: .utf8)
-//			{
-//				Log.debug(">>>", "\(utf8Text)")
-//			}
+			//if let utf8Text = String(data: jsonData, encoding: .utf8)
+			//{
+			//	Log.debug(">>>", "\(utf8Text)")
+			//}
 			
 			var request = URLRequest(url: url)
 			request.httpMethod = "POST"
@@ -682,7 +708,12 @@ class AutumnTestRailClient
 						return
 					case .failure(_):
 						let errorDescr = response.error != nil ? response.error!.localizedDescription : ""
-						callback(nil, "HTTP request for \(url.absoluteString) failed: \(errorDescr)")
+						var content = "(No JSON in response)"
+						if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
+						{
+							content = utf8Text
+						}
+						callback(nil, "HTTP request for \(url.absoluteString) failed: \(errorDescr) \(content)")
 						return
 				}
 			})

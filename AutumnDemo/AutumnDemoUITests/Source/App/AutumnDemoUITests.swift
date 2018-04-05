@@ -50,5 +50,6 @@ class AutumnDemoUITests : AutumnTestRunner
 	override func registerFeatures()
 	{
 		registerFeature(AutumnDemoFeature.self)
+		registerFeature(AutumnDemoFeature2.self)
 	}
 }
