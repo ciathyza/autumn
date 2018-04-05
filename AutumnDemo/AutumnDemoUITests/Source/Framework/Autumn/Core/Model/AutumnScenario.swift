@@ -54,9 +54,9 @@ public class AutumnScenario
 	internal private(set) var steps = [AutumnTestStep]()
 	internal private(set) var results = [[AutumnTestStep:AutumnTestStepResult]]()
 	
-	internal var namesGiven = [String]()
-	internal var namesWhen = [String]()
-	internal var namesThen = [String]()
+	/* Used to store precondition (given) and execution (when/then) step names for testrail test case generation. */
+	internal var namesPrecondition = [String]()
+	internal var namesExecution = [String]()
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -99,9 +99,8 @@ public class AutumnScenario
 	
 	func resetNameRecords()
 	{
-		namesGiven = [String]()
-		namesWhen = [String]()
-		namesThen = [String]()
+		namesPrecondition = [String]()
+		namesExecution = [String]()
 	}
 	
 	
@@ -110,11 +109,6 @@ public class AutumnScenario
 	 */
 	public func given(_ step:AutumnTestStep)
 	{
-		if AutumnTestRunner.isDryRun
-		{
-			namesGiven.append(step.name)
-			return
-		}
 		self.step(AutumnStepType.Given, step)
 	}
 	
@@ -124,11 +118,6 @@ public class AutumnScenario
 	 */
 	public func when(_ step:AutumnTestStep)
 	{
-		if AutumnTestRunner.isDryRun
-		{
-			namesWhen.append(step.name)
-			return
-		}
 		self.step(AutumnStepType.When, step)
 	}
 	
@@ -138,11 +127,6 @@ public class AutumnScenario
 	 */
 	public func then(_ step:AutumnTestStep)
 	{
-		if AutumnTestRunner.isDryRun
-		{
-			namesThen.append(step.name)
-			return
-		}
 		self.step(AutumnStepType.Then, step)
 	}
 	
@@ -152,12 +136,22 @@ public class AutumnScenario
 	 */
 	internal func step(_ type:AutumnStepType, _ step:AutumnTestStep)
 	{
-		step.scenario = self
-		step.type = type
-		step.phase = phase
-		steps.append(step)
-		let result = step.execute()
-		results.append([step:result])
+		/* If we're in the registration phase then only recoord the step names for TestRail case generation! */
+		if AutumnTestRunner.isDryRun
+		{
+			let testRailStepName = "\(type.rawValue) \(step.name)."
+			if type == .Given { namesPrecondition.append(testRailStepName) }
+			else { namesExecution.append(testRailStepName) }
+		}
+		else
+		{
+			step.scenario = self
+			step.type = type
+			step.phase = phase
+			steps.append(step)
+			let result = step.execute()
+			results.append([step:result])
+		}
 	}
 	
 	

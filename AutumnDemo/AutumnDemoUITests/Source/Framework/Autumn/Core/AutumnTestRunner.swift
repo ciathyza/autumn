@@ -332,7 +332,7 @@ open class AutumnTestRunner : XCTestCase
 			_testrailClient.retrieveTestRailData()
 			
 			AutumnLog.debug("Establishing model ...")
-			_testrailClient.ensureServerState()
+			_testrailClient.setupServerState()
 			
 			AutumnLog.debug("Registering objects ...")
 			AutumnTestRunner.isDryRun = true

@@ -61,6 +61,57 @@ public class Wait : AutumnTestStep
 // ------------------------------------------------------------------------------------------------
 
 /**
+ * A simple test step that can be used to create non-evaluating Then steps.
+ */
+public class Declare : AutumnTestStep
+{
+	private var _message:String
+	
+	public init(_ message:String)
+	{
+		_message = message
+		super.init()
+	}
+	
+	public override func setup()
+	{
+		name = _message
+	}
+	
+	public override func execute() -> AutumnTestStepResult
+	{
+		result.add("Declare \(_message)", .Success)
+		return result
+	}
+}
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * A test step used to assert the existance of a given element.
+ */
+public class AssertExists : AutumnTestStepAdv
+{
+	public override init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
+	{
+		super.init(aci, elementType)
+	}
+	
+	public override func setup()
+	{
+		name = "\(elementName) exists"
+	}
+	
+	public override func execute() -> AutumnTestStepResult
+	{
+		result.add("Assert [\(id)] exists", AutumnUI.assertExists(element))
+		return result
+	}
+}
+
+// ------------------------------------------------------------------------------------------------
+
+/**
  * A test step that waits for a given UI element to exist.
  */
 public class WaitForExists : AutumnTestStepAdv
@@ -265,7 +316,7 @@ public class LoginRandom : AutumnTestStep
 	
 	public override func setup()
 	{
-		name = "the user logs-in with ID '\(_user.id)'"
+		name = "the user logs-in with any available ID"
 	}
 	
 	public override func execute() -> AutumnTestStepResult

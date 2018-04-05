@@ -479,11 +479,11 @@ struct TestRailTestCase : TestRailCodable
 	var customPreconds:String?
 	let customSteps:[String]?
 	let customExpected:String?
-	let customStepsSeparated:[TestRailTestCaseCustom]?
+	var customStepsSeparated:[TestRailTestCaseCustom]?
 	let customMission:String?
 	let customGoals:String?
 	let customLabel:[String]?
-	let customOS:[Int]?
+	var customOS:[Int]?
 	
 	enum CodingKeys : String, CodingKey
 	{
@@ -624,11 +624,24 @@ struct TestRailTestCaseCustom : TestRailCodable
 		case expected = "expected"
 	}
 	
+	init(content:String, expected:String)
+	{
+		self.content = content
+		self.expected = expected
+	}
+	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		do { content  = try values.decode(String.self, forKey: .content) }  catch { content = "" }
 		do { expected = try values.decode(String.self, forKey: .expected) } catch { expected = "" }
+	}
+	
+	func encode(to encoder:Encoder) throws
+	{
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(content,  forKey: .content)
+		try container.encode(expected, forKey: .expected)
 	}
 	
 	func tableHeader() -> [String]
@@ -1032,11 +1045,24 @@ struct TestRailCustomTestStep : TestRailCodable
 		case expected = "expected"
 	}
 	
+	init(content:String, expected:String)
+	{
+		self.content = content
+		self.expected = expected
+	}
+	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		do { content  = try values.decode(String.self, forKey: .content) } catch { content = "" }
 		do { expected = try values.decode(String.self, forKey: .expected) } catch { expected = "" }
+	}
+	
+	func encode(to encoder:Encoder) throws
+	{
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(content,  forKey: .content)
+		try container.encode(expected, forKey: .expected)
 	}
 	
 	func tableHeader() -> [String]

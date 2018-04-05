@@ -781,16 +781,22 @@ public class AutumnUI
 	// MARK: - Assertion
 	// ----------------------------------------------------------------------------------------------------
 	
-	public class func verifyExists(_ element:XCUIElement) -> Bool
+	public class func assertExists(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
-		let result = element.exists
-		return result
+		if let e = element
+		{
+			return e.exists ? AutumnUIActionResult.Success : AutumnUIActionResult.FailedNotExist
+		}
+		return .FailedIsNil
 	}
 	
 	
-	public class func verifyHittable(_ element:XCUIElement) -> Bool
+	public class func assertHittable(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
-		let result = element.isHittable
-		return result
+		if let e = element
+		{
+			return e.isHittable ? AutumnUIActionResult.Success : AutumnUIActionResult.FailedNotHittable
+		}
+		return .FailedIsNil
 	}
 }

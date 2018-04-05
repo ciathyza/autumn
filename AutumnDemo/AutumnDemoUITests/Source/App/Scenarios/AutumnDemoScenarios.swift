@@ -28,6 +28,7 @@ class AutumnDemoScenario001 : AutumnScenario
 		when(WaitForExists(ACI.APP_VIEW, .other))
 		when(Wait(2))
 		when(WaitForExists(ACI.NON_EXISTING_VIEW))
+		then(AssertExists(ACI.APP_VIEW, .other))
 	}
 }
 
@@ -44,7 +45,7 @@ class AutumnDemoScenario002 : AutumnScenario
 	override func establish()
 	{
 		given(LaunchApp())
-		when(WaitForExists(ACI.APP_VIEW, .other))
+		given(WaitForExists(ACI.APP_VIEW, .other))
 	}
 	
 	override func execute()
@@ -53,5 +54,6 @@ class AutumnDemoScenario002 : AutumnScenario
 		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
 		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
 		when(Wait(5))
+		then(Declare("the user waited for 5 seconds"))
 	}
 }

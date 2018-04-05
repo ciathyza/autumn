@@ -35,7 +35,7 @@ class AutumnTestRailClient
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Methods
+	// MARK: - Init
 	// ----------------------------------------------------------------------------------------------------
 	
 	init(_ config:AutumnConfig, _ model:TestRailModel)
@@ -46,7 +46,7 @@ class AutumnTestRailClient
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Methods
+	// MARK: - Server Data Retrieval
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
@@ -294,14 +294,21 @@ class AutumnTestRailClient
 	}
 	
 	
-	func ensureServerState()
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Server Setup API
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Sets up the server state for test case generation.
+	 */
+	func setupServerState()
 	{
-		ensureTestCaseSection()
+		setupTestCaseSection()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 	}
 	
 	
-	func ensureTestCaseSection()
+	func setupTestCaseSection()
 	{
 		_isTestRailRetrievalComplete = false
 		AutumnLog.debug("Getting section used for generated test cases ...")
@@ -328,28 +335,47 @@ class AutumnTestRailClient
 				for s in scenarios
 				{
 					s.setup()
+					s.resetNameRecords()
 					
 					var testCase = TestRailTestCase(model.masterSuiteID, section.id, s.name)
 					testCase.templateID = model.getTestCaseTemplateIDFor(template: config.testrailTemplate)
 					testCase.typeID = model.getTestCaseTypeIDFor(type: .Functional)
 					testCase.priorityID = s.priority.rawValue
+					testCase.customOS = [Int]()
+					testCase.customOS!.append(config.testrailOSIDs[AutumnPlatform.iOS.rawValue]!)
 					testCase.customPreconds = ""
-					s.resetNameRecords()
+					testCase.customStepsSeparated = [TestRailTestCaseCustom]()
+					
+					/* Record precondition steps. */
 					s.establish()
-					for n in s.namesGiven
+					var index = 0
+					for n in s.namesPrecondition
 					{
-						testCase.customPreconds! += "Given \(n).\n"
-					}
-					for n in s.namesWhen
-					{
-						Log.debug(">>>", "When \(n).")
-					}
-					for n in s.namesThen
-					{
-						Log.debug(">>>", "Then \(n).")
+						testCase.customPreconds! += "\(n)"
+						if n < s.namesPrecondition.count - 1 { testCase.customPreconds! += "\n" }
+						index += 1
 					}
 					
-					// TODO Create test case steps and all other properties!
+					/* Record execution steps. */
+					s.execute()
+					var whenStepsBatch = ""
+					index = 0
+					for n in s.namesExecution
+					{
+						if n.starts(with: AutumnStepType.When.rawValue)
+						{
+							whenStepsBatch += "\(n)"
+							if n < s.namesExecution.count - 1 { whenStepsBatch += "\n" }
+							index += 1
+						}
+						else if n.starts(with: AutumnStepType.Then.rawValue)
+						{
+							var customTestStep = TestRailTestCaseCustom(content: whenStepsBatch, expected: n)
+							testCase.customStepsSeparated!.append(customTestStep)
+							whenStepsBatch = ""
+						}
+					}
+					
 					createTestRailTestCase(testCase, sectionID: section.id)
 					AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 				}
