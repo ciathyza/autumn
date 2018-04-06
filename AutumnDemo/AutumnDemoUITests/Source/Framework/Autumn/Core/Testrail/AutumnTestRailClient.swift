@@ -429,7 +429,7 @@ class AutumnTestRailClient
 		_isTestRailRetrievalComplete = false
 		if let tc = model.getTestCase(testCase.title), let testCaseID = tc.id
 		{
-			Log.debug("\(testCaseID)")
+			Log.debug("\(tc.title) : \(testCaseID)")
 			/* Update existing test case. */
 			updateTestCase(testCase: testCase, caseID: testCaseID)
 			{
@@ -439,7 +439,11 @@ class AutumnTestRailClient
 				{
 					if self.model.replaceTestCase(r)
 					{
-						AutumnLog.debug("Updated existing \"\(testCase.title)\" test case with ID \(testCase.id).")
+						AutumnLog.debug("Updated existing test case: \"\(tc.title)\" (ID: \(testCaseID)).")
+					}
+					else
+					{
+						AutumnLog.warning("Failed to replace test case with ID \(testCaseID).")
 					}
 				}
 				self._isTestRailRetrievalComplete = true
@@ -456,7 +460,7 @@ class AutumnTestRailClient
 				{
 					self.model.addTestCase(r)
 				}
-				AutumnLog.debug("Created new \"\(testCase.title)\" test case.")
+				AutumnLog.debug("Created new test case with title \"\(testCase.title)\".")
 				self._isTestRailRetrievalComplete = true
 			}
 		}

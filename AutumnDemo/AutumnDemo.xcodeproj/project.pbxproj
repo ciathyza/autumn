@@ -8,28 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		27B95ED8496EAB39A05C8344 /* Pods_AutumnDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD752BEA628451EA64C80F0 /* Pods_AutumnDemo.framework */; };
+		5E4BC03401FFB36AF1668A3F /* TestRailUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC1F26D14856E50C7FB3B /* TestRailUser.swift */; };
 		5E4BC05B5FBB8A22E9A37257 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC62B7257BABCC79D05A8 /* Regex.swift */; };
 		5E4BC05F07779C2C7395347F /* AutumnScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCE591F720052794E012A /* AutumnScenario.swift */; };
 		5E4BC0861F18C4EEA1EB044A /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCF9B5D7AE7220DCD55F6 /* Springboard.swift */; };
 		5E4BC0F9298F2FDB7E72B45F /* AutumnTestSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCCCFF3AF96A5D7DFC7B4 /* AutumnTestSteps.swift */; };
+		5E4BC252DEA8FFE0DAB894DD /* TestRailStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC2180285AAD9173E2A7E /* TestRailStatus.swift */; };
+		5E4BC2DA60E4C4E8608F8DA3 /* TestRailTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC8A3D722DCBC5E234767 /* TestRailTestCase.swift */; };
 		5E4BC40FED473BC4F3F004A5 /* MoreStuffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC4ABB4CAC83A26D2DC41 /* MoreStuffViewController.swift */; };
 		5E4BC4641928BCB676F59283 /* AutumnDemoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCFF34590F538DE0F69BB /* AutumnDemoFeature.swift */; };
 		5E4BC50AB8F3E378BAFF1C5A /* AutumnUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC90CCDB1E33889D74349 /* AutumnUI.swift */; };
 		5E4BC54EBC9803DB5BD63666 /* ACI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC5752A2F7801A65B425F /* ACI.swift */; };
 		5E4BC59D1DA1FA0DF14B1423 /* AutumnFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC0A168814B6443565531 /* AutumnFeature.swift */; };
+		5E4BC5CA0A7B2ED02750D700 /* TestRailPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC008A7CFF4BD0DF35016 /* TestRailPriority.swift */; };
+		5E4BC5DCCA543D526B148054 /* TestRailTestPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC14DC39A4C3AE5719DCA /* TestRailTestPlan.swift */; };
 		5E4BC61676563650CA778AC0 /* ACI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC5752A2F7801A65B425F /* ACI.swift */; };
+		5E4BC658291DBB645FFE2EF6 /* TestRailMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC6DD339B977878990739 /* TestRailMilestone.swift */; };
 		5E4BC6EABEEA9E6FEFADB9CB /* AutumnDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC20D152279EC5C597D84 /* AutumnDemoUITests.swift */; };
 		5E4BC71B0954FF7CE66A01C7 /* AutumnSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC1F9ECD79F1996A66456 /* AutumnSession.swift */; };
+		5E4BC731ED691B7F75F613A6 /* TestRailTestRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCE7263EA761B825CABAB /* TestRailTestRun.swift */; };
 		5E4BC76625FBD3BB12CA8C60 /* AutumnConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC04D1C39E61D72FC1DFA /* AutumnConfig.swift */; };
+		5E4BC98DA990CE01970C0FFC /* TestRailSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCD3AAECA9095B8002701 /* TestRailSuite.swift */; };
 		5E4BC9BCD0BEF3E74CD6A728 /* AutumnTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC8DD041F1504D35AA526 /* AutumnTestStepResult.swift */; };
+		5E4BC9DF824FFBA609227838 /* TestRailConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCD390EDC46345B336D7B /* TestRailConfig.swift */; };
+		5E4BC9F0487BB1CA80314967 /* TestRailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCEBA2F52D1AA47D42331 /* TestRailTest.swift */; };
 		5E4BCAAE96EDBBBD6C46A29A /* AutumnConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCCF05CF3FD16DFE221C2 /* AutumnConstants.swift */; };
 		5E4BCB07C2F143D162A916C7 /* AutumnDemoFeature2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3C90000231FF1CC4503 /* AutumnDemoFeature2.swift */; };
+		5E4BCBC7AD362D7F2C55F75B /* TestRailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCA31FA897FE3317AF026 /* TestRailSection.swift */; };
 		5E4BCBD4450CF50C2858FEEF /* AutumnTestStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3BB46ADC127DE2D60D3 /* AutumnTestStep.swift */; };
 		5E4BCC3075BE0A2389446F9D /* AutumnViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC0E9582C50152BDA3D6A /* AutumnViewProxy.swift */; };
+		5E4BCC629A06BE8830AFD485 /* TestRailCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCF2F3FA347D9E84627AC /* TestRailCodable.swift */; };
 		5E4BCC7B96F8E9AA60EF882A /* AutumnTestRailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC69BC339DAC9EFA16E0C /* AutumnTestRailModel.swift */; };
+		5E4BCCCD7F208EB4115B9036 /* TestRailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC292B3E4466622AC10FC /* TestRailModel.swift */; };
 		5E4BCD12891911F8C6783203 /* AutumnTestRailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC8955BFACED106E45A3D /* AutumnTestRailClient.swift */; };
+		5E4BCD196E7AB0AC8CBD315F /* TestRailTestCaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC4C343E6A5CDC1552A34 /* TestRailTestCaseType.swift */; };
+		5E4BCD3F634BABCE014145C2 /* TestRailProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC6B0F942018D7A0A18A8 /* TestRailProject.swift */; };
 		5E4BCE32B89DC6DC6DDB4F2C /* TabularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC502C243C6C2B2C5B5DA /* TabularText.swift */; };
+		5E4BCE7793D52D565C271412 /* TestRailTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC9356E15708026E08ED5 /* TestRailTemplate.swift */; };
 		5E4BCEACF29ED1D18F75BC2F /* AutumnDemoViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCDFB29097D00DD8A6DB8 /* AutumnDemoViewProxy.swift */; };
+		5E4BCEDBA3BC6535BDF58F68 /* TestRailTestCaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC530D9A6124BDA750D0E /* TestRailTestCaseField.swift */; };
+		5E4BCF5E9DC7075D11B405A1 /* TestRailTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC64AE16964D6D6799726 /* TestRailTestResult.swift */; };
 		5E4BCF82E5F7F83D527873CC /* AutumnDemoScenarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3943AF51EFEB3CCD4D2 /* AutumnDemoScenarios.swift */; };
 		62C8B97E2047DD87008C2096 /* AutumnLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCE2B9DC5995FBEBE1E6F /* AutumnLog.swift */; };
 		62C8B97F2047DD87008C2096 /* AutumnEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCCA0B0366B6E8F292C7F /* AutumnEnums.swift */; };
@@ -86,37 +104,50 @@
 /* Begin PBXFileReference section */
 		0A95E3B716FA2BAC0F5C8336 /* Pods-AutumnDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		2871AC22C849266DF678EF78 /* Pods-AutumnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo.release.xcconfig"; sourceTree = "<group>"; };
+		5E4BC008A7CFF4BD0DF35016 /* TestRailPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailPriority.swift; sourceTree = "<group>"; };
 		5E4BC00F536A9BF1A1B4AFF3 /* UInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
 		5E4BC04D1C39E61D72FC1DFA /* AutumnConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnConfig.swift; sourceTree = "<group>"; };
 		5E4BC0A168814B6443565531 /* AutumnFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnFeature.swift; sourceTree = "<group>"; };
 		5E4BC0E26368EDDC3C07DCFE /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		5E4BC0E9582C50152BDA3D6A /* AutumnViewProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnViewProxy.swift; sourceTree = "<group>"; };
 		5E4BC12DC6618770617B7D27 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		5E4BC14DC39A4C3AE5719DCA /* TestRailTestPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestPlan.swift; sourceTree = "<group>"; };
 		5E4BC15278E6B7BC21B951DD /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		5E4BC18D0571A97C5E402756 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVImporter.swift; sourceTree = "<group>"; };
+		5E4BC1F26D14856E50C7FB3B /* TestRailUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailUser.swift; sourceTree = "<group>"; };
 		5E4BC1F9ECD79F1996A66456 /* AutumnSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnSession.swift; sourceTree = "<group>"; };
 		5E4BC203088EC4372D31F810 /* AutumnUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnUser.swift; sourceTree = "<group>"; };
 		5E4BC20D152279EC5C597D84 /* AutumnDemoUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoUITests.swift; sourceTree = "<group>"; };
+		5E4BC2180285AAD9173E2A7E /* TestRailStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailStatus.swift; sourceTree = "<group>"; };
 		5E4BC2730497CA8D8EBB8F06 /* Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		5E4BC292B3E4466622AC10FC /* TestRailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailModel.swift; sourceTree = "<group>"; };
 		5E4BC337D222CE2CE91EE753 /* AutumnSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnSessionManager.swift; sourceTree = "<group>"; };
 		5E4BC3943AF51EFEB3CCD4D2 /* AutumnDemoScenarios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoScenarios.swift; sourceTree = "<group>"; };
 		5E4BC3BB46ADC127DE2D60D3 /* AutumnTestStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestStep.swift; sourceTree = "<group>"; };
 		5E4BC3C90000231FF1CC4503 /* AutumnDemoFeature2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoFeature2.swift; sourceTree = "<group>"; };
 		5E4BC3F4DCEF258746FBCCE2 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		5E4BC4ABB4CAC83A26D2DC41 /* MoreStuffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreStuffViewController.swift; sourceTree = "<group>"; };
+		5E4BC4C343E6A5CDC1552A34 /* TestRailTestCaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseType.swift; sourceTree = "<group>"; };
 		5E4BC502C243C6C2B2C5B5DA /* TabularText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabularText.swift; sourceTree = "<group>"; };
+		5E4BC530D9A6124BDA750D0E /* TestRailTestCaseField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseField.swift; sourceTree = "<group>"; };
 		5E4BC5752A2F7801A65B425F /* ACI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACI.swift; sourceTree = "<group>"; };
 		5E4BC62B7257BABCC79D05A8 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		5E4BC64AE16964D6D6799726 /* TestRailTestResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestResult.swift; sourceTree = "<group>"; };
 		5E4BC69BC339DAC9EFA16E0C /* AutumnTestRailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestRailModel.swift; sourceTree = "<group>"; };
 		5E4BC69C2862B42C1D864F92 /* TextFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFile.swift; sourceTree = "<group>"; };
+		5E4BC6B0F942018D7A0A18A8 /* TestRailProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailProject.swift; sourceTree = "<group>"; };
+		5E4BC6DD339B977878990739 /* TestRailMilestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailMilestone.swift; sourceTree = "<group>"; };
 		5E4BC83F5AD39E1C7EA0714C /* DispatchTimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchTimeInterval.swift; sourceTree = "<group>"; };
 		5E4BC8955BFACED106E45A3D /* AutumnTestRailClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestRailClient.swift; sourceTree = "<group>"; };
 		5E4BC899B6B71D352120A964 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		5E4BC8A3D722DCBC5E234767 /* TestRailTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestCase.swift; sourceTree = "<group>"; };
 		5E4BC8DD041F1504D35AA526 /* AutumnTestStepResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestStepResult.swift; sourceTree = "<group>"; };
 		5E4BC90CCDB1E33889D74349 /* AutumnUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnUI.swift; sourceTree = "<group>"; };
+		5E4BC9356E15708026E08ED5 /* TestRailTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTemplate.swift; sourceTree = "<group>"; };
 		5E4BC96DFFE2059E8D386667 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		5E4BC9AF3F072D77C4A0AE84 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		5E4BC9B988FCB5C03D55EE78 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		5E4BCA31FA897FE3317AF026 /* TestRailSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailSection.swift; sourceTree = "<group>"; };
 		5E4BCA3A41039C95CF998345 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5E4BCAD9C40884FD0E32831F /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		5E4BCB3694CC7B7BE6111F32 /* AutumnTelemetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTelemetry.swift; sourceTree = "<group>"; };
@@ -129,16 +160,21 @@
 		5E4BCCD0119A8EA107D0069B /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		5E4BCCF05CF3FD16DFE221C2 /* AutumnConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnConstants.swift; sourceTree = "<group>"; };
 		5E4BCD214B2B1D44D1FF9953 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		5E4BCD390EDC46345B336D7B /* TestRailConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailConfig.swift; sourceTree = "<group>"; };
+		5E4BCD3AAECA9095B8002701 /* TestRailSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailSuite.swift; sourceTree = "<group>"; };
 		5E4BCD72FA663BB146132F07 /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
 		5E4BCDB4C426F4C5C9392E65 /* Metatype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metatype.swift; sourceTree = "<group>"; };
 		5E4BCDBFFEFBEC60A0CA84EC /* AutumnTestRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestRunner.swift; sourceTree = "<group>"; };
 		5E4BCDFB29097D00DD8A6DB8 /* AutumnDemoViewProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoViewProxy.swift; sourceTree = "<group>"; };
 		5E4BCE2B9DC5995FBEBE1E6F /* AutumnLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnLog.swift; sourceTree = "<group>"; };
 		5E4BCE591F720052794E012A /* AutumnScenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnScenario.swift; sourceTree = "<group>"; };
+		5E4BCE7263EA761B825CABAB /* TestRailTestRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestRun.swift; sourceTree = "<group>"; };
 		5E4BCE73B5C5AC6E6D66FC11 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5E4BCE9ED9DEBDEE0E7A97D1 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		5E4BCEBA2F52D1AA47D42331 /* TestRailTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTest.swift; sourceTree = "<group>"; };
 		5E4BCEC1BFC7F9D981E9773E /* FrequencyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyTable.swift; sourceTree = "<group>"; };
 		5E4BCF16B3121B9353D9BA2E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		5E4BCF2F3FA347D9E84627AC /* TestRailCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailCodable.swift; sourceTree = "<group>"; };
 		5E4BCF9B5D7AE7220DCD55F6 /* Springboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
 		5E4BCFBFAD1DB996ECE474AB /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5E4BCFF34590F538DE0F69BB /* AutumnDemoFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoFeature.swift; sourceTree = "<group>"; };
@@ -315,6 +351,31 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
+		5E4BCB45D7427CA0B728E259 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5E4BC6B0F942018D7A0A18A8 /* TestRailProject.swift */,
+				5E4BC292B3E4466622AC10FC /* TestRailModel.swift */,
+				5E4BCD3AAECA9095B8002701 /* TestRailSuite.swift */,
+				5E4BCF2F3FA347D9E84627AC /* TestRailCodable.swift */,
+				5E4BC6DD339B977878990739 /* TestRailMilestone.swift */,
+				5E4BC14DC39A4C3AE5719DCA /* TestRailTestPlan.swift */,
+				5E4BCE7263EA761B825CABAB /* TestRailTestRun.swift */,
+				5E4BC8A3D722DCBC5E234767 /* TestRailTestCase.swift */,
+				5E4BC2180285AAD9173E2A7E /* TestRailStatus.swift */,
+				5E4BC530D9A6124BDA750D0E /* TestRailTestCaseField.swift */,
+				5E4BCD390EDC46345B336D7B /* TestRailConfig.swift */,
+				5E4BC4C343E6A5CDC1552A34 /* TestRailTestCaseType.swift */,
+				5E4BC008A7CFF4BD0DF35016 /* TestRailPriority.swift */,
+				5E4BCEBA2F52D1AA47D42331 /* TestRailTest.swift */,
+				5E4BC64AE16964D6D6799726 /* TestRailTestResult.swift */,
+				5E4BCA31FA897FE3317AF026 /* TestRailSection.swift */,
+				5E4BC9356E15708026E08ED5 /* TestRailTemplate.swift */,
+				5E4BC1F26D14856E50C7FB3B /* TestRailUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5E4BCB97927384680618B524 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +418,7 @@
 			children = (
 				5E4BC8955BFACED106E45A3D /* AutumnTestRailClient.swift */,
 				5E4BC69BC339DAC9EFA16E0C /* AutumnTestRailModel.swift */,
+				5E4BCB45D7427CA0B728E259 /* Model */,
 			);
 			path = Testrail;
 			sourceTree = "<group>";
@@ -724,6 +786,24 @@
 				5E4BCD12891911F8C6783203 /* AutumnTestRailClient.swift in Sources */,
 				5E4BCC7B96F8E9AA60EF882A /* AutumnTestRailModel.swift in Sources */,
 				5E4BCB07C2F143D162A916C7 /* AutumnDemoFeature2.swift in Sources */,
+				5E4BCD3F634BABCE014145C2 /* TestRailProject.swift in Sources */,
+				5E4BCCCD7F208EB4115B9036 /* TestRailModel.swift in Sources */,
+				5E4BC98DA990CE01970C0FFC /* TestRailSuite.swift in Sources */,
+				5E4BCC629A06BE8830AFD485 /* TestRailCodable.swift in Sources */,
+				5E4BC658291DBB645FFE2EF6 /* TestRailMilestone.swift in Sources */,
+				5E4BC5DCCA543D526B148054 /* TestRailTestPlan.swift in Sources */,
+				5E4BC731ED691B7F75F613A6 /* TestRailTestRun.swift in Sources */,
+				5E4BC2DA60E4C4E8608F8DA3 /* TestRailTestCase.swift in Sources */,
+				5E4BC252DEA8FFE0DAB894DD /* TestRailStatus.swift in Sources */,
+				5E4BCEDBA3BC6535BDF58F68 /* TestRailTestCaseField.swift in Sources */,
+				5E4BC9DF824FFBA609227838 /* TestRailConfig.swift in Sources */,
+				5E4BCD196E7AB0AC8CBD315F /* TestRailTestCaseType.swift in Sources */,
+				5E4BC5CA0A7B2ED02750D700 /* TestRailPriority.swift in Sources */,
+				5E4BC9F0487BB1CA80314967 /* TestRailTest.swift in Sources */,
+				5E4BCF5E9DC7075D11B405A1 /* TestRailTestResult.swift in Sources */,
+				5E4BCBC7AD362D7F2C55F75B /* TestRailSection.swift in Sources */,
+				5E4BCE7793D52D565C271412 /* TestRailTemplate.swift in Sources */,
+				5E4BC03401FFB36AF1668A3F /* TestRailUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
