@@ -138,4 +138,20 @@ struct TestRailTestRun : TestRailCodable
 	{
 		return ["\(id)", "\(projectID)", "\(name)", "\(description)"]
 	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	var hashValue:Int
+	{
+		return 0
+	}
+	
+	
+	static func ==(lhs:TestRailTestRun, rhs:TestRailTestRun) -> Bool
+	{
+		return true
+	}
 }

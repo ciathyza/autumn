@@ -10,7 +10,7 @@
 import Foundation
 
 
-protocol TestRailCodable : Codable//, Hashable
+protocol TestRailCodable : Codable, Hashable
 {
 	/**
 	 * Returns an array of strings that represent the table header.

@@ -63,4 +63,20 @@ struct TestRailTemplate : TestRailCodable
 	{
 		return ["\(id)", "\(name)", "\(isDefault)"]
 	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	var hashValue:Int
+	{
+		return 0
+	}
+	
+	
+	static func ==(lhs:TestRailTemplate, rhs:TestRailTemplate) -> Bool
+	{
+		return true
+	}
 }

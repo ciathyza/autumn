@@ -185,6 +185,22 @@ struct TestRailTestCase : TestRailCodable
 	{
 		return ["\(id!)", "\(suiteID)", "\(sectionID)", "\(title)", "\(typeID!)"]
 	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	var hashValue:Int
+	{
+		return 0
+	}
+	
+	
+	static func ==(lhs:TestRailTestCase, rhs:TestRailTestCase) -> Bool
+	{
+		return true
+	}
 }
 
 
@@ -232,5 +248,16 @@ struct TestRailTestCaseCustom : TestRailCodable
 	func toTableRow() -> [String]
 	{
 		return ["\(content)", "\(expected)"]
+	}
+	
+	
+	var hashValue:Int
+	{
+		return 0
+	}
+	
+	static func ==(lhs:TestRailTestCaseCustom, rhs:TestRailTestCaseCustom) -> Bool
+	{
+		return true
 	}
 }

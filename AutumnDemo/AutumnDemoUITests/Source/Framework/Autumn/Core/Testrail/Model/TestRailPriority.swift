@@ -61,12 +61,36 @@ struct TestRailPriority : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["id", "name", "priority", "shortName", "isDefault"]
+		return ["id", "name", "priority", "shortName", "isDefault", "Hash"]
 	}
 	
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(name)", "\(priority)", "\(shortName)", "\(isDefault)"]
+		return ["\(id)", "\(name)", "\(priority)", "\(shortName)", "\(isDefault)", "\(hashValue)"]
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	var hashValue:Int
+	{
+		return (31 &* id.hashValue)
+				&+ priority.hashValue
+				&+ name.hashValue
+				&+ shortName.hashValue
+				&+ isDefault.hashValue
+	}
+	
+	
+	static func ==(lhs:TestRailPriority, rhs:TestRailPriority) -> Bool
+	{
+		return lhs.id == rhs.id
+				&& lhs.priority == rhs.priority
+				&& lhs.name == rhs.name
+				&& lhs.shortName == rhs.shortName
+				&& lhs.isDefault == rhs.isDefault
 	}
 }

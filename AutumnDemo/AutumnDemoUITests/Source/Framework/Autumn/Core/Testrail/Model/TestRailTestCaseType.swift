@@ -63,4 +63,20 @@ struct TestRailTestCaseType : TestRailCodable
 	{
 		return ["\(id)", "\(name)", "\(isDefault)"]
 	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	var hashValue:Int
+	{
+		return 0
+	}
+	
+	
+	static func ==(lhs:TestRailTestCaseType, rhs:TestRailTestCaseType) -> Bool
+	{
+		return true
+	}
 }

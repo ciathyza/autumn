@@ -119,6 +119,22 @@ struct TestRailTest : TestRailCodable
 	{
 		return ["\(id)", "\(title)", "\(caseID)", "\(statusID)", "\(assignedToID)"]
 	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	var hashValue:Int
+	{
+		return 0
+	}
+	
+	
+	static func ==(lhs:TestRailTest, rhs:TestRailTest) -> Bool
+	{
+		return true
+	}
 }
 
 
@@ -163,5 +179,16 @@ struct TestRailCustomTestStep : TestRailCodable
 	func toTableRow() -> [String]
 	{
 		return ["\(content)", "\(expected)"]
+	}
+	
+	var hashValue:Int
+	{
+		return 0
+	}
+	
+	
+	static func ==(lhs:TestRailCustomTestStep, rhs:TestRailCustomTestStep) -> Bool
+	{
+		return true
 	}
 }

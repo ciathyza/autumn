@@ -91,12 +91,40 @@ struct TestRailSection : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["id", "name"]
+		return ["ID", "Name", "Hash"]
 	}
 	
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(name)"]
+		return ["\(id)", "\(name)", "\(hashValue)"]
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	var hashValue:Int
+	{
+		return (31 &* id.hashValue)
+				&+ suiteID.hashValue
+				&+ (parentID != nil ? parentID!.hashValue : 0)
+				&+ depth.hashValue
+				&+ displayOrder.hashValue
+				&+ name.hashValue
+				&+ (description != nil ? description!.hashValue : 0)
+	}
+	
+	
+	static func ==(lhs:TestRailSection, rhs:TestRailSection) -> Bool
+	{
+		return lhs.id == rhs.id
+				&& lhs.suiteID == rhs.suiteID
+				&& lhs.parentID == rhs.parentID
+				&& lhs.depth == rhs.depth
+				&& lhs.displayOrder == rhs.displayOrder
+				&& lhs.name == rhs.name
+				&& lhs.description == rhs.description
 	}
 }

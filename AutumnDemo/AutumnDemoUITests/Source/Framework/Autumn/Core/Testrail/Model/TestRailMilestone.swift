@@ -82,12 +82,50 @@ struct TestRailMilestone : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["ID", "ProjectID", "ParentID", "Name", "Description"]
+		return ["ID", "ProjectID", "ParentID", "Name", "Description", "Hash"]
 	}
 	
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(projectID)", "\(parentID)", "\(name)", "\(description)"]
+		return ["\(id)", "\(projectID)", "\(parentID)", "\(name)", "\(description)", "\(hashValue)"]
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	var hashValue:Int
+	{
+		return (31 &* id.hashValue)
+				&+ projectID.hashValue
+				&+ parentID.hashValue
+				&+ name.hashValue
+				&+ description.hashValue
+				&+ url.hashValue
+				&+ (startOn != nil ? startOn!.hashValue: 0)
+				&+ (startedOn != nil ? startedOn!.hashValue: 0)
+				&+ (dueOn != nil ? dueOn!.hashValue: 0)
+				&+ (completedOn != nil ? completedOn!.hashValue: 0)
+				&+ isStarted.hashValue
+				&+ isCompleted.hashValue
+	}
+	
+	
+	static func ==(lhs:TestRailMilestone, rhs:TestRailMilestone) -> Bool
+	{
+		return lhs.id == rhs.id
+				&& lhs.projectID == rhs.projectID
+				&& lhs.parentID == rhs.parentID
+				&& lhs.name == rhs.name
+				&& lhs.description == rhs.description
+				&& lhs.url == rhs.url
+				&& lhs.startOn == rhs.startOn
+				&& lhs.startedOn == rhs.startedOn
+				&& lhs.dueOn == rhs.dueOn
+				&& lhs.completedOn == rhs.completedOn
+				&& lhs.isStarted == rhs.isStarted
+				&& lhs.isCompleted == rhs.isCompleted
 	}
 }

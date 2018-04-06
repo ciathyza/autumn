@@ -55,13 +55,33 @@ struct TestRailConfig : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["ID", "context", "options"]
+		return ["ID", "Context", "Options", "Hash"]
 	}
 	
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(context)", "\(options)"]
+		return ["\(id)", "\(context)", "\(options)", "\(hashValue)"]
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	var hashValue:Int
+	{
+		return (31 &* id.hashValue)
+				&+ (context != nil ? context!.hashValue: 0)
+				&+ (options != nil ? options!.hashValue: 0)
+	}
+	
+	
+	static func ==(lhs:TestRailConfig, rhs:TestRailConfig) -> Bool
+	{
+		return lhs.id == rhs.id
+			&& lhs.context == rhs.context
+			&& lhs.options == rhs.options
 	}
 }
 
@@ -88,12 +108,22 @@ struct TestRailContext : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["ProjectIDs", "IsGlobal"]
+		return ["ProjectIDs", "IsGlobal", "Hash"]
 	}
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(projectIDs)", "\(isGlobal)"]
+		return ["\(projectIDs)", "\(isGlobal)", "\(hashValue)"]
+	}
+	
+	var hashValue:Int
+	{
+		return (31 &* projectIDs.description.hashValue) &+ (isGlobal != nil ? isGlobal!.hashValue: 0)
+	}
+	
+	static func ==(lhs:TestRailContext, rhs:TestRailContext) -> Bool
+	{
+		return lhs.projectIDs.description == rhs.projectIDs.description && lhs.isGlobal == rhs.isGlobal
 	}
 }
 
@@ -126,11 +156,21 @@ struct TestRailOptions : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["Rows", "DefaultValue", "Format", "IsRequired"]
+		return ["Rows", "DefaultValue", "Format", "IsRequired", "Hash"]
 	}
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(rows)", "\(defaultValue)", "\(format)", "\(isRequired)"]
+		return ["\(rows)", "\(defaultValue)", "\(format)", "\(isRequired)", "\(hashValue)"]
+	}
+	
+	var hashValue:Int
+	{
+		return (31 &* rows.description.hashValue) &+ defaultValue.hashValue &+ format.hashValue &+ isRequired
+	}
+	
+	static func ==(lhs:TestRailOptions, rhs:TestRailOptions) -> Bool
+	{
+		return lhs.rows == rhs.rows && lhs.defaultValue == rhs.defaultValue && lhs.format == rhs.format && lhs.isRequired == lhs.isRequired
 	}
 }

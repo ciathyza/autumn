@@ -70,12 +70,42 @@ struct TestRailProject : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["ID", "Name", "SuitMode", "Announcement", "URL"]
+		return ["ID", "Name", "SuitMode", "Announcement", "Hash"]
 	}
 	
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(name)", "\(suiteMode)", "\(announcement)", "\(url)"]
+		return ["\(id)", "\(name)", "\(suiteMode)", "\(announcement)", "\(hashValue)"]
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	var hashValue:Int
+	{
+		return (31 &* id.hashValue)
+			&+ suiteMode.hashValue
+			&+ name.hashValue
+			&+ announcement.hashValue
+			&+ url.hashValue
+			&+ (completedOn != nil ? completedOn!.hashValue: 0)
+			&+ showAnnouncement.hashValue
+			&+ isCompleted.hashValue
+	}
+	
+	
+	static func ==(lhs:TestRailProject, rhs:TestRailProject) -> Bool
+	{
+		return lhs.id == rhs.id
+				&& lhs.suiteMode == rhs.suiteMode
+				&& lhs.name == rhs.name
+				&& lhs.announcement == rhs.announcement
+				&& lhs.url == rhs.url
+				&& lhs.completedOn == rhs.completedOn
+				&& lhs.showAnnouncement == rhs.showAnnouncement
+				&& lhs.isCompleted == rhs.isCompleted
 	}
 }
