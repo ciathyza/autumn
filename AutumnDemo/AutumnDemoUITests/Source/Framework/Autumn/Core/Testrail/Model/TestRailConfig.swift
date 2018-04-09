@@ -71,9 +71,7 @@ struct TestRailConfig : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return (31 &* id.hashValue)
-				&+ (context != nil ? context!.hashValue: 0)
-				&+ (options != nil ? options!.hashValue: 0)
+		return id.hashValue
 	}
 	
 	
@@ -118,7 +116,7 @@ struct TestRailContext : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return (31 &* projectIDs.description.hashValue) &+ (isGlobal != nil ? isGlobal.hashValue: 0)
+		return projectIDs.description.hashValue
 	}
 	
 	static func ==(lhs:TestRailContext, rhs:TestRailContext) -> Bool

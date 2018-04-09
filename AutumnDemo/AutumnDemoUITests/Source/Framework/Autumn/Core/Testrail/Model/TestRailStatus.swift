@@ -89,12 +89,20 @@ struct TestRailStatus : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return id.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailStatus, rhs:TestRailStatus) -> Bool
 	{
-		return true
+		return lhs.id == rhs.id
+			&& lhs.name == rhs.name
+			&& lhs.label == rhs.label
+			&& lhs.colorDark == rhs.colorDark
+			&& lhs.colorMedium == rhs.colorMedium
+			&& lhs.colorBright == rhs.colorBright
+			&& lhs.isSystem == rhs.isSystem
+			&& lhs.isUntested == rhs.isUntested
+			&& lhs.isFinal == rhs.isFinal
 	}
 }

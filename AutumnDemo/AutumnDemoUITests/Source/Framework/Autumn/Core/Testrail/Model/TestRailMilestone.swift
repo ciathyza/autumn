@@ -98,19 +98,7 @@ struct TestRailMilestone : TestRailCodable
 	
 	var hashValue:Int
 	{
-		let s1 = (31 &* id.hashValue)
-			&+ projectID.hashValue
-			&+ parentID.hashValue
-			&+ name.hashValue
-		let s2 = s1 &+ description.hashValue
-			&+ url.hashValue
-			&+ (startOn?.hashValue ?? 0)
-			&+ (startedOn?.hashValue ?? 0)
-		let s3 = s2 &+ (dueOn?.hashValue ?? 0)
-			&+ (completedOn?.hashValue ?? 0)
-			&+ isStarted.hashValue
-			&+ isCompleted.hashValue
-		return s3
+		return id.hashValue
 	}
 	
 	

@@ -107,24 +107,18 @@ struct TestRailSection : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return (31 &* id.hashValue)
-				&+ suiteID.hashValue
-				&+ (parentID != nil ? parentID!.hashValue : 0)
-				&+ depth.hashValue
-				&+ displayOrder.hashValue
-				&+ name.hashValue
-				&+ (description != nil ? description!.hashValue : 0)
+		return id.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailSection, rhs:TestRailSection) -> Bool
 	{
 		return lhs.id == rhs.id
-				&& lhs.suiteID == rhs.suiteID
-				&& lhs.parentID == rhs.parentID
-				&& lhs.depth == rhs.depth
-				&& lhs.displayOrder == rhs.displayOrder
-				&& lhs.name == rhs.name
-				&& lhs.description == rhs.description
+			&& lhs.suiteID == rhs.suiteID
+			&& lhs.parentID == rhs.parentID
+			&& lhs.depth == rhs.depth
+			&& lhs.displayOrder == rhs.displayOrder
+			&& lhs.name == rhs.name
+			&& lhs.description == rhs.description
 	}
 }

@@ -193,13 +193,36 @@ struct TestRailTestCase : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return (31 &* suiteID.hashValue) &+ sectionID.hashValue &+ title.hashValue &+ (id?.hashValue ?? 0)
 	}
 	
 	
 	static func ==(lhs:TestRailTestCase, rhs:TestRailTestCase) -> Bool
 	{
-		return true
+		return lhs.suiteID == rhs.suiteID
+			&& lhs.sectionID == rhs.sectionID
+			&& lhs.title == rhs.title
+			&& lhs.id == rhs.id
+			&& lhs.typeID == rhs.typeID
+			&& lhs.milestoneID == rhs.milestoneID
+			&& lhs.templateID == rhs.templateID
+			&& lhs.priorityID == rhs.priorityID
+			&& lhs.createdBy == rhs.createdBy
+			&& lhs.updatedBy == rhs.updatedBy
+			&& lhs.refs == rhs.refs
+			&& lhs.estimate == rhs.estimate
+			&& lhs.estimateForecast == rhs.estimateForecast
+			&& lhs.createdOn == rhs.createdOn
+			&& lhs.updatedOn == rhs.updatedOn
+			&& lhs.customAutomated == rhs.customAutomated
+			&& lhs.customPreconds == rhs.customPreconds
+			&& ((lhs.customSteps == nil && rhs.customSteps == nil) || (lhs.customSteps! == rhs.customSteps!))
+			&& lhs.customExpected == rhs.customExpected
+			&& ((lhs.customStepsSeparated == nil && rhs.customStepsSeparated == nil) || ((lhs.customStepsSeparated! == rhs.customStepsSeparated!)))
+			&& lhs.customMission == rhs.customMission
+			&& lhs.customGoals == rhs.customGoals
+			&& lhs.customLabel == rhs.customLabel
+			&& ((lhs.customOS == nil && rhs.customOS == nil) || (lhs.customOS! == rhs.customOS!))
 	}
 }
 
@@ -250,14 +273,13 @@ struct TestRailTestCaseCustom : TestRailCodable
 		return ["\(content)", "\(expected)"]
 	}
 	
-	
 	var hashValue:Int
 	{
-		return 0
+		return (31 &* content.hashValue) &+ expected.hashValue
 	}
 	
 	static func ==(lhs:TestRailTestCaseCustom, rhs:TestRailTestCaseCustom) -> Bool
 	{
-		return true
+		return lhs.content == rhs.content && lhs.expected == rhs.expected
 	}
 }

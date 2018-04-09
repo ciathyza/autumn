@@ -71,12 +71,14 @@ struct TestRailTestCaseType : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return id.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailTestCaseType, rhs:TestRailTestCaseType) -> Bool
 	{
-		return true
+		return lhs.id == rhs.id
+			&& lhs.name == rhs.name
+			&& lhs.isDefault == rhs.isDefault
 	}
 }

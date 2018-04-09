@@ -74,12 +74,15 @@ struct TestRailUser : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return id.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailUser, rhs:TestRailUser) -> Bool
 	{
-		return true
+		return lhs.id == rhs.id
+			&& lhs.name == rhs.name
+			&& lhs.email == rhs.email
+			&& lhs.isActive == rhs.isActive
 	}
 }

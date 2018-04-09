@@ -146,12 +146,38 @@ struct TestRailTestRun : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return id.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailTestRun, rhs:TestRailTestRun) -> Bool
 	{
-		return true
+		return lhs.id == rhs.id
+			&& lhs.projectID == rhs.projectID
+			&& lhs.suiteID == rhs.suiteID
+			&& lhs.milestoneID == rhs.milestoneID
+			&& lhs.planID == rhs.planID
+			&& lhs.assignedToID == rhs.assignedToID
+			&& lhs.createdBy == rhs.createdBy
+			&& lhs.passedCount == rhs.passedCount
+			&& lhs.blockedCount == rhs.blockedCount
+			&& lhs.untestedCount == rhs.untestedCount
+			&& lhs.retestCount == rhs.retestCount
+			&& lhs.failedCount == rhs.failedCount
+			&& lhs.customStatus1Count == rhs.customStatus1Count
+			&& lhs.customStatus2Count == rhs.customStatus2Count
+			&& lhs.customStatus3Count == rhs.customStatus3Count
+			&& lhs.customStatus4Count == rhs.customStatus4Count
+			&& lhs.customStatus5Count == rhs.customStatus5Count
+			&& lhs.customStatus6Count == rhs.customStatus6Count
+			&& lhs.customStatus7Count == rhs.customStatus7Count
+			&& lhs.name == rhs.name
+			&& lhs.description == rhs.description
+			&& lhs.url == rhs.url
+			&& lhs.config == rhs.config
+			&& lhs.configIDs == rhs.configIDs
+			&& lhs.createdOn == rhs.createdOn
+			&& lhs.includeAll == rhs.includeAll
+			&& lhs.isCompleted == rhs.isCompleted
 	}
 }

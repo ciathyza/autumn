@@ -95,12 +95,22 @@ struct TestRailTestResult : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return id.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailTestResult, rhs:TestRailTestResult) -> Bool
 	{
-		return true
+		return lhs.id == rhs.id
+			&& lhs.testID == rhs.testID
+			&& lhs.statusID == rhs.statusID
+			&& lhs.createdBy == rhs.createdBy
+			&& lhs.createdOn == rhs.createdOn
+			&& lhs.assignedToID == rhs.assignedToID
+			&& lhs.comment == rhs.comment
+			&& lhs.version == rhs.version
+			&& lhs.elapsed == rhs.elapsed
+			&& lhs.defects == rhs.defects
+			&& lhs.customStepResults == rhs.customStepResults
 	}
 }

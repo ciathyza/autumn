@@ -71,12 +71,14 @@ struct TestRailTemplate : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return (31 &* id.hashValue) &+ name.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailTemplate, rhs:TestRailTemplate) -> Bool
 	{
-		return true
+		return lhs.id == rhs.id
+			&& lhs.name == rhs.name
+			&& lhs.isDefault == rhs.isDefault
 	}
 }

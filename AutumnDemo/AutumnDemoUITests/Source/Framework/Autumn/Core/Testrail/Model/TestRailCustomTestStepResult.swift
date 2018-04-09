@@ -74,18 +74,15 @@ struct TestRailCustomTestStepResult : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return (31 &* statusID.hashValue)
-				&+ content.hashValue
-				&+ expected.hashValue
-				&+ actual.hashValue
+		return (31 &* statusID.hashValue) &+ content.hashValue &+ expected.hashValue &+ actual.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailCustomTestStepResult, rhs:TestRailCustomTestStepResult) -> Bool
 	{
 		return lhs.statusID == rhs.statusID
-				&& lhs.content == rhs.content
-				&& lhs.expected == rhs.expected
-				&& lhs.actual == rhs.actual
+			&& lhs.content == rhs.content
+			&& lhs.expected == rhs.expected
+			&& lhs.actual == rhs.actual
 	}
 }

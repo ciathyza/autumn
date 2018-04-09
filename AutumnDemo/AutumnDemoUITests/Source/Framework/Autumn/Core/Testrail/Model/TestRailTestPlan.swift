@@ -98,12 +98,24 @@ struct TestRailTestPlan : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return id.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailTestPlan, rhs:TestRailTestPlan) -> Bool
 	{
-		return true
+		return lhs.id == rhs.id
+			&& lhs.projectID == rhs.projectID
+			&& lhs.parentID == rhs.parentID
+			&& lhs.name == rhs.name
+			&& lhs.description == rhs.description
+			&& lhs.url == rhs.url
+			&& lhs.startOn == rhs.startOn
+			&& lhs.description == rhs.description
+			&& lhs.startedOn == rhs.startedOn
+			&& lhs.dueOn == rhs.dueOn
+			&& lhs.completedOn == rhs.completedOn
+			&& lhs.isStarted == rhs.isStarted
+			&& lhs.isCompleted == rhs.isCompleted
 	}
 }

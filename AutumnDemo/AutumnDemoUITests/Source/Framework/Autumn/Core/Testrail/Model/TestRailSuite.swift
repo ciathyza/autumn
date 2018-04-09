@@ -89,12 +89,20 @@ struct TestRailSuite : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return id.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailSuite, rhs:TestRailSuite) -> Bool
 	{
-		return true
+		return lhs.id == rhs.id
+			&& lhs.projectID == rhs.projectID
+			&& lhs.name == rhs.name
+			&& lhs.description == rhs.description
+			&& lhs.url == rhs.url
+			&& lhs.completedOn == rhs.completedOn
+			&& lhs.isMaster == rhs.isMaster
+			&& lhs.isBaseline == rhs.isBaseline
+			&& lhs.isCompleted == rhs.isCompleted
 	}
 }

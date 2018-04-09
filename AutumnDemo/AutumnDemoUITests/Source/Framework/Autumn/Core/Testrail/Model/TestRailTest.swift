@@ -81,27 +81,27 @@ struct TestRailTest : TestRailCodable
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		do { id                   = try values.decode(Int.self,                      forKey: .id) }                   catch { id = 0 }
-		do { caseID               = try values.decode(Int.self,                      forKey: .caseID) }               catch { caseID = 0 }
-		do { statusID             = try values.decode(Int.self,                      forKey: .statusID) }             catch { statusID = 0 }
-		do { assignedToID         = try values.decode(Int.self,                      forKey: .assignedToID) }         catch { assignedToID = 0 }
-		do { runID                = try values.decode(Int.self,                      forKey: .runID) }                catch { runID = 0 }
-		do { templateID           = try values.decode(Int.self,                      forKey: .templateID) }           catch { templateID = 0 }
-		do { typeID               = try values.decode(Int.self,                      forKey: .typeID) }               catch { typeID = 0 }
-		do { priorityID           = try values.decode(Int.self,                      forKey: .priorityID) }           catch { priorityID = 0 }
-		do { milestoneID          = try values.decode(Int.self,                      forKey: .milestoneID) }          catch { milestoneID = 0 }
-		do { customOS             = try values.decode([Int].self,                    forKey: .customOS) }             catch { customOS = [Int]() }
-		do { title                = try values.decode(String.self,                   forKey: .title) }                catch { title = "" }
-		do { estimate             = try values.decode(String.self,                   forKey: .estimate) }             catch { estimate = "" }
-		do { estimateForecast     = try values.decode(String.self,                   forKey: .estimateForecast) }     catch { estimateForecast = "" }
-		do { refs                 = try values.decode(String.self,                   forKey: .refs) }                 catch { refs = "" }
-		do { customAutomated      = try values.decode(String.self,                   forKey: .customAutomated) }      catch { customAutomated = "" }
-		do { customPreconds       = try values.decode(String.self,                   forKey: .customPreconds) }       catch { customPreconds = "" }
-		do { customSteps          = try values.decode(String.self,                   forKey: .customSteps) }          catch { customSteps = "" }
-		do { customExpected       = try values.decode(String.self,                   forKey: .customExpected) }       catch { customExpected = "" }
-		do { customMission        = try values.decode(String.self,                   forKey: .customMission) }        catch { customMission = "" }
-		do { customGoals          = try values.decode(String.self,                   forKey: .customGoals) }          catch { customGoals = "" }
-		do { customLabel          = try values.decode([String].self,                 forKey: .customLabel) }          catch { customLabel = [String]() }
+		do { id               = try values.decode(Int.self,      forKey: .id) }               catch { id               = 0 }
+		do { caseID           = try values.decode(Int.self,      forKey: .caseID) }           catch { caseID           = 0 }
+		do { statusID         = try values.decode(Int.self,      forKey: .statusID) }         catch { statusID         = 0 }
+		do { assignedToID     = try values.decode(Int.self,      forKey: .assignedToID) }     catch { assignedToID     = 0 }
+		do { runID            = try values.decode(Int.self,      forKey: .runID) }            catch { runID            = 0 }
+		do { templateID       = try values.decode(Int.self,      forKey: .templateID) }       catch { templateID       = 0 }
+		do { typeID           = try values.decode(Int.self,      forKey: .typeID) }           catch { typeID           = 0 }
+		do { priorityID       = try values.decode(Int.self,      forKey: .priorityID) }       catch { priorityID       = 0 }
+		do { milestoneID      = try values.decode(Int.self,      forKey: .milestoneID) }      catch { milestoneID      = 0 }
+		do { customOS         = try values.decode([Int].self,    forKey: .customOS) }         catch { customOS         = [Int]() }
+		do { title            = try values.decode(String.self,   forKey: .title) }            catch { title            = "" }
+		do { estimate         = try values.decode(String.self,   forKey: .estimate) }         catch { estimate         = "" }
+		do { estimateForecast = try values.decode(String.self,   forKey: .estimateForecast) } catch { estimateForecast = "" }
+		do { refs             = try values.decode(String.self,   forKey: .refs) }             catch { refs             = "" }
+		do { customAutomated  = try values.decode(String.self,   forKey: .customAutomated) }  catch { customAutomated  = "" }
+		do { customPreconds   = try values.decode(String.self,   forKey: .customPreconds) }   catch { customPreconds   = "" }
+		do { customSteps      = try values.decode(String.self,   forKey: .customSteps) }      catch { customSteps      = "" }
+		do { customExpected   = try values.decode(String.self,   forKey: .customExpected) }   catch { customExpected   = "" }
+		do { customMission    = try values.decode(String.self,   forKey: .customMission) }    catch { customMission    = "" }
+		do { customGoals      = try values.decode(String.self,   forKey: .customGoals) }      catch { customGoals      = "" }
+		do { customLabel      = try values.decode([String].self, forKey: .customLabel) }      catch { customLabel      = [String]() }
 		do { customStepsSeparated = try values.decode([TestRailCustomTestStep].self, forKey: .customStepsSeparated) } catch { customStepsSeparated = [TestRailCustomTestStep]() }
 	}
 	
@@ -127,13 +127,35 @@ struct TestRailTest : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return (31 &* id.hashValue) &+ caseID.hashValue &+ statusID.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailTest, rhs:TestRailTest) -> Bool
 	{
-		return true
+		return lhs.id == rhs.id
+			&& lhs.caseID == rhs.caseID
+			&& lhs.statusID == rhs.statusID
+			&& lhs.assignedToID == rhs.assignedToID
+			&& lhs.runID == rhs.runID
+			&& lhs.templateID == rhs.templateID
+			&& lhs.typeID == rhs.typeID
+			&& lhs.priorityID == rhs.priorityID
+			&& lhs.milestoneID == rhs.milestoneID
+			&& lhs.customOS == rhs.customOS
+			&& lhs.title == rhs.title
+			&& lhs.estimate == rhs.estimate
+			&& lhs.estimateForecast == rhs.estimateForecast
+			&& lhs.refs == rhs.refs
+			&& lhs.customAutomated == rhs.customAutomated
+			&& lhs.customPreconds == rhs.customPreconds
+			&& lhs.customSteps == rhs.customSteps
+			&& lhs.customExpected == rhs.customExpected
+			&& lhs.customMission == rhs.customMission
+			&& lhs.customGoals == rhs.customGoals
+			&& lhs.customLabel == rhs.customLabel
+			&& lhs.customSteps == rhs.customSteps
+			&& lhs.customStepsSeparated == rhs.customStepsSeparated
 	}
 }
 
@@ -183,12 +205,12 @@ struct TestRailCustomTestStep : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return 0
+		return (31 &* content.hashValue) &+ expected.hashValue
 	}
 	
 	
 	static func ==(lhs:TestRailCustomTestStep, rhs:TestRailCustomTestStep) -> Bool
 	{
-		return true
+		return lhs.content == rhs.content && lhs.expected == rhs.expected
 	}
 }
