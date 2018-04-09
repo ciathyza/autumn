@@ -738,7 +738,7 @@ class AutumnTestRailClient
 	}
 	
 	
-	func dump(_ model:[TestRailCodable], _ maxRows:Int = 20) -> String
+	func dump<T:TestRailCodable>(_ model:[T], _ maxRows:Int = 20) -> String
 	{
 		if model.count > 0
 		{

@@ -98,34 +98,35 @@ struct TestRailMilestone : TestRailCodable
 	
 	var hashValue:Int
 	{
-		return (31 &* id.hashValue)
-				&+ projectID.hashValue
-				&+ parentID.hashValue
-				&+ name.hashValue
-				&+ description.hashValue
-				&+ url.hashValue
-				&+ (startOn != nil ? startOn!.hashValue: 0)
-				&+ (startedOn != nil ? startedOn!.hashValue: 0)
-				&+ (dueOn != nil ? dueOn!.hashValue: 0)
-				&+ (completedOn != nil ? completedOn!.hashValue: 0)
-				&+ isStarted.hashValue
-				&+ isCompleted.hashValue
+		let s1 = (31 &* id.hashValue)
+			&+ projectID.hashValue
+			&+ parentID.hashValue
+			&+ name.hashValue
+		let s2 = s1 &+ description.hashValue
+			&+ url.hashValue
+			&+ (startOn?.hashValue ?? 0)
+			&+ (startedOn?.hashValue ?? 0)
+		let s3 = s2 &+ (dueOn?.hashValue ?? 0)
+			&+ (completedOn?.hashValue ?? 0)
+			&+ isStarted.hashValue
+			&+ isCompleted.hashValue
+		return s3
 	}
 	
 	
 	static func ==(lhs:TestRailMilestone, rhs:TestRailMilestone) -> Bool
 	{
 		return lhs.id == rhs.id
-				&& lhs.projectID == rhs.projectID
-				&& lhs.parentID == rhs.parentID
-				&& lhs.name == rhs.name
-				&& lhs.description == rhs.description
-				&& lhs.url == rhs.url
-				&& lhs.startOn == rhs.startOn
-				&& lhs.startedOn == rhs.startedOn
-				&& lhs.dueOn == rhs.dueOn
-				&& lhs.completedOn == rhs.completedOn
-				&& lhs.isStarted == rhs.isStarted
-				&& lhs.isCompleted == rhs.isCompleted
+			&& lhs.projectID == rhs.projectID
+			&& lhs.parentID == rhs.parentID
+			&& lhs.name == rhs.name
+			&& lhs.description == rhs.description
+			&& lhs.url == rhs.url
+			&& lhs.startOn == rhs.startOn
+			&& lhs.startedOn == rhs.startedOn
+			&& lhs.dueOn == rhs.dueOn
+			&& lhs.completedOn == rhs.completedOn
+			&& lhs.isStarted == rhs.isStarted
+			&& lhs.isCompleted == rhs.isCompleted
 	}
 }
