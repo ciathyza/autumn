@@ -214,26 +214,36 @@ class AutumnTestRailClient
 	func createTestRailTestCase(_ testCase:TestRailTestCase, sectionID:Int)
 	{
 		_isTestRailRetrievalComplete = false
+		/* Check if a test case with same title and an ID already exists. */
 		if let tc = model.getTestCase(testCase.title), let testCaseID = tc.id
 		{
-			Log.debug(">>>", "\(tc.title) : \(testCaseID)")
-			/* Update existing test case. */
-			updateTestCase(testCase: testCase, caseID: testCaseID)
+			/* Check if the two test cases are identical (except for the ID because the ID of a
+			   newly created test case is still nil. */
+			if testCase.title == tc.title
 			{
-				(response:TestRailTestCase?, error:String?) in
-				if let error = error { AutumnLog.error(error) }
-				if let r = response
-				{
-					if self.model.replaceTestCase(r)
-					{
-						AutumnLog.debug("Updated existing test case: \"\(tc.title)\" (ID: \(testCaseID)).")
-					}
-					else
-					{
-						AutumnLog.warning("Failed to replace test case with ID \(testCaseID).")
-					}
-				}
+				/* New and existing test case with same title are identical! No need to update. */
 				self._isTestRailRetrievalComplete = true
+			}
+			else
+			{
+				/* Update existing test case. */
+				updateTestCase(testCase: testCase, caseID: testCaseID)
+				{
+					(response:TestRailTestCase?, error:String?) in
+					if let error = error { AutumnLog.error(error) }
+					if let r = response
+					{
+						if self.model.replaceTestCase(r)
+						{
+							AutumnLog.debug("Updated existing test case: \"\(tc.title)\" (ID: \(testCaseID)).")
+						}
+						else
+						{
+							AutumnLog.warning("Failed to replace test case with ID \(testCaseID).")
+						}
+					}
+					self._isTestRailRetrievalComplete = true
+				}
 			}
 		}
 		else
@@ -247,7 +257,7 @@ class AutumnTestRailClient
 				{
 					self.model.addTestCase(r)
 				}
-				AutumnLog.debug("Created new test case with title \"\(testCase.title)\".")
+				AutumnLog.debug("Created new test case with title \"\(testCase.title)\" and ID \(testCase.id).")
 				self._isTestRailRetrievalComplete = true
 			}
 		}
@@ -318,9 +328,10 @@ class AutumnTestRailClient
 	}
 	
 	
-	func getTestCases(projectID:Int, suiteID:Int, callback: @escaping (([TestRailTestCase]?, _:String?) -> Void))
+	func getTestCases(projectID:Int, suiteID:Int, sectionID:Int? = nil, callback: @escaping (([TestRailTestCase]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_cases/\(projectID)&suite_id=\(suiteID)&section_id=", type: [TestRailTestCase].self, callback: callback)
+		let secID = sectionID != nil ? "\(sectionID!)" : ""
+		httpGet(path: "get_cases/\(projectID)&suite_id=\(suiteID)&section_id=\(secID)", type: [TestRailTestCase].self, callback: callback)
 	}
 	
 	

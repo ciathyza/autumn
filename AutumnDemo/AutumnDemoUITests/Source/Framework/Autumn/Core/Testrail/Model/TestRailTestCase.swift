@@ -202,7 +202,6 @@ struct TestRailTestCase : TestRailCodable
 		return lhs.suiteID == rhs.suiteID
 			&& lhs.sectionID == rhs.sectionID
 			&& lhs.title == rhs.title
-			&& lhs.id == rhs.id
 			&& lhs.typeID == rhs.typeID
 			&& lhs.milestoneID == rhs.milestoneID
 			&& lhs.templateID == rhs.templateID

@@ -85,6 +85,13 @@ class TestRailModel
 	}
 	
 	
+	func getSectionID(_ sectionName:String) -> Int?
+	{
+		if let section = getSection(sectionName) { return section.id }
+		return nil
+	}
+	
+	
 	/**
 	 * Returns a test case with the specified title, or nil if no such test case exists.
 	 */
