@@ -73,13 +73,13 @@ struct TestRailSuite : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["ID", "ProjectID", "Name", "Description", "isMaster"]
+		return ["ID", "ProjectID", "Name", "Description", "isMaster", "Hash"]
 	}
 	
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(projectID)", "\(name)", "\(description)", "\(isMaster)"]
+		return ["\(id)", "\(projectID)", "\(name)", "\(description)", "\(isMaster)", "\(hashValue)"]
 	}
 	
 	

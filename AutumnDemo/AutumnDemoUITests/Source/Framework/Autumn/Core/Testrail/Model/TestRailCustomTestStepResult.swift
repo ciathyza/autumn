@@ -58,13 +58,13 @@ struct TestRailCustomTestStepResult : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["statusID", "content"]
+		return ["StatusID", "Content", "Hash"]
 	}
 	
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(statusID)", "\(content)"]
+		return ["\(statusID)", "\(content)", "\(hashValue)"]
 	}
 	
 	

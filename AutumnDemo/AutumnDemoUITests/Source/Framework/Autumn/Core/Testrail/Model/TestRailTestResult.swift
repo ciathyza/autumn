@@ -79,13 +79,13 @@ struct TestRailTestResult : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["id", "testID"]
+		return ["ID", "TestID", "Hash"]
 	}
 	
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(testID)"]
+		return ["\(id)", "\(testID)", "\(hashValue)"]
 	}
 	
 	

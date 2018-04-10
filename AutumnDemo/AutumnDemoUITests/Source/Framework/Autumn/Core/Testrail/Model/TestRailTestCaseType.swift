@@ -55,13 +55,13 @@ struct TestRailTestCaseType : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["id", "name", "isDefault"]
+		return ["id", "name", "isDefault", "Hash"]
 	}
 	
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(name)", "\(isDefault)"]
+		return ["\(id)", "\(name)", "\(isDefault)", "\(hashValue)"]
 	}
 	
 	

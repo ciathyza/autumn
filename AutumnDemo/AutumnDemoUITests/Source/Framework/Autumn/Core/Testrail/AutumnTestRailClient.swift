@@ -46,7 +46,7 @@ class AutumnTestRailClient
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Server Data Retrieval
+	// MARK: - Public Methods
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
@@ -80,6 +80,290 @@ class AutumnTestRailClient
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 	}
 	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Server Setup API
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Sets up the server state for test case generation.
+	 */
+	func setupServerState()
+	{
+		setupTestCaseSection()
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+	}
+	
+	
+	func setupTestCaseSection()
+	{
+		_isTestRailRetrievalComplete = false
+		AutumnLog.debug("Getting section used for generated test cases ...")
+		createTestRailSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
+	}
+	
+	
+	/**
+	 * Creates a TestRail feature with all included scenarios and submits it to TestRail as a test case
+	 * If the test case already exists on TestRail it will be updated.
+	 */
+	func createTestRailFeature(_ feature:AutumnFeature)
+	{
+		if let rootSection = model.rootSection
+		{
+			AutumnLog.debug("Creating TestRail feature for \"\(feature.name)\" ...")
+			_isTestRailRetrievalComplete = false
+			createTestRailSection(feature.name, feature.descr, rootSection.id)
+			AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+			
+			if let section = model.getSection(feature.name)
+			{
+				let scenarios = feature.getScenarios()
+				for s in scenarios
+				{
+					s.setup()
+					s.resetNameRecords()
+					
+					var testCase = TestRailTestCase(model.masterSuiteID, section.id, s.name)
+					testCase.templateID = model.getTestCaseTemplateIDFor(template: config.testrailTemplate)
+					testCase.typeID = model.getTestCaseTypeIDFor(type: .Functional)
+					testCase.priorityID = s.priority.rawValue
+					testCase.customOS = [Int]()
+					testCase.customOS!.append(config.testrailOSIDs[AutumnPlatform.iOS.rawValue]!)
+					testCase.customPreconds = ""
+					testCase.customStepsSeparated = [TestRailTestCaseCustom]()
+					
+					/* Record precondition steps. */
+					s.establish()
+					var index = 0
+					for n in s.namesPrecondition
+					{
+						testCase.customPreconds! += "\(n)"
+						if index < s.namesPrecondition.count - 1 { testCase.customPreconds! += "\n" }
+						index += 1
+					}
+					
+					/* Record execution steps. */
+					s.execute()
+					var whenStepsBatch = ""
+					index = 0
+					for n in s.namesExecution
+					{
+						if n.starts(with: AutumnStepType.When.rawValue)
+						{
+							whenStepsBatch += "\(n)"
+							if index < s.namesExecution.count - 1 { whenStepsBatch += "\n" }
+							index += 1
+						}
+						else if n.starts(with: AutumnStepType.Then.rawValue)
+						{
+							var customTestStep = TestRailTestCaseCustom(content: whenStepsBatch, expected: n)
+							testCase.customStepsSeparated!.append(customTestStep)
+							whenStepsBatch = ""
+						}
+					}
+					
+					createTestRailTestCase(testCase, sectionID: section.id)
+					AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+				}
+			}
+		}
+		else
+		{
+			AutumnLog.error("No TestRail root section was found!")
+		}
+	}
+	
+	
+	/**
+	 * Creates a new TestRail section.
+	 * If the section with the same name already exists on TestRail it will be re-used.
+	 */
+	private func createTestRailSection(_ sectionName:String, _ description:String?, _ parentID:Int?)
+	{
+		_isTestRailRetrievalComplete = false
+		if let section = model.getSection(sectionName)
+		{
+			/* A section with the name already exists. */
+			AutumnLog.debug("Found existing \"\(sectionName)\" section.")
+			_isTestRailRetrievalComplete = true
+		}
+		else
+		{
+			/* Create new section to work with! */
+			let section = TestRailSection(name: sectionName, description: description, parentID: parentID)
+			createNewSection(section: section, projectID: config.testrailProjectID)
+			{
+				(response:TestRailSection?, error:String?) in
+				if let error = error { AutumnLog.error(error) }
+				if let r = response
+				{
+					self.model.addSection(r)
+				}
+				AutumnLog.debug("Created new \"\(sectionName)\" section.")
+				self._isTestRailRetrievalComplete = true
+			}
+		}
+	}
+	
+	
+	/**
+	 * Creates a new TestRail test case.
+	 * If the case with the same name already exists on TestRail it will be re-used.
+	 */
+	func createTestRailTestCase(_ testCase:TestRailTestCase, sectionID:Int)
+	{
+		_isTestRailRetrievalComplete = false
+		if let tc = model.getTestCase(testCase.title), let testCaseID = tc.id
+		{
+			Log.debug(">>>", "\(tc.title) : \(testCaseID)")
+			/* Update existing test case. */
+			updateTestCase(testCase: testCase, caseID: testCaseID)
+			{
+				(response:TestRailTestCase?, error:String?) in
+				if let error = error { AutumnLog.error(error) }
+				if let r = response
+				{
+					if self.model.replaceTestCase(r)
+					{
+						AutumnLog.debug("Updated existing test case: \"\(tc.title)\" (ID: \(testCaseID)).")
+					}
+					else
+					{
+						AutumnLog.warning("Failed to replace test case with ID \(testCaseID).")
+					}
+				}
+				self._isTestRailRetrievalComplete = true
+			}
+		}
+		else
+		{
+			/* Create new test case to work with! */
+			createNewTestCase(testCase: testCase, sectionID: sectionID)
+			{
+				(response:TestRailTestCase?, error:String?) in
+				if let error = error { AutumnLog.error(error) }
+				if let r = response
+				{
+					self.model.addTestCase(r)
+				}
+				AutumnLog.debug("Created new test case with title \"\(testCase.title)\".")
+				self._isTestRailRetrievalComplete = true
+			}
+		}
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Get API
+	// ----------------------------------------------------------------------------------------------------
+	
+	func getStatuses(callback: @escaping (([TestRailStatus]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_statuses", type: [TestRailStatus].self, callback: callback)
+	}
+	
+	
+	func getTestCaseFields(callback: @escaping (([TestRailTestCaseField]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_case_fields", type: [TestRailTestCaseField].self, callback: callback)
+	}
+	
+	
+	func getTestCaseTypes(callback: @escaping (([TestRailTestCaseType]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_case_types", type: [TestRailTestCaseType].self, callback: callback)
+	}
+	
+	
+	func getTemplates(projectID:Int, callback: @escaping (([TestRailTemplate]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_templates/\(projectID)", type: [TestRailTemplate].self, callback: callback)
+	}
+	
+	
+	func getTestCaseSections(projectID:Int, suiteID:Int, callback: @escaping (([TestRailSection]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_sections/\(projectID)&suite_id=\(suiteID)", type: [TestRailSection].self, callback: callback)
+	}
+	
+	
+	func getProjects(callback: @escaping (([TestRailProject]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_projects", type: [TestRailProject].self, callback: callback)
+	}
+	
+	
+	func getSuites(projectID:Int, callback: @escaping (([TestRailSuite]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_suites/\(projectID)", type: [TestRailSuite].self, callback: callback)
+	}
+	
+	
+	func getMilestones(projectID:Int, callback: @escaping (([TestRailMilestone]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_milestones/\(projectID)", type: [TestRailMilestone].self, callback: callback)
+	}
+	
+	
+	func getTestPlans(projectID:Int, callback: @escaping (([TestRailTestPlan]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_plans/\(projectID)", type: [TestRailTestPlan].self, callback: callback)
+	}
+	
+	
+	func getTestRuns(projectID:Int, callback: @escaping (([TestRailTestRun]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_runs/\(projectID)", type: [TestRailTestRun].self, callback: callback)
+	}
+	
+	
+	func getTestCases(projectID:Int, suiteID:Int, callback: @escaping (([TestRailTestCase]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_cases/\(projectID)&suite_id=\(suiteID)&section_id=", type: [TestRailTestCase].self, callback: callback)
+	}
+	
+	
+	func getTests(testRunID:Int, callback: @escaping (([TestRailTest]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_tests/\(testRunID)", type: [TestRailTest].self, callback: callback)
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Set API
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Creates a new section for test cases on the TestRail server.
+	 */
+	func createNewSection(section:TestRailSection, projectID:Int, callback: @escaping ((TestRailSection?, _:String?) -> Void))
+	{
+		httpPost(path: "add_section/\(projectID)", model: section, type: TestRailSection.self, callback: callback)
+	}
+	
+	
+	/**
+	 * Creates a new test case on the TestRail server.
+	 */
+	func createNewTestCase(testCase:TestRailTestCase, sectionID:Int, callback:@escaping ((TestRailTestCase?, _:String?) -> Void))
+	{
+		httpPost(path: "add_case/\(sectionID)", model: testCase, type: TestRailTestCase.self, callback: callback)
+	}
+	
+	
+	/**
+	 * Updates a test case on the TestRail server.
+	 */
+	func updateTestCase(testCase:TestRailTestCase, caseID:Int, callback:@escaping ((TestRailTestCase?, _:String?) -> Void))
+	{
+		httpPost(path: "update_case/\(caseID)", model: testCase, type: TestRailTestCase.self, callback: callback)
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Server Data Retrieval
+	// ----------------------------------------------------------------------------------------------------
 	
 	private func getTestRailStatuses()
 	{
@@ -291,286 +575,6 @@ class AutumnTestRailClient
 			}
 			self._isTestRailRetrievalComplete = true
 		}
-	}
-	
-	
-	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Server Setup API
-	// ----------------------------------------------------------------------------------------------------
-	
-	/**
-	 * Sets up the server state for test case generation.
-	 */
-	func setupServerState()
-	{
-		setupTestCaseSection()
-		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
-	}
-	
-	
-	func setupTestCaseSection()
-	{
-		_isTestRailRetrievalComplete = false
-		AutumnLog.debug("Getting section used for generated test cases ...")
-		createTestRailSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
-	}
-	
-	
-	/**
-	 * Creates a TestRail feature with all included scenarios and submits it to TestRail as a test case
-	 * If the test case already exists on TestRail it will be updated.
-	 */
-	func createTestRailFeature(_ feature:AutumnFeature)
-	{
-		if let rootSection = model.rootSection
-		{
-			AutumnLog.debug("Creating TestRail feature for \"\(feature.name)\" ...")
-			_isTestRailRetrievalComplete = false
-			createTestRailSection(feature.name, feature.descr, rootSection.id)
-			AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
-			
-			if let section = model.getSection(feature.name)
-			{
-				let scenarios = feature.getScenarios()
-				for s in scenarios
-				{
-					s.setup()
-					s.resetNameRecords()
-					
-					var testCase = TestRailTestCase(model.masterSuiteID, section.id, s.name)
-					testCase.templateID = model.getTestCaseTemplateIDFor(template: config.testrailTemplate)
-					testCase.typeID = model.getTestCaseTypeIDFor(type: .Functional)
-					testCase.priorityID = s.priority.rawValue
-					testCase.customOS = [Int]()
-					testCase.customOS!.append(config.testrailOSIDs[AutumnPlatform.iOS.rawValue]!)
-					testCase.customPreconds = ""
-					testCase.customStepsSeparated = [TestRailTestCaseCustom]()
-					
-					/* Record precondition steps. */
-					s.establish()
-					var index = 0
-					for n in s.namesPrecondition
-					{
-						testCase.customPreconds! += "\(n)"
-						if index < s.namesPrecondition.count - 1 { testCase.customPreconds! += "\n" }
-						index += 1
-					}
-					
-					/* Record execution steps. */
-					s.execute()
-					var whenStepsBatch = ""
-					index = 0
-					for n in s.namesExecution
-					{
-						if n.starts(with: AutumnStepType.When.rawValue)
-						{
-							whenStepsBatch += "\(n)"
-							if index < s.namesExecution.count - 1 { whenStepsBatch += "\n" }
-							index += 1
-						}
-						else if n.starts(with: AutumnStepType.Then.rawValue)
-						{
-							var customTestStep = TestRailTestCaseCustom(content: whenStepsBatch, expected: n)
-							testCase.customStepsSeparated!.append(customTestStep)
-							whenStepsBatch = ""
-						}
-					}
-					
-					createTestRailTestCase(testCase, sectionID: section.id)
-					AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
-				}
-			}
-		}
-		else
-		{
-			AutumnLog.error("No TestRail root section was found!")
-		}
-	}
-	
-	
-	/**
-	 * Creates a new TestRail section.
-	 * If the section with the same name already exists on TestRail it will be re-used.
-	 */
-	func createTestRailSection(_ sectionName:String, _ description:String?, _ parentID:Int?)
-	{
-		_isTestRailRetrievalComplete = false
-		if let section = model.getSection(sectionName)
-		{
-			/* A section with the name already exists. */
-			AutumnLog.debug("Found existing \"\(sectionName)\" section.")
-			_isTestRailRetrievalComplete = true
-		}
-		else
-		{
-			/* Create new section to work with! */
-			let section = TestRailSection(name: sectionName, description: description, parentID: parentID)
-			createNewSection(section: section, projectID: config.testrailProjectID)
-			{
-				(response:TestRailSection?, error:String?) in
-				if let error = error { AutumnLog.error(error) }
-				if let r = response
-				{
-					self.model.addSection(r)
-				}
-				AutumnLog.debug("Created new \"\(sectionName)\" section.")
-				self._isTestRailRetrievalComplete = true
-			}
-		}
-	}
-	
-	
-	/**
-	 * Creates a new TestRail test case.
-	 * If the case with the same name already exists on TestRail it will be re-used.
-	 */
-	func createTestRailTestCase(_ testCase:TestRailTestCase, sectionID:Int)
-	{
-		_isTestRailRetrievalComplete = false
-		if let tc = model.getTestCase(testCase.title), let testCaseID = tc.id
-		{
-			Log.debug("\(tc.title) : \(testCaseID)")
-			/* Update existing test case. */
-			updateTestCase(testCase: testCase, caseID: testCaseID)
-			{
-				(response:TestRailTestCase?, error:String?) in
-				if let error = error { AutumnLog.error(error) }
-				if let r = response
-				{
-					if self.model.replaceTestCase(r)
-					{
-						AutumnLog.debug("Updated existing test case: \"\(tc.title)\" (ID: \(testCaseID)).")
-					}
-					else
-					{
-						AutumnLog.warning("Failed to replace test case with ID \(testCaseID).")
-					}
-				}
-				self._isTestRailRetrievalComplete = true
-			}
-		}
-		else
-		{
-			/* Create new test case to work with! */
-			createNewTestCase(testCase: testCase, sectionID: sectionID)
-			{
-				(response:TestRailTestCase?, error:String?) in
-				if let error = error { AutumnLog.error(error) }
-				if let r = response
-				{
-					self.model.addTestCase(r)
-				}
-				AutumnLog.debug("Created new test case with title \"\(testCase.title)\".")
-				self._isTestRailRetrievalComplete = true
-			}
-		}
-	}
-	
-	
-	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Get API
-	// ----------------------------------------------------------------------------------------------------
-	
-	func getStatuses(callback: @escaping (([TestRailStatus]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_statuses", type: [TestRailStatus].self, callback: callback)
-	}
-	
-	
-	func getTestCaseFields(callback: @escaping (([TestRailTestCaseField]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_case_fields", type: [TestRailTestCaseField].self, callback: callback)
-	}
-	
-	
-	func getTestCaseTypes(callback: @escaping (([TestRailTestCaseType]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_case_types", type: [TestRailTestCaseType].self, callback: callback)
-	}
-	
-	
-	func getTemplates(projectID:Int, callback: @escaping (([TestRailTemplate]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_templates/\(projectID)", type: [TestRailTemplate].self, callback: callback)
-	}
-	
-	
-	func getTestCaseSections(projectID:Int, suiteID:Int, callback: @escaping (([TestRailSection]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_sections/\(projectID)&suite_id=\(suiteID)", type: [TestRailSection].self, callback: callback)
-	}
-	
-	
-	func getProjects(callback: @escaping (([TestRailProject]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_projects", type: [TestRailProject].self, callback: callback)
-	}
-	
-	
-	func getSuites(projectID:Int, callback: @escaping (([TestRailSuite]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_suites/\(projectID)", type: [TestRailSuite].self, callback: callback)
-	}
-	
-	
-	func getMilestones(projectID:Int, callback: @escaping (([TestRailMilestone]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_milestones/\(projectID)", type: [TestRailMilestone].self, callback: callback)
-	}
-	
-	
-	func getTestPlans(projectID:Int, callback: @escaping (([TestRailTestPlan]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_plans/\(projectID)", type: [TestRailTestPlan].self, callback: callback)
-	}
-	
-	
-	func getTestRuns(projectID:Int, callback: @escaping (([TestRailTestRun]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_runs/\(projectID)", type: [TestRailTestRun].self, callback: callback)
-	}
-	
-	
-	func getTestCases(projectID:Int, suiteID:Int, callback: @escaping (([TestRailTestCase]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_cases/\(projectID)&suite_id=\(suiteID)&section_id=", type: [TestRailTestCase].self, callback: callback)
-	}
-	
-	
-	func getTests(testRunID:Int, callback: @escaping (([TestRailTest]?, _:String?) -> Void))
-	{
-		httpGet(path: "get_tests/\(testRunID)", type: [TestRailTest].self, callback: callback)
-	}
-	
-	
-	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Set API
-	// ----------------------------------------------------------------------------------------------------
-	
-	/**
-	 * Creates a new section for test cases on the TestRail server.
-	 */
-	func createNewSection(section:TestRailSection, projectID:Int, callback: @escaping ((TestRailSection?, _:String?) -> Void))
-	{
-		httpPost(path: "add_section/\(projectID)", model: section, type: TestRailSection.self, callback: callback)
-	}
-	
-	
-	/**
-	 * Creates a new test case on the TestRail server.
-	 */
-	func createNewTestCase(testCase:TestRailTestCase, sectionID:Int, callback:@escaping ((TestRailTestCase?, _:String?) -> Void))
-	{
-		httpPost(path: "add_case/\(sectionID)", model: testCase, type: TestRailTestCase.self, callback: callback)
-	}
-	
-	
-	/**
-	 * Updates a test case on the TestRail server.
-	 */
-	func updateTestCase(testCase:TestRailTestCase, caseID:Int, callback:@escaping ((TestRailTestCase?, _:String?) -> Void))
-	{
-		httpPost(path: "update_case/\(caseID)", model: testCase, type: TestRailTestCase.self, callback: callback)
 	}
 	
 	
