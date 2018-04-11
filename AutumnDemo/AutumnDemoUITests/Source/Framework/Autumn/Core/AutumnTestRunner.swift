@@ -325,7 +325,7 @@ open class AutumnTestRunner : XCTestCase
 			testRailModel = TestRailModel(config)
 			_testrailClient = AutumnTestRailClient(config, testRailModel)
 			
-			AutumnLog.debug("Setting up test session ...")
+			AutumnLog.debug("Configuring test session ...")
 			AutumnTestRunner.phase = .Configuration
 			configure()
 			

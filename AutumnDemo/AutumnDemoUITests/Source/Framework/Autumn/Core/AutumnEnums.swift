@@ -12,11 +12,12 @@ import Foundation
 
 public enum AutumnPhase : String
 {
-	case Init          = "Init"
-	case Configuration = "Configuration"
-	case DataRetrieval = "Data Retrieval"
+	case Init             = "Init"
+	case Configuration    = "Configuration"
+	case DataRetrieval    = "Data Retrieval"
 	case CaseRegistration = "Case Creation"
-	case TestExecution = "Test Execution"
+	case DataSync         = "Data Sync"
+	case TestExecution    = "Test Execution"
 }
 
 public enum AutumnPlatform : String

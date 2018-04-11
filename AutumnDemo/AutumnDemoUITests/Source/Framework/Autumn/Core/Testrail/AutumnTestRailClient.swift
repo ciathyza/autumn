@@ -76,6 +76,8 @@ class AutumnTestRailClient
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestRuns()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+		getTestRailTests()
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		getTestRailTestCases()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 	}
@@ -376,6 +378,66 @@ class AutumnTestRailClient
 	// MARK: - Server Data Retrieval
 	// ----------------------------------------------------------------------------------------------------
 	
+	private func getTestRailProjects()
+	{
+		_isTestRailRetrievalComplete = false
+		getProjects()
+		{
+			(response:[TestRailProject]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				self.model.projects = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail projects.\(self.config.debug ? ("\(self.dump(self.model.projects))") : "")")
+			}
+			self._isTestRailRetrievalComplete = true
+		}
+	}
+	
+	
+	private func getTestRailSuites()
+	{
+		_isTestRailRetrievalComplete = false
+		getSuites(projectID: config.testrailProjectID)
+		{
+			(response:[TestRailSuite]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				self.model.suites = r
+				/* Find ID of master suite. */
+				for suite in self.model.suites
+				{
+					if suite.isMaster == true
+					{
+						self.model.masterSuiteID = suite.id
+						break
+					}
+				}
+				AutumnLog.debug("Retrieved \(r.count) TestRail suites. (MasterID: \(self.model.masterSuiteID))\(self.config.debug ? ("\(self.dump(self.model.suites))") : "")")
+			}
+			self._isTestRailRetrievalComplete = true
+		}
+	}
+	
+	
+	private func getTestRailMilestones()
+	{
+		_isTestRailRetrievalComplete = false
+		getMilestones(projectID: config.testrailProjectID)
+		{
+			(response:[TestRailMilestone]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				self.model.milestones = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail milestones.\(self.config.debug ? ("\(self.dump(self.model.milestones))") : "")")
+			}
+			self._isTestRailRetrievalComplete = true
+		}
+	}
+	
+	
 	private func getTestRailStatuses()
 	{
 		_isTestRailRetrievalComplete = false
@@ -444,83 +506,6 @@ class AutumnTestRailClient
 	}
 	
 	
-	private func getTestRailTestCaseSections()
-	{
-		_isTestRailRetrievalComplete = false
-		getTestCaseSections(projectID: config.testrailProjectID, suiteID: model.masterSuiteID)
-		{
-			(response:[TestRailSection]?, error:String?) in
-			if let error = error { AutumnLog.error(error) }
-			if let r = response
-			{
-				self.model.sections = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail test case sections.\(self.config.debug ? ("\(self.dump(self.model.sections))") : "")")
-			}
-			self._isTestRailRetrievalComplete = true
-		}
-	}
-	
-	
-	private func getTestRailProjects()
-	{
-		_isTestRailRetrievalComplete = false
-		getProjects()
-		{
-			(response:[TestRailProject]?, error:String?) in
-			if let error = error { AutumnLog.error(error) }
-			if let r = response
-			{
-				self.model.projects = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail projects.\(self.config.debug ? ("\(self.dump(self.model.projects))") : "")")
-			}
-			self._isTestRailRetrievalComplete = true
-		}
-	}
-	
-	
-	private func getTestRailSuites()
-	{
-		_isTestRailRetrievalComplete = false
-		getSuites(projectID: config.testrailProjectID)
-		{
-			(response:[TestRailSuite]?, error:String?) in
-			if let error = error { AutumnLog.error(error) }
-			if let r = response
-			{
-				self.model.suites = r
-				/* Find ID of master suite. */
-				for suite in self.model.suites
-				{
-					if suite.isMaster == true
-					{
-						self.model.masterSuiteID = suite.id
-						break
-					}
-				}
-				AutumnLog.debug("Retrieved \(r.count) TestRail suites. (MasterID: \(self.model.masterSuiteID))\(self.config.debug ? ("\(self.dump(self.model.suites))") : "")")
-			}
-			self._isTestRailRetrievalComplete = true
-		}
-	}
-	
-	
-	private func getTestRailMilestones()
-	{
-		_isTestRailRetrievalComplete = false
-		getMilestones(projectID: config.testrailProjectID)
-		{
-			(response:[TestRailMilestone]?, error:String?) in
-			if let error = error { AutumnLog.error(error) }
-			if let r = response
-			{
-				self.model.milestones = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail milestones.\(self.config.debug ? ("\(self.dump(self.model.milestones))") : "")")
-			}
-			self._isTestRailRetrievalComplete = true
-		}
-	}
-	
-	
 	private func getTestRailTestPlans()
 	{
 		_isTestRailRetrievalComplete = false
@@ -532,6 +517,25 @@ class AutumnTestRailClient
 			{
 				self.model.testPlans = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail test plans.\(self.config.debug ? ("\(self.dump(self.model.testPlans))") : "")")
+			}
+			self._isTestRailRetrievalComplete = true
+		}
+	}
+	
+	
+	private func getTestRailTestCaseSections()
+	{
+		_isTestRailRetrievalComplete = false
+		getTestCaseSections(projectID: config.testrailProjectID, suiteID: model.masterSuiteID)
+		{
+			(response:[TestRailSection]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				self.model.sections = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail test case sections.\(self.config.debug ? ("\(self.dump(self.model.sections))") : "")")
+				let sectionIDs = self.model.getAutumnSectionIDs()
+				Log.debug(">>>", "\(sectionIDs)")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -555,6 +559,28 @@ class AutumnTestRailClient
 	}
 	
 	
+	private func getTestRailTests()
+	{
+		_isTestRailRetrievalComplete = false
+		if config.testrailTestRunID == 0
+		{
+			self._isTestRailRetrievalComplete = true
+			return
+		}
+		getTests(testRunID: config.testrailTestRunID)
+		{
+			(response:[TestRailTest]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				self.model.tests = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail tests.\(self.config.debug ? ("\(self.dump(self.model.tests))") : "")")
+			}
+			self._isTestRailRetrievalComplete = true
+		}
+	}
+	
+	
 	private func getTestRailTestCases()
 	{
 		_isTestRailRetrievalComplete = false
@@ -566,23 +592,6 @@ class AutumnTestRailClient
 			{
 				self.model.testCases = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail test cases.\(self.config.debug ? ("\(self.dump(self.model.testCases))") : "")")
-			}
-			self._isTestRailRetrievalComplete = true
-		}
-	}
-	
-	
-	private func getTestRailTests()
-	{
-		_isTestRailRetrievalComplete = false
-		getTests(testRunID: config.testrailTestRunID)
-		{
-			(response:[TestRailTest]?, error:String?) in
-			if let error = error { AutumnLog.error(error) }
-			if let r = response
-			{
-				self.model.tests = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail tests.\(self.config.debug ? ("\(self.dump(self.model.tests))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}

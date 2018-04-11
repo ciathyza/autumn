@@ -93,6 +93,51 @@ class TestRailModel
 	
 	
 	/**
+	 * Returns an array of all sections that are children of the Autumn root section.
+	 */
+	func getAutumnSections() -> [TestRailSection]
+	{
+		var results = [TestRailSection]()
+		if let rootSection = self.rootSection
+		{
+			getAutumnSectionsRecursive(rootSection, &results)
+		}
+		return results
+	}
+	
+	
+	/**
+	 * Returns an array of all section IDs that are children of the Autumn root section.
+	 */
+	func getAutumnSectionIDs() -> [Int]
+	{
+		var sections = getAutumnSections()
+		var results = [Int]()
+		for section in sections
+		{
+			results.append(section.id)
+		}
+		return results
+	}
+	
+	
+	/**
+	 * Recursively find all sections that are under the root section, incl. all child sections.
+	 */
+	private func getAutumnSectionsRecursive(_ parentSection:TestRailSection, _ results: inout [TestRailSection])
+	{
+		for section in sections
+		{
+			if section.parentID == parentSection.id && !results.contains(section)
+			{
+				results.append(section)
+				getAutumnSectionsRecursive(section, &results)
+			}
+		}
+	}
+	
+	
+	/**
 	 * Returns a test case with the specified title, or nil if no such test case exists.
 	 */
 	func getTestCase(_ testCaseTitle:String) -> TestRailTestCase?
