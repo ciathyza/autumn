@@ -50,7 +50,7 @@ open class AutumnTestRunner : XCTestCase
 	internal static var allScenarioClasses:[Metatype<AutumnScenario>:AutumnScenario.Type] = [:]
 	internal static var allScenarioIDs:[Metatype<AutumnScenario>:String] = [:]
 	internal static var isSetupComplete = false
-	internal static var isDryRun = false
+	internal static var phase = AutumnPhase.Init
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -326,21 +326,22 @@ open class AutumnTestRunner : XCTestCase
 			_testrailClient = AutumnTestRailClient(config, testRailModel)
 			
 			AutumnLog.debug("Setting up test session ...")
+			AutumnTestRunner.phase = .Configuration
 			configure()
 			
 			AutumnLog.debug("Retrieving TestRail data ...")
+			AutumnTestRunner.phase = .DataRetrieval
 			_testrailClient.retrieveTestRailData()
 			
 			AutumnLog.debug("Establishing model ...")
 			_testrailClient.setupServerState()
 			
 			AutumnLog.debug("Registering objects ...")
-			AutumnTestRunner.isDryRun = true
+			AutumnTestRunner.phase = .CaseRegistration
 			registerUsers()
 			registerViewProxies()
 			registerFeatures()
 			registerScenarios()
-			AutumnTestRunner.isDryRun = false
 			
 			AutumnLog.debug("Registered \(_users.count) users.")
 			AutumnLog.debug("Registered \(_viewProxyClasses.count) view proxy classes.")
@@ -353,6 +354,8 @@ open class AutumnTestRunner : XCTestCase
 			
 			AutumnLog.debug("Starting tests in a jiffy ...")
 			AutumnUI.sleep(2)
+			
+			AutumnTestRunner.phase = .TestExecution
 		}
 		
 		session.start()

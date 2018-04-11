@@ -55,8 +55,8 @@ public class AutumnScenario
 	internal private(set) var results = [[AutumnTestStep:AutumnTestStepResult]]()
 	
 	/* Used to store precondition (given) and execution (when/then) step names for testrail test case generation. */
-	internal var namesPrecondition = [String]()
-	internal var namesExecution = [String]()
+	internal var preconditionStrings = [String]()
+	internal var executionStrings = [String]()
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -99,8 +99,8 @@ public class AutumnScenario
 	
 	func resetNameRecords()
 	{
-		namesPrecondition = [String]()
-		namesExecution = [String]()
+		preconditionStrings = [String]()
+		executionStrings = [String]()
 	}
 	
 	
@@ -136,12 +136,13 @@ public class AutumnScenario
 	 */
 	internal func step(_ type:AutumnStepType, _ step:AutumnTestStep)
 	{
-		/* If we're in the registration phase then only recoord the step names for TestRail case generation! */
-		if AutumnTestRunner.isDryRun
+		/* If we're in the registration phase then only record the step names for TestRail case generation,
+		   don't run any actual test execution. */
+		if AutumnTestRunner.phase == .CaseRegistration
 		{
 			let testRailStepName = "\(type.rawValue) \(step.name)."
-			if type == .Given { namesPrecondition.append(testRailStepName) }
-			else { namesExecution.append(testRailStepName) }
+			if type == .Given { preconditionStrings.append(testRailStepName) }
+			else { executionStrings.append(testRailStepName) }
 		}
 		else
 		{

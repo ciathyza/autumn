@@ -136,30 +136,30 @@ class AutumnTestRailClient
 					/* Record precondition steps. */
 					s.establish()
 					var index = 0
-					for n in s.namesPrecondition
+					for n in s.preconditionStrings
 					{
 						testCase.customPreconds! += "\(n)"
-						if index < s.namesPrecondition.count - 1 { testCase.customPreconds! += "\n" }
+						if index < s.preconditionStrings.count - 1 { testCase.customPreconds! += "\n" }
 						index += 1
 					}
 					
 					/* Record execution steps. */
 					s.execute()
-					var whenStepsBatch = ""
+					var executionStepsBatch = ""
 					index = 0
-					for n in s.namesExecution
+					for n in s.executionStrings
 					{
 						if n.starts(with: AutumnStepType.When.rawValue)
 						{
-							whenStepsBatch += "\(n)"
-							if index < s.namesExecution.count - 1 { whenStepsBatch += "\n" }
+							executionStepsBatch += "\(n)"
+							if index < s.executionStrings.count - 1 { executionStepsBatch += "\n" }
 							index += 1
 						}
 						else if n.starts(with: AutumnStepType.Then.rawValue)
 						{
-							var customTestStep = TestRailTestCaseCustom(content: whenStepsBatch, expected: n)
+							var customTestStep = TestRailTestCaseCustom(content: executionStepsBatch, expected: n)
 							testCase.customStepsSeparated!.append(customTestStep)
-							whenStepsBatch = ""
+							executionStepsBatch = ""
 						}
 					}
 					
