@@ -124,11 +124,11 @@ internal class AutumnSession
 	}
 	
 	
-	internal func evaluateScenarioResults(_ results:[ScenarioResult])
+	internal func evaluateScenarioResults(_ scenarioResult:ScenarioResult)
 	{
 		var success = true
 		let resultText = TabularText(4, false, " ", " ", "                   ", 0, ["PHASE", "TYPE", "NAME", "RESULT"], true)
-		for result in results
+		for result in scenarioResult.rows
 		{
 			if result.result != .Success { success = false }
 			if _runner.config.logInstructions

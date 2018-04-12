@@ -160,9 +160,9 @@ public class AutumnScenario
 	 * Evaluates the test step's results after all steps have been executed.
 	 * Also determines the final status of the scenario.
 	 */
-	internal func getResults() -> [ScenarioResult]
+	internal func getResults() -> ScenarioResult
 	{
-		var evaluations = [ScenarioResult]()
+		var scenarioResult = ScenarioResult()
 		
 		/* Loop through all scenario steps. */
 		for (step, stepResult) in results
@@ -170,24 +170,24 @@ public class AutumnScenario
 			/* Loop through all instructions of the step. */
 			for (instruction, instructionResult) in stepResult.instructions
 			{
-				var evaluation = ScenarioResult()
+				var evaluation = ScenarioResultRow()
 				evaluation.phase = step.phase
 				evaluation.type = .Instr
 				evaluation.name = instruction
 				evaluation.result = instructionResult
-				evaluations.append(evaluation)
+				scenarioResult.rows.append(evaluation)
 			}
 			
 			/* Add actual step. */
-			var evaluation = ScenarioResult()
+			var evaluation = ScenarioResultRow()
 			evaluation.phase = step.phase
 			evaluation.type = .Step
 			evaluation.name = step.name
 			evaluation.result = stepResult.evaluate() ? AutumnUIActionResult.Success : AutumnUIActionResult.Failed
-			evaluations.append(evaluation)
+			scenarioResult.rows.append(evaluation)
 		}
 		
-		return evaluations
+		return scenarioResult
 	}
 	
 	
@@ -225,6 +225,12 @@ public class AutumnScenario
 
 // ------------------------------------------------------------------------------------------------
 class ScenarioResult
+{
+	var scenario:AutumnScenario!
+	var rows = [ScenarioResultRow]()
+}
+
+class ScenarioResultRow
 {
 	var phase:AutumnScenarioPhase = .None
 	var type:AutumnScenarioInstructionType = .Instr
