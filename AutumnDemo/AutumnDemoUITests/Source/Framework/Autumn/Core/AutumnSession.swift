@@ -24,8 +24,10 @@ internal class AutumnSession
 	public internal(set) var defaultUserSTG:AutumnUser?
 	public internal(set) var defaultUserPRD:AutumnUser?
 	public internal(set) var currentTestUser:AutumnUser?
+	
 	public internal(set) var currentFeature:AutumnFeature?
 	public internal(set) var currentScenario:AutumnScenario?
+	
 	public internal(set) var currentFeatureIndex:UInt = 0
 	public internal(set) var currentScenarioIndex:UInt = 0
 	public internal(set) var loginAttemptCount:UInt = 0
@@ -41,9 +43,9 @@ internal class AutumnSession
 	/**
 	 * Initializes the test session.
 	 */
-	internal func initialize(_ autumnSetup:AutumnTestRunner)
+	internal func initialize(_ runner:AutumnTestRunner)
 	{
-		_runner = autumnSetup
+		_runner = runner
 	}
 	
 	

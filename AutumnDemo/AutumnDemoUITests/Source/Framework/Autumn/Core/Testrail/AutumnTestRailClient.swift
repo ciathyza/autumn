@@ -534,8 +534,8 @@ class AutumnTestRailClient
 			{
 				self.model.sections = r
 				AutumnLog.debug("Retrieved \(r.count) TestRail test case sections.\(self.config.debug ? ("\(self.dump(self.model.sections))") : "")")
-				let sectionIDs = self.model.getAutumnSectionIDs()
-				Log.debug(">>>", "\(sectionIDs)")
+				/* Store IDs of all sections under Autumn root section. */
+				self.model.autumnSections = self.model.getAutumnSections()
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -584,17 +584,22 @@ class AutumnTestRailClient
 	private func getTestRailTestCases()
 	{
 		_isTestRailRetrievalComplete = false
-		getTestCases(projectID: config.testrailProjectID, suiteID: model.masterSuiteID)
+		var testCases = [TestRailTestCase]()
+		for section in model.autumnSections
 		{
-			(response:[TestRailTestCase]?, error:String?) in
-			if let error = error { AutumnLog.error(error) }
-			if let r = response
+			getTestCases(projectID: config.testrailProjectID, suiteID: model.masterSuiteID, sectionID: section.id)
 			{
-				self.model.testCases = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail test cases.\(self.config.debug ? ("\(self.dump(self.model.testCases))") : "")")
+				(response:[TestRailTestCase]?, error:String?) in
+				if let error = error { AutumnLog.error(error) }
+				if let r = response
+				{
+					testCases.append(contentsOf: r)
+					AutumnLog.debug("Retrieved \(r.count) TestRail test cases for section \"\(section.name)\".\(self.config.debug ? ("\(self.dump(testCases))") : "")")
+				}
+				self._isTestRailRetrievalComplete = true
 			}
-			self._isTestRailRetrievalComplete = true
 		}
+		self.model.testCases = testCases
 	}
 	
 	

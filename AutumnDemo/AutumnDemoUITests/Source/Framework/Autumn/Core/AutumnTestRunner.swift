@@ -38,11 +38,13 @@ open class AutumnTestRunner : XCTestCase
 	// ----------------------------------------------------------------------------------------------------
 	
 	public let config = AutumnConfig()
+	
 	internal private(set) var session = AutumnSession()
 	internal private(set) var testRailModel:TestRailModel!
-	private var _users:[String:AutumnUser] = [:]
-	private var _viewProxyClasses:[Metatype<AutumnViewProxy>:AutumnViewProxy] = [:]
+	
 	private var _testrailClient:AutumnTestRailClient!
+	private var _viewProxyClasses:[Metatype<AutumnViewProxy>:AutumnViewProxy] = [:]
+	private var _users:[String:AutumnUser] = [:]
 	private let _fallbackUser = AutumnUser("NONE", "NONE", "NONE")
 	
 	internal static var app = XCUIApplication()
@@ -234,7 +236,7 @@ open class AutumnTestRunner : XCTestCase
 			let feature = featureClass.init(self)
 			feature.setup()
 			feature.registerScenarios()
-			_testrailClient.createTestRailFeature(feature)
+			//_testrailClient.createTestRailFeature(feature)
 		}
 	}
 	
@@ -328,13 +330,14 @@ open class AutumnTestRunner : XCTestCase
 			AutumnLog.debug("Configuring test session ...")
 			AutumnTestRunner.phase = .Configuration
 			configure()
+			session.initialize(self)
 			
 			AutumnLog.debug("Retrieving TestRail data ...")
 			AutumnTestRunner.phase = .DataRetrieval
 			_testrailClient.retrieveTestRailData()
 			
 			AutumnLog.debug("Establishing model ...")
-			_testrailClient.setupServerState()
+			//_testrailClient.setupServerState()
 			
 			AutumnLog.debug("Registering objects ...")
 			AutumnTestRunner.phase = .CaseRegistration
@@ -346,18 +349,15 @@ open class AutumnTestRunner : XCTestCase
 			AutumnLog.debug("Registered \(_users.count) users.")
 			AutumnLog.debug("Registered \(_viewProxyClasses.count) view proxy classes.")
 			AutumnLog.debug("Registered \(AutumnTestRunner.allFeatureClasses.count) feature classes.")
-			
-			session.initialize(self)
-			AutumnTestRunner.isSetupComplete = true
-			
 			AutumnLog.debug("\n\(config.dumpTable())")
+			
+			AutumnTestRunner.isSetupComplete = true
 			
 			AutumnLog.debug("Starting tests in a jiffy ...")
 			AutumnUI.sleep(2)
 			
 			AutumnTestRunner.phase = .TestExecution
+			session.start()
 		}
-		
-		session.start()
 	}
 }
