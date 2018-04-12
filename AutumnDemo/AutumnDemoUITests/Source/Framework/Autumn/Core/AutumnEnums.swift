@@ -51,6 +51,12 @@ public enum AutumnScenarioPhase : String
 	case Execute      = "Execute"
 }
 
+public enum AutumnScenarioInstructionType : String
+{
+	case Instr = "Instr"
+	case Step  = "Step"
+}
+
 public enum AutumnRecordType : String
 {
 	case Activate       = "Activate"

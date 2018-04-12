@@ -39,6 +39,7 @@ public class AutumnFeature
 	
 	public private(set) var app:XCUIApplication
 	public private(set) var runner:AutumnTestRunner
+	internal private(set) var session:AutumnSession
 	
 	private static var _scenarioQueue:[Metatype<AutumnScenario>] = []
 	private var _interval = Interval()
@@ -67,6 +68,7 @@ public class AutumnFeature
 	{
 		self.app = AutumnTestRunner.app
 		self.runner = runner
+		self.session = runner.session
 	}
 	
 	
@@ -328,7 +330,10 @@ public class AutumnFeature
 				AutumnLog.debug("Executing scenario steps ...")
 				scenario.phase = .Execute
 				scenario.execute()
-				scenario.evaluate()
+				
+				let results = scenario.getResults()
+				session.evaluateScenarioResults(results)
+				
 				//scenario.status = scenario.steps.contains(where: { $0.successStatus == AutumnTestStatus.Failed }) ? .Failed : .Passed
 				//AutumnTelemetry.instance.record(type: .EndScenario, args: self, scenario)
 				

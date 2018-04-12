@@ -52,7 +52,7 @@ public class AutumnScenario
 	internal var phase = AutumnScenarioPhase.None
 	internal var status = AutumnTestStatus.Pending
 	internal private(set) var steps = [AutumnTestStep]()
-	internal private(set) var results = [[AutumnTestStep:AutumnTestStepResult]]()
+	internal private(set) var results = [(step:AutumnTestStep, result:AutumnTestStepResult)]()
 	
 	/* Used to store precondition (given) and execution (when/then) step names for testrail test case generation. */
 	internal var preconditionStrings = [String]()
@@ -151,7 +151,7 @@ public class AutumnScenario
 			step.phase = phase
 			steps.append(step)
 			let result = step.execute()
-			results.append([step:result])
+			results.append((step: step, result: result))
 		}
 	}
 	
@@ -160,41 +160,34 @@ public class AutumnScenario
 	 * Evaluates the test step's results after all steps have been executed.
 	 * Also determines the final status of the scenario.
 	 */
-	internal func evaluate()
+	internal func getResults() -> [ScenarioResult]
 	{
-		var success = true
-		let resultText = TabularText(4, false, " ", " ", "                   ", 0, ["PHASE", "TYPE", "NAME", "RESULT"], true)
-		for record in results.enumerated()
+		var evaluations = [ScenarioResult]()
+		
+		/* Loop through all scenario steps. */
+		for (step, stepResult) in results
 		{
-			for (step, stepResult) in record.element
+			/* Loop through all instructions of the step. */
+			for (instruction, instructionResult) in stepResult.instructions
 			{
-				for (instruction, instructionResult) in stepResult.instructions
-				{
-					if instructionResult != .Success { success = false }
-					if runner.config.logInstructions
-					{
-						resultText.add([step.phase.rawValue,
-							"Instr",
-							"\"\(instruction)\"",
-							"\(AutumnStringConstant.RESULT_DELIMITER)\(instructionResult.rawValue)"])
-					}
-				}
-				let resultValue = stepResult.evaluate()
-				if !resultValue { success = false }
-				resultText.add([step.phase.rawValue,
-					"Step",
-					"\"\(step.type.rawValue) \(step.name)\"",
-					"\(AutumnStringConstant.RESULT_DELIMITER)\(resultValue ? AutumnTestStatus.Passed.rawValue : AutumnTestStatus.Failed.rawValue)"])
+				var evaluation = ScenarioResult()
+				evaluation.phase = step.phase
+				evaluation.type = .Instr
+				evaluation.name = instruction
+				evaluation.result = instructionResult
+				evaluations.append(evaluation)
 			}
+			
+			/* Add actual step. */
+			var evaluation = ScenarioResult()
+			evaluation.phase = step.phase
+			evaluation.type = .Step
+			evaluation.name = step.name
+			evaluation.result = stepResult.evaluate() ? AutumnUIActionResult.Success : AutumnUIActionResult.Failed
+			evaluations.append(evaluation)
 		}
 		
-		/* Add footer row. */
-		resultText.add(["Scenario",
-			"",
-			"",
-			"\(AutumnStringConstant.RESULT_DELIMITER)\(success ? AutumnTestStatus.Passed.rawValue.uppercased() : AutumnTestStatus.Failed.rawValue.uppercased())"])
-		
-		AutumnLog.debug("\n\(resultText.toString())")
+		return evaluations
 	}
 	
 	
@@ -227,4 +220,14 @@ public class AutumnScenario
 	open func execute()
 	{
 	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class ScenarioResult
+{
+	var phase:AutumnScenarioPhase = .None
+	var type:AutumnScenarioInstructionType = .Instr
+	var name:String = ""
+	var result:AutumnUIActionResult = .Failed
 }

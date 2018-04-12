@@ -124,6 +124,33 @@ internal class AutumnSession
 	}
 	
 	
+	internal func evaluateScenarioResults(_ results:[ScenarioResult])
+	{
+		var success = true
+		let resultText = TabularText(4, false, " ", " ", "                   ", 0, ["PHASE", "TYPE", "NAME", "RESULT"], true)
+		for result in results
+		{
+			if result.result != .Success { success = false }
+			if _runner.config.logInstructions
+			{
+				resultText.add([
+					result.phase.rawValue,
+					result.type.rawValue,
+					"\"\(result.name)\"",
+					"\(AutumnStringConstant.RESULT_DELIMITER)\(result.type == .Step && result.result == .Success ? "Passed" : result.result.rawValue)"])
+			}
+		}
+		
+		/* Add footer row. */
+		resultText.add(["Scenario",
+			"",
+			"",
+			"\(AutumnStringConstant.RESULT_DELIMITER)\(success ? AutumnTestStatus.Passed.rawValue.uppercased() : AutumnTestStatus.Failed.rawValue.uppercased())"])
+		
+		AutumnLog.debug("\n\(resultText.toString())")
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Private Methods
 	// ----------------------------------------------------------------------------------------------------
