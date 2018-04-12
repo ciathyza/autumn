@@ -224,13 +224,13 @@ public class AutumnScenario
 
 
 // ------------------------------------------------------------------------------------------------
-class ScenarioResult
+struct ScenarioResult
 {
 	var scenario:AutumnScenario!
 	var rows = [ScenarioResultRow]()
 }
 
-class ScenarioResultRow
+struct ScenarioResultRow
 {
 	var phase:AutumnScenarioPhase = .None
 	var type:AutumnScenarioInstructionType = .Instr
