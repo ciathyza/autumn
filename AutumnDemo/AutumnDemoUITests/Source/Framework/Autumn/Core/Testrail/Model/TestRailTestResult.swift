@@ -56,19 +56,35 @@ struct TestRailTestResult : TestRailCodable
 	// MARK: - Init
 	// ----------------------------------------------------------------------------------------------------
 	
+	init()
+	{
+		id = 0
+		testID = 0
+		statusID = 0
+		createdBy = 0
+		createdOn = nil
+		assignedToID = 0
+		comment = ""
+		version = ""
+		elapsed = ""
+		defects = ""
+		customStepResults = [TestRailCustomTestStepResult]()
+	}
+	
+	
 	init(from decoder:Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		do { id                = try values.decode(Int.self,                            forKey: .id) }                catch { id = 0 }
-		do { testID            = try values.decode(Int.self,                            forKey: .testID) }            catch { testID = 0 }
-		do { statusID          = try values.decode(Int.self,                            forKey: .statusID) }          catch { statusID = 0 }
-		do { createdBy         = try values.decode(Int.self,                            forKey: .createdBy) }         catch { createdBy = 0 }
-		do { createdOn         = try values.decode(Int.self,                            forKey: .createdOn).toDate }  catch { createdOn = nil }
-		do { assignedToID      = try values.decode(Int.self,                            forKey: .assignedToID) }      catch { assignedToID = 0 }
-		do { comment           = try values.decode(String.self,                         forKey: .comment) }           catch { comment = "" }
-		do { version           = try values.decode(String.self,                         forKey: .version) }           catch { version = "" }
-		do { elapsed           = try values.decode(String.self,                         forKey: .elapsed) }           catch { elapsed = "" }
-		do { defects           = try values.decode(String.self,                         forKey: .defects) }           catch { defects = ""}
+		do { id           = try values.decode(Int.self,    forKey: .id) }               catch { id           = 0 }
+		do { testID       = try values.decode(Int.self,    forKey: .testID) }           catch { testID       = 0 }
+		do { statusID     = try values.decode(Int.self,    forKey: .statusID) }         catch { statusID     = 0 }
+		do { createdBy    = try values.decode(Int.self,    forKey: .createdBy) }        catch { createdBy    = 0 }
+		do { createdOn    = try values.decode(Int.self,    forKey: .createdOn).toDate } catch { createdOn    = nil }
+		do { assignedToID = try values.decode(Int.self,    forKey: .assignedToID) }     catch { assignedToID = 0 }
+		do { comment      = try values.decode(String.self, forKey: .comment) }          catch { comment      = "" }
+		do { version      = try values.decode(String.self, forKey: .version) }          catch { version      = "" }
+		do { elapsed      = try values.decode(String.self, forKey: .elapsed) }          catch { elapsed      = "" }
+		do { defects      = try values.decode(String.self, forKey: .defects) }          catch { defects      = ""}
 		do { customStepResults = try values.decode([TestRailCustomTestStepResult].self, forKey: .customStepResults) } catch { customStepResults = [TestRailCustomTestStepResult]() }
 	}
 	
@@ -76,6 +92,23 @@ struct TestRailTestResult : TestRailCodable
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
+	
+	func encode(to encoder:Encoder) throws
+	{
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(id,                forKey: .id)
+		try container.encode(testID,            forKey: .testID)
+		try container.encode(statusID,          forKey: .statusID)
+		try container.encode(createdBy,         forKey: .createdBy)
+		try container.encode(createdOn,         forKey: .createdOn)
+		try container.encode(assignedToID,      forKey: .assignedToID)
+		try container.encode(comment,           forKey: .comment)
+		try container.encode(version,           forKey: .version)
+		try container.encode(elapsed,           forKey: .elapsed)
+		try container.encode(defects,           forKey: .defects)
+		try container.encode(customStepResults, forKey: .customStepResults)
+	}
+	
 	
 	func tableHeader() -> [String]
 	{

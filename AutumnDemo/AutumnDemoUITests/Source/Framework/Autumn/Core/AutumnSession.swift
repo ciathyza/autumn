@@ -148,6 +148,8 @@ internal class AutumnSession
 			"\(AutumnStringConstant.RESULT_DELIMITER)\(success ? AutumnTestStatus.Passed.rawValue.uppercased() : AutumnTestStatus.Failed.rawValue.uppercased())"])
 		
 		AutumnLog.debug("\n\(resultText.toString())")
+		
+		
 	}
 	
 	
