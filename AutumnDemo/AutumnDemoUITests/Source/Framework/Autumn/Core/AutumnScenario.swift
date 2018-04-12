@@ -166,23 +166,20 @@ public class AutumnScenario
 		let resultText = TabularText(4, false, " ", " ", "                   ", 0, ["PHASE", "TYPE", "NAME", "RESULT"], true)
 		for record in results.enumerated()
 		{
-			for (step, result) in record.element
+			for (step, stepResult) in record.element
 			{
-				for dict in result.instructions
+				for (instruction, instructionResult) in stepResult.instructions
 				{
-					for (key, value) in dict
+					if instructionResult != .Success { success = false }
+					if runner.config.logInstructions
 					{
-						if value != .Success { success = false }
-						if runner.config.logInstructions
-						{
-							resultText.add([step.phase.rawValue,
-								"Instr",
-								"\"\(key)\"",
-								"\(AutumnStringConstant.RESULT_DELIMITER)\(value.rawValue)"])
-						}
+						resultText.add([step.phase.rawValue,
+							"Instr",
+							"\"\(instruction)\"",
+							"\(AutumnStringConstant.RESULT_DELIMITER)\(instructionResult.rawValue)"])
 					}
 				}
-				let resultValue = result.evaluate()
+				let resultValue = stepResult.evaluate()
 				if !resultValue { success = false }
 				resultText.add([step.phase.rawValue,
 					"Step",

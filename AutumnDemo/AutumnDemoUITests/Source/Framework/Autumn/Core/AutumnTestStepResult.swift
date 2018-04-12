@@ -18,7 +18,10 @@ open class AutumnTestStepResult
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	internal private(set) var instructions = [[String:AutumnUIActionResult]]()
+	/**
+	 * Sequencial list of step instruction strings and their result.
+	 */
+	internal private(set) var instructions = [(instruction:String, result:AutumnUIActionResult)]()
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -30,7 +33,7 @@ open class AutumnTestStepResult
 	 */
 	public func add(_ instruction:String, _ actionResult:AutumnUIActionResult)
 	{
-		instructions.append([instruction: actionResult])
+		instructions.append((instruction, actionResult))
 	}
 	
 	
@@ -40,15 +43,9 @@ open class AutumnTestStepResult
 	 */
 	public func evaluate() -> Bool
 	{
-		for dict in instructions
+		for (instruction, result) in instructions
 		{
-			for (_, value) in dict
-			{
-				if value != .Success
-				{
-					return false
-				}
-			}
+			if result != .Success { return false }
 		}
 		return true
 	}
