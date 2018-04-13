@@ -47,10 +47,8 @@ open class AutumnTestRunner : XCTestCase
 	private var _users:[String:AutumnUser] = [:]
 	private let _fallbackUser = AutumnUser("NONE", "NONE", "NONE")
 	
-	internal var allFeatures:[AutumnFeature] = []
-	
 	internal static var app = XCUIApplication()
-	internal static var allFeatureClasses:[AutumnFeature.Type] = []
+	internal static var allFeatures:[AutumnFeature] = []
 	internal static var allScenarioClasses:[Metatype<AutumnScenario>:AutumnScenario.Type] = [:]
 	internal static var allScenarioIDs:[Metatype<AutumnScenario>:String] = [:]
 	internal static var isSetupComplete = false
@@ -207,23 +205,48 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	public func registerFeature(_ featureClass:AutumnFeature.Type)
 	{
-		var featureAlreadyRegistered = false
-		for clazz in AutumnTestRunner.allFeatureClasses
+		let feature = featureClass.init(self)
+		if !AutumnTestRunner.allFeatures.containsObject(feature)
 		{
-			if clazz.metatype == featureClass.metatype
-			{
-				featureAlreadyRegistered = true
-				break
-			}
-		}
-		
-		if !featureAlreadyRegistered
-		{
-			let feature = featureClass.init(self)
 			feature.setup()
-			AutumnTestRunner.allFeatureClasses.append(featureClass)
+			AutumnTestRunner.allFeatures.append(feature)
 			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
 		}
+		
+//		var featureAlreadyRegistered = false
+//		for feature in AutumnTestRunner.allFeatures
+//		{
+//			if type(of: feature) == featureClass.metatype
+//			{
+//				featureAlreadyRegistered = true
+//				break
+//			}
+//		}
+//
+//		if !featureAlreadyRegistered
+//		{
+//			let feature = featureClass.init(self)
+//			feature.setup()
+//			AutumnTestRunner.allFeatures.append(featureClass)
+//			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
+//		}
+		
+//		for clazz in AutumnTestRunner.allFeatureClasses
+//		{
+//			if clazz.metatype == featureClass.metatype
+//			{
+//				featureAlreadyRegistered = true
+//				break
+//			}
+//		}
+//
+//		if !featureAlreadyRegistered
+//		{
+//			let feature = featureClass.init(self)
+//			feature.setup()
+//			AutumnTestRunner.allFeatureClasses.append(featureClass)
+//			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
+//		}
 	}
 	
 	
@@ -233,32 +256,11 @@ open class AutumnTestRunner : XCTestCase
 	
 	internal func registerScenarios()
 	{
-		for featureClass in AutumnTestRunner.allFeatureClasses
+		for feature in AutumnTestRunner.allFeatures
 		{
-			let feature = featureClass.init(self)
-			feature.setup()
 			feature.registerScenarios()
-			//testRailModel.addTestCasesFromFeature(feature)
 		}
 	}
-	
-	
-	/// Removes and returns next feature class.
-	///
-	internal func dequeueNextFeatureClass() -> AutumnFeature.Type?
-	{
-		if (AutumnTestRunner.allFeatureClasses.count > 0)
-		{
-			session.currentFeatureIndex += 1
-			return AutumnTestRunner.allFeatureClasses.removeFirst()
-		}
-		return nil
-	}
-	
-	
-	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Private Methods
-	// ----------------------------------------------------------------------------------------------------
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -345,7 +347,7 @@ open class AutumnTestRunner : XCTestCase
 			
 			AutumnLog.debug("Registered \(_users.count) users.")
 			AutumnLog.debug("Registered \(_viewProxyClasses.count) view proxy classes.")
-			AutumnLog.debug("Registered \(AutumnTestRunner.allFeatureClasses.count) feature classes.")
+			AutumnLog.debug("Registered \(AutumnTestRunner.allFeatures.count) features.")
 			
 			AutumnLog.debug("Retrieving TestRail data ...")
 			AutumnTestRunner.phase = .DataRetrieval

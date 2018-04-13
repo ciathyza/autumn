@@ -93,9 +93,8 @@ internal class AutumnSession
 	 */
 	internal func startNextFeature()
 	{
-		if let featureClass = dequeueNextFeatureClass()
+		if let feature = dequeueNextFeature()
 		{
-			let feature = featureClass.init(_runner)
 			currentFeature = feature
 			feature.preLaunch()
 			feature.start()
@@ -158,14 +157,14 @@ internal class AutumnSession
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
-	 * Removes and returns next feature class.
+	 * Removes and returns next feature.
 	 */
-	public func dequeueNextFeatureClass() -> AutumnFeature.Type?
+	public func dequeueNextFeature() -> AutumnFeature?
 	{
-		if (AutumnTestRunner.allFeatureClasses.count > 0)
+		if (AutumnTestRunner.allFeatures.count > 0)
 		{
 			currentFeatureIndex += 1
-			return AutumnTestRunner.allFeatureClasses.removeFirst()
+			return AutumnTestRunner.allFeatures.removeFirst()
 		}
 		return nil
 	}
