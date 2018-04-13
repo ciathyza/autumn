@@ -149,6 +149,7 @@ public class AutumnFeature
 			if !scenarioID.isEmpty
 			{
 				AutumnTestRunner.allScenarioIDs[scenarioClass.metatype] = scenarioID
+				runner.testRailModel.addTestCaseFromScenario(scenario, self)
 				AutumnLog.debug("Registered test scenario with ID \(scenarioID).")
 			}
 			else

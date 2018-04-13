@@ -212,41 +212,6 @@ open class AutumnTestRunner : XCTestCase
 			AutumnTestRunner.allFeatures.append(feature)
 			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
 		}
-		
-//		var featureAlreadyRegistered = false
-//		for feature in AutumnTestRunner.allFeatures
-//		{
-//			if type(of: feature) == featureClass.metatype
-//			{
-//				featureAlreadyRegistered = true
-//				break
-//			}
-//		}
-//
-//		if !featureAlreadyRegistered
-//		{
-//			let feature = featureClass.init(self)
-//			feature.setup()
-//			AutumnTestRunner.allFeatures.append(featureClass)
-//			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
-//		}
-		
-//		for clazz in AutumnTestRunner.allFeatureClasses
-//		{
-//			if clazz.metatype == featureClass.metatype
-//			{
-//				featureAlreadyRegistered = true
-//				break
-//			}
-//		}
-//
-//		if !featureAlreadyRegistered
-//		{
-//			let feature = featureClass.init(self)
-//			feature.setup()
-//			AutumnTestRunner.allFeatureClasses.append(featureClass)
-//			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
-//		}
 	}
 	
 	

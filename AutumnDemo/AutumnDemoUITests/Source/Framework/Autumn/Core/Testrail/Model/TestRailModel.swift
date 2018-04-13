@@ -217,7 +217,7 @@ class TestRailModel
 	}
 	
 	
-	func addTestCaseFromScenario(_ scenario:AutumnScenario)
+	func addTestCaseFromScenario(_ scenario:AutumnScenario, _ feature:AutumnFeature)
 	{
 		var exists = false
 		for c in testCases
@@ -231,7 +231,7 @@ class TestRailModel
 		
 		if !exists
 		{
-			//var testCase = TestRailTestCase(masterSuiteID, )
+			var testCase = TestRailTestCase(masterSuiteID, )
 			
 		}
 		
