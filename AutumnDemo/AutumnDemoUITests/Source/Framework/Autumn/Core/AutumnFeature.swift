@@ -41,7 +41,7 @@ public class AutumnFeature
 	public private(set) var runner:AutumnTestRunner
 	internal private(set) var session:AutumnSession
 	
-	private static var _scenarioQueue:[Metatype<AutumnScenario>] = []
+	private var _scenarioQueue:[Metatype<AutumnScenario>] = []
 	private var _interval = Interval()
 	
 	
@@ -157,7 +157,7 @@ public class AutumnFeature
 			}
 		}
 		
-		AutumnFeature._scenarioQueue.append(scenarioClass.metatype)
+		_scenarioQueue.append(scenarioClass.metatype)
 	}
 	
 	
@@ -201,7 +201,7 @@ public class AutumnFeature
 	public func getScenarioMetatypes() -> [Metatype<AutumnScenario>]
 	{
 		var metatypes = [Metatype<AutumnScenario>]()
-		for c in AutumnFeature._scenarioQueue
+		for c in _scenarioQueue
 		{
 			metatypes.append(c)
 		}
@@ -321,7 +321,7 @@ public class AutumnFeature
 				}
 				
 				AutumnLog.delimiter()
-				AutumnLog.debug("Starting scenario: \"[\(scenario.id)] \(scenario.name)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
+				AutumnLog.debug("Starting scenario: \"[\(scenario.id)] \(scenario.title)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
 				//AutumnTelemetry.instance.record(type: .BeginScenario, args: self, scenario, scenarioLink)
 				AutumnLog.debug("Establishing scenario preconditions ...")
 				scenario.status = .Started
@@ -345,7 +345,7 @@ public class AutumnFeature
 				{
 					if scenario.resetAfter
 					{
-						AutumnLog.debug("Resetting app state after scenario [\(scenario.name)] ...")
+						AutumnLog.debug("Resetting app state after scenario [\(scenario.title)] ...")
 						_ = resetApp()
 					}
 				}
@@ -383,9 +383,9 @@ public class AutumnFeature
 	 */
 	func getNextScenarioClass() -> AutumnScenario.Type?
 	{
-		if (AutumnFeature._scenarioQueue.count > 0)
+		if (_scenarioQueue.count > 0)
 		{
-			let metatype = AutumnFeature._scenarioQueue.removeFirst()
+			let metatype = _scenarioQueue.removeFirst()
 			return AutumnTestRunner.allScenarioClasses[metatype]
 		}
 		return nil

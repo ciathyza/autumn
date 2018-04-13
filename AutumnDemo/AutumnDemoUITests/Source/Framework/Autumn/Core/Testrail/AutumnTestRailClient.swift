@@ -178,7 +178,7 @@ class AutumnTestRailClient
 					s.setup()
 					s.resetNameRecords()
 					
-					var testCase = TestRailTestCase(model.masterSuiteID, section.id, s.name)
+					var testCase = TestRailTestCase(model.masterSuiteID, section.id, s.title)
 					testCase.templateID = model.getTestCaseTemplateIDFor(template: config.testrailTemplate)
 					testCase.typeID = model.getTestCaseTypeIDFor(type: .Functional)
 					testCase.priorityID = s.priority.rawValue

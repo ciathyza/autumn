@@ -47,6 +47,8 @@ open class AutumnTestRunner : XCTestCase
 	private var _users:[String:AutumnUser] = [:]
 	private let _fallbackUser = AutumnUser("NONE", "NONE", "NONE")
 	
+	internal var allFeatures:[AutumnFeature] = []
+	
 	internal static var app = XCUIApplication()
 	internal static var allFeatureClasses:[AutumnFeature.Type] = []
 	internal static var allScenarioClasses:[Metatype<AutumnScenario>:AutumnScenario.Type] = [:]
@@ -236,6 +238,7 @@ open class AutumnTestRunner : XCTestCase
 			let feature = featureClass.init(self)
 			feature.setup()
 			feature.registerScenarios()
+			//testRailModel.addTestCasesFromFeature(feature)
 		}
 	}
 	

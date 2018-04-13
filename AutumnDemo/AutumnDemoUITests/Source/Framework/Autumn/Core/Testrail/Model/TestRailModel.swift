@@ -211,6 +211,33 @@ class TestRailModel
 	}
 	
 	
+	func addTestCasesFromFeature(_ feature:AutumnFeature)
+	{
+		//let featureScenarios =
+	}
+	
+	
+	func addTestCaseFromScenario(_ scenario:AutumnScenario)
+	{
+		var exists = false
+		for c in testCases
+		{
+			if c.title == scenario.title
+			{
+				exists = true
+				break
+			}
+		}
+		
+		if !exists
+		{
+			//var testCase = TestRailTestCase(masterSuiteID, )
+			
+		}
+		
+	}
+	
+	
 	/**
 	 * Replaces a test case with the same ID. Returns false if no test case with the ID exists.
 	 */

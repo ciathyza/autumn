@@ -39,7 +39,7 @@ public class AutumnScenario
 	public var terminateAfter = true
 	
 	public internal(set) var id = ""
-	public internal(set) var name = ""
+	public internal(set) var title = ""
 	public internal(set) var descr = ""
 	public internal(set) var link = ""
 	public internal(set) var tags = [String]()
