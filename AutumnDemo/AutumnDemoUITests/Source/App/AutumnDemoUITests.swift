@@ -24,7 +24,7 @@ class AutumnDemoUITests : AutumnTestRunner
 		config.testrailProjectID = 4
 		config.isStagingBuild    = true
 		config.logInstructions   = true
-		config.debug             = true
+		config.debug             = false
 	}
 	
 	

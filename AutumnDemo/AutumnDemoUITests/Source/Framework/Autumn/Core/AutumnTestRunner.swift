@@ -236,7 +236,6 @@ open class AutumnTestRunner : XCTestCase
 			let feature = featureClass.init(self)
 			feature.setup()
 			feature.registerScenarios()
-			//_testrailClient.createTestRailFeature(feature)
 		}
 	}
 	
@@ -330,14 +329,9 @@ open class AutumnTestRunner : XCTestCase
 			AutumnLog.debug("Configuring test session ...")
 			AutumnTestRunner.phase = .Configuration
 			configure()
+			if config.debug { AutumnLog.debug("\n\(config.dumpTable())") }
+			
 			session.initialize(self)
-			
-			AutumnLog.debug("Retrieving TestRail data ...")
-			AutumnTestRunner.phase = .DataRetrieval
-			_testrailClient.retrieveTestRailData()
-			
-			AutumnLog.debug("Establishing model ...")
-			//_testrailClient.setupServerState()
 			
 			AutumnLog.debug("Registering objects ...")
 			AutumnTestRunner.phase = .CaseRegistration
@@ -349,7 +343,13 @@ open class AutumnTestRunner : XCTestCase
 			AutumnLog.debug("Registered \(_users.count) users.")
 			AutumnLog.debug("Registered \(_viewProxyClasses.count) view proxy classes.")
 			AutumnLog.debug("Registered \(AutumnTestRunner.allFeatureClasses.count) feature classes.")
-			AutumnLog.debug("\n\(config.dumpTable())")
+			
+			AutumnLog.debug("Retrieving TestRail data ...")
+			AutumnTestRunner.phase = .DataRetrieval
+			_testrailClient.retrieveTestRailData()
+			
+			AutumnLog.debug("Syncing data ...")
+			_testrailClient.syncData()
 			
 			AutumnTestRunner.isSetupComplete = true
 			

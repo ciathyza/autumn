@@ -88,34 +88,86 @@ class AutumnTestRailClient
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
-	 * Sets up the server state for test case generation.
+	 * Syncs all required server data with the state of local data.
 	 */
-	func setupServerState()
+	func syncData()
 	{
-		setupTestCaseSection()
+		syncRootSection()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 	}
 	
 	
-	func setupTestCaseSection()
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Sync API
+	// ----------------------------------------------------------------------------------------------------
+	
+	private func syncRootSection()
 	{
 		_isTestRailRetrievalComplete = false
-		AutumnLog.debug("Getting section used for generated test cases ...")
-		createTestRailSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
+		AutumnLog.debug("Syncing root section used for automtion test cases ...")
+		syncSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
 	}
 	
 	
 	/**
-	 * Creates a TestRail feature with all included scenarios and submits it to TestRail as a test case
+	 * Syncs a TestRail section.
+	 * If the section with the same name already exists on TestRail it will be re-used.
+	 */
+	private func syncSection(_ sectionName:String, _ description:String?, _ parentID:Int?)
+	{
+		_isTestRailRetrievalComplete = false
+		if let section = model.getSection(sectionName)
+		{
+			/* A section with the name already exists. */
+			AutumnLog.debug("Found existing \"\(sectionName)\" section.")
+			_isTestRailRetrievalComplete = true
+		}
+		else
+		{
+			/* Create new root section to work with! */
+			let section = TestRailSection(name: sectionName, description: description, parentID: parentID)
+			createNewSection(section: section, projectID: config.testrailProjectID)
+			{
+				(response:TestRailSection?, error:String?) in
+				if let error = error { AutumnLog.error(error) }
+				if let r = response
+				{
+					self.model.addSection(r)
+				}
+				AutumnLog.debug("Created new \"\(sectionName)\" section.")
+				self._isTestRailRetrievalComplete = true
+			}
+		}
+	}
+	
+	
+	private func syncFeatures()
+	{
+		_isTestRailRetrievalComplete = false
+		AutumnLog.debug("Syncing all features and their test cases ...")
+//		for featureClass in AutumnTestRunner.allFeatureClasses
+//		{
+//			let feature = featureClass.init(self)
+//			feature.setup()
+//			feature.registerScenarios()
+//			//_testrailClient.createTestRailFeature(feature)
+//		}
+		
+		syncSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
+	}
+	
+	
+	/**
+	 * Creates a TestRail feature with all included scenarios and submits it to TestRail as a test case.
 	 * If the test case already exists on TestRail it will be updated.
 	 */
-	func createTestRailFeature(_ feature:AutumnFeature)
+	private func syncFeature(_ feature:AutumnFeature)
 	{
 		if let rootSection = model.rootSection
 		{
-			AutumnLog.debug("Creating TestRail feature for \"\(feature.name)\" ...")
+			AutumnLog.debug("Syncing TestRail feature for \"\(feature.name)\" ...")
 			_isTestRailRetrievalComplete = false
-			createTestRailSection(feature.name, feature.descr, rootSection.id)
+			syncSection(feature.name, feature.descr, rootSection.id)
 			AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 			
 			if let section = model.getSection(feature.name)
@@ -165,7 +217,7 @@ class AutumnTestRailClient
 						}
 					}
 					
-					createTestRailTestCase(testCase, sectionID: section.id)
+					syncTestCase(testCase, sectionID: section.id)
 					AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 				}
 			}
@@ -178,42 +230,11 @@ class AutumnTestRailClient
 	
 	
 	/**
-	 * Creates a new TestRail section.
-	 * If the section with the same name already exists on TestRail it will be re-used.
+	 * Syncs a TestRail test case.
+	 * If the case with the same name already exists on TestRail and the data differs, it will be updated
+	 * with the local test case.
 	 */
-	private func createTestRailSection(_ sectionName:String, _ description:String?, _ parentID:Int?)
-	{
-		_isTestRailRetrievalComplete = false
-		if let section = model.getSection(sectionName)
-		{
-			/* A section with the name already exists. */
-			AutumnLog.debug("Found existing \"\(sectionName)\" section.")
-			_isTestRailRetrievalComplete = true
-		}
-		else
-		{
-			/* Create new section to work with! */
-			let section = TestRailSection(name: sectionName, description: description, parentID: parentID)
-			createNewSection(section: section, projectID: config.testrailProjectID)
-			{
-				(response:TestRailSection?, error:String?) in
-				if let error = error { AutumnLog.error(error) }
-				if let r = response
-				{
-					self.model.addSection(r)
-				}
-				AutumnLog.debug("Created new \"\(sectionName)\" section.")
-				self._isTestRailRetrievalComplete = true
-			}
-		}
-	}
-	
-	
-	/**
-	 * Creates a new TestRail test case.
-	 * If the case with the same name already exists on TestRail it will be re-used.
-	 */
-	func createTestRailTestCase(_ testCase:TestRailTestCase, sectionID:Int)
+	private func syncTestCase(_ testCase:TestRailTestCase, sectionID:Int)
 	{
 		_isTestRailRetrievalComplete = false
 		/* Check if a test case with same title and an ID already exists. */
