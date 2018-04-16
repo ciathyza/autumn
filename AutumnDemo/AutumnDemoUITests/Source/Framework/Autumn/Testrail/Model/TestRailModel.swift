@@ -26,20 +26,26 @@ class TestRailModel
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	var projects         = [TestRailProject]()
-	var suites           = [TestRailSuite]()
-	var milestones       = [TestRailMilestone]()
-	var testPlans        = [TestRailTestPlan]()
-	var testRuns         = [TestRailTestRun]()
-	var testCases        = [TestRailTestCase]()
-	var statuses         = [TestRailStatus]()
-	var sections         = [TestRailSection]()
-	var testCaseFields   = [TestRailTestCaseField]()
-	var testCaseTypes    = [TestRailTestCaseType]()
-	var templates        = [TestRailTemplate]()
-	var tests            = [TestRailTest]()
-	var autumnSections   = [TestRailSection]()
-	var masterSuiteID    = 0
+	var allFeatures        = [AutumnFeature]()
+	var allScenarioClasses = [Metatype<AutumnScenario>:AutumnScenario.Type]()
+	var allScenarioIDs     = [Metatype<AutumnScenario>:String]()
+	var viewProxyClasses   = [Metatype<AutumnViewProxy>:AutumnViewProxy]()
+	var users              = [String:AutumnUser]()
+	
+	var projects           = [TestRailProject]()
+	var suites             = [TestRailSuite]()
+	var milestones         = [TestRailMilestone]()
+	var testPlans          = [TestRailTestPlan]()
+	var testRuns           = [TestRailTestRun]()
+	var testCases          = [TestRailTestCase]()
+	var statuses           = [TestRailStatus]()
+	var sections           = [TestRailSection]()
+	var testCaseFields     = [TestRailTestCaseField]()
+	var testCaseTypes      = [TestRailTestCaseType]()
+	var templates          = [TestRailTemplate]()
+	var tests              = [TestRailTest]()
+	var autumnSections     = [TestRailSection]()
+	var masterSuiteID      = 0
 	
 	
 	// ----------------------------------------------------------------------------------------------------

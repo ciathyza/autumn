@@ -40,17 +40,12 @@ open class AutumnTestRunner : XCTestCase
 	public let config = AutumnConfig()
 	
 	internal private(set) var session = AutumnSession()
-	internal private(set) var testRailModel:TestRailModel!
+	internal private(set) var model:TestRailModel!
 	
 	private var _testrailClient:AutumnTestRailClient!
-	private var _viewProxyClasses:[Metatype<AutumnViewProxy>:AutumnViewProxy] = [:]
-	private var _users:[String:AutumnUser] = [:]
 	private let _fallbackUser = AutumnUser("NONE", "NONE", "NONE")
 	
 	internal static var app = XCUIApplication()
-	internal static var allFeatures:[AutumnFeature] = []
-	internal static var allScenarioClasses:[Metatype<AutumnScenario>:AutumnScenario.Type] = [:]
-	internal static var allScenarioIDs:[Metatype<AutumnScenario>:String] = [:]
 	internal static var isSetupComplete = false
 	internal static var phase = AutumnPhase.Init
 	
@@ -104,9 +99,9 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	public func registerUser(_ user:AutumnUser, isDefaultSTG:Bool = false, isDefaultPRD:Bool = false)
 	{
-		if (_users[user.id] == nil)
+		if (model.users[user.id] == nil)
 		{
-			_users[user.id] = user
+			model.users[user.id] = user
 			session.stats.testUserTotal += 1
 			if isDefaultSTG
 			{
@@ -137,9 +132,9 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	public func getUser(_ userID:String) -> AutumnUser?
 	{
-		if _users[userID] != nil
+		if model.users[userID] != nil
 		{
-			return _users[userID]
+			return model.users[userID]
 		}
 		AutumnLog.warning("No user with ID \"\(userID)\" was registered.")
 		return nil
@@ -151,9 +146,9 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	public func getRandomUser() -> AutumnUser?
 	{
-		if _users.count < 1 { return nil }
-		let i = Int(arc4random_uniform(UInt32(_users.count)))
-		let v = Array(_users.values)[i]
+		if model.users.count < 1 { return nil }
+		let i = Int(arc4random_uniform(UInt32(model.users.count)))
+		let v = Array(model.users.values)[i]
 		return v
 	}
 	
@@ -172,10 +167,10 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	public func registerViewProxy(_ viewProxyClass:AutumnViewProxy.Type, _ viewName:String = "")
 	{
-		if (_viewProxyClasses[viewProxyClass.metatype] == nil)
+		if (model.viewProxyClasses[viewProxyClass.metatype] == nil)
 		{
 			let viewProxy = viewProxyClass.init(self, viewName)
-			_viewProxyClasses[viewProxyClass.metatype] = viewProxy
+			model.viewProxyClasses[viewProxyClass.metatype] = viewProxy
 			session.stats.viewProxiesTotal += 1
 			AutumnLog.debug("Registered view proxy class [\(viewProxyClass)].")
 		}
@@ -191,7 +186,7 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	public func getViewProxyFor(_ viewProxyClass:AutumnViewProxy.Type) -> AutumnViewProxy?
 	{
-		if let viewProxy = _viewProxyClasses[viewProxyClass.metatype]
+		if let viewProxy = model.viewProxyClasses[viewProxyClass.metatype]
 		{
 			return viewProxy
 		}
@@ -206,10 +201,10 @@ open class AutumnTestRunner : XCTestCase
 	public func registerFeature(_ featureClass:AutumnFeature.Type)
 	{
 		let feature = featureClass.init(self)
-		if !AutumnTestRunner.allFeatures.containsObject(feature)
+		if !model.allFeatures.containsObject(feature)
 		{
 			feature.setup()
-			AutumnTestRunner.allFeatures.append(feature)
+			model.allFeatures.append(feature)
 			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
 		}
 	}
@@ -221,7 +216,7 @@ open class AutumnTestRunner : XCTestCase
 	
 	internal func registerScenarios()
 	{
-		for feature in AutumnTestRunner.allFeatures
+		for feature in model.allFeatures
 		{
 			feature.registerScenarios()
 		}
@@ -293,8 +288,8 @@ open class AutumnTestRunner : XCTestCase
 		/* Only execute this once! */
 		if !AutumnTestRunner.isSetupComplete
 		{
-			testRailModel = TestRailModel(config)
-			_testrailClient = AutumnTestRailClient(config, testRailModel)
+			model = TestRailModel(config)
+			_testrailClient = AutumnTestRailClient(config, model)
 			
 			AutumnLog.debug("Configuring test session ...")
 			AutumnTestRunner.phase = .Configuration
@@ -303,6 +298,10 @@ open class AutumnTestRunner : XCTestCase
 			
 			session.initialize(self)
 			
+			AutumnLog.debug("Retrieving TestRail data ...")
+			AutumnTestRunner.phase = .DataRetrieval
+			_testrailClient.retrieveTestRailData()
+			
 			AutumnLog.debug("Registering objects ...")
 			AutumnTestRunner.phase = .CaseRegistration
 			registerUsers()
@@ -310,13 +309,9 @@ open class AutumnTestRunner : XCTestCase
 			registerFeatures()
 			registerScenarios()
 			
-			AutumnLog.debug("Registered \(_users.count) users.")
-			AutumnLog.debug("Registered \(_viewProxyClasses.count) view proxy classes.")
-			AutumnLog.debug("Registered \(AutumnTestRunner.allFeatures.count) features.")
-			
-			AutumnLog.debug("Retrieving TestRail data ...")
-			AutumnTestRunner.phase = .DataRetrieval
-			_testrailClient.retrieveTestRailData()
+			AutumnLog.debug("Registered \(model.users.count) users.")
+			AutumnLog.debug("Registered \(model.viewProxyClasses.count) view proxy classes.")
+			AutumnLog.debug("Registered \(model.allFeatures.count) features.")
 			
 			AutumnLog.debug("Syncing data ...")
 			_testrailClient.syncData()

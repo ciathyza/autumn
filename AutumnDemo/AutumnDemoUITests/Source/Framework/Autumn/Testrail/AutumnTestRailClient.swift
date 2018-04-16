@@ -94,6 +94,8 @@ class AutumnTestRailClient
 	{
 		syncRootSection()
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+		syncSections()
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 	}
 	
 	
@@ -101,10 +103,21 @@ class AutumnTestRailClient
 	// MARK: - Sync API
 	// ----------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Syncs the root section.
+	 */
 	private func syncRootSection()
 	{
 		_isTestRailRetrievalComplete = false
 		AutumnLog.debug("Syncing root section used for automtion test cases ...")
+		syncSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
+	}
+	
+	
+	private func syncSections()
+	{
+		_isTestRailRetrievalComplete = false
+		AutumnLog.debug("Syncing all sections ...")
 		syncSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
 	}
 	
