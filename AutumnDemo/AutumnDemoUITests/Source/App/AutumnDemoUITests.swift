@@ -33,7 +33,7 @@ class AutumnDemoUITests : AutumnTestRunner
 		registerUser(AutumnUser("James Seth Lynch", "MyUltraSecretExtraLongPassword12345%!", "Lynch"), isDefaultSTG: true)
 		registerUser(AutumnUser("Norman Bates", "MyMotherIsMyLove", "Bates"), isDefaultPRD: true)
 		registerUser(AutumnUser("Patrick Bateman", "HeadsInFridges", "Bateman"))
-		registerUser(AutumnUser("Freddy Krueger", "Claws666!LOLwut#", "Freddy"))
+		registerUser(AutumnUser("Fred Kraeger", "Claws666!LOLwut#", "Freddy"))
 		registerUser(AutumnUser("Hannibal Lecter", "Bodies123OmnomnomFTW$", "Lecter"))
 		registerUser(AutumnUser("Michael Myers", "LookUnderYourBedBeforeSleeping!", "MaskFace"))
 		registerUser(AutumnUser("Catherine Tramell", "BetweenTeheLegs", "Cathy"))
