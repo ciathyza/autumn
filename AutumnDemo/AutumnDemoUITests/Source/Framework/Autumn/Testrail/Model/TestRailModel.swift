@@ -48,6 +48,10 @@ class TestRailModel
 	var masterSuiteID      = 0
 	
 	
+	// TODO Compare features with sections and find any that are the same but need to be updated because their name changed.
+	
+	//
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Derived Properties
 	// ----------------------------------------------------------------------------------------------------
