@@ -14,7 +14,7 @@ import XCTest
 /**
  * Represents a view proxy for a view that is used for UI testing.
  */
-public class AutumnViewProxy
+public class AutumnViewProxy : AutumnHashable
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Static
@@ -47,5 +47,21 @@ public class AutumnViewProxy
 		self.app = AutumnTestRunner.app
 		self.runner = runner
 		self.viewName = viewName
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	public var hashValue:Int
+	{
+		return viewName.hashValue
+	}
+	
+	
+	public static func ==(lhs:AutumnViewProxy, rhs:AutumnViewProxy) -> Bool
+	{
+		return lhs.viewName == rhs.viewName
 	}
 }

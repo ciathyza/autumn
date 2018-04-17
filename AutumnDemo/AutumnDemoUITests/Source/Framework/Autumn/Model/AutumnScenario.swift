@@ -11,10 +11,36 @@ import Foundation
 import XCTest
 
 
+// ----------------------------------------------------------------------------------------------------
+// MARK: - Structs
+// ----------------------------------------------------------------------------------------------------
+
+/**
+ * Struct used for scenario results.
+ */
+struct ScenarioResult
+{
+	var scenario:AutumnScenario!
+	var rows = [ScenarioResultRow]()
+}
+
+
+/**
+ * Struct used for scenario result rows.
+ */
+struct ScenarioResultRow
+{
+	var phase  = AutumnScenarioPhase.None
+	var type   = AutumnScenarioInstructionType.Instr
+	var name   = ""
+	var result = AutumnUIActionResult.Failed
+}
+
+
 /**
  * Represents a test scenario that defines test steps.
  */
-public class AutumnScenario
+public class AutumnScenario : AutumnHashable
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Static
@@ -33,17 +59,15 @@ public class AutumnScenario
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	public var uninstallBefore = true
-	public var resetBefore = true
-	public var resetAfter = false
-	public var terminateAfter = true
-	
-	public internal(set) var id = ""
-	public internal(set) var title = ""
-	public internal(set) var descr = ""
-	public internal(set) var link = ""
-	public internal(set) var tags = [String]()
+	public internal(set) var title    = ""
+	public internal(set) var link     = ""
+	public internal(set) var tags     = [String]()
 	public internal(set) var priority = TestRailTestCasePriorityOption.Medium
+	
+	public var uninstallBefore = true
+	public var resetBefore     = true
+	public var resetAfter      = false
+	public var terminateAfter  = true
 	
 	public private(set) var feature:AutumnFeature
 	public private(set) var app:XCUIApplication
@@ -90,6 +114,25 @@ public class AutumnScenario
 		
 		resetNameRecords()
 		setup()
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	public var hashValue:Int
+	{
+		return title.hashValue
+	}
+	
+	
+	public static func ==(lhs:AutumnScenario, rhs:AutumnScenario) -> Bool
+	{
+		return lhs.title == rhs.title
+			&& lhs.link == rhs.link
+			&& lhs.tags.description == rhs.tags.description
+			&& lhs.priority == rhs.priority
 	}
 	
 	
@@ -220,20 +263,4 @@ public class AutumnScenario
 	open func execute()
 	{
 	}
-}
-
-
-// ------------------------------------------------------------------------------------------------
-struct ScenarioResult
-{
-	var scenario:AutumnScenario!
-	var rows = [ScenarioResultRow]()
-}
-
-struct ScenarioResultRow
-{
-	var phase:AutumnScenarioPhase = .None
-	var type:AutumnScenarioInstructionType = .Instr
-	var name:String = ""
-	var result:AutumnUIActionResult = .Failed
 }

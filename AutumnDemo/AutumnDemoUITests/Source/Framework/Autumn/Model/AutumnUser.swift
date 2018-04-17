@@ -13,7 +13,7 @@ import Foundation
 /**
  * Defines a user used for logging into an app.
  */
-open class AutumnUser
+open class AutumnUser : AutumnHashable
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties
@@ -52,6 +52,22 @@ open class AutumnUser
 		self.id = id
 		self.password = password
 		self.nickname = nickname
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Hashable & Equatable
+	// ----------------------------------------------------------------------------------------------------
+	
+	public var hashValue:Int
+	{
+		return id.hashValue
+	}
+	
+	
+	public static func ==(lhs:AutumnUser, rhs:AutumnUser) -> Bool
+	{
+		return lhs.id == rhs.id && lhs.password == rhs.password
 	}
 	
 	

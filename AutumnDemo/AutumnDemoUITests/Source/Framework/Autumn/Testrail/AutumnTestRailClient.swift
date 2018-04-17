@@ -138,7 +138,7 @@ class AutumnTestRailClient
 		else
 		{
 			/* Create new root section to work with! */
-			let section = TestRailSection(name: sectionName, description: description, parentID: parentID)
+			var section = TestRailSection(name: sectionName, description: description, parentID: parentID)
 			createNewSection(section: section, projectID: config.testrailProjectID)
 			{
 				(response:TestRailSection?, error:String?) in
