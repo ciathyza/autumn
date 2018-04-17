@@ -55,7 +55,7 @@ struct TestRailSection : TestRailCodable
 		displayOrder = 0
 		self.name = name
 		self.description = description
-		self.suiteID = suiteID != nil ? suiteID! : AutumnTestRunner.instance.model.masterSuiteID
+		self.suiteID = suiteID != nil ? suiteID! : AutumnTestRunner.instance.model.testrailMasterSuiteID
 		self.parentID = parentID
 	}
 	

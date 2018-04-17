@@ -13,7 +13,7 @@ import Foundation
 /**
  * Main model for all TestRail data that is fetched from and send to the TestRail server.
  */
-class TestRailModel
+class AutumnModel
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Constants
@@ -26,30 +26,29 @@ class TestRailModel
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	var allFeatures        = [AutumnFeature]()
-	var allScenarioClasses = [Metatype<AutumnScenario>:AutumnScenario.Type]()
-	var allScenarioIDs     = [Metatype<AutumnScenario>:String]()
-	var viewProxyClasses   = [Metatype<AutumnViewProxy>:AutumnViewProxy]()
-	var users              = [String:AutumnUser]()
+	var features                   = [AutumnFeature]()
+	var scenarioClasses            = [Metatype<AutumnScenario>:AutumnScenario.Type]()
+	var scenarioIDs                = [Metatype<AutumnScenario>:String]()
+	var viewProxyClasses           = [Metatype<AutumnViewProxy>:AutumnViewProxy]()
+	var users                      = [String:AutumnUser]()
 	
-	var projects           = [TestRailProject]()
-	var suites             = [TestRailSuite]()
-	var milestones         = [TestRailMilestone]()
-	var testPlans          = [TestRailTestPlan]()
-	var testRuns           = [TestRailTestRun]()
-	var testCases          = [TestRailTestCase]()
-	var statuses           = [TestRailStatus]()
-	var sections           = [TestRailSection]()
-	var testCaseFields     = [TestRailTestCaseField]()
-	var testCaseTypes      = [TestRailTestCaseType]()
-	var templates          = [TestRailTemplate]()
-	var tests              = [TestRailTest]()
-	var autumnSections     = [TestRailSection]()
-	var masterSuiteID      = 0
+	var testrailProjects           = [TestRailProject]()
+	var testrailSuites             = [TestRailSuite]()
+	var testrailMilestones         = [TestRailMilestone]()
+	var testrailPlans              = [TestRailTestPlan]()
+	var testrailRuns               = [TestRailTestRun]()
+	var testrailCases              = [TestRailTestCase]()
+	var testrailStatuses           = [TestRailStatus]()
+	var testrailSections           = [TestRailSection]()
+	var testrailCaseFields         = [TestRailTestCaseField]()
+	var testrailCaseTypes          = [TestRailTestCaseType]()
+	var testrailTemplates          = [TestRailTemplate]()
+	var testrailTests              = [TestRailTest]()
+	var testrailAutomationSections = [TestRailSection]()
+	var testrailMasterSuiteID      = 0
 	
 	
 	// TODO Compare features with sections and find any that are the same but need to be updated because their name changed.
-	
 	//
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -61,7 +60,7 @@ class TestRailModel
 	 */
 	var rootSection:TestRailSection?
 	{
-		for s in sections { if s.name == config.testrailRootSectionName { return s } }
+		for s in testrailSections { if s.name == config.testrailRootSectionName { return s } }
 		return nil
 	}
 	
@@ -84,11 +83,11 @@ class TestRailModel
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
-	 * Returns a section that has the specified name, or nil if no such section exists.
+	 * Returns a TestRail section that has the specified name, or nil if no such section exists.
 	 */
-	func getSection(_ sectionName:String) -> TestRailSection?
+	func getTestRailSection(_ sectionName:String) -> TestRailSection?
 	{
-		for s in sections
+		for s in testrailSections
 		{
 			if s.name == sectionName { return s }
 		}
@@ -96,9 +95,13 @@ class TestRailModel
 	}
 	
 	
-	func getSectionID(_ sectionName:String) -> Int?
+	/**
+	 * Returns the ID of the TestRail section that has the specified name,
+	 * or nil if no such section exists.
+	 */
+	func getTestRailSectionID(_ sectionName:String) -> Int?
 	{
-		if let section = getSection(sectionName) { return section.id }
+		if let section = getTestRailSection(sectionName) { return section.id }
 		return nil
 	}
 	
@@ -106,23 +109,23 @@ class TestRailModel
 	/**
 	 * Returns an array of all sections that are children of the Autumn root section.
 	 */
-	func getAutumnSections() -> [TestRailSection]
+	func getTestRailAutomationSections() -> [TestRailSection]
 	{
 		var results = [TestRailSection]()
 		if let rootSection = self.rootSection
 		{
-			getAutumnSectionsRecursive(rootSection, &results)
+			getTestRailAutomationSectionsRecursive(rootSection, &results)
 		}
 		return results
 	}
 	
 	
 	/**
-	 * Returns an array of all section IDs that are children of the Autumn root section.
+	 * Returns an array of all TestRail section IDs that are children of the automation root section.
 	 */
-	func getAutumnSectionIDs() -> [Int]
+	func getTestRailAutomationSectionIDs() -> [Int]
 	{
-		var sections = getAutumnSections()
+		var sections = getTestRailAutomationSections()
 		var results = [Int]()
 		for section in sections
 		{
@@ -133,27 +136,11 @@ class TestRailModel
 	
 	
 	/**
-	 * Recursively find all sections that are under the root section, incl. all child sections.
-	 */
-	private func getAutumnSectionsRecursive(_ parentSection:TestRailSection, _ results: inout [TestRailSection])
-	{
-		for section in sections
-		{
-			if section.parentID == parentSection.id && !results.contains(section)
-			{
-				results.append(section)
-				getAutumnSectionsRecursive(section, &results)
-			}
-		}
-	}
-	
-	
-	/**
 	 * Returns a test case with the specified title, or nil if no such test case exists.
 	 */
-	func getTestCase(_ testCaseTitle:String) -> TestRailTestCase?
+	func getTestRailCase(_ testCaseTitle:String) -> TestRailTestCase?
 	{
-		for c in testCases
+		for c in testrailCases
 		{
 			if c.title == testCaseTitle { return c }
 		}
@@ -164,9 +151,9 @@ class TestRailModel
 	/**
 	 * Returns the ID of a test case template, or nil.
 	 */
-	func getTestCaseTemplateIDFor(template:TestRailTestCaseTemplateOption) -> Int?
+	func getTestRailCaseTemplateIDFor(template:TestRailTestCaseTemplateOption) -> Int?
 	{
-		for i in templates
+		for i in testrailTemplates
 		{
 			if i.name == template.rawValue { return i.id }
 		}
@@ -177,9 +164,9 @@ class TestRailModel
 	/**
 	 * Returns the ID of a test case type, or nil.
 	 */
-	func getTestCaseTypeIDFor(type:TestRailTestCaseTypeOption) -> Int?
+	func getTestRailCaseTypeIDFor(type:TestRailTestCaseTypeOption) -> Int?
 	{
-		for i in testCaseTypes
+		for i in testrailCaseTypes
 		{
 			if i.name == type.rawValue { return i.id }
 		}
@@ -194,43 +181,43 @@ class TestRailModel
 	/**
 	 * Adds a section. If a section with the same name already exists it will be replaced.
 	 */
-	func addSection(_ section:TestRailSection)
+	func addTestRailSection(_ section:TestRailSection)
 	{
 		var i = 0
-		for s in sections
+		for s in testrailSections
 		{
-			if s.name == section.name { sections.remove(at: i) }
+			if s.name == section.name { testrailSections.remove(at: i) }
 			i += 1
 		}
-		sections.append(section)
+		testrailSections.append(section)
 	}
 	
 	
 	/**
 	 * Adds a test case. If a test case with the same title already exists it will be replaced.
 	 */
-	func addTestCase(_ testCase:TestRailTestCase)
+	func addTestRailCase(_ testCase:TestRailTestCase)
 	{
 		var i = 0
-		for c in testCases
+		for c in testrailCases
 		{
-			if c.title == testCase.title { testCases.remove(at: i) }
+			if c.title == testCase.title { testrailCases.remove(at: i) }
 			i += 1
 		}
-		testCases.append(testCase)
+		testrailCases.append(testCase)
 	}
 	
 	
-	func addTestCasesFromFeature(_ feature:AutumnFeature)
+	func addTestRailCasesFromFeature(_ feature:AutumnFeature)
 	{
 		//let featureScenarios =
 	}
 	
 	
-	func addTestCaseFromScenario(_ scenario:AutumnScenario, _ feature:AutumnFeature)
+	func addTestRailCaseFromScenario(_ scenario:AutumnScenario, _ feature:AutumnFeature)
 	{
 		var exists = false
-		for c in testCases
+		for c in testrailCases
 		{
 			if c.title == scenario.title
 			{
@@ -251,23 +238,43 @@ class TestRailModel
 	/**
 	 * Replaces a test case with the same ID. Returns false if no test case with the ID exists.
 	 */
-	func replaceTestCase(_ testCase:TestRailTestCase) -> Bool
+	func replaceTestRailCase(_ testCase:TestRailTestCase) -> Bool
 	{
 		var success = false
 		if let id = testCase.id
 		{
 			var i = 0
-			for c in testCases
+			for c in testrailCases
 			{
 				if c.id == id
 				{
-					testCases.remove(at: i)
+					testrailCases.remove(at: i)
 					success = true
 				}
 				i += 1
 			}
-			if success { testCases.append(testCase) }
+			if success { testrailCases.append(testCase) }
 		}
 		return success
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Private Methods
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Recursively find all sections that are under the root section, incl. all child sections.
+	 */
+	private func getTestRailAutomationSectionsRecursive(_ parentSection:TestRailSection, _ results: inout [TestRailSection])
+	{
+		for section in testrailSections
+		{
+			if section.parentID == parentSection.id && !results.contains(section)
+			{
+				results.append(section)
+				getTestRailAutomationSectionsRecursive(section, &results)
+			}
+		}
 	}
 }

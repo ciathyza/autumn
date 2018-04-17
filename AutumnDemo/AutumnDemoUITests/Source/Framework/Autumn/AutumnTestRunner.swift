@@ -40,7 +40,7 @@ open class AutumnTestRunner : XCTestCase
 	public let config = AutumnConfig()
 	
 	internal private(set) var session = AutumnSession()
-	internal private(set) var model:TestRailModel!
+	internal private(set) var model:AutumnModel!
 	
 	private var _testrailClient:AutumnTestRailClient!
 	private let _fallbackUser = AutumnUser("NONE", "NONE", "NONE")
@@ -201,10 +201,10 @@ open class AutumnTestRunner : XCTestCase
 	public func registerFeature(_ featureClass:AutumnFeature.Type)
 	{
 		let feature = featureClass.init(self)
-		if !model.allFeatures.containsObject(feature)
+		if !model.features.containsObject(feature)
 		{
 			feature.setup()
-			model.allFeatures.append(feature)
+			model.features.append(feature)
 			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
 		}
 	}
@@ -216,7 +216,7 @@ open class AutumnTestRunner : XCTestCase
 	
 	internal func registerScenarios()
 	{
-		for feature in model.allFeatures
+		for feature in model.features
 		{
 			feature.registerScenarios()
 		}
@@ -288,7 +288,7 @@ open class AutumnTestRunner : XCTestCase
 		/* Only execute this once! */
 		if !AutumnTestRunner.isSetupComplete
 		{
-			model = TestRailModel(config)
+			model = AutumnModel(config)
 			_testrailClient = AutumnTestRailClient(config, model)
 			
 			AutumnLog.debug("Configuring test session ...")
@@ -311,7 +311,7 @@ open class AutumnTestRunner : XCTestCase
 			
 			AutumnLog.debug("Registered \(model.users.count) users.")
 			AutumnLog.debug("Registered \(model.viewProxyClasses.count) view proxy classes.")
-			AutumnLog.debug("Registered \(model.allFeatures.count) features.")
+			AutumnLog.debug("Registered \(model.features.count) features.")
 			
 			AutumnLog.debug("Syncing data ...")
 			_testrailClient.syncData()

@@ -139,17 +139,17 @@ public class AutumnFeature
 	 */
 	public func registerScenario(_ scenarioClass:AutumnScenario.Type)
 	{
-		if runner.model.allScenarioClasses[scenarioClass.metatype] == nil
+		if runner.model.scenarioClasses[scenarioClass.metatype] == nil
 		{
 			let scenario = scenarioClass.init(self)
 			/* Add all feature tags to all its scenarios, too. */
 			scenario.tags = scenario.tags + tags
-			runner.model.allScenarioClasses[scenarioClass.metatype] = scenarioClass
+			runner.model.scenarioClasses[scenarioClass.metatype] = scenarioClass
 			let scenarioID = getScenarioID(scenarioClass)
 			if !scenarioID.isEmpty
 			{
-				runner.model.allScenarioIDs[scenarioClass.metatype] = scenarioID
-				runner.model.addTestCaseFromScenario(scenario, self)
+				runner.model.scenarioIDs[scenarioClass.metatype] = scenarioID
+				runner.model.addTestRailCaseFromScenario(scenario, self)
 				AutumnLog.debug("Registered test scenario with ID \(scenarioID).")
 			}
 			else
@@ -219,7 +219,7 @@ public class AutumnFeature
 		var scenarioClasses = [AutumnScenario.Type]()
 		for metatype in scenarioMetatypes
 		{
-			if let scenarioClass = runner.model.allScenarioClasses[metatype]
+			if let scenarioClass = runner.model.scenarioClasses[metatype]
 			{
 				scenarioClasses.append(scenarioClass)
 			}
@@ -237,7 +237,7 @@ public class AutumnFeature
 		var scenarios = [AutumnScenario]()
 		for metatype in scenarioMetatypes
 		{
-			if let scenarioClass = runner.model.allScenarioClasses[metatype]
+			if let scenarioClass = runner.model.scenarioClasses[metatype]
 			{
 				let scenario = scenarioClass.init(self)
 				scenarios.append(scenario)
@@ -285,12 +285,12 @@ public class AutumnFeature
 	{
 		runner.session.currentScenarioIndex += 1
 		
-		if let scenarioClass = runner.model.allScenarioClasses[scenarioClass.metatype]
+		if let scenarioClass = runner.model.scenarioClasses[scenarioClass.metatype]
 		{
 			let scenario = scenarioClass.init(self)
 			
 			/* Use scenario ID that was retrieved from the class name. */
-			if let scenarioID = runner.model.allScenarioIDs[scenarioClass.metatype]
+			if let scenarioID = runner.model.scenarioIDs[scenarioClass.metatype]
 			{
 				scenario.id = scenarioID
 			}
@@ -387,7 +387,7 @@ public class AutumnFeature
 		if (_scenarioQueue.count > 0)
 		{
 			let metatype = _scenarioQueue.removeFirst()
-			return runner.model.allScenarioClasses[metatype]
+			return runner.model.scenarioClasses[metatype]
 		}
 		return nil
 	}

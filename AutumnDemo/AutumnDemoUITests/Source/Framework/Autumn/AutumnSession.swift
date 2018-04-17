@@ -161,10 +161,10 @@ internal class AutumnSession
 	 */
 	public func dequeueNextFeature() -> AutumnFeature?
 	{
-		if (_runner.model.allFeatures.count > 0)
+		if (_runner.model.features.count > 0)
 		{
 			currentFeatureIndex += 1
-			return _runner.model.allFeatures.removeFirst()
+			return _runner.model.features.removeFirst()
 		}
 		return nil
 	}
