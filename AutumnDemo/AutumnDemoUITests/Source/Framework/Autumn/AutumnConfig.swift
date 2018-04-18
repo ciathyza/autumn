@@ -174,12 +174,21 @@ public class AutumnConfig : NSObject
 	}
 	
 	
+	public var isConfigValid:Bool
+	{
+		return projectName.length > 0
+			&& appName.length > 0
+			&& appID.length > 0
+	}
+	
+	
 	public var isTestRailConfigValid:Bool
 	{
 		return testrailHost.length > 0
-				&& testrailFeatureBaseURL.length > 0
-				&& testrailUsername.length > 0
-				&& testrailPassword.length > 0
+			&& testrailFeatureBaseURL.length > 0
+			&& testrailUsername.length > 0
+			&& testrailPassword.length > 0
+			&& testrailRootSectionName.length > 0
 	}
 	
 	

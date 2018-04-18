@@ -223,6 +223,37 @@ open class AutumnTestRunner : XCTestCase
 	}
 	
 	
+	private func register()
+	{
+		AutumnLog.debug("Registering objects ...")
+		
+		registerUsers()
+		registerViewProxies()
+		registerFeatures()
+		registerScenarios()
+		
+		AutumnLog.debug("Registered \(model.users.count) users.")
+		AutumnLog.debug("Registered \(model.viewProxyClasses.count) view proxy classes.")
+		AutumnLog.debug("Registered \(model.features.count) features.")
+	}
+	
+	
+	private func isConfigurationValid() -> Bool
+	{
+		if !config.isConfigValid
+		{
+			AutumnLog.error("Configuration is missing required settings.")
+			return false
+		}
+		if !config.isTestRailConfigValid
+		{
+			AutumnLog.error("Configuration is missing required TestRail settings.")
+			return false
+		}
+		return true
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - XCTest
 	// ----------------------------------------------------------------------------------------------------
@@ -295,26 +326,19 @@ open class AutumnTestRunner : XCTestCase
 			AutumnTestRunner.phase = .Configuration
 			configure()
 			if config.debug { AutumnLog.debug("\n\(config.dumpTable())") }
+			if !isConfigurationValid() { return }
 			
 			session.initialize(self)
 			
-			AutumnLog.debug("Retrieving TestRail data ...")
 			AutumnTestRunner.phase = .DataRetrieval
 			_testrailClient.retrieveTestRailData()
+			if !model.isTestRailDataValid() { return }
 			
-			AutumnLog.debug("Registering objects ...")
-			AutumnTestRunner.phase = .CaseRegistration
-			registerUsers()
-			registerViewProxies()
-			registerFeatures()
-			registerScenarios()
+			AutumnTestRunner.phase = .DataRegistration
+			register()
 			
-			AutumnLog.debug("Registered \(model.users.count) users.")
-			AutumnLog.debug("Registered \(model.viewProxyClasses.count) view proxy classes.")
-			AutumnLog.debug("Registered \(model.features.count) features.")
-			
-			AutumnLog.debug("Syncing data ...")
-			_testrailClient.syncData()
+			AutumnTestRunner.phase = .DataSync
+			//_testrailClient.syncData()
 			
 			AutumnTestRunner.isSetupComplete = true
 			

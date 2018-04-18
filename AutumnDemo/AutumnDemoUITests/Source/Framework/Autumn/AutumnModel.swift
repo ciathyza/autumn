@@ -83,6 +83,16 @@ class AutumnModel
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
+	 * Determines whether the testrail data is valid.
+	 */
+	func isTestRailDataValid() -> Bool
+	{
+		return testrailProjects.count > 0
+			&& testrailSuites.count > 0
+	}
+	
+	
+	/**
 	 * Returns a TestRail section that has the specified name, or nil if no such section exists.
 	 */
 	func getTestRailSection(_ sectionName:String) -> TestRailSection?

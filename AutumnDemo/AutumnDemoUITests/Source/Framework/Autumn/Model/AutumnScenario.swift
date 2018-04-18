@@ -59,6 +59,7 @@ public class AutumnScenario : AutumnHashable
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
+	public internal(set) var id       = ""
 	public internal(set) var title    = ""
 	public internal(set) var link     = ""
 	public internal(set) var tags     = [String]()
@@ -181,7 +182,7 @@ public class AutumnScenario : AutumnHashable
 	{
 		/* If we're in the registration phase then only record the step names for TestRail case generation,
 		   don't run any actual test execution. */
-		if AutumnTestRunner.phase == .CaseRegistration
+		if AutumnTestRunner.phase == .DataRegistration
 		{
 			let testRailStepName = "\(type.rawValue) \(step.name)."
 			if type == .Given { preconditionStrings.append(testRailStepName) }

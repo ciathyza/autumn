@@ -15,7 +15,7 @@ public enum AutumnPhase : String
 	case Init             = "Init"
 	case Configuration    = "Configuration"
 	case DataRetrieval    = "Data Retrieval"
-	case CaseRegistration = "Case Creation"
+	case DataRegistration = "Data Registration"
 	case DataSync         = "Data Sync"
 	case TestExecution    = "Test Execution"
 }

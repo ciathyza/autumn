@@ -163,9 +163,20 @@ public class AutumnFeature : AutumnHashable
 			/* Add all feature tags to all its scenarios, too. */
 			scenario.tags = scenario.tags + tags
 			runner.model.scenarioClasses[scenarioClass.metatype] = scenarioClass
-			runner.model.scenarioIDs[scenarioClass.metatype] = "\(scenario.hashValue)"
+			let scenarioID = getScenarioID(scenarioClass)
+			if !scenarioID.isEmpty
+			{
+				runner.model.scenarioIDs[scenarioClass.metatype] = scenarioID
+				runner.model.addTestRailCaseFromScenario(scenario, self)
+				AutumnLog.debug("Registered test scenario with ID \(scenarioID).")
+			}
+			else
+			{
+				AutumnLog.warning("Scenario \"\(scenarioClass)\" has no ID!")
+			}
+			runner.model.scenarioIDs[scenarioClass.metatype] = "\(scenario.id)"
 			runner.model.addTestRailCaseFromScenario(scenario, self)
-			AutumnLog.debug("Registered test scenario with ID \(scenario.hashValue).")
+			AutumnLog.debug("Registered test scenario with ID \(scenario.id).")
 		}
 		
 		_scenarioQueue.append(scenarioClass.metatype)
@@ -176,34 +187,34 @@ public class AutumnFeature : AutumnHashable
 	 * Returns the ID of the specified scenario class. The class must include the Testrail ID.
 	 * It can be written in one of two ways, e.g.: ScenarioClassName_C110134 or C110134.
 	 */
-//	public func getScenarioID(_ scenarioClass:AutumnScenario.Type) -> String
-//	{
-//		let className = "\(scenarioClass)"
-//		let array = className.split("_")
-//		var result = ""
-//
-//		/* Format: ScenarioClassName_C110134 */
-//		if array.count > 1
-//		{
-//			let s = array[array.count - 1]
-//			result = s
-//		}
-//		/* Format: C110134 */
-//		else if array.count == 1
-//		{
-//			let s = array[0]
-//			if (s.starts(with: "C"))
-//			{
-//				result = s.substring(1)
-//			}
-//		}
-//		if result.isEmpty
-//		{
-//			let scenario = scenarioClass.init(self)
-//			result = scenario.id
-//		}
-//		return result
-//	}
+	public func getScenarioID(_ scenarioClass:AutumnScenario.Type) -> String
+	{
+		let className = "\(scenarioClass)"
+		let array = className.split("_")
+		var result = ""
+
+		/* Format: ScenarioClassName_C110134 */
+		if array.count > 1
+		{
+			let s = array[array.count - 1]
+			result = s
+		}
+		/* Format: C110134 */
+		else if array.count == 1
+		{
+			let s = array[0]
+			if (s.starts(with: "C"))
+			{
+				result = s.substring(1)
+			}
+		}
+		if result.isEmpty
+		{
+			let scenario = scenarioClass.init(self)
+			result = scenario.id
+		}
+		return result
+	}
 	
 	
 	/**
@@ -302,10 +313,10 @@ public class AutumnFeature : AutumnHashable
 			/* Use scenario ID that was retrieved from the class name. */
 			if let scenarioID = runner.model.scenarioIDs[scenarioClass.metatype]
 			{
-				//scenario.id = scenarioID
+				scenario.id = scenarioID
 			}
 			
-			let scenarioLink = scenario.link.length > 0 ? scenario.link : runner.config.testrailFeatureBaseURL.length > 0 ? runner.config.testrailFeatureBaseURL + "" : ""
+			let scenarioLink = scenario.link.length > 0 ? scenario.link : runner.config.testrailFeatureBaseURL.length > 0 ? runner.config.testrailFeatureBaseURL + scenario.id : ""
 			scenario.tags = scenario.tags + tags
 			
 			runner.session.currentScenario = scenario
@@ -332,7 +343,7 @@ public class AutumnFeature : AutumnHashable
 				}
 				
 				AutumnLog.delimiter()
-				//AutumnLog.debug("Starting scenario: \"[\(scenario.id)] \(scenario.title)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
+				AutumnLog.debug("Starting scenario: \"[\(scenario.id)] \(scenario.title)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
 				//AutumnTelemetry.instance.record(type: .BeginScenario, args: self, scenario, scenarioLink)
 				AutumnLog.debug("Establishing scenario preconditions ...")
 				scenario.status = .Started
