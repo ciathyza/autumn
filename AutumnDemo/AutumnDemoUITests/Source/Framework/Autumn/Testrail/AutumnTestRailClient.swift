@@ -84,6 +84,7 @@ class AutumnTestRailClient
 		
 		syncRootSection()
 		syncSections()
+		removeOrphanedSections()
 	}
 	
 	
@@ -103,6 +104,15 @@ class AutumnTestRailClient
 	}
 	
 	
+	/**
+	 * Syncs all local features with remote sections.
+	 *
+	 * - Removes all sections from TestRail under automation root section for which it cannot find a
+	 *   local feature with the same description.
+	 *
+	 * - Updates the names of any remaining sections for which there is a local feature with the
+	 *   same description.
+	 */
 	private func syncSections()
 	{
 		if let rootSectionID = model.rootSection?.id
@@ -116,6 +126,15 @@ class AutumnTestRailClient
 			}
 			AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		}
+	}
+	
+	
+	/**
+	 * Removes orphaned sections from server.
+	 */
+	private func removeOrphanedSections()
+	{
+	
 	}
 	
 	
