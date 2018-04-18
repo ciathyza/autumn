@@ -83,9 +83,7 @@ class AutumnTestRailClient
 		AutumnLog.debug("Syncing data ...")
 		
 		syncRootSection()
-		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 		syncSections()
-		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 	}
 	
 	
@@ -101,14 +99,23 @@ class AutumnTestRailClient
 		_isTestRailRetrievalComplete = false
 		AutumnLog.debug("Syncing root section used for automtion test cases ...")
 		syncSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 	}
 	
 	
 	private func syncSections()
 	{
-		_isTestRailRetrievalComplete = false
-		AutumnLog.debug("Syncing all sections ...")
-		syncSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
+		if let rootSectionID = model.rootSection?.id
+		{
+			_isTestRailRetrievalComplete = false
+			AutumnLog.debug("Syncing all sections ...")
+			let features = model.features
+			for feature in features
+			{
+				syncSection(feature.name, feature.descr, rootSectionID)
+			}
+			AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+		}
 	}
 	
 	
@@ -127,7 +134,7 @@ class AutumnTestRailClient
 		}
 		else
 		{
-			/* Create new root section to work with! */
+			/* Create new section to work with! */
 			var section = TestRailSection(name: sectionName, description: description, parentID: parentID)
 			createNewSection(section: section, projectID: config.testrailProjectID)
 			{
