@@ -90,6 +90,16 @@ class AutumnModel
 	
 	
 	/**
+	 * Determines whether the local data is valid.
+	 */
+	func isDataValid() -> Bool
+	{
+		return features.count > 0
+			&& scenarioClasses.count > 0
+	}
+	
+	
+	/**
 	 * Returns a TestRail section that has the specified name, or nil if no such section exists.
 	 */
 	func getTestRailSection(_ sectionName:String) -> TestRailSection?

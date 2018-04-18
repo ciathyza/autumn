@@ -337,13 +337,19 @@ open class AutumnTestRunner : XCTestCase
 			AutumnTestRunner.phase = .DataRegistration
 			register()
 			
+			if !model.isDataValid()
+			{
+				AutumnLog.debug("No test features and/or scenarios have been registered.")
+				return
+			}
+			
 			AutumnTestRunner.phase = .DataSync
-			//_testrailClient.syncData()
+			_testrailClient.syncData()
 			
 			AutumnTestRunner.isSetupComplete = true
 			
 			AutumnLog.debug("Starting tests in a jiffy ...")
-			AutumnUI.sleep(2)
+			AutumnUI.sleep(4)
 			
 			AutumnTestRunner.phase = .TestExecution
 			session.start()
