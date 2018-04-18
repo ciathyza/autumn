@@ -139,6 +139,12 @@ open class HashID_<T>: HashIDGenerator where T : UnsignedInteger
 	// MARK: - public api
 	// ----------------------------------------------------------------------------------------------------
 	
+	open func encode(_ value:UInt32...) -> String?
+	{
+		return encode(value)
+	}
+	
+	
 	open func encode(_ value:Int64...) -> String?
 	{
 		return encode(value)
@@ -146,6 +152,15 @@ open class HashID_<T>: HashIDGenerator where T : UnsignedInteger
 	
 	
 	open func encode(_ values:[Int64]) -> String?
+	{
+		return encode(values.map
+		{
+			Int($0)
+		})
+	}
+	
+	
+	open func encode(_ values:[UInt32]) -> String?
 	{
 		return encode(values.map
 		{
@@ -172,6 +187,17 @@ open class HashID_<T>: HashIDGenerator where T : UnsignedInteger
 			}
 			return so
 		})
+	}
+	
+	
+	open func encode(_ value:String) -> String?
+	{
+		var n = [UInt32]()
+		for char in value
+		{
+			n.append(char.unicodeScalarCodePoint())
+		}
+		return encode(n)
 	}
 	
 	
