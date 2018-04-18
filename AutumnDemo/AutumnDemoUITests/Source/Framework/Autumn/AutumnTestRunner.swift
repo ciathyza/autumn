@@ -204,8 +204,23 @@ open class AutumnTestRunner : XCTestCase
 		if !model.features.containsObject(feature)
 		{
 			feature.setup()
-			model.features.append(feature)
-			AutumnLog.debug("Registered feature: \"\(feature.name)\".")
+			if feature.descr.length < 1
+			{
+				AutumnLog.warning("Feature \"\(feature.name)\" has no description and will be skipped!")
+			}
+			else
+			{
+				if model.featureDescriptions[feature.descr] != nil
+				{
+					AutumnLog.warning("Feature \"\(feature.name)\" has a description that is same as that of another feature. Feature descriptions must be unique!")
+				}
+				else
+				{
+					model.featureDescriptions[feature.descr] = featureClass
+					model.features.append(feature)
+					AutumnLog.debug("Registered feature: \"\(feature.name)\".")
+				}
+			}
 		}
 	}
 	
