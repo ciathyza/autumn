@@ -160,23 +160,27 @@ public class AutumnFeature : AutumnHashable
 		if runner.model.scenarioClasses[scenarioClass.metatype] == nil
 		{
 			let scenario = scenarioClass.init(self)
+			
 			/* Add all feature tags to all its scenarios, too. */
 			scenario.tags = scenario.tags + tags
+			
 			runner.model.scenarioClasses[scenarioClass.metatype] = scenarioClass
+			
+			/* Get legitimate scenario ID. */
 			let scenarioID = getScenarioID(scenarioClass)
 			if !scenarioID.isEmpty
 			{
-				runner.model.scenarioIDs[scenarioClass.metatype] = scenarioID
-				runner.model.addTestRailCaseFromScenario(scenario, self)
-				AutumnLog.debug("Registered test scenario with ID \(scenarioID).")
+				if runner.model.scenarioIDs[scenarioClass.metatype] == nil
+				{
+					runner.model.scenarioIDs[scenarioClass.metatype] = scenarioID
+					//runner.model.addTestRailCaseFromScenario(scenario, self)
+					AutumnLog.debug("Registered test scenario with ID \(scenarioID).")
+				}
 			}
 			else
 			{
 				AutumnLog.warning("Scenario \"\(scenarioClass)\" has no ID!")
 			}
-			runner.model.scenarioIDs[scenarioClass.metatype] = "\(scenario.id)"
-			runner.model.addTestRailCaseFromScenario(scenario, self)
-			AutumnLog.debug("Registered test scenario with ID \(scenario.id).")
 		}
 		
 		_scenarioQueue.append(scenarioClass.metatype)
