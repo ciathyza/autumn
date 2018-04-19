@@ -27,7 +27,6 @@ class AutumnModel
 	// ----------------------------------------------------------------------------------------------------
 	
 	var features                   = [AutumnFeature]()
-	var featureDescriptions        = [String:AutumnFeature.Type]()
 	var scenarioClasses            = [Metatype<AutumnScenario>:AutumnScenario.Type]()
 	var scenarioIDs                = [Metatype<AutumnScenario>:String]()
 	var viewProxyClasses           = [Metatype<AutumnViewProxy>:AutumnViewProxy]()
@@ -41,26 +40,18 @@ class AutumnModel
 	var testrailCases              = [TestRailTestCase]()
 	var testrailStatuses           = [TestRailStatus]()
 	var testrailSections           = [TestRailSection]()
+	var testrailOrphanedSections   = [TestRailSection]()
 	var testrailCaseFields         = [TestRailTestCaseField]()
 	var testrailCaseTypes          = [TestRailTestCaseType]()
 	var testrailTemplates          = [TestRailTemplate]()
 	var testrailTests              = [TestRailTest]()
-	var testrailAutomationSections = [TestRailSection]()
 	var testrailMasterSuiteID      = 0
+	var testRailRootSection:TestRailSection?
 	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Derived Properties
 	// ----------------------------------------------------------------------------------------------------
-	
-	/**
-	 * Returns the root section used for generated test cases or nil if not existing.
-	 */
-	var rootSection:TestRailSection?
-	{
-		for s in testrailSections { if s.name == config.testrailRootSectionName { return s } }
-		return nil
-	}
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -101,6 +92,19 @@ class AutumnModel
 	
 	
 	/**
+	 * Checks if a feature with the given name exists in the model.
+	 */
+	func hasFeatureWithName(_ featureName:String) -> Bool
+	{
+		for feature in features
+		{
+			if feature.name == featureName { return true }
+		}
+		return false
+	}
+	
+	
+	/**
 	 * Returns a TestRail section that has the specified name, or nil if no such section exists.
 	 */
 	func getTestRailSection(_ sectionName:String) -> TestRailSection?
@@ -130,7 +134,7 @@ class AutumnModel
 	func getTestRailAutomationSections() -> [TestRailSection]
 	{
 		var results = [TestRailSection]()
-		if let rootSection = self.rootSection
+		if let rootSection = self.testRailRootSection
 		{
 			getTestRailAutomationSectionsRecursive(rootSection, &results)
 		}

@@ -84,7 +84,6 @@ class AutumnTestRailClient
 		
 		syncRootSection()
 		syncSections()
-		removeOrphanedSections()
 	}
 	
 	
@@ -107,34 +106,30 @@ class AutumnTestRailClient
 	/**
 	 * Syncs all local features with remote sections.
 	 *
-	 * - Removes all sections from TestRail under automation root section for which it cannot find a
-	 *   local feature with the same description.
+	 * - Marks as orphaned all sections from TestRail under automation root section for which it cannot find a
+	 *   local feature with the same name.
 	 *
 	 * - Updates the names of any remaining sections for which there is a local feature with the
 	 *   same description.
 	 */
 	private func syncSections()
 	{
-		if let rootSectionID = model.rootSection?.id
+		if let rootSectionID = model.testRailRootSection?.id
 		{
 			_isTestRailRetrievalComplete = false
-			AutumnLog.debug("Syncing all sections ...")
+			AutumnLog.debug("Syncing all child sections ...")
 			let features = model.features
 			for feature in features
 			{
 				syncSection(feature.name, feature.descr, rootSectionID)
 			}
 			AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+			
+			if model.testrailOrphanedSections.count > 0
+			{
+				AutumnLog.debug("Found \(model.testrailOrphanedSections.count) orphaned sections.\(self.config.debug ? ("\(self.dump(model.testrailOrphanedSections))") : "")")
+			}
 		}
-	}
-	
-	
-	/**
-	 * Removes orphaned sections from server.
-	 */
-	private func removeOrphanedSections()
-	{
-	
 	}
 	
 	
@@ -145,10 +140,23 @@ class AutumnTestRailClient
 	private func syncSection(_ sectionName:String, _ description:String?, _ parentID:Int?)
 	{
 		_isTestRailRetrievalComplete = false
-		if let section = model.getTestRailSection(sectionName)
+		/* Model already contains the section which means it was created earlier. */
+		if var section = model.getTestRailSection(sectionName)
 		{
-			/* A section with the name already exists. */
-			AutumnLog.debug("Found existing \"\(sectionName)\" section.")
+			/* Does the model still contain a feature for the section? */
+			if section.isRoot()
+			{
+				model.testRailRootSection = section
+				AutumnLog.debug("Found root section: \"\(section.name)\".")
+			}
+			else if model.hasFeatureWithName(section.name)
+			{
+				AutumnLog.debug("Found existing \"\(section.name)\" section.")
+			}
+			else
+			{
+				model.testrailOrphanedSections.append(section)
+			}
 			_isTestRailRetrievalComplete = true
 		}
 		else
@@ -192,7 +200,7 @@ class AutumnTestRailClient
 	 */
 	private func syncFeature(_ feature:AutumnFeature)
 	{
-		if let rootSection = model.rootSection
+		if let rootSection = model.testRailRootSection
 		{
 			AutumnLog.debug("Syncing TestRail feature for \"\(feature.name)\" ...")
 			_isTestRailRetrievalComplete = false
@@ -425,6 +433,19 @@ class AutumnTestRailClient
 	
 	
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Delete API
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Deletes a section from the TestRail server.
+	 */
+	func deleteSection(sectionID:Int, callback: @escaping ((_:String?) -> Void))
+	{
+		httpPost(path: "delete_section/\(sectionID)", callback: callback)
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Server Data Retrieval
 	// ----------------------------------------------------------------------------------------------------
 	
@@ -584,20 +605,39 @@ class AutumnTestRailClient
 	private func getTestRailTestCaseSections()
 	{
 		_isTestRailRetrievalComplete = false
+		var retrievedSections:[TestRailSection]?
 		getTestCaseSections(projectID: config.testrailProjectID, suiteID: model.testrailMasterSuiteID)
 		{
 			(response:[TestRailSection]?, error:String?) in
 			if let error = error { AutumnLog.error(error) }
 			if let r = response
 			{
-				self.model.testrailSections = r
-				AutumnLog.debug("Retrieved \(r.count) TestRail test case sections.\(self.config.debug ? ("\(self.dump(self.model.testrailSections))") : "")")
-				/* Store IDs of all sections under Autumn root section. */
-				self.model.testrailAutomationSections = self.model.getTestRailAutomationSections()
+				retrievedSections = r
 			}
 			self._isTestRailRetrievalComplete = true
 		}
 		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+		
+		/* Filter out any sections that are not under automation root section. */
+		if let retSections = retrievedSections
+		{
+			/* Find the root section in the retrieved sections. */
+			let rootSections = retSections.filter()
+			{
+				return ($0).parentID == nil && ($0).name == config.testrailRootSectionName
+			}
+			
+			if rootSections.count == 1
+			{
+				model.testRailRootSection = rootSections[0]
+				//AutumnLog.debug("Found automation root section with ID \(model.testRailRootSection.id).")
+				model.testrailSections = retSections.filter()
+				{
+					return ($0).isRoot() || ($0).parentID == model.testRailRootSection?.id
+				}
+				AutumnLog.debug("Retrieved \(model.testrailSections.count) TestRail test case sections.\(config.debug ? ("\(dump(model.testrailSections))") : "")")
+			}
+		}
 	}
 	
 	
@@ -644,7 +684,7 @@ class AutumnTestRailClient
 	
 	private func getTestRailTestCases()
 	{
-		if model.testrailAutomationSections.count < 1
+		if model.testrailSections.count < 1
 		{
 			AutumnLog.debug("No test cases exist in automation section yet.")
 		}
@@ -653,7 +693,7 @@ class AutumnTestRailClient
 			_isTestRailRetrievalComplete = false
 			var testCases = [TestRailTestCase]()
 			var count = 0
-			for section in model.testrailAutomationSections
+			for section in model.testrailSections
 			{
 				getTestCases(projectID: config.testrailProjectID, suiteID: model.testrailMasterSuiteID, sectionID: section.id)
 				{
@@ -664,7 +704,7 @@ class AutumnTestRailClient
 						testCases.append(contentsOf: r)
 						AutumnLog.debug("Retrieved \(r.count) TestRail test cases for section \"\(section.name)\".\(self.config.debug ? ("\(self.dump(testCases))") : "")")
 					}
-					if count == self.model.testrailAutomationSections.count - 1
+					if count == self.model.testrailSections.count - 1
 					{
 						self._isTestRailRetrievalComplete = true
 					}
@@ -775,11 +815,6 @@ class AutumnTestRailClient
 				return
 			}
 			
-			//if let utf8Text = String(data: jsonData, encoding: .utf8)
-			//{
-			//	Log.debug(">>>", "\(utf8Text)")
-			//}
-			
 			var request = URLRequest(url: url)
 			request.httpMethod = "POST"
 			request.setValue("Basic \(authData.base64EncodedString())", forHTTPHeaderField: "Authorization")
@@ -826,6 +861,52 @@ class AutumnTestRailClient
 				}
 			})
 		}
+	}
+	
+	
+	/**
+	 * Simple HTTP POST request to TestRail.
+	 */
+	func httpPost(path:String, callback: @escaping ((String?) -> Void))
+	{
+		let urlString = getURLFor(path)
+		guard let url = URL(string: urlString) else
+		{
+			callback("HTTP request failed: Failed to create URL from \"\(urlString)\".")
+			return
+		}
+		guard let authData = self.authData else
+		{
+			callback("HTTP request failed: Failed to create auth data.")
+			return
+		}
+		
+		var request = URLRequest(url: url)
+		request.httpMethod = "POST"
+		request.setValue("Basic \(authData.base64EncodedString())", forHTTPHeaderField: "Authorization")
+		request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+		
+		Alamofire.request(request)
+			.validate(statusCode: 200 ..< 300)
+			.responseJSON(queue: dispatchQueue, options: .allowFragments, completionHandler:
+			{
+				(response:DataResponse<Any>) in
+				switch (response.result)
+				{
+					case .success(_):
+						callback(nil)
+						return
+					case .failure(_):
+						let errorDescr = response.error != nil ? response.error!.localizedDescription : ""
+						var content = "(No JSON in response)"
+						if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
+						{
+							content = utf8Text
+						}
+						callback("HTTP request for \(url.absoluteString) failed: \(errorDescr) \(content)")
+						return
+				}
+			})
 	}
 	
 	

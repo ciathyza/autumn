@@ -210,13 +210,12 @@ open class AutumnTestRunner : XCTestCase
 			}
 			else
 			{
-				if model.featureDescriptions[feature.descr] != nil
+				if model.hasFeatureWithName(feature.name)
 				{
-					AutumnLog.warning("Feature \"\(feature.name)\" has a description that is same as that of another feature. Feature descriptions must be unique!")
+					AutumnLog.warning("Ignoring feature \"\(feature.name)\" that has the same name as another feature. Feature names must be unique!")
 				}
 				else
 				{
-					model.featureDescriptions[feature.descr] = featureClass
 					model.features.append(feature)
 					AutumnLog.debug("Registered feature: \"\(feature.name)\".")
 				}

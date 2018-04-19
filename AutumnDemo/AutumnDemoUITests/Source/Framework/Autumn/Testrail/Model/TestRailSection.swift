@@ -91,13 +91,20 @@ struct TestRailSection : TestRailCodable
 	
 	func tableHeader() -> [String]
 	{
-		return ["ID", "Name", "Hash"]
+		return ["ID", "Name", "ParentID", "Hash"]
 	}
 	
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(name)", "\(hashValue)"]
+		if let pid = parentID { return ["\(id)", "\(name)", "\(pid)", "\(hashValue)"] }
+		return ["\(id)", "\(name)", "nil", "\(hashValue)"]
+	}
+	
+	
+	func isRoot() -> Bool
+	{
+		return name == AutumnTestRunner.instance.config.testrailRootSectionName && parentID == nil
 	}
 	
 	
