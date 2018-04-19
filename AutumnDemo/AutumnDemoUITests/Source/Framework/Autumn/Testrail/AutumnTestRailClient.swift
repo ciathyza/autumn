@@ -84,6 +84,7 @@ class AutumnTestRailClient
 		
 		syncRootSection()
 		syncSections()
+		syncFeatures()
 	}
 	
 	
@@ -182,15 +183,10 @@ class AutumnTestRailClient
 	{
 		_isTestRailRetrievalComplete = false
 		AutumnLog.debug("Syncing all features and their test cases ...")
-//		for featureClass in AutumnTestRunner.allFeatureClasses
-//		{
-//			let feature = featureClass.init(self)
-//			feature.setup()
-//			feature.registerScenarios()
-//			//_testrailClient.createTestRailFeature(feature)
-//		}
-		
-		syncSection(config.testrailRootSectionName, config.testrailRootSectionDescription, nil)
+		for feature in model.features
+		{
+			syncFeature(feature)
+		}
 	}
 	
 	
@@ -204,8 +200,6 @@ class AutumnTestRailClient
 		{
 			AutumnLog.debug("Syncing TestRail feature for \"\(feature.name)\" ...")
 			_isTestRailRetrievalComplete = false
-			syncSection(feature.name, feature.descr, rootSection.id)
-			AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 			
 			if let section = model.getTestRailSection(feature.name)
 			{

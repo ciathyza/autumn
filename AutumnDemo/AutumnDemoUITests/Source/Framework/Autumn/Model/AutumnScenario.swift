@@ -182,7 +182,7 @@ public class AutumnScenario : AutumnHashable
 	{
 		/* If we're in the registration phase then only record the step names for TestRail case generation,
 		   don't run any actual test execution. */
-		if AutumnTestRunner.phase == .DataRegistration
+		if AutumnTestRunner.phase == .DataRegistration || AutumnTestRunner.phase == .DataSync
 		{
 			let testRailStepName = "\(type.rawValue) \(step.name)."
 			if type == .Given { preconditionStrings.append(testRailStepName) }
