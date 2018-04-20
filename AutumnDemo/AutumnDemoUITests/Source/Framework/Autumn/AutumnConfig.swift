@@ -90,6 +90,11 @@ public class AutumnConfig : NSObject
 	public var testrailTestRunID = 0
 	
 	/**
+	 * The TestRail test type. All test cases will be marked with this type.
+	 */
+	public var testrailTestType = TestRailTestCaseTypeOption.Functional
+	
+	/**
 	 * Platform IDs used by TestRail to distinguish between Android and iOS test cases.
 	 */
 	public var testrailOSIDs = [AutumnPlatform.Android.rawValue: 1, AutumnPlatform.iOS.rawValue: 2]

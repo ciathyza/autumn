@@ -59,11 +59,12 @@ public class AutumnScenario : AutumnHashable
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	public internal(set) var id       = ""
+	public internal(set) var id       = 0
 	public internal(set) var title    = ""
 	public internal(set) var link     = ""
 	public internal(set) var tags     = [String]()
 	public internal(set) var priority = TestRailTestCasePriorityOption.Medium
+	public internal(set) var estimate:String?
 	
 	public var uninstallBefore = true
 	public var resetBefore     = true

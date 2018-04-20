@@ -167,14 +167,13 @@ public class AutumnFeature : AutumnHashable
 			runner.model.scenarioClasses[scenarioClass.metatype] = scenarioClass
 			
 			/* Get legitimate scenario ID. */
-			let scenarioID = getScenarioID(scenarioClass)
-			if !scenarioID.isEmpty
+			if scenario.id > -1
 			{
 				if runner.model.scenarioIDs[scenarioClass.metatype] == nil
 				{
-					runner.model.scenarioIDs[scenarioClass.metatype] = scenarioID
+					runner.model.scenarioIDs[scenarioClass.metatype] = scenario.id
 					//runner.model.addTestRailCaseFromScenario(scenario, self)
-					AutumnLog.debug("Registered test scenario with ID \(scenarioID).")
+					AutumnLog.debug("Registered test scenario with ID \(scenario.id).")
 				}
 			}
 			else
@@ -184,40 +183,6 @@ public class AutumnFeature : AutumnHashable
 		}
 		
 		_scenarioQueue.append(scenarioClass.metatype)
-	}
-	
-	
-	/**
-	 * Returns the ID of the specified scenario class. The class must include the Testrail ID.
-	 * It can be written in one of two ways, e.g.: ScenarioClassName_C110134 or C110134.
-	 */
-	public func getScenarioID(_ scenarioClass:AutumnScenario.Type) -> String
-	{
-		let className = "\(scenarioClass)"
-		let array = className.split("_")
-		var result = ""
-
-		/* Format: ScenarioClassName_C110134 */
-		if array.count > 1
-		{
-			let s = array[array.count - 1]
-			result = s
-		}
-		/* Format: C110134 */
-		else if array.count == 1
-		{
-			let s = array[0]
-			if (s.starts(with: "C"))
-			{
-				result = s.substring(1)
-			}
-		}
-		if result.isEmpty
-		{
-			let scenario = scenarioClass.init(self)
-			result = scenario.id
-		}
-		return result
 	}
 	
 	
@@ -320,7 +285,7 @@ public class AutumnFeature : AutumnHashable
 				scenario.id = scenarioID
 			}
 			
-			let scenarioLink = scenario.link.length > 0 ? scenario.link : runner.config.testrailFeatureBaseURL.length > 0 ? runner.config.testrailFeatureBaseURL + scenario.id : ""
+			let scenarioLink = scenario.link.length > 0 ? scenario.link : runner.config.testrailFeatureBaseURL.length > 0 ? runner.config.testrailFeatureBaseURL + "\(scenario.id)" : ""
 			scenario.tags = scenario.tags + tags
 			
 			runner.session.currentScenario = scenario

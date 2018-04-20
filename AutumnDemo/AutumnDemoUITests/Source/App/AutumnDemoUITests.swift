@@ -22,6 +22,8 @@ class AutumnDemoUITests : AutumnTestRunner
 		config.testrailUsername  = "ts-balkau.sascha@rakuten.com"
 		config.testrailPassword  = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
 		config.testrailProjectID = 4
+		config.testrailTestRunID = 0
+		config.testrailTestType  = .Functional
 		config.isStagingBuild    = true
 		config.logInstructions   = true
 		config.debug             = true

@@ -28,7 +28,7 @@ class AutumnModel
 	
 	var features                   = [AutumnFeature]()
 	var scenarioClasses            = [Metatype<AutumnScenario>:AutumnScenario.Type]()
-	var scenarioIDs                = [Metatype<AutumnScenario>:String]()
+	var scenarioIDs                = [Metatype<AutumnScenario>:Int]()
 	var viewProxyClasses           = [Metatype<AutumnViewProxy>:AutumnViewProxy]()
 	var users                      = [String:AutumnUser]()
 	

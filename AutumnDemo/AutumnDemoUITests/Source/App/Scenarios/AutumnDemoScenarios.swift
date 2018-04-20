@@ -14,7 +14,7 @@ class AutumnDemoScenario001 : AutumnScenario
 {
 	override func setup()
 	{
-		id = "C0001"
+		id = 1
 		title = "Autumn Demo Scenario 001"
 	}
 	
@@ -38,7 +38,7 @@ class AutumnDemoScenario002 : AutumnScenario
 {
 	override func setup()
 	{
-		id = "C0002"
+		id = 2
 		title = "Autumn Demo Scenario 002"
 	}
 	
@@ -64,7 +64,7 @@ class AutumnDemoScenario003 : AutumnScenario
 {
 	override func setup()
 	{
-		id = "C0003"
+		id = 3
 		title = "Autumn Demo Scenario 003"
 	}
 	
@@ -90,7 +90,7 @@ class AutumnDemoScenario004 : AutumnScenario
 {
 	override func setup()
 	{
-		id = "C0004"
+		id = 4
 		title = "Autumn Demo Scenario 004"
 	}
 	

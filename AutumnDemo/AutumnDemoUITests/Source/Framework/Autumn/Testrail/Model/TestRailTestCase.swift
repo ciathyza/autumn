@@ -23,17 +23,18 @@ struct TestRailTestCase : TestRailCodable
 	let sectionID:Int
 	let title:String
 	let id:Int?
-	var typeID:Int?
 	let milestoneID:Int?
-	var templateID:Int?
-	var priorityID:Int?
 	let createdBy:Int?
 	let updatedBy:Int?
-	let refs:String?
-	let estimate:String?
 	let estimateForecast:String?
 	let createdOn:Date?
 	let updatedOn:Date?
+	
+	var typeID:Int?
+	var templateID:Int?
+	var priorityID:Int?
+	var refs:String?
+	var estimate:String?
 	
 	let customAutomated:Int?
 	var customPreconds:String?

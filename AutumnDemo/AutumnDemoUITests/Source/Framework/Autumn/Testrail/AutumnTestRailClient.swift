@@ -171,8 +171,16 @@ class AutumnTestRailClient
 				if let r = response
 				{
 					self.model.addTestRailSection(r)
+					if r.isRoot()
+					{
+						self.model.testRailRootSection = r
+						AutumnLog.debug("Created new root section: \"\(sectionName)\"")
+					}
+					else
+					{
+						AutumnLog.debug("Created new \"\(sectionName)\" section.")
+					}
 				}
-				AutumnLog.debug("Created new \"\(sectionName)\" section.")
 				self._isTestRailRetrievalComplete = true
 			}
 		}
@@ -204,52 +212,62 @@ class AutumnTestRailClient
 			if let section = model.getTestRailSection(feature.name)
 			{
 				let scenarios = feature.getScenarios()
-				for s in scenarios
+				for scenario in scenarios
 				{
-					s.setup()
-					s.resetNameRecords()
+					scenario.setup()
+					scenario.resetNameRecords()
 					
-					var testCase = TestRailTestCase(model.testrailMasterSuiteID, section.id, s.title)
-					testCase.templateID = model.getTestRailCaseTemplateIDFor(template: config.testrailTemplate)
-					testCase.typeID = model.getTestRailCaseTypeIDFor(type: .Functional)
-					testCase.priorityID = s.priority.rawValue
-					testCase.customOS = [Int]()
-					testCase.customOS!.append(config.testrailOSIDs[AutumnPlatform.iOS.rawValue]!)
-					testCase.customPreconds = ""
-					testCase.customStepsSeparated = [TestRailTestCaseCustom]()
-					
-					/* Record precondition steps. */
-					s.establish()
-					var index = 0
-					for n in s.preconditionStrings
+					if let tc = model.getTestRailCase(scenario.title)
 					{
-						testCase.customPreconds! += "\(n)"
-						if index < s.preconditionStrings.count - 1 { testCase.customPreconds! += "\n" }
-						index += 1
+						/* A test case with the same name already exists. */
 					}
-					
-					/* Record execution steps. */
-					s.execute()
-					var executionStepsBatch = ""
-					index = 0
-					for n in s.executionStrings
+					else
 					{
-						if n.starts(with: AutumnStepType.When.rawValue)
+						/* Create new test case from local scenario. */
+						var testCase = TestRailTestCase(model.testrailMasterSuiteID, section.id, scenario.title)
+						testCase.templateID = model.getTestRailCaseTemplateIDFor(template: config.testrailTemplate)
+						testCase.typeID = model.getTestRailCaseTypeIDFor(type: config.testrailTestType)
+						testCase.priorityID = scenario.priority.rawValue
+						testCase.estimate = scenario.estimate
+						testCase.refs = "\(scenario.id)"
+						testCase.customOS = [Int]()
+						testCase.customOS!.append(config.testrailOSIDs[AutumnPlatform.iOS.rawValue]!)
+						testCase.customPreconds = ""
+						testCase.customStepsSeparated = [TestRailTestCaseCustom]()
+						
+						/* Record precondition steps. */
+						scenario.establish()
+						var index = 0
+						for n in scenario.preconditionStrings
 						{
-							executionStepsBatch += "\(n)"
-							if index < s.executionStrings.count - 1 { executionStepsBatch += "\n" }
+							testCase.customPreconds! += "\(n)"
+							if index < scenario.preconditionStrings.count - 1 { testCase.customPreconds! += "\n" }
 							index += 1
 						}
-						else if n.starts(with: AutumnStepType.Then.rawValue)
+						
+						/* Record execution steps. */
+						scenario.execute()
+						var executionStepsBatch = ""
+						index = 0
+						for n in scenario.executionStrings
 						{
-							var customTestStep = TestRailTestCaseCustom(content: executionStepsBatch, expected: n)
-							testCase.customStepsSeparated!.append(customTestStep)
-							executionStepsBatch = ""
+							if n.starts(with: AutumnStepType.When.rawValue)
+							{
+								executionStepsBatch += "\(n)"
+								if index < scenario.executionStrings.count - 1 { executionStepsBatch += "\n" }
+								index += 1
+							}
+							else if n.starts(with: AutumnStepType.Then.rawValue)
+							{
+								var customTestStep = TestRailTestCaseCustom(content: executionStepsBatch, expected: n)
+								testCase.customStepsSeparated!.append(customTestStep)
+								executionStepsBatch = ""
+							}
 						}
+						
+						syncTestCase(testCase, sectionID: section.id)
+						AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 					}
-					
-					syncTestCase(testCase, sectionID: section.id)
-					AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 				}
 			}
 		}
