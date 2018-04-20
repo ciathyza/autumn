@@ -43,11 +43,11 @@ struct TestRailTestRun : TestRailCodable
 	let configIDs:[Int]
 	let completedOn:Date?
 	let createdOn:Date?
-	let includeAll:Bool
+	var includeAll:Bool
 	let isCompleted:Bool
 	var description:String?
 	var assignedToID:Int?
-	var caseIDs:[Int]?
+	var caseIDs:[Int]
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -123,7 +123,7 @@ struct TestRailTestRun : TestRailCodable
 		createdOn = nil
 		includeAll = false
 		isCompleted = false
-		caseIDs = nil
+		caseIDs = [Int]()
 	}
 	
 	
@@ -158,7 +158,7 @@ struct TestRailTestRun : TestRailCodable
 		do { createdOn          = try values.decode(Int.self,      forKey: .createdOn).toDate }   catch { createdOn = nil }
 		do { includeAll         = try values.decode(Bool.self,     forKey: .includeAll) }         catch { includeAll = false }
 		do { isCompleted        = try values.decode(Bool.self,     forKey: .isCompleted) }        catch { isCompleted = false }
-		do { caseIDs            = try values.decode([Int].self,    forKey: .caseIDs) }            catch { caseIDs = nil }
+		do { caseIDs            = try values.decode([Int].self,    forKey: .caseIDs) }            catch { caseIDs = [Int]() }
 	}
 	
 	

@@ -355,6 +355,28 @@ class AutumnTestRailClient
 			{
 				var testRun = TestRailTestRun(model.testrailMasterSuiteID, config.testrailProjectID, milestone.id, config.testrailRootSectionName)
 				testRun.assignedToID = user.id
+				testRun.description = "Test run for automation test cases."
+				testRun.includeAll = false
+				testRun.caseIDs = [Int]()
+				for testCase in model.testrailCases
+				{
+					if let id = testCase.id
+					{
+						testRun.caseIDs.append(id)
+					}
+				}
+				
+				createNewTestRun(testRun: testRun, projectID: config.testrailProjectID)
+				{
+					(response:TestRailTestRun?, error:String?) in
+					if let error = error { AutumnLog.error(error) }
+					if let r = response
+					{
+						self.model.testrailTestRunID = r.id
+						AutumnLog.debug("Created automation test run with ID \(r.id).")
+					}
+					self._isTestRailRetrievalComplete = true
+				}
 			}
 		}
 	}
@@ -473,6 +495,14 @@ class AutumnTestRailClient
 		httpPost(path: "update_case/\(caseID)", model: testCase, type: TestRailTestCase.self, callback: callback)
 	}
 	
+	
+	/**
+	 * Creates a new test case on the TestRail server.
+	 */
+	func createNewTestRun(testRun:TestRailTestRun, projectID:Int, callback:@escaping ((TestRailTestRun?, _:String?) -> Void))
+	{
+		httpPost(path: "add_run/\(projectID)", model: testRun, type: TestRailTestRun.self, callback: callback)
+	}
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Delete API
