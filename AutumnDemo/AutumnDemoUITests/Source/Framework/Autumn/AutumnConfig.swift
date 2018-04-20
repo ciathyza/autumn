@@ -85,6 +85,11 @@ public class AutumnConfig : NSObject
 	public var testrailProjectID = 0
 	
 	/**
+	 * The TestRail milestone name used for test runs.
+	 */
+	public var testrailMilestoneName = ""
+	
+	/**
 	 * The TestRail test type. All test cases will be marked with this type.
 	 */
 	public var testrailTestType = TestRailTestCaseTypeOption.Functional

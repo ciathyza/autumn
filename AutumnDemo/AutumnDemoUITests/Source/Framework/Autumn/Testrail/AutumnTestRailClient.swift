@@ -351,10 +351,10 @@ class AutumnTestRailClient
 		else
 		{
 			/* Create new test run with all automation case IDs. */
-			if let userID = model.getTestRailUserID(config.testrailUserEmail)
+			if let user = model.getTestRailUser(config.testrailUserEmail), let milestone = model.getTestRailMilestone(config.testrailMilestoneName)
 			{
-				var testRun = TestRailTestRun()
-				
+				var testRun = TestRailTestRun(model.testrailMasterSuiteID, config.testrailProjectID, milestone.id, config.testrailRootSectionName)
+				testRun.assignedToID = user.id
 			}
 		}
 	}

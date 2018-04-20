@@ -19,12 +19,11 @@ struct TestRailTestRun : TestRailCodable
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	let id:Int
+	var id:Int
 	let suiteID:Int
 	let projectID:Int
 	let milestoneID:Int
-	let planID:Int
-	let assignedToID:Int
+	let planID:Int?
 	let createdBy:Int
 	let passedCount:Int
 	let blockedCount:Int
@@ -39,14 +38,16 @@ struct TestRailTestRun : TestRailCodable
 	let customStatus6Count:Int
 	let customStatus7Count:Int
 	let name:String
-	let description:String
 	let url:String
-	let config:String
+	let config:String?
 	let configIDs:[Int]
 	let completedOn:Date?
 	let createdOn:Date?
 	let includeAll:Bool
 	let isCompleted:Bool
+	var description:String?
+	var assignedToID:Int?
+	var caseIDs:[Int]?
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -83,12 +84,48 @@ struct TestRailTestRun : TestRailCodable
 		case createdOn          = "created_on"
 		case includeAll         = "include_all"
 		case isCompleted        = "is_completed"
+		case caseIDs            = "case_ids"
 	}
 	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Init
 	// ----------------------------------------------------------------------------------------------------
+	
+	init(_ suiteID:Int, _ projectID:Int, _ milestoneID:Int, _ name:String)
+	{
+		self.suiteID = suiteID
+		self.projectID = projectID
+		self.milestoneID = milestoneID
+		self.name = name
+		
+		id = 0
+		planID = nil
+		assignedToID = nil
+		createdBy = 0
+		passedCount = 0
+		blockedCount = 0
+		untestedCount = 0
+		retestCount = 0
+		failedCount = 0
+		customStatus1Count = 0
+		customStatus2Count = 0
+		customStatus3Count = 0
+		customStatus4Count = 0
+		customStatus5Count = 0
+		customStatus6Count = 0
+		customStatus7Count = 0
+		description = ""
+		url = ""
+		config = ""
+		configIDs = [Int]()
+		completedOn = nil
+		createdOn = nil
+		includeAll = false
+		isCompleted = false
+		caseIDs = nil
+	}
+	
 	
 	init(from decoder:Decoder) throws
 	{
@@ -121,12 +158,48 @@ struct TestRailTestRun : TestRailCodable
 		do { createdOn          = try values.decode(Int.self,      forKey: .createdOn).toDate }   catch { createdOn = nil }
 		do { includeAll         = try values.decode(Bool.self,     forKey: .includeAll) }         catch { includeAll = false }
 		do { isCompleted        = try values.decode(Bool.self,     forKey: .isCompleted) }        catch { isCompleted = false }
+		do { caseIDs            = try values.decode([Int].self,    forKey: .caseIDs) }            catch { caseIDs = nil }
 	}
 	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
+	
+	func encode(to encoder:Encoder) throws
+	{
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(id,                 forKey: .id)
+		try container.encode(suiteID,            forKey: .suiteID)
+		try container.encode(projectID,          forKey: .projectID)
+		try container.encode(milestoneID,        forKey: .milestoneID)
+		try container.encode(planID,             forKey: .planID)
+		try container.encode(assignedToID,       forKey: .assignedToID)
+		try container.encode(createdBy,          forKey: .createdBy)
+		try container.encode(passedCount,        forKey: .passedCount)
+		try container.encode(blockedCount,       forKey: .blockedCount)
+		try container.encode(untestedCount,      forKey: .untestedCount)
+		try container.encode(retestCount,        forKey: .retestCount)
+		try container.encode(failedCount,        forKey: .failedCount)
+		try container.encode(customStatus1Count, forKey: .customStatus1Count)
+		try container.encode(customStatus2Count, forKey: .customStatus2Count)
+		try container.encode(customStatus3Count, forKey: .customStatus3Count)
+		try container.encode(customStatus4Count, forKey: .customStatus4Count)
+		try container.encode(customStatus5Count, forKey: .customStatus5Count)
+		try container.encode(customStatus6Count, forKey: .customStatus6Count)
+		try container.encode(customStatus7Count, forKey: .customStatus7Count)
+		try container.encode(name,               forKey: .name)
+		try container.encode(description,        forKey: .description)
+		try container.encode(url,                forKey: .url)
+		try container.encode(config,             forKey: .config)
+		try container.encode(configIDs,          forKey: .configIDs)
+		try container.encode(completedOn,        forKey: .completedOn)
+		try container.encode(createdOn,          forKey: .createdOn)
+		try container.encode(includeAll,         forKey: .includeAll)
+		try container.encode(isCompleted,        forKey: .isCompleted)
+		try container.encode(caseIDs,            forKey: .caseIDs)
+	}
+	
 	
 	func tableHeader() -> [String]
 	{

@@ -208,11 +208,21 @@ class AutumnModel
 	}
 	
 	
-	func getTestRailUserID(_ email:String) -> TestRailUser?
+	func getTestRailUser(_ email:String) -> TestRailUser?
 	{
 		for i in testrailUsers
 		{
 			if i.email == email { return i }
+		}
+		return nil
+	}
+	
+	
+	func getTestRailMilestone(_ name:String) -> TestRailMilestone?
+	{
+		for i in testrailMilestones
+		{
+			if i.name == name { return i }
 		}
 		return nil
 	}
