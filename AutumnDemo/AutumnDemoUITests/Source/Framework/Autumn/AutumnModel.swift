@@ -36,6 +36,7 @@ class AutumnModel
 	var testrailSuites             = [TestRailSuite]()
 	var testrailMilestones         = [TestRailMilestone]()
 	var testrailPlans              = [TestRailTestPlan]()
+	var testrailUsers              = [TestRailUser]()
 	var testrailRuns               = [TestRailTestRun]()
 	var testrailCases              = [TestRailTestCase]()
 	var testrailStatuses           = [TestRailStatus]()
@@ -46,6 +47,7 @@ class AutumnModel
 	var testrailTemplates          = [TestRailTemplate]()
 	var testrailTests              = [TestRailTest]()
 	var testrailMasterSuiteID      = 0
+	var testrailTestRunID          = 0
 	var testRailRootSection:TestRailSection?
 	
 	
@@ -191,6 +193,26 @@ class AutumnModel
 		for i in testrailCaseTypes
 		{
 			if i.name == type.rawValue { return i.id }
+		}
+		return nil
+	}
+	
+	
+	func getTestRailTestRun(_ name:String) -> TestRailTestRun?
+	{
+		for i in testrailRuns
+		{
+			if i.name == name { return i }
+		}
+		return nil
+	}
+	
+	
+	func getTestRailUserID(_ email:String) -> TestRailUser?
+	{
+		for i in testrailUsers
+		{
+			if i.email == email { return i }
 		}
 		return nil
 	}

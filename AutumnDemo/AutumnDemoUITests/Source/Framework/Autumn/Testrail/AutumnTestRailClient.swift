@@ -28,7 +28,7 @@ class AutumnTestRailClient
 	
 	var authString:String
 	{
-		return "\(config.testrailUsername)" + ":\(config.testrailPassword)"
+		return "\(config.testrailUserEmail)" + ":\(config.testrailPassword)"
 	}
 	var authData:Data? { return authString.data(using: .ascii) }
 	let dispatchQueue = DispatchQueue(label: "com.autumn.manager-response-queue", qos: .userInitiated, attributes:.concurrent)
@@ -58,6 +58,7 @@ class AutumnTestRailClient
 		
 		getTestRailProjects()
 		getTestRailSuites()
+		getTestRailUsers()
 		getTestRailMilestones()
 		getTestRailStatuses()
 		getTestRailTestCaseFields()
@@ -85,6 +86,7 @@ class AutumnTestRailClient
 		syncRootSection()
 		syncSections()
 		syncFeatures()
+		syncTestRun()
 	}
 	
 	
@@ -336,6 +338,28 @@ class AutumnTestRailClient
 	}
 	
 	
+	private func syncTestRun()
+	{
+		_isTestRailRetrievalComplete = false
+		AutumnLog.debug("Syncing automation test run ...")
+		
+		if let testRun = model.getTestRailTestRun(config.testrailRootSectionName)
+		{
+			AutumnLog.debug("Found automation test run with name \(testRun.name).")
+			_isTestRailRetrievalComplete = true
+		}
+		else
+		{
+			/* Create new test run with all automation case IDs. */
+			if let userID = model.getTestRailUserID(config.testrailUserEmail)
+			{
+				var testRun = TestRailTestRun()
+				
+			}
+		}
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Get API
 	// ----------------------------------------------------------------------------------------------------
@@ -379,6 +403,12 @@ class AutumnTestRailClient
 	func getSuites(projectID:Int, callback: @escaping (([TestRailSuite]?, _:String?) -> Void))
 	{
 		httpGet(path: "get_suites/\(projectID)", type: [TestRailSuite].self, callback: callback)
+	}
+	
+	
+	func getUsers(callback: @escaping (([TestRailUser]?, _:String?) -> Void))
+	{
+		httpGet(path: "get_users", type: [TestRailUser].self, callback: callback)
 	}
 	
 	
@@ -499,6 +529,24 @@ class AutumnTestRailClient
 					}
 				}
 				AutumnLog.debug("Retrieved \(r.count) TestRail suites. (MasterID: \(self.model.testrailMasterSuiteID))\(self.config.debug ? ("\(self.dump(self.model.testrailSuites))") : "")")
+			}
+			self._isTestRailRetrievalComplete = true
+		}
+		AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
+	}
+	
+	
+	private func getTestRailUsers()
+	{
+		_isTestRailRetrievalComplete = false
+		getUsers()
+		{
+			(response:[TestRailUser]?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+				self.model.testrailUsers = r
+				AutumnLog.debug("Retrieved \(r.count) TestRail users.\(self.config.debug ? ("\(self.dump(self.model.testrailUsers))") : "")")
 			}
 			self._isTestRailRetrievalComplete = true
 		}
@@ -674,12 +722,12 @@ class AutumnTestRailClient
 	private func getTestRailTests()
 	{
 		_isTestRailRetrievalComplete = false
-		if config.testrailTestRunID == 0
+		if model.testrailTestRunID == 0
 		{
 			self._isTestRailRetrievalComplete = true
 			return
 		}
-		getTests(testRunID: config.testrailTestRunID)
+		getTests(testRunID: model.testrailTestRunID)
 		{
 			(response:[TestRailTest]?, error:String?) in
 			if let error = error { AutumnLog.error(error) }

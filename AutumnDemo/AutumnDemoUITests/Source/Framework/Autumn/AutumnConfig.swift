@@ -57,7 +57,7 @@ public class AutumnConfig : NSObject
 	/**
 	 * The TestRail username used for logging into TestRail.
 	 */
-	public var testrailUsername = ""
+	public var testrailUserEmail = ""
 	
 	/**
 	 * The TestRail user password (or API key) used for logging into TestRail.
@@ -83,11 +83,6 @@ public class AutumnConfig : NSObject
 	 * The nummeric TestRail project ID, e.g. 4
 	 */
 	public var testrailProjectID = 0
-	
-	/**
-	 * The ID of the TestRail test run used to submit test results, e.g. 562
-	 */
-	public var testrailTestRunID = 0
 	
 	/**
 	 * The TestRail test type. All test cases will be marked with this type.
@@ -191,7 +186,7 @@ public class AutumnConfig : NSObject
 	{
 		return testrailHost.length > 0
 			&& testrailFeatureBaseURL.length > 0
-			&& testrailUsername.length > 0
+			&& testrailUserEmail.length > 0
 			&& testrailPassword.length > 0
 			&& testrailRootSectionName.length > 0
 	}

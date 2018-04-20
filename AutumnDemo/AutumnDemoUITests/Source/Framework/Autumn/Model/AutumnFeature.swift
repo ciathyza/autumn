@@ -172,7 +172,6 @@ public class AutumnFeature : AutumnHashable
 				if runner.model.scenarioIDs[scenarioClass.metatype] == nil
 				{
 					runner.model.scenarioIDs[scenarioClass.metatype] = scenario.id
-					//runner.model.addTestRailCaseFromScenario(scenario, self)
 					AutumnLog.debug("Registered test scenario with ID \(scenario.id).")
 				}
 			}
