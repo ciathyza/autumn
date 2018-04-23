@@ -54,8 +54,6 @@ class AutumnTestRailClient
 	 */
 	func retrieveTestRailData()
 	{
-		AutumnLog.debug("Retrieving TestRail data ...")
-		
 		getTestRailProjects()
 		getTestRailSuites()
 		getTestRailUsers()
@@ -81,8 +79,6 @@ class AutumnTestRailClient
 	 */
 	func syncData()
 	{
-		AutumnLog.debug("Syncing data ...")
-		
 		syncRootSection()
 		syncSections()
 		syncFeatures()

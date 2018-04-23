@@ -46,7 +46,8 @@ open class AutumnTestRunner : XCTestCase
 	private let _fallbackUser = AutumnUser("NONE", "NONE", "NONE")
 	
 	internal static var app = XCUIApplication()
-	internal static var isSetupComplete = false
+	internal static var isTestCalledOnce = false
+	internal static var isLocalMode = false
 	internal static var phase = AutumnPhase.Init
 	
 	
@@ -225,46 +226,102 @@ open class AutumnTestRunner : XCTestCase
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Internal Methods
+	// MARK: - Private Methods
 	// ----------------------------------------------------------------------------------------------------
 	
-	internal func registerScenarios()
+	private func configureTestSession() -> Bool
 	{
-		for feature in model.features
+		AutumnTestRunner.phase = .Configuration
+		AutumnLog.debug("Configuring test session ...")
+		
+		model = AutumnModel(config)
+		_testrailClient = AutumnTestRailClient(config, model)
+		session.initialize(self)
+		configure()
+		
+		if config.debug
 		{
-			feature.registerScenarios()
+			AutumnLog.debug("\n\(config.dumpTable())")
 		}
-	}
-	
-	
-	private func register()
-	{
-		AutumnLog.debug("Registering objects ...")
 		
-		registerUsers()
-		registerViewProxies()
-		registerFeatures()
-		registerScenarios()
-		
-		AutumnLog.debug("Registered \(model.users.count) users.")
-		AutumnLog.debug("Registered \(model.viewProxyClasses.count) view proxy classes.")
-		AutumnLog.debug("Registered \(model.features.count) features.")
-	}
-	
-	
-	private func isConfigurationValid() -> Bool
-	{
 		if !config.isConfigValid
 		{
-			AutumnLog.error("Configuration is missing required settings.")
+			AutumnLog.notice("Configuration is missing required settings. Aborting!")
 			return false
 		}
 		if !config.isTestRailConfigValid
 		{
-			AutumnLog.error("Configuration is missing required TestRail settings.")
+			AutumnLog.notice("Configuration is missing required TestRail settings. The framework will run in local test mode!")
+			AutumnTestRunner.isLocalMode = true
+		}
+		
+		return true
+	}
+	
+	
+	private func retrieveTestRailData() -> Bool
+	{
+		if AutumnTestRunner.isLocalMode { return true }
+		
+		AutumnTestRunner.phase = .DataRetrieval
+		AutumnLog.debug("Retrieving TestRail data ...")
+		_testrailClient.retrieveTestRailData()
+		
+		if !model.isTestRailDataValid()
+		{
+			AutumnLog.notice("TestRail data is invalid. Aborting!")
 			return false
 		}
+		
 		return true
+	}
+	
+	
+	private func registerLocalTestData() -> Bool
+	{
+		AutumnTestRunner.phase = .DataRegistration
+		AutumnLog.debug("Registering local test data ...")
+		
+		registerUsers()
+		registerViewProxies()
+		registerFeatures()
+		
+		for feature in model.features
+		{
+			feature.registerScenarios()
+		}
+		
+		AutumnLog.debug("Registered \(model.users.count) users.")
+		AutumnLog.debug("Registered \(model.viewProxyClasses.count) view proxy classes.")
+		AutumnLog.debug("Registered \(model.features.count) features.")
+		
+		if !model.isDataValid()
+		{
+			AutumnLog.notice("No test features and/or scenarios have been registered. Aborting!")
+			return false
+		}
+		
+		return true
+	}
+	
+	
+	private func syncTestRailData() -> Bool
+	{
+		if AutumnTestRunner.isLocalMode { return true }
+		
+		AutumnTestRunner.phase = .DataSync
+		AutumnLog.debug("Syncing data to TestRail ...")
+		_testrailClient.syncData()
+		return true
+	}
+	
+	
+	private func startTestSession()
+	{
+		AutumnTestRunner.phase = .TestExecution
+		AutumnLog.debug("Starting tests in a jiffy ...")
+		AutumnUI.sleep(4)
+		session.start()
 	}
 	
 	
@@ -277,7 +334,7 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	override open func run()
 	{
-		if !AutumnTestRunner.isSetupComplete
+		if !AutumnTestRunner.isTestCalledOnce
 		{
 			AutumnTestRunner.instance = self
 			AutumnLog.info("*** Welcome to \(AutumnTestRunner.FRAMEWORK_NAME) v\(AutumnTestRunner.FRAMEWORK_VERSION) ***")
@@ -330,43 +387,17 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	func test()
 	{
-		/* Only execute this once! */
-		if !AutumnTestRunner.isSetupComplete
+		/* Ensure this only gets called once! */
+		if !AutumnTestRunner.isTestCalledOnce
 		{
-			model = AutumnModel(config)
-			_testrailClient = AutumnTestRailClient(config, model)
+			AutumnTestRunner.isTestCalledOnce = true
 			
-			AutumnLog.debug("Configuring test session ...")
-			AutumnTestRunner.phase = .Configuration
-			configure()
-			if config.debug { AutumnLog.debug("\n\(config.dumpTable())") }
-			if !isConfigurationValid() { return }
+			if !configureTestSession() { return }
+			if !retrieveTestRailData() { return }
+			if !registerLocalTestData() { return }
+			if !syncTestRailData() { return }
 			
-			session.initialize(self)
-			
-			AutumnTestRunner.phase = .DataRetrieval
-			_testrailClient.retrieveTestRailData()
-			if !model.isTestRailDataValid() { return }
-			
-			AutumnTestRunner.phase = .DataRegistration
-			register()
-			
-			if !model.isDataValid()
-			{
-				AutumnLog.debug("No test features and/or scenarios have been registered.")
-				return
-			}
-			
-			AutumnTestRunner.phase = .DataSync
-			_testrailClient.syncData()
-			
-			AutumnTestRunner.isSetupComplete = true
-			
-			AutumnLog.debug("Starting tests in a jiffy ...")
-			AutumnUI.sleep(4)
-			
-			AutumnTestRunner.phase = .TestExecution
-			session.start()
+			startTestSession()
 		}
 	}
 }
