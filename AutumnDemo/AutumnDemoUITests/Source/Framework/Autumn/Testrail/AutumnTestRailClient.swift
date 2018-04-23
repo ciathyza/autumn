@@ -20,6 +20,7 @@ class AutumnTestRailClient
 	let model:AutumnModel
 	
 	private var _isTestRailRetrievalComplete = false
+	private var _isTestRailSubmissionComplete = false
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -70,10 +71,6 @@ class AutumnTestRailClient
 	}
 	
 	
-	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Server Setup API
-	// ----------------------------------------------------------------------------------------------------
-	
 	/**
 	 * Syncs all required server data with the state of local data.
 	 */
@@ -83,6 +80,22 @@ class AutumnTestRailClient
 		syncSections()
 		syncFeatures()
 		syncTestRun()
+	}
+	
+	
+	func submitTestResult(_ scenario:AutumnScenario)
+	{
+		let caseID = 0 // TODO figure out case id via scenario ref
+		addTestCaseResult(testRunID: model.testrailTestRunID, caseID: caseID)
+		{
+			(response:TestRailTestResult?, error:String?) in
+			if let error = error { AutumnLog.error(error) }
+			if let r = response
+			{
+			}
+			AutumnLog.debug("Submitted test result for test case ID \(caseID).")
+			self._isTestRailSubmissionComplete = true
+		}
 	}
 	
 	
@@ -378,6 +391,7 @@ class AutumnTestRailClient
 	}
 	
 	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Get API
 	// ----------------------------------------------------------------------------------------------------
@@ -498,6 +512,15 @@ class AutumnTestRailClient
 	func createNewTestRun(testRun:TestRailTestRun, projectID:Int, callback:@escaping ((TestRailTestRun?, _:String?) -> Void))
 	{
 		httpPost(path: "add_run/\(projectID)", model: testRun, type: TestRailTestRun.self, callback: callback)
+	}
+	
+	
+	/**
+	 * Adds a new test case result on the TestRail server.
+	 */
+	func addTestCaseResult(testRunID:Int, caseID:Int, callback:@escaping ((TestRailTestResult?, _:String?) -> Void))
+	{
+		httpPost(path: "add_result_for_case/\(testRunID)/\(caseID)", model: testRun, type: TestRailTestResult.self, callback: callback)
 	}
 	
 	// ----------------------------------------------------------------------------------------------------

@@ -226,8 +226,21 @@ open class AutumnTestRunner : XCTestCase
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Private Methods
+	// MARK: - Internal/Private Methods
 	// ----------------------------------------------------------------------------------------------------
+	
+	internal func submitTestResult(_ scenario:AutumnScenario)
+	{
+		_testrailClient.submitTestResult(scenario)
+	}
+	
+	
+	internal func isTestResultSubmitComplete() -> Bool
+	{
+		// TODO
+		return true
+	}
+	
 	
 	private func configureTestSession() -> Bool
 	{

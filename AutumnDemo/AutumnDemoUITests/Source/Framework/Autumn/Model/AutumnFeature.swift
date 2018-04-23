@@ -349,6 +349,7 @@ public class AutumnFeature : AutumnHashable
 					}
 				}
 				
+				runner.submitTestResult(scenario)
 				waitForScenarioComplete(scenario)
 			}
 		}
@@ -400,8 +401,7 @@ public class AutumnFeature : AutumnHashable
 		   to have a clean division between every scenario run. */
 		AutumnUI.waitForWithInterval(completeBlock: onScenarioComplete, timeout: 20)
 		{
-			return true
-			//return AutumnTelemetrySession.isTestRailSubmitComplete
+			return runner.isTestResultSubmitComplete()
 		}
 	}
 	
