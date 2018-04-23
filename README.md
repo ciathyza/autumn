@@ -5,6 +5,10 @@ Autumn is a framework written in Swift around XCTest used for UI Automation on i
 
 Test cases are defined in the code, incl. their readable test instructions for TestRail. When a test is started, Autumn retrieves all required data from the TestRail server, syncs any defined test cases, starts the test run, and submits test results to the server after each test case.
 
+### Framework Source
+
+The Autumn framework in this repository can be found under ```autumn/AutumnDemo/AutumnDemoUITests/Source/Framework```.
+
 ### Hierarchy
 
 Autumn follows a hierarchy similar to Calabash, therefore tests can be constructed from the following elements (smallest to largest):
@@ -18,11 +22,12 @@ Another important building block are **View Proxies**. A view proxy class acts a
 
 ### Execution Concept
 
-  1. **Configuration**: The framework configures the test session according to parameters specified by the user. It also checks all registered features and scenarios.
+  1. **Configuration**: The framework configures the test session according to parameters specified by the user.
   2. **Data Retrieval**: All required data for the test session is retrieved from the TestRail server (project, suite, sections, test cases, test runs, etc.).
-  3. **Data Sync**: Locally defined test features and test scenarios are compared with any existing TestRail sections and test cases. Any sections and/or test cases are updated on TestRail to be in sync with local data.
-  4. **Test Execution**: The framework executes all test scenarios in the order in that they were registered. Scenario results are submitted to the server every time a scenario completed.
-  5. **Test Completion**: After all scenarios have been executed, the test session is closed and final results are shown.
+  3. Registers all locally defined features and scenarios.
+  4. **Data Sync**: Locally defined test features and test scenarios are compared with any existing TestRail sections and test cases. Any sections and/or test cases are updated on TestRail to be in sync with local data.
+  5. **Test Execution**: The framework executes all test scenarios in the order in that they were registered. Scenario results are submitted to the server every time a scenario completed.
+  6. **Test Completion**: After all scenarios have been executed, the test session is closed and final results are shown.
 
 ### How-To
 
