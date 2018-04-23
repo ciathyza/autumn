@@ -22,6 +22,8 @@ struct ScenarioResult
 {
 	var scenario:AutumnScenario!
 	var rows = [ScenarioResultRow]()
+	var logText = ""
+	var success = false
 }
 
 
@@ -79,6 +81,7 @@ public class AutumnScenario : AutumnHashable
 	internal var status = AutumnTestStatus.Pending
 	internal private(set) var steps = [AutumnTestStep]()
 	internal private(set) var results = [(step:AutumnTestStep, result:AutumnTestStepResult)]()
+	internal private(set) var result:ScenarioResult?
 	
 	/* Used to store precondition (given) and execution (when/then) step names for testrail test case generation. */
 	internal var preconditionStrings = [String]()
@@ -205,9 +208,9 @@ public class AutumnScenario : AutumnHashable
 	 * Evaluates the test step's results after all steps have been executed.
 	 * Also determines the final status of the scenario.
 	 */
-	internal func getResults() -> ScenarioResult
+	internal func evaluate() -> ScenarioResult
 	{
-		var scenarioResult = ScenarioResult()
+		result = ScenarioResult()
 		
 		/* Loop through all scenario steps. */
 		for (step, stepResult) in results
@@ -220,7 +223,7 @@ public class AutumnScenario : AutumnHashable
 				evaluation.type = .Instr
 				evaluation.name = instruction
 				evaluation.result = instructionResult
-				scenarioResult.rows.append(evaluation)
+				result!.rows.append(evaluation)
 			}
 			
 			/* Add actual step. */
@@ -229,10 +232,10 @@ public class AutumnScenario : AutumnHashable
 			evaluation.type = .Step
 			evaluation.name = step.name
 			evaluation.result = stepResult.evaluate() ? AutumnUIActionResult.Success : AutumnUIActionResult.Failed
-			scenarioResult.rows.append(evaluation)
+			result!.rows.append(evaluation)
 		}
 		
-		return scenarioResult
+		return result!
 	}
 	
 	

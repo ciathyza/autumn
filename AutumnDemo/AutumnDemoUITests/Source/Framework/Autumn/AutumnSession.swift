@@ -66,6 +66,7 @@ internal class AutumnSession
 	{
 		AutumnLog.debug("Ending test session ...")
 		AutumnUI.decelerate()
+		AutumnLog.debug(stats.getResultStats())
 	}
 	
 	
@@ -123,7 +124,7 @@ internal class AutumnSession
 	}
 	
 	
-	internal func evaluateScenarioResults(_ scenarioResult:ScenarioResult)
+	internal func evaluateScenarioResult(_ scenarioResult: inout ScenarioResult)
 	{
 		var success = true
 		let resultText = TabularText(4, false, " ", " ", "                   ", 0, ["PHASE", "TYPE", "NAME", "RESULT"], true)
@@ -141,14 +142,11 @@ internal class AutumnSession
 		}
 		
 		/* Add footer row. */
-		resultText.add(["Scenario",
-			"",
-			"",
+		resultText.add(["Scenario", "", "",
 			"\(AutumnStringConstant.RESULT_DELIMITER)\(success ? AutumnTestStatus.Passed.rawValue.uppercased() : AutumnTestStatus.Failed.rawValue.uppercased())"])
 		
-		AutumnLog.debug("\n\(resultText.toString())")
-		
-		
+		scenarioResult.logText = "\n\(resultText.toString())"
+		scenarioResult.success = success
 	}
 	
 	
@@ -159,7 +157,7 @@ internal class AutumnSession
 	/**
 	 * Removes and returns next feature.
 	 */
-	public func dequeueNextFeature() -> AutumnFeature?
+	private func dequeueNextFeature() -> AutumnFeature?
 	{
 		if (_runner.model.features.count > 0)
 		{

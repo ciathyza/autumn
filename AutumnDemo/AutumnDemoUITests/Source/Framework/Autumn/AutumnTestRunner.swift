@@ -291,6 +291,10 @@ open class AutumnTestRunner : XCTestCase
 			feature.registerScenarios()
 		}
 		
+		session.stats.testUserTotal = model.users.count
+		session.stats.viewProxiesTotal = model.viewProxyClasses.count
+		session.stats.featuresTotal = model.features.count
+		
 		AutumnLog.debug("Registered \(model.users.count) users.")
 		AutumnLog.debug("Registered \(model.viewProxyClasses.count) view proxy classes.")
 		AutumnLog.debug("Registered \(model.features.count) features.")
@@ -318,6 +322,8 @@ open class AutumnTestRunner : XCTestCase
 	
 	private func startTestSession()
 	{
+		AutumnLog.debug(session.stats.getSetupStats())
+		
 		AutumnTestRunner.phase = .TestExecution
 		AutumnLog.debug("Starting tests in a jiffy ...")
 		AutumnUI.sleep(4)

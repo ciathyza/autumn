@@ -172,6 +172,9 @@ public class AutumnFeature : AutumnHashable
 				if runner.model.scenarioIDs[scenarioClass.metatype] == nil
 				{
 					runner.model.scenarioIDs[scenarioClass.metatype] = scenario.id
+					runner.session.stats.scenariosTotal += 1
+					if scenario.status == .Pending { runner.session.stats.scenariosPending += 1 }
+					else if scenario.status == .Unsupported { runner.session.stats.scenariosUnsupported += 1 }
 					AutumnLog.debug("Registered test scenario with ID \(scenario.id).")
 				}
 			}
@@ -276,7 +279,7 @@ public class AutumnFeature : AutumnHashable
 		
 		if let scenarioClass = runner.model.scenarioClasses[scenarioClass.metatype]
 		{
-			let scenario = scenarioClass.init(self)
+			let scenario = scenarioClass.init(self) as! AutumnScenario
 			
 			/* Use scenario ID that was retrieved from the class name. */
 			if let scenarioID = runner.model.scenarioIDs[scenarioClass.metatype]
@@ -292,7 +295,6 @@ public class AutumnFeature : AutumnHashable
 			/* Is the scenario unsupported? */
 			if scenario.tags.contains(AutumnTag.UNSUPPORTED)
 			{
-				//AutumnTelemetry.instance.record(type: .IgnoreScenario, args: self, scenario, scenarioLink)
 				runner.session.stats.scenariosIgnored += 1
 			}
 			else
@@ -312,7 +314,6 @@ public class AutumnFeature : AutumnHashable
 				
 				AutumnLog.delimiter()
 				AutumnLog.debug("Starting scenario: \"[\(scenario.id)] \(scenario.title)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
-				//AutumnTelemetry.instance.record(type: .BeginScenario, args: self, scenario, scenarioLink)
 				AutumnLog.debug("Establishing scenario preconditions ...")
 				scenario.status = .Started
 				scenario.phase = .Precondition
@@ -321,11 +322,19 @@ public class AutumnFeature : AutumnHashable
 				scenario.phase = .Execute
 				scenario.execute()
 				
-				let results = scenario.getResults()
-				session.evaluateScenarioResults(results)
+				var result = scenario.evaluate()
+				session.evaluateScenarioResult(&result)
 				
-				//scenario.status = scenario.steps.contains(where: { $0.successStatus == AutumnTestStatus.Failed }) ? .Failed : .Passed
-				//AutumnTelemetry.instance.record(type: .EndScenario, args: self, scenario)
+				if result.success
+				{
+					runner.session.stats.scenariosPassed += 1
+				}
+				else
+				{
+					runner.session.stats.scenariosFailed += 1
+				}
+				
+				AutumnLog.debug(result.logText)
 				
 				if scenario.terminateAfter
 				{
