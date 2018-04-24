@@ -124,9 +124,11 @@ internal class AutumnSession
 	}
 	
 	
-	internal func evaluateScenarioResult(_ scenarioResult: inout ScenarioResult)
+	internal func evaluateScenario(_ scenario: inout AutumnScenario) -> ScenarioResult
 	{
 		var success = true
+		var scenarioResult = scenario.evaluate()
+		
 		let resultText = TabularText(4, false, " ", " ", "                   ", 0, ["PHASE", "TYPE", "NAME", "RESULT"], true)
 		for result in scenarioResult.rows
 		{
@@ -147,6 +149,9 @@ internal class AutumnSession
 		
 		scenarioResult.logText = "\n\(resultText.toString())"
 		scenarioResult.success = success
+		scenario.status = success ? .Passed : .Failed
+		
+		return scenarioResult
 	}
 	
 	

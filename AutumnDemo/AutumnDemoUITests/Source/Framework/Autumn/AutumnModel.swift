@@ -228,6 +228,19 @@ class AutumnModel
 	}
 	
 	
+	func getTestRailCaseForScenario(_ scenarioID:Int) -> TestRailTestCase?
+	{
+		for tc in testrailCases
+		{
+			if tc.refs == "\(scenarioID)"
+			{
+				return tc
+			}
+		}
+		return nil
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Moditication Methods
 	// ----------------------------------------------------------------------------------------------------

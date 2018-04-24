@@ -279,7 +279,7 @@ public class AutumnFeature : AutumnHashable
 		
 		if let scenarioClass = runner.model.scenarioClasses[scenarioClass.metatype]
 		{
-			let scenario = scenarioClass.init(self) as! AutumnScenario
+			var scenario = scenarioClass.init(self) as! AutumnScenario
 			
 			/* Use scenario ID that was retrieved from the class name. */
 			if let scenarioID = runner.model.scenarioIDs[scenarioClass.metatype]
@@ -322,9 +322,7 @@ public class AutumnFeature : AutumnHashable
 				scenario.phase = .Execute
 				scenario.execute()
 				
-				var result = scenario.evaluate()
-				session.evaluateScenarioResult(&result)
-				
+				let result = session.evaluateScenario(&scenario)
 				if result.success
 				{
 					runner.session.stats.scenariosPassed += 1
@@ -333,8 +331,6 @@ public class AutumnFeature : AutumnHashable
 				{
 					runner.session.stats.scenariosFailed += 1
 				}
-				
-				AutumnLog.debug(result.logText)
 				
 				if scenario.terminateAfter
 				{
@@ -349,6 +345,7 @@ public class AutumnFeature : AutumnHashable
 					}
 				}
 				
+				AutumnLog.debug(result.logText)
 				runner.submitTestResult(scenario)
 				waitForScenarioComplete(scenario)
 			}
@@ -401,7 +398,7 @@ public class AutumnFeature : AutumnHashable
 		   to have a clean division between every scenario run. */
 		AutumnUI.waitForWithInterval(completeBlock: onScenarioComplete, timeout: 20)
 		{
-			return runner.isTestResultSubmitComplete()
+			return self.runner.isTestResultSubmitComplete()
 		}
 	}
 	

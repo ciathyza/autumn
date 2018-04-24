@@ -21,15 +21,16 @@ struct TestRailTestResult : TestRailCodable
 	
 	let id:Int
 	let testID:Int
-	let statusID:Int
 	let createdBy:Int
 	let createdOn:Date?
-	let assignedToID:Int
-	let comment:String
-	let version:String
-	let elapsed:String
-	let defects:String
 	let customStepResults:[TestRailCustomTestStepResult]
+	
+	var statusID:Int
+	var comment:String
+	var version:String
+	var elapsed:String
+	var defects:String
+	var assignedToID:Int
 	
 	
 	// ----------------------------------------------------------------------------------------------------

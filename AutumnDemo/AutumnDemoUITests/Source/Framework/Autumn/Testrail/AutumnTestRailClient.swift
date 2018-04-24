@@ -85,16 +85,43 @@ class AutumnTestRailClient
 	
 	func submitTestResult(_ scenario:AutumnScenario)
 	{
-		let caseID = 0 // TODO figure out case id via scenario ref
-		addTestCaseResult(testRunID: model.testrailTestRunID, caseID: caseID)
+		if let testCase = model.getTestRailCaseForScenario(scenario.id), let caseID = testCase.id
 		{
-			(response:TestRailTestResult?, error:String?) in
-			if let error = error { AutumnLog.error(error) }
-			if let r = response
+			var statusID = AutumnTestRailResultStatusID.Pending
+			if scenario.status == .Unsupported { statusID = .CannotTest }
+			else if scenario.status == .Failed { statusID = .Failed }
+			else if scenario.status == .Passed { statusID = .Passed }
+			else { statusID = .Pending }
+			
+			var userID = 0
+			if let user = model.getTestRailUser(config.testrailUserEmail)
 			{
+				userID = user.id
 			}
-			AutumnLog.debug("Submitted test result for test case ID \(caseID).")
-			self._isTestRailSubmissionComplete = true
+			
+			var result = TestRailTestResult()
+			result.statusID = statusID.rawValue
+			result.comment = ""
+			result.version = "1.0.0"
+			result.elapsed = "1s"
+			result.defects = ""
+			result.assignedToID = userID
+			
+			addTestCaseResult(testRunID: model.testrailTestRunID, caseID: caseID, testCaseResult: result)
+			{
+				(response:TestRailTestResult?, error:String?) in
+				if let error = error { AutumnLog.error(error) }
+				if let r = response
+				{
+				
+				}
+				AutumnLog.debug("Submitted test result for test case ID \(caseID).")
+				self._isTestRailSubmissionComplete = true
+			}
+		}
+		else
+		{
+			AutumnLog.error("No test case with ref \(scenario.id) found.")
 		}
 	}
 	
@@ -355,6 +382,7 @@ class AutumnTestRailClient
 		if let testRun = model.getTestRailTestRun(config.testrailRootSectionName)
 		{
 			AutumnLog.debug("Found automation test run with name \(testRun.name).")
+			self.model.testrailTestRunID = testRun.id
 			_isTestRailRetrievalComplete = true
 		}
 		else
@@ -518,9 +546,9 @@ class AutumnTestRailClient
 	/**
 	 * Adds a new test case result on the TestRail server.
 	 */
-	func addTestCaseResult(testRunID:Int, caseID:Int, callback:@escaping ((TestRailTestResult?, _:String?) -> Void))
+	func addTestCaseResult(testRunID:Int, caseID:Int, testCaseResult:TestRailTestResult, callback:@escaping ((TestRailTestResult?, _:String?) -> Void))
 	{
-		httpPost(path: "add_result_for_case/\(testRunID)/\(caseID)", model: testRun, type: TestRailTestResult.self, callback: callback)
+		httpPost(path: "add_result_for_case/\(testRunID)/\(caseID)", model: testCaseResult, type: TestRailTestResult.self, callback: callback)
 	}
 	
 	// ----------------------------------------------------------------------------------------------------
