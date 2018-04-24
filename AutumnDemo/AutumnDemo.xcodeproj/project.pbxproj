@@ -42,6 +42,7 @@
 		5E4BC61676563650CA778AC0 /* ACI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC5752A2F7801A65B425F /* ACI.swift */; };
 		5E4BC6B66BC47B8D32BE300F /* AutumnConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCF1E88C97E6F08DB4888 /* AutumnConstants.swift */; };
 		5E4BC6EABEEA9E6FEFADB9CB /* AutumnDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC20D152279EC5C597D84 /* AutumnDemoUITests.swift */; };
+		5E4BC75551DA4DA00312EC3C /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC404C883906F5C75CB60 /* Bundle.swift */; };
 		5E4BC767F74D44CF8F23D3E9 /* TypeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC33B496E93DEF4DAA075 /* TypeText.swift */; };
 		5E4BC7997B7A779B254EC4F5 /* AutumnUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC603E3AEA8AAFECE8F05 /* AutumnUser.swift */; };
 		5E4BC7DE0DA634663FA562DA /* LoginRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC119D537ABBA7D3DC2DB /* LoginRandom.swift */; };
@@ -148,6 +149,7 @@
 		5E4BC3C90000231FF1CC4503 /* AutumnDemoFeature2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoFeature2.swift; sourceTree = "<group>"; };
 		5E4BC3D52844C598FDA62F10 /* AutumnModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnModel.swift; sourceTree = "<group>"; };
 		5E4BC3F4DCEF258746FBCCE2 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		5E4BC404C883906F5C75CB60 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		5E4BC4ABB4CAC83A26D2DC41 /* MoreStuffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreStuffViewController.swift; sourceTree = "<group>"; };
 		5E4BC4C1C3CDD31E9C2D25F6 /* Wait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wait.swift; sourceTree = "<group>"; };
 		5E4BC502C243C6C2B2C5B5DA /* TabularText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabularText.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				5E4BC899B6B71D352120A964 /* UIApplication.swift */,
 				5E4BC83F5AD39E1C7EA0714C /* DispatchTimeInterval.swift */,
 				5E4BCE14D75C89944AB1CCF8 /* Character.swift */,
+				5E4BC404C883906F5C75CB60 /* Bundle.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -864,6 +867,7 @@
 				5E4BC5915D9F7F152F67119F /* AutumnHashable.swift in Sources */,
 				5E4BCFCA8BD8C803F82AF751 /* HashID.swift in Sources */,
 				5E4BC17B8B840AD176A14EEA /* Character.swift in Sources */,
+				5E4BC75551DA4DA00312EC3C /* Bundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

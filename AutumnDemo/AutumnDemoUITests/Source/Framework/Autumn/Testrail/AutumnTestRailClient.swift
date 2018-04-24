@@ -102,7 +102,7 @@ class AutumnTestRailClient
 			var result = TestRailTestResult()
 			result.statusID = statusID.rawValue
 			result.comment = ""
-			result.version = "1.0.0"
+			result.version = Bundle.main.versionStringPretty
 			result.elapsed = "1s"
 			result.defects = ""
 			result.assignedToID = userID
