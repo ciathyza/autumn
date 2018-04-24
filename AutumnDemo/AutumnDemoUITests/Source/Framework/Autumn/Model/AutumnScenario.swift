@@ -67,6 +67,7 @@ public class AutumnScenario : AutumnHashable
 	public internal(set) var tags     = [String]()
 	public internal(set) var priority = TestRailTestCasePriorityOption.Medium
 	public internal(set) var estimate:String?
+	public internal(set) var elapsed:String?
 	
 	public var uninstallBefore = true
 	public var resetBefore     = true

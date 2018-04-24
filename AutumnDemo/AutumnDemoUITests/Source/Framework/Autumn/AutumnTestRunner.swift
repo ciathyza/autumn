@@ -237,8 +237,7 @@ open class AutumnTestRunner : XCTestCase
 	
 	internal func isTestResultSubmitComplete() -> Bool
 	{
-		// TODO
-		return true
+		return _testrailClient.isTestRailSubmissionComplete
 	}
 	
 	

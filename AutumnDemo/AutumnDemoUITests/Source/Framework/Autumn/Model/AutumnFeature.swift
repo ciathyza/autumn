@@ -43,6 +43,7 @@ public class AutumnFeature : AutumnHashable
 	
 	private var _scenarioQueue:[Metatype<AutumnScenario>] = []
 	private var _interval = Interval()
+	private var _timer = ExecutionTimer()
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -314,13 +315,19 @@ public class AutumnFeature : AutumnHashable
 				
 				AutumnLog.delimiter()
 				AutumnLog.debug("Starting scenario: \"[\(scenario.id)] \(scenario.title)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
+				
+				/* Actual test case execution part. */
 				AutumnLog.debug("Establishing scenario preconditions ...")
 				scenario.status = .Started
 				scenario.phase = .Precondition
+				_timer.start()
 				scenario.establish()
 				AutumnLog.debug("Executing scenario steps ...")
 				scenario.phase = .Execute
 				scenario.execute()
+				_timer.stop()
+				
+				scenario.elapsed = _timer.timePretty
 				
 				let result = session.evaluateScenario(&scenario)
 				if result.success

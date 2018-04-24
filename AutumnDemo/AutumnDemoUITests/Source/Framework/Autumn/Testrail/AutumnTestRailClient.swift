@@ -27,6 +27,8 @@ class AutumnTestRailClient
 	// MARK: - Derived Properties
 	// ----------------------------------------------------------------------------------------------------
 	
+	var isTestRailSubmissionComplete:Bool { return _isTestRailSubmissionComplete }
+	
 	var authString:String
 	{
 		return "\(config.testrailUserEmail)" + ":\(config.testrailPassword)"
@@ -85,6 +87,8 @@ class AutumnTestRailClient
 	
 	func submitTestResult(_ scenario:AutumnScenario)
 	{
+		_isTestRailSubmissionComplete = false
+		
 		if let testCase = model.getTestRailCaseForScenario(scenario.id), let caseID = testCase.id
 		{
 			var statusID = AutumnTestRailResultStatusID.Pending
@@ -103,7 +107,7 @@ class AutumnTestRailClient
 			result.statusID = statusID.rawValue
 			result.comment = ""
 			result.version = Bundle.main.versionStringPretty
-			result.elapsed = "1s"
+			result.elapsed = scenario.elapsed ?? ""
 			result.defects = ""
 			result.assignedToID = userID
 			
@@ -113,7 +117,6 @@ class AutumnTestRailClient
 				if let error = error { AutumnLog.error(error) }
 				if let r = response
 				{
-				
 				}
 				AutumnLog.debug("Submitted test result for test case ID \(caseID).")
 				self._isTestRailSubmissionComplete = true
