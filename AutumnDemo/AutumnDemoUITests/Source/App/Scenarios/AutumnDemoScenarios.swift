@@ -109,3 +109,43 @@ class AutumnDemoScenario004 : AutumnScenario
 		then(Declare("the user waited for 10 seconds"))
 	}
 }
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario005 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 5
+		title = "Autumn Demo Scenario 005"
+		status = .Pending
+	}
+	
+	override func establish()
+	{
+	}
+	
+	override func execute()
+	{
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario006 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 6
+		title = "Autumn Demo Scenario 006"
+		status = .Unsupported
+	}
+	
+	override func establish()
+	{
+	}
+	
+	override func execute()
+	{
+	}
+}

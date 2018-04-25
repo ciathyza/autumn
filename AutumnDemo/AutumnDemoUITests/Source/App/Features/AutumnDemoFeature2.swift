@@ -23,6 +23,8 @@ class AutumnDemoFeature2 : AutumnFeature
 	{
 		registerScenario(AutumnDemoScenario003.self)
 		registerScenario(AutumnDemoScenario004.self)
+		registerScenario(AutumnDemoScenario005.self)
+		registerScenario(AutumnDemoScenario006.self)
 	}
 	
 	
