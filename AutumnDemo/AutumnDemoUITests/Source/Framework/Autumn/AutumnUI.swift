@@ -359,11 +359,11 @@ public class AutumnUI
 	{
 		if let app = app
 		{
-			app.launchArguments = ["--uitesting", "-StartFromCleanState", "YES"]
+			app.launchArguments = ["--uitesting", "--Reset", "-StartFromCleanState", "YES"]
 			app.launch()
 			return app.state == .runningForeground ? .Success : .FailedIncorrectState
 		}
-		AutumnTestRunner.app.launchArguments = ["--uitesting", "-StartFromCleanState", "YES"]
+		AutumnTestRunner.app.launchArguments = ["--uitesting", "--Reset", "-StartFromCleanState", "YES"]
 		AutumnTestRunner.app.launch()
 		return AutumnTestRunner.app.state == .runningForeground ? .Success : .FailedIncorrectState
 	}

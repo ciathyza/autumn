@@ -396,6 +396,7 @@ class AutumnTestRailClient
 		{
 			AutumnLog.debug("Found automation test run with name \(testRun.name).")
 			self.model.testrailTestRunID = testRun.id
+			// TODO Sync all locally defined scenarios that are not yet included in already existing test run.
 			_isTestRailRetrievalComplete = true
 		}
 		else

@@ -45,7 +45,7 @@ open class AutumnTestRunner : XCTestCase
 	private var _testrailClient:AutumnTestRailClient!
 	private let _fallbackUser = AutumnUser("NONE", "NONE", "NONE")
 	
-	internal static var app = XCUIApplication()
+	internal static let app = XCUIApplication()
 	internal static var isTestCalledOnce = false
 	internal static var isLocalMode = false
 	internal static var phase = AutumnPhase.Init

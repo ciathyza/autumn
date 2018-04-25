@@ -300,6 +300,8 @@ public class AutumnFeature : AutumnHashable
 			}
 			else
 			{
+				//AutumnTestRunner.instance.setUp()
+				
 				if scenario.resetBefore
 				{
 					AutumnUI.sleep(2)
@@ -308,7 +310,7 @@ public class AutumnFeature : AutumnHashable
 				}
 				if scenario.uninstallBefore
 				{
-					AutumnUI.sleep(2)
+					AutumnUI.sleep(4)
 					AutumnLog.debug("Uninstalling app before scenario ...")
 					_ = AutumnUI.uninstallApp()
 				}

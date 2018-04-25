@@ -96,6 +96,7 @@ internal class AutumnSession
 	{
 		if let feature = dequeueNextFeature()
 		{
+			AutumnLog.debug("Starting \"\(feature.name)\" feature ...")
 			currentFeature = feature
 			feature.preLaunch()
 			feature.start()
