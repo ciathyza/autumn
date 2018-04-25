@@ -34,6 +34,7 @@ struct ScenarioResultRow
 {
 	var phase  = AutumnScenarioPhase.None
 	var type   = AutumnScenarioInstructionType.Instr
+	var stepType = AutumnStepType.None
 	var name   = ""
 	var result = AutumnUIActionResult.Failed
 }
@@ -231,6 +232,7 @@ public class AutumnScenario : AutumnHashable
 			var evaluation = ScenarioResultRow()
 			evaluation.phase = step.phase
 			evaluation.type = .Step
+			evaluation.stepType = step.type
 			evaluation.name = step.name
 			evaluation.result = stepResult.evaluate() ? AutumnUIActionResult.Success : AutumnUIActionResult.Failed
 			result.rows.append(evaluation)

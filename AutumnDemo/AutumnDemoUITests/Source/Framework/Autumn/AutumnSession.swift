@@ -138,7 +138,7 @@ internal class AutumnSession
 				resultText.add([
 					row.phase.rawValue,
 					row.type.rawValue,
-					"\"\(row.name)\"",
+					"\"\(row.stepType != .None ? "\(row.stepType.rawValue) " : "")\(row.name)\"",
 					"\(AutumnStringConstant.RESULT_DELIMITER)\(row.type == .Step && row.result == .Success ? "Passed" : row.result.rawValue)"])
 			}
 		}

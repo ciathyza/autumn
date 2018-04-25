@@ -112,7 +112,7 @@ class AutumnTestRailClient
 			var comment = "|||:Phase|:Type|:Name|:Result"
 			for row in scenario.result.rows
 			{
-				comment += "\n|| \(row.phase) | \(row.type) | \(row.name) | \(row.result.rawValue) "
+				comment += "\n|| \(row.phase) | \(row.type) | \(row.stepType != .None ? "\(row.stepType.rawValue) " : "")\(row.name) | \(row.result.rawValue) "
 			}
 			
 			/* Create new result for submission. */
