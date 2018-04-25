@@ -82,7 +82,7 @@ public class AutumnScenario : AutumnHashable
 	internal var status = AutumnTestStatus.Pending
 	internal private(set) var steps = [AutumnTestStep]()
 	internal private(set) var results = [(step:AutumnTestStep, result:AutumnTestStepResult)]()
-	internal private(set) var result:ScenarioResult?
+	internal private(set) var result = ScenarioResult()
 	
 	/* Used to store precondition (given) and execution (when/then) step names for testrail test case generation. */
 	internal var preconditionStrings = [String]()
@@ -224,7 +224,7 @@ public class AutumnScenario : AutumnHashable
 				evaluation.type = .Instr
 				evaluation.name = instruction
 				evaluation.result = instructionResult
-				result!.rows.append(evaluation)
+				result.rows.append(evaluation)
 			}
 			
 			/* Add actual step. */
@@ -233,10 +233,10 @@ public class AutumnScenario : AutumnHashable
 			evaluation.type = .Step
 			evaluation.name = step.name
 			evaluation.result = stepResult.evaluate() ? AutumnUIActionResult.Success : AutumnUIActionResult.Failed
-			result!.rows.append(evaluation)
+			result.rows.append(evaluation)
 		}
 		
-		return result!
+		return result
 	}
 	
 	

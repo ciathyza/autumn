@@ -85,40 +85,50 @@ class AutumnTestRailClient
 	}
 	
 	
+	/**
+	 * Submits a test case result to the TestRail server.
+	 */
 	func submitTestResult(_ scenario:AutumnScenario)
 	{
 		_isTestRailSubmissionComplete = false
 		
 		if let testCase = model.getTestRailCaseForScenario(scenario.id), let caseID = testCase.id
 		{
+			/* Determine result status ID from test result. */
 			var statusID = AutumnTestRailResultStatusID.Pending
 			if scenario.status == .Unsupported { statusID = .CannotTest }
 			else if scenario.status == .Failed { statusID = .Failed }
 			else if scenario.status == .Passed { statusID = .Passed }
 			else { statusID = .Pending }
 			
+			/* Determine assigned-to user ID. */
 			var userID = 0
 			if let user = model.getTestRailUser(config.testrailUserEmail)
 			{
 				userID = user.id
 			}
 			
+			/* Prepare detailed step results as comment string. */
+			var comment = "|||:Phase|:Type|:Name|:Result"
+			for row in scenario.result.rows
+			{
+				comment += "\n|| \(row.phase) | \(row.type) | \(row.name) | \(row.result.rawValue) "
+			}
+			
+			/* Create new result for submission. */
 			var result = TestRailTestResult()
 			result.statusID = statusID.rawValue
-			result.comment = ""
+			result.comment = comment
 			result.version = Bundle.main.versionStringPretty
 			result.elapsed = scenario.elapsed ?? ""
-			result.defects = ""
+			result.defects = nil
 			result.assignedToID = userID
 			
 			addTestCaseResult(testRunID: model.testrailTestRunID, caseID: caseID, testCaseResult: result)
 			{
 				(response:TestRailTestResult?, error:String?) in
 				if let error = error { AutumnLog.error(error) }
-				if let r = response
-				{
-				}
-				AutumnLog.debug("Submitted test result for test case ID \(caseID).")
+				else { AutumnLog.debug("Submitted test result for test case ID \(caseID).") }
 				self._isTestRailSubmissionComplete = true
 			}
 		}

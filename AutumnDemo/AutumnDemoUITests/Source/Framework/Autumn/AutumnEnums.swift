@@ -148,15 +148,15 @@ public enum AutumnUIActionResult : String
 {
 	case Success                     = "OK"
 	case Failed                      = "Failed"
-	case FailedIsNil                 = "Failed: Is Nil"
-	case FailedNotExist              = "Failed: Not Existing"
-	case FailedNotHittable           = "Failed: Not Hittable"
-	case FailedTimeOut               = "Failed: Timed Out"
-	case FailedIncorrectOrder        = "Failed: Incorrect Order"
-	case FailedInterrupted           = "Failed: Interrupted"
-	case FailedIncorrectState        = "Failed: Incorrect State"
-	case FailedOperationFailed       = "Failed: Operation Failed"
-	case FailedOperationNotSupported = "Failed: Operation Not Supported"
+	case FailedIsNil                 = "Failed (Is Nil)"
+	case FailedNotExist              = "Failed (Not Existing)"
+	case FailedNotHittable           = "Failed (Not Hittable)"
+	case FailedTimeOut               = "Failed (Timed Out)"
+	case FailedIncorrectOrder        = "Failed (Incorrect Order)"
+	case FailedInterrupted           = "Failed (Interrupted)"
+	case FailedIncorrectState        = "Failed (Incorrect State)"
+	case FailedOperationFailed       = "Failed (Operation Failed)"
+	case FailedOperationNotSupported = "Failed (Operation Not Supported)"
 }
 
 

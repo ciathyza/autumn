@@ -130,16 +130,16 @@ internal class AutumnSession
 		var scenarioResult = scenario.evaluate()
 		
 		let resultText = TabularText(4, false, " ", " ", "                   ", 0, ["PHASE", "TYPE", "NAME", "RESULT"], true)
-		for result in scenarioResult.rows
+		for row in scenarioResult.rows
 		{
-			if result.result != .Success { success = false }
+			if row.result != .Success { success = false }
 			if _runner.config.logInstructions
 			{
 				resultText.add([
-					result.phase.rawValue,
-					result.type.rawValue,
-					"\"\(result.name)\"",
-					"\(AutumnStringConstant.RESULT_DELIMITER)\(result.type == .Step && result.result == .Success ? "Passed" : result.result.rawValue)"])
+					row.phase.rawValue,
+					row.type.rawValue,
+					"\"\(row.name)\"",
+					"\(AutumnStringConstant.RESULT_DELIMITER)\(row.type == .Step && row.result == .Success ? "Passed" : row.result.rawValue)"])
 			}
 		}
 		
