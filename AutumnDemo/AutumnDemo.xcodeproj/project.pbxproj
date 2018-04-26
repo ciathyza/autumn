@@ -73,8 +73,6 @@
 		5E4BCF899F929AA16CBDD617 /* TestRailCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC601ADEF2B7071C03C30 /* TestRailCodable.swift */; };
 		5E4BCFCA8BD8C803F82AF751 /* HashID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC5F9A710EA6221652A8F /* HashID.swift */; };
 		5E4BCFCD6906F4E517FE00E8 /* TestRailProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCD0EA4166B43C52360BA /* TestRailProject.swift */; };
-		62C8B98A2047DDA1008C2096 /* TextFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC69C2862B42C1D864F92 /* TextFile.swift */; };
-		62C8B98B2047DDA1008C2096 /* CSVImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC18D0571A97C5E402756 /* CSVImporter.swift */; };
 		62C8B98C2047DDA7008C2096 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCA3A41039C95CF998345 /* Log.swift */; };
 		62C8B98D2047DDA7008C2096 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCC97AFFC9B30A8665008 /* Dice.swift */; };
 		62C8B98E2047DDA7008C2096 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCE73B5C5AC6E6D66FC11 /* File.swift */; };
@@ -130,7 +128,6 @@
 		5E4BC14E26DA35163FD93352 /* AutumnSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnSessionManager.swift; sourceTree = "<group>"; };
 		5E4BC15278E6B7BC21B951DD /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		5E4BC17B1B4B45E597769CDD /* WaitForExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForExists.swift; sourceTree = "<group>"; };
-		5E4BC18D0571A97C5E402756 /* CSVImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVImporter.swift; sourceTree = "<group>"; };
 		5E4BC1BF085D7F6176B5CCF8 /* TestRailTestRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestRun.swift; sourceTree = "<group>"; };
 		5E4BC1C2E91DD7D74A0C3FB7 /* AutumnScenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnScenario.swift; sourceTree = "<group>"; };
 		5E4BC20D152279EC5C597D84 /* AutumnDemoUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoUITests.swift; sourceTree = "<group>"; };
@@ -167,7 +164,6 @@
 		5E4BC616433B4864EBF56EDE /* TypePassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypePassword.swift; sourceTree = "<group>"; };
 		5E4BC62B7257BABCC79D05A8 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		5E4BC65C1357DE26BE241973 /* Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
-		5E4BC69C2862B42C1D864F92 /* TextFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFile.swift; sourceTree = "<group>"; };
 		5E4BC6D1126D1923A114D863 /* AutumnTestStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestStep.swift; sourceTree = "<group>"; };
 		5E4BC75F2E897972C555E4BD /* TestRailTestPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestPlan.swift; sourceTree = "<group>"; };
 		5E4BC7F6F894688E504CB637 /* AutumnViewProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnViewProxy.swift; sourceTree = "<group>"; };
@@ -318,8 +314,6 @@
 		5E4BC515DBDDBA3900E57E7B /* file */ = {
 			isa = PBXGroup;
 			children = (
-				5E4BC69C2862B42C1D864F92 /* TextFile.swift */,
-				5E4BC18D0571A97C5E402756 /* CSVImporter.swift */,
 			);
 			path = file;
 			sourceTree = "<group>";
@@ -799,14 +793,12 @@
 				62C8B98C2047DDA7008C2096 /* Log.swift in Sources */,
 				62C8B98E2047DDA7008C2096 /* File.swift in Sources */,
 				62C8B98F2047DDA7008C2096 /* JSON.swift in Sources */,
-				62C8B98A2047DDA1008C2096 /* TextFile.swift in Sources */,
 				62C8B9902047DDA7008C2096 /* Interval.swift in Sources */,
 				62C8B98D2047DDA7008C2096 /* Dice.swift in Sources */,
 				62C8B99B2047DDB3008C2096 /* UIColor.swift in Sources */,
 				5E4BC6EABEEA9E6FEFADB9CB /* AutumnDemoUITests.swift in Sources */,
 				62C8B9A42047DDE5008C2096 /* Globals.swift in Sources */,
 				62C8B9A12047DDB3008C2096 /* CharacterView.swift in Sources */,
-				62C8B98B2047DDA1008C2096 /* CSVImporter.swift in Sources */,
 				62C8B9A32047DDB3008C2096 /* DispatchTimeInterval.swift in Sources */,
 				62C8B9952047DDB3008C2096 /* Int.swift in Sources */,
 				62C8B99E2047DDB3008C2096 /* Encodable.swift in Sources */,

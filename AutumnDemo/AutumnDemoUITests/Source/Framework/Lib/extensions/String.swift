@@ -169,11 +169,96 @@ extension String
 	}
 	
 	
-	public func substring(_ start:Int, _ end:Int = -1) -> String
+	//public func substringDeprecated(_ start:Int, _ end:Int = -1) -> String
+	//{
+	//	let startIndex = self.index(self.startIndex, offsetBy: start)
+	//	let endIndex = self.index(startIndex, offsetBy: end < 0 ? self.count - 2 : end)
+	//	return self.substring(from: startIndex).substring(to: endIndex)
+	//}
+	
+	
+	public func substr(from:Int, to:Int) -> String
 	{
-		let startIndex = self.index(self.startIndex, offsetBy: start)
-		let endIndex = self.index(startIndex, offsetBy: end < 0 ? self.characters.count - 2 : end)
-		return self.substring(from: startIndex).substring(to: endIndex)
+		if count < 1 { return self }
+		var fromIndex = from
+		var toIndex = to
+		
+		if fromIndex > toIndex
+		{
+			let tmp = fromIndex
+			fromIndex = toIndex
+			toIndex = tmp
+		}
+		
+		fromIndex = fromIndex < 0 ? 0 : fromIndex > count ? count : fromIndex
+		toIndex = toIndex > count - 1 ? count - 1 : to < 0 ? 0 : toIndex
+		
+		let end = (toIndex - self.count) + 1
+		let indexStartOfText = self.index(self.startIndex, offsetBy: fromIndex)
+		let indexEndOfText = self.index(self.endIndex, offsetBy: end)
+		let substring = self[indexStartOfText ..< indexEndOfText]
+		return String(substring)
+	}
+	
+	
+	public func substr(from:Int) -> String
+	{
+		return self.substr(from: from, to: self.count - 1)
+	}
+	
+	
+	public func substr(to:Int) -> String
+	{
+		return self.substr(from: 0, to: to)
+	}
+	
+	
+	/**
+	 * Returns the specified number of chars from the left of the string.
+	 */
+	public func left(_ to:Int) -> String
+	{
+		var t = to
+		if (t > self.count) { t = self.count }
+		else if (t < 0) { t = 0 }
+		return "\(self[..<self.index(startIndex, offsetBy: t)])"
+	}
+	
+	
+	/**
+	 * Returns the specified number of chars from the right of the string.
+	 */
+	public func right(_ from:Int) -> String
+	{
+		var f = from
+		if (f > self.count) { f = self.count }
+		else if (f < 0) { f = 0 }
+		return "\(self[self.index(startIndex, offsetBy: self.count - f)...])"
+	}
+	
+	
+	/**
+	 * Returns the specified number of chars from the given start point of the string.
+	 */
+	public func mid(_ from:Int, _ count:Int = -1) -> String
+	{
+		var f = from
+		if (f < 0) { f = 0 }
+		let x = "\(self[self.index(startIndex, offsetBy: f)...])"
+		return x.left(count == -1 ? x.count : count)
+	}
+	
+	
+	/**
+	 * Returns the substring that is found after the specified search string.
+	 */
+	public func midAfter(_ search:String, _ count:Int = -1) -> String
+	{
+		let r = self.range(of: search)
+		if (r == nil) { return "" }
+		let lb = r!.lowerBound
+		let x = "\(self[lb...])".mid(1)
+		return x.left(count == -1 ? x.count : count)
 	}
 	
 	
@@ -192,5 +277,46 @@ extension String
 		{
 			return []
 		}
+	}
+}
+
+
+extension StringProtocol where Index == String.Index
+{
+	public func startIndex<T: StringProtocol>(of string:T, options:String.CompareOptions = []) -> Index?
+	{
+		return range(of: string, options: options)?.lowerBound
+	}
+	
+	
+	public func endIndex<T: StringProtocol>(of string:T, options:String.CompareOptions = []) -> Index?
+	{
+		return range(of: string, options: options)?.upperBound
+	}
+	
+	
+	public func indexes<T: StringProtocol>(of string:T, options:String.CompareOptions = []) -> [Index]
+	{
+		var result:[Index] = []
+		var start = startIndex
+		while start < endIndex, let range = range(of: string, options: options, range: start..<endIndex)
+		{
+			result.append(range.lowerBound)
+			start = range.lowerBound < range.upperBound ? range.upperBound : index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+		}
+		return result
+	}
+	
+	
+	public func ranges<T: StringProtocol>(of string:T, options:String.CompareOptions = []) -> [Range<Index>]
+	{
+		var result:[Range<Index>] = []
+		var start = startIndex
+		while start < endIndex, let range = range(of: string, options: options, range: start..<endIndex)
+		{
+			result.append(range)
+			start = range.lowerBound < range.upperBound ? range.upperBound : index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+		}
+		return result
 	}
 }
