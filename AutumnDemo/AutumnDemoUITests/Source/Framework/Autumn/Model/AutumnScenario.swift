@@ -80,7 +80,7 @@ public class AutumnScenario : AutumnHashable
 	public private(set) var runner:AutumnTestRunner
 	
 	internal var phase = AutumnScenarioPhase.None
-	internal var status = AutumnTestStatus.Pending
+	internal var status = AutumnTestStatus.None
 	internal private(set) var steps = [AutumnTestStep]()
 	internal private(set) var results = [(step:AutumnTestStep, result:AutumnTestStepResult)]()
 	internal private(set) var result = ScenarioResult()

@@ -149,7 +149,7 @@ class AutumnModel
 	 */
 	func getTestRailAutomationSectionIDs() -> [Int]
 	{
-		var sections = getTestRailAutomationSections()
+		let sections = getTestRailAutomationSections()
 		var results = [Int]()
 		for section in sections
 		{

@@ -294,14 +294,15 @@ public class AutumnFeature : AutumnHashable
 			runner.session.currentScenario = scenario
 			
 			/* Is the scenario unsupported? */
-			if scenario.tags.contains(AutumnTag.UNSUPPORTED)
+			if scenario.status == .Pending || scenario.status == .Unsupported
 			{
+				AutumnLog.debug("Skipping \(scenario.status.rawValue) scenario: \"[\(scenario.id)] \(scenario.title)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
 				runner.session.stats.scenariosIgnored += 1
+				runner.submitTestResult(scenario)
+				waitForScenarioComplete(scenario)
 			}
 			else
 			{
-				//AutumnTestRunner.instance.setUp()
-				
 				if scenario.resetBefore
 				{
 					AutumnUI.sleep(2)

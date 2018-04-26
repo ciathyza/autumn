@@ -43,7 +43,7 @@ open class AutumnTestStepResult
 	 */
 	public func evaluate() -> Bool
 	{
-		for (instruction, result) in instructions
+		for (_, result) in instructions
 		{
 			if result != .Success { return false }
 		}

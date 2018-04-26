@@ -209,7 +209,7 @@ struct TestRailTestRun : TestRailCodable
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(projectID)", "\(name)", "\(description)", "\(hashValue)"]
+		return ["\(id)", "\(projectID)", "\(name)", "\(String(describing: description))", "\(hashValue)"]
 	}
 	
 	

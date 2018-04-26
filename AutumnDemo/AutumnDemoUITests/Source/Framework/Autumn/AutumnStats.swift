@@ -64,7 +64,7 @@ public class AutumnStats
 	
 	public func getSetupStats() -> String
 	{
-		var table = TabularText(2, false, "  ", " ", "                   ", 0, ["Stat", "Count"], false)
+		let table = TabularText(2, false, "  ", " ", "                   ", 0, ["Stat", "Count"], false)
 		table.add(["Test users", "\(testUserTotal)"])
 		table.add(["View proxies", "\(viewProxiesTotal)"])
 		table.add(["Features total", "\(featuresTotal)"])
@@ -78,7 +78,7 @@ public class AutumnStats
 	
 	public func getResultStats() -> String
 	{
-		var table = TabularText(2, false, "  ", " ", "                   ", 0, ["Stat", "Count"], false)
+		let table = TabularText(2, false, "  ", " ", "                   ", 0, ["Stat", "Count"], false)
 		table.add(["Features total", "\(featuresTotal)"])
 		table.add(["Features executed", "\(featuresExecuted)"])
 		table.add(["Scenarios total", "\(scenariosTotal)"])

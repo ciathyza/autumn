@@ -26,7 +26,7 @@ struct TestRailTestResult : TestRailCodable
 	let customStepResults:[TestRailCustomTestStepResult]
 	
 	var statusID:Int
-	var comment:String
+	var comment:String?
 	var version:String
 	var elapsed:String
 	var defects:String?
@@ -65,7 +65,7 @@ struct TestRailTestResult : TestRailCodable
 		createdBy = 0
 		createdOn = nil
 		assignedToID = 0
-		comment = ""
+		comment = nil
 		version = ""
 		elapsed = ""
 		defects = nil
@@ -82,7 +82,7 @@ struct TestRailTestResult : TestRailCodable
 		do { createdBy    = try values.decode(Int.self,    forKey: .createdBy) }        catch { createdBy    = 0 }
 		do { createdOn    = try values.decode(Int.self,    forKey: .createdOn).toDate } catch { createdOn    = nil }
 		do { assignedToID = try values.decode(Int.self,    forKey: .assignedToID) }     catch { assignedToID = 0 }
-		do { comment      = try values.decode(String.self, forKey: .comment) }          catch { comment      = "" }
+		do { comment      = try values.decode(String.self, forKey: .comment) }          catch { comment      = nil }
 		do { version      = try values.decode(String.self, forKey: .version) }          catch { version      = "" }
 		do { elapsed      = try values.decode(String.self, forKey: .elapsed) }          catch { elapsed      = "" }
 		do { defects      = try values.decode(String.self, forKey: .defects) }          catch { defects      = nil }

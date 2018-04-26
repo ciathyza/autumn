@@ -61,7 +61,7 @@ struct TestRailConfig : TestRailCodable
 	
 	func toTableRow() -> [String]
 	{
-		return ["\(id)", "\(context)", "\(options)", "\(hashValue)"]
+		return ["\(id)", "\(String(describing: context))", "\(String(describing: options))", "\(hashValue)"]
 	}
 	
 	

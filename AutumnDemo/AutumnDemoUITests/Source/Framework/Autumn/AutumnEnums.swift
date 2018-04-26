@@ -28,6 +28,7 @@ public enum AutumnPlatform : String
 
 public enum AutumnTestStatus : String
 {
+	case None        = "None"
 	case Normal      = "Normal"
 	case Pending     = "Pending"
 	case Unsupported = "Unsupported"

@@ -109,10 +109,18 @@ class AutumnTestRailClient
 			}
 			
 			/* Prepare detailed step results as comment string. */
-			var comment = "|||:Phase|:Type|:Name|:Result"
-			for row in scenario.result.rows
+			var comment:String?
+			if statusID == .Pending || statusID == .CannotTest
 			{
-				comment += "\n|| \(row.phase) | \(row.type) | \(row.stepType != .None ? "\(row.stepType.rawValue) " : "")\(row.name) | \(row.result.rawValue) "
+				comment = nil
+			}
+			else
+			{
+				comment = "|||:Phase|:Type|:Name|:Result"
+				for row in scenario.result.rows
+				{
+					comment = comment! + "\n|| \(row.phase) | \(row.type) | \(row.stepType != .None ? "\(row.stepType.rawValue) " : "")\(row.name) | \(row.result.rawValue) "
+				}
 			}
 			
 			/* Create new result for submission. */
@@ -193,7 +201,7 @@ class AutumnTestRailClient
 	{
 		_isTestRailRetrievalComplete = false
 		/* Model already contains the section which means it was created earlier. */
-		if var section = model.getTestRailSection(sectionName)
+		if let section = model.getTestRailSection(sectionName)
 		{
 			/* Does the model still contain a feature for the section? */
 			if section.isRoot()
@@ -214,7 +222,7 @@ class AutumnTestRailClient
 		else
 		{
 			/* Create new section to work with! */
-			var section = TestRailSection(name: sectionName, description: description, parentID: parentID)
+			let section = TestRailSection(name: sectionName, description: description, parentID: parentID)
 			createNewSection(section: section, projectID: config.testrailProjectID)
 			{
 				(response:TestRailSection?, error:String?) in
@@ -255,7 +263,7 @@ class AutumnTestRailClient
 	 */
 	private func syncFeature(_ feature:AutumnFeature)
 	{
-		if let rootSection = model.testRailRootSection
+		if model.testRailRootSection != nil
 		{
 			AutumnLog.debug("Syncing TestRail feature for \"\(feature.name)\" ...")
 			_isTestRailRetrievalComplete = false
@@ -268,7 +276,7 @@ class AutumnTestRailClient
 					scenario.setup()
 					scenario.resetNameRecords()
 					
-					if let tc = model.getTestRailCase(scenario.title)
+					if model.getTestRailCase(scenario.title) != nil
 					{
 						/* A test case with the same name already exists. */
 					}
@@ -310,7 +318,7 @@ class AutumnTestRailClient
 							}
 							else if n.starts(with: AutumnStepType.Then.rawValue)
 							{
-								var customTestStep = TestRailTestCaseCustom(content: executionStepsBatch, expected: n)
+								let customTestStep = TestRailTestCaseCustom(content: executionStepsBatch, expected: n)
 								testCase.customStepsSeparated!.append(customTestStep)
 								executionStepsBatch = ""
 							}
@@ -380,7 +388,7 @@ class AutumnTestRailClient
 				{
 					self.model.addTestRailCase(r)
 				}
-				AutumnLog.debug("Created new test case with title \"\(testCase.title)\" and ID \(testCase.id).")
+				AutumnLog.debug("Created new test case with title \"\(testCase.title)\" and ID \(String(describing: testCase.id)).")
 				self._isTestRailRetrievalComplete = true
 			}
 		}
