@@ -280,7 +280,7 @@ public class AutumnFeature : AutumnHashable
 		
 		if let scenarioClass = runner.model.scenarioClasses[scenarioClass.metatype]
 		{
-			var scenario = scenarioClass.init(self) as! AutumnScenario
+			var scenario = scenarioClass.init(self) as AutumnScenario
 			
 			/* Use scenario ID that was retrieved from the class name. */
 			if let scenarioID = runner.model.scenarioIDs[scenarioClass.metatype]

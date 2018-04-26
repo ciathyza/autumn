@@ -913,20 +913,20 @@ class AutumnTestRailClient
 			switch (response.result)
 			{
 				case .success(_):
-					if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
+					if let data = response.data //, let utf8Text = String(data: data, encoding: .utf8)
 					{
 						let decoder = JSONDecoder()
 						var decodedModel:T?
 						do
 						{
-							decodedModel = try! decoder.decode(type, from: data)
+							decodedModel = try decoder.decode(type, from: data)
 							callback(decodedModel, nil)
 						}
 						catch let e as DecodingError
 						{
 							callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
 						}
-						catch let e as Error
+						catch let e
 						{
 							callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
 						}
@@ -953,9 +953,9 @@ class AutumnTestRailClient
 		var encodedJSON:Any?
 		do
 		{
-			encodedJSON = try! encoder.encode(model)
+			encodedJSON = try encoder.encode(model)
 		}
-		catch let e as Error
+		catch let e
 		{
 			callback(nil, "Failed to encode data model. EncodingError: \(e.localizedDescription)")
 		}
@@ -989,20 +989,20 @@ class AutumnTestRailClient
 				switch (response.result)
 				{
 					case .success(_):
-						if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
+						if let data = response.data //, let utf8Text = String(data: data, encoding: .utf8)
 						{
 							let decoder = JSONDecoder()
 							var decodedModel:T?
 							do
 							{
-								decodedModel = try! decoder.decode(type, from: data)
+								decodedModel = try decoder.decode(type, from: data)
 								callback(decodedModel, nil)
 							}
 							catch let e as DecodingError
 							{
 								callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
 							}
-							catch let e as Error
+							catch let e
 							{
 								callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
 							}
