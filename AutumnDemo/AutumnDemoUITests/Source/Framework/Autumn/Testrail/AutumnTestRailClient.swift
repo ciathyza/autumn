@@ -400,12 +400,32 @@ class AutumnTestRailClient
 		_isTestRailRetrievalComplete = false
 		AutumnLog.debug("Syncing automation test run ...")
 		
-		if let testRun = model.getTestRailTestRun(config.testrailRootSectionName)
+		if var testRun = model.getTestRailTestRun(config.testrailRootSectionName)
 		{
 			AutumnLog.debug("Found automation test run with name \(testRun.name).")
 			self.model.testrailTestRunID = testRun.id
-			// TODO Sync all locally defined scenarios that are not yet included in already existing test run.
-			_isTestRailRetrievalComplete = true
+			
+			/* Update test run with new cases that might have been addded. */
+			testRun.caseIDs = [Int]()
+			for testCase in model.testrailCases
+			{
+				if let id = testCase.id
+				{
+					testRun.caseIDs.append(id)
+				}
+			}
+			
+			updateTestRun(testRun: testRun)
+			{
+				(response:TestRailTestRun?, error:String?) in
+				if let error = error { AutumnLog.error(error) }
+				if let r = response
+				{
+					self.model.testrailTestRunID = r.id
+					AutumnLog.debug("Updated automation test run with ID \(r.id).")
+				}
+				self._isTestRailRetrievalComplete = true
+			}
 		}
 		else
 		{
@@ -557,7 +577,7 @@ class AutumnTestRailClient
 	
 	
 	/**
-	 * Creates a new test case on the TestRail server.
+	 * Creates a new test run on the TestRail server.
 	 */
 	func createNewTestRun(testRun:TestRailTestRun, projectID:Int, callback:@escaping ((TestRailTestRun?, _:String?) -> Void))
 	{
@@ -566,7 +586,16 @@ class AutumnTestRailClient
 	
 	
 	/**
-	 * Adds a new test case result on the TestRail server.
+	 * Updates an existing test run on the TestRail server.
+	 */
+	func updateTestRun(testRun:TestRailTestRun, callback:@escaping ((TestRailTestRun?, _:String?) -> Void))
+	{
+		httpPost(path: "update_run/\(testRun.id)", model: testRun, type: TestRailTestRun.self, callback: callback)
+	}
+	
+	
+	/**
+	 * Adds a new test casde result on the TestRail server.
 	 */
 	func addTestCaseResult(testRunID:Int, caseID:Int, testCaseResult:TestRailTestResult, callback:@escaping ((TestRailTestResult?, _:String?) -> Void))
 	{

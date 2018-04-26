@@ -311,7 +311,7 @@ public class AutumnFeature : AutumnHashable
 				}
 				if scenario.uninstallBefore
 				{
-					AutumnUI.sleep(4)
+					AutumnUI.sleep(2)
 					AutumnLog.debug("Uninstalling app before scenario ...")
 					_ = AutumnUI.uninstallApp()
 				}
@@ -329,6 +329,7 @@ public class AutumnFeature : AutumnHashable
 				scenario.phase = .Execute
 				scenario.execute()
 				_timer.stop()
+				runner.session.stats.scenariosExecuted += 1
 				
 				scenario.elapsed = _timer.timePretty
 				
@@ -342,6 +343,10 @@ public class AutumnFeature : AutumnHashable
 					runner.session.stats.scenariosFailed += 1
 				}
 				
+				AutumnLog.debug(result.logText)
+				runner.submitTestResult(scenario)
+				waitForScenarioComplete(scenario)
+				
 				if scenario.terminateAfter
 				{
 					_ = AutumnUI.terminateApp()
@@ -354,10 +359,6 @@ public class AutumnFeature : AutumnHashable
 						_ = resetApp()
 					}
 				}
-				
-				AutumnLog.debug(result.logText)
-				runner.submitTestResult(scenario)
-				waitForScenarioComplete(scenario)
 			}
 		}
 		else
@@ -381,7 +382,7 @@ public class AutumnFeature : AutumnHashable
 	 */
 	func end()
 	{
-		runner.session.startNextFeature()
+		runner.session.endFeature()
 	}
 	
 	

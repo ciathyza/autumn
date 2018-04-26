@@ -71,7 +71,7 @@ public class AutumnScenario : AutumnHashable
 	public internal(set) var elapsed:String?
 	
 	public var uninstallBefore = true
-	public var resetBefore     = true
+	public var resetBefore     = false
 	public var resetAfter      = false
 	public var terminateAfter  = true
 	

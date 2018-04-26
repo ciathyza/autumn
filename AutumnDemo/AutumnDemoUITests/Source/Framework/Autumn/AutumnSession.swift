@@ -114,9 +114,10 @@ internal class AutumnSession
 	 */
 	internal func endFeature()
 	{
-		if let feature = currentFeature
+		if currentFeature != nil
 		{
-			feature.end()
+			_runner.session.stats.featuresExecuted += 1
+			startNextFeature()
 		}
 		else
 		{
