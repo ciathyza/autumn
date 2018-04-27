@@ -109,12 +109,12 @@ class AutumnTestRailClient
 			}
 			
 			/* Prepare detailed step results as comment string. */
-			var comment:String?
-			if statusID == .Pending || statusID == .CannotTest
+			var comment:String? = nil
+			if statusID == .CannotTest && scenario.unsupportedReason != .None
 			{
-				comment = nil
+				comment = "Unsupported reason: \(scenario.unsupportedReason.rawValue)"
 			}
-			else
+			else if statusID != .Pending
 			{
 				comment = "|||:Phase|:Type|:Name|:Result"
 				for row in scenario.result.rows

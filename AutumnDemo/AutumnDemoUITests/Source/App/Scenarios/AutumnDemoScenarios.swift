@@ -139,6 +139,7 @@ class AutumnDemoScenario006 : AutumnScenario
 		id = 6
 		title = "Autumn Demo Scenario 006"
 		status = .Unsupported
+		unsupportedReason = .RequiresExternalAuthentication
 	}
 	
 	override func establish()
