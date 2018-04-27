@@ -311,13 +311,6 @@
 			path = IOS;
 			sourceTree = "<group>";
 		};
-		5E4BC515DBDDBA3900E57E7B /* file */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = file;
-			sourceTree = "<group>";
-		};
 		5E4BC5CE722B7163C63F4120 /* Testrail */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,7 +389,6 @@
 		5E4BC8FA07291636C607DC0B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				5E4BC515DBDDBA3900E57E7B /* file */,
 				5E4BC722828A497E301E7BC8 /* utils */,
 				5E4BCD7B0F98C0F835D5C085 /* structs */,
 				5E4BC7935AD6AB58976ED040 /* extensions */,
