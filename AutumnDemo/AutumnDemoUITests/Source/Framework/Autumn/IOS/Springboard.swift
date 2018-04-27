@@ -90,30 +90,28 @@ class Springboard
 				XCUIDevice.shared.press(.home)
 				/* Press home again to go to the first page of the springboard. */
 				XCUIDevice.shared.press(.home)
-				/* Wait some time for the animation to end. */
-				Thread.sleep(forTimeInterval: 0.5)
 				
 				if let settings = settings
 				{
 					let settingsIcon = springboard.icons["Settings"]
 					
-					/* Still not on back on the first page? */
+					/* Still not back on the first page? */
 					if !settingsIcon.isHittable
 					{
 						XCUIDevice.shared.press(.home)
-						Thread.sleep(forTimeInterval: 0.5)
+						_ = AutumnUI.waitForHittable(settingsIcon)
 					}
 					
 					if settingsIcon.isHittable
 					{
 						settingsIcon.tap()
-						Thread.sleep(forTimeInterval: 0.25)
+						_ = AutumnUI.waitForHittable(settings.tables.staticTexts["General"])
 						settings.tables.staticTexts["General"].tap()
-						Thread.sleep(forTimeInterval: 0.25)
+						_ = AutumnUI.waitForHittable(settings.tables.staticTexts["Reset"])
 						settings.tables.staticTexts["Reset"].tap()
-						Thread.sleep(forTimeInterval: 0.25)
+						_ = AutumnUI.waitForHittable(settings.tables.staticTexts["Reset Location & Privacy"])
 						settings.tables.staticTexts["Reset Location & Privacy"].tap()
-						Thread.sleep(forTimeInterval: 0.25)
+						_ = AutumnUI.waitForHittable(settings.buttons["Reset Warnings"])
 						settings.buttons["Reset Warnings"].tap()
 						settings.terminate()
 					}
