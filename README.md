@@ -9,6 +9,12 @@ Test cases are defined in the code, incl. their readable test instructions for T
 
 The Autumn framework in this repository can be found under ```autumn/AutumnDemo/AutumnDemoUITests/Source/Framework```.
 
+### Fastlane Test Invocation
+
+```
+$ fastlane scan --workspace "Autumn.xcworkspace" --scheme "Automation (STG)" --device "iPhone 7 (11.2)" --clean --include_simulator_log true || true
+```
+
 ### Hierarchy
 
 Autumn follows a hierarchy similar to Calabash, therefore tests can be constructed from the following elements (smallest to largest):
