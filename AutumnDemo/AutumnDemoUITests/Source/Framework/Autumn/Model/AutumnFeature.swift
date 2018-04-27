@@ -300,6 +300,7 @@ public class AutumnFeature : AutumnHashable
 				runner.session.stats.scenariosIgnored += 1
 				runner.submitTestResult(scenario)
 				waitForScenarioComplete(scenario)
+				onScenarioComplete(true)
 			}
 			else
 			{
@@ -359,6 +360,8 @@ public class AutumnFeature : AutumnHashable
 						_ = resetApp()
 					}
 				}
+				
+				onScenarioComplete(true)
 			}
 		}
 		else
@@ -407,7 +410,7 @@ public class AutumnFeature : AutumnHashable
 	{
 		/* XCUITest won't wait for us to finish the async HTTP requests so we wait here before tearng down
 		   to have a clean division between every scenario run. */
-		AutumnUI.waitForWithInterval(completeBlock: onScenarioComplete, timeout: 20)
+		AutumnUI.waitUntil()
 		{
 			return self.runner.isTestResultSubmitComplete()
 		}
