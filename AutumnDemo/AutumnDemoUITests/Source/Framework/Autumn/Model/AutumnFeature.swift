@@ -43,7 +43,7 @@ public class AutumnFeature : AutumnHashable
 	
 	private var _scenarioQueue:[Metatype<AutumnScenario>] = []
 	private var _interval = Interval()
-	private var _timer = ExecutionTimer()
+	private var _scenarioTimer = ExecutionTimer()
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -324,15 +324,16 @@ public class AutumnFeature : AutumnHashable
 				AutumnLog.debug("Establishing scenario preconditions ...")
 				scenario.status = .Started
 				scenario.phase = .Precondition
-				_timer.start()
+				_scenarioTimer.start()
 				scenario.establish()
 				AutumnLog.debug("Executing scenario steps ...")
 				scenario.phase = .Execute
 				scenario.execute()
-				_timer.stop()
+				_scenarioTimer.stop()
 				runner.session.stats.scenariosExecuted += 1
 				
-				scenario.elapsed = _timer.timePretty
+				scenario.elapsed = _scenarioTimer.timePretty
+				Log.debug("The scenario took \(scenario.elapsed!).")
 				
 				let result = session.evaluateScenario(&scenario)
 				if result.success

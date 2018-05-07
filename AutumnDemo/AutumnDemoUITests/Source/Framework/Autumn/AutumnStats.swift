@@ -19,17 +19,18 @@ public class AutumnStats
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	public var testUserTotal:Int           = 0
-	public var viewProxiesTotal:Int        = 0
-	public var featuresTotal:Int           = 0
-	public var featuresExecuted:Int        = 0
-	public var scenariosTotal:Int          = 0
-	public var scenariosUnsupported:Int    = 0
-	public var scenariosPending:Int        = 0
-	public var scenariosExecuted:Int       = 0
-	public var scenariosPassed:Int         = 0
-	public var scenariosFailed:Int         = 0
-	public var scenariosIgnored:Int        = 0
+	public var testUserTotal:Int        = 0
+	public var viewProxiesTotal:Int     = 0
+	public var featuresTotal:Int        = 0
+	public var featuresExecuted:Int     = 0
+	public var scenariosTotal:Int       = 0
+	public var scenariosUnsupported:Int = 0
+	public var scenariosPending:Int     = 0
+	public var scenariosExecuted:Int    = 0
+	public var scenariosPassed:Int      = 0
+	public var scenariosFailed:Int      = 0
+	public var scenariosIgnored:Int     = 0
+	public var sessionDuration          = ""
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -79,6 +80,7 @@ public class AutumnStats
 	public func getResultStats() -> String
 	{
 		let table = TabularText(2, false, "  ", " ", "                   ", 0, ["Stat", "Count"], false)
+		table.add(["Session duration", "\(sessionDuration)"])
 		table.add(["Features total", "\(featuresTotal)"])
 		table.add(["Features executed", "\(featuresExecuted)"])
 		table.add(["Scenarios total", "\(scenariosTotal)"])

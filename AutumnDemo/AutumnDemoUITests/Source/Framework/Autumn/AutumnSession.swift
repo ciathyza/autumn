@@ -34,6 +34,7 @@ internal class AutumnSession
 	public internal(set) var allowTearDown = true
 	
 	private var _runner:AutumnTestRunner!
+	private var _sessionTimer = ExecutionTimer()
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -55,6 +56,7 @@ internal class AutumnSession
 	internal func start()
 	{
 		AutumnLog.debug("Starting test session ...")
+		_sessionTimer.start()
 		startNextFeature()
 	}
 	
@@ -65,6 +67,8 @@ internal class AutumnSession
 	internal func end()
 	{
 		AutumnLog.debug("Ending test session ...")
+		_sessionTimer.stop()
+		stats.sessionDuration = _sessionTimer.time
 		AutumnUI.decelerate()
 		AutumnLog.debug(stats.getResultStats())
 	}

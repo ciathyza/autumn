@@ -50,14 +50,20 @@ public class ExecutionTimer
 		return Int((duration / 3600).truncatingRemainder(dividingBy: 60))
 	}
 	
+	var days:Int
+	{
+		return Int((duration / 86400).truncatingRemainder(dividingBy: 60))
+	}
+	
 	var time:String
 	{
-		return "\(hours)h \(minutes)m \(seconds)s \(milliseconds)ms"
+		return "\(days)d \(hours)h \(minutes)m \(seconds)s \(milliseconds)ms"
 	}
 	
 	var timePretty:String
 	{
-		if hours > 0 { return "\(hours)h \(minutes)m \(seconds)s" }
+		if days > 0 { return "\(days)d \(hours)h \(minutes)m \(seconds)s" }
+		else if hours > 0 { return "\(hours)h \(minutes)m \(seconds)s" }
 		else if minutes > 0 { return "\(minutes)m \(seconds)s" }
 		return "\(seconds)s"
 	}
