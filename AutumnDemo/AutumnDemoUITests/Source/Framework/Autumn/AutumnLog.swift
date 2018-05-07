@@ -20,7 +20,8 @@ open class AutumnLog
 	// MARK: - Constants
 	// ----------------------------------------------------------------------------------------------------
 	
-	static let CATEGORY = "Autumn"
+	static let CATEGORY            = "Autumn"
+	static let LOGFILE_OUTPUT_PATH = "\(NSHomeDirectory())/Documents/Autumn.log"
 	
 	
 	// ----------------------------------------------------------------------------------------------------

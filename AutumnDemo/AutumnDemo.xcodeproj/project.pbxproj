@@ -53,6 +53,7 @@
 		5E4BC9654FDFCCE8813CDCF5 /* TestRailTestCaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCE66DB2AB73F36648C1C /* TestRailTestCaseField.swift */; };
 		5E4BC98646CD889CDADE792C /* AutumnEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3A9A27A968047F5E654 /* AutumnEnums.swift */; };
 		5E4BC9C3B75CA62131AE9BFE /* AutumnDemoFeature3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCDE7D095B1BAE8A30EC7 /* AutumnDemoFeature3.swift */; };
+		5E4BCA82A0476E94A814D43D /* LogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCEB94E878A8B484E605B /* LogFile.swift */; };
 		5E4BCAD3D274E03B78589466 /* WaitForHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCFEC5C62A2B4CBC41216 /* WaitForHittable.swift */; };
 		5E4BCB07C2F143D162A916C7 /* AutumnDemoFeature2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3C90000231FF1CC4503 /* AutumnDemoFeature2.swift */; };
 		5E4BCB5C54EF5E66B4D7012B /* AutumnScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC1C2E91DD7D74A0C3FB7 /* AutumnScenario.swift */; };
@@ -199,6 +200,7 @@
 		5E4BCE73B5C5AC6E6D66FC11 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5E4BCE9D2E9CC200B8B4A585 /* TestRailCustomTestStepResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailCustomTestStepResult.swift; sourceTree = "<group>"; };
 		5E4BCE9ED9DEBDEE0E7A97D1 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		5E4BCEB94E878A8B484E605B /* LogFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFile.swift; sourceTree = "<group>"; };
 		5E4BCEC1BFC7F9D981E9773E /* FrequencyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyTable.swift; sourceTree = "<group>"; };
 		5E4BCEE4C414FB05352A5C63 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		5E4BCF16B3121B9353D9BA2E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				5E4BC62B7257BABCC79D05A8 /* Regex.swift */,
 				5E4BC5F9A710EA6221652A8F /* HashID.swift */,
 				5E4BC4C8C2CA6D0E6D764A85 /* ExecutionTimer.swift */,
+				5E4BCEB94E878A8B484E605B /* LogFile.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -860,6 +863,7 @@
 				5E4BC75551DA4DA00312EC3C /* Bundle.swift in Sources */,
 				5E4BC0D7104F24AD857CAB1A /* ExecutionTimer.swift in Sources */,
 				5E4BC9C3B75CA62131AE9BFE /* AutumnDemoFeature3.swift in Sources */,
+				5E4BCA82A0476E94A814D43D /* LogFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

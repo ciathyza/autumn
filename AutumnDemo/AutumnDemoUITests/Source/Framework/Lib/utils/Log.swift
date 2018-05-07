@@ -60,6 +60,9 @@ public struct Log
 	public static var separator = " "
 	public static var terminator = "\n"
 	
+	public static var logFilePath:String?
+	public static var logFile:LogFile?
+	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Logging API
@@ -143,7 +146,17 @@ public struct Log
 	{
 		let prefix = modePrefix(Date(), file: file, function: function, line: line)
 		let stringItem = items.map { "\($0)" }.joined(separator: Log.separator)
-		Swift.print("\(category)\(Log.prompt)\(Log.getLogLevelName(logLevel: logLevel))\(prefix)\(stringItem)", terminator: Log.terminator)
+		let line = "\(category)\(Log.prompt)\(Log.getLogLevelName(logLevel: logLevel))\(prefix)\(stringItem)"
+		Swift.print(line, terminator: Log.terminator)
+		
+		if let logFilePath = Log.logFilePath
+		{
+			if Log.logFile == nil { Log.logFile = LogFile(logFilePath) }
+			if let logFile = Log.logFile
+			{
+				logFile.append(content: "\(line)\(Log.terminator)")
+			}
+		}
 	}
 	
 	

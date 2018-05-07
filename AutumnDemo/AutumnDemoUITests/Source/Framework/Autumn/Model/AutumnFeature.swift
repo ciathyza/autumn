@@ -333,7 +333,7 @@ public class AutumnFeature : AutumnHashable
 				runner.session.stats.scenariosExecuted += 1
 				
 				scenario.elapsed = _scenarioTimer.timePretty
-				Log.debug("The scenario took \(scenario.elapsed!).")
+				AutumnLog.debug("The scenario was executed in \(scenario.elapsed!).")
 				
 				let result = session.evaluateScenario(&scenario)
 				if result.success

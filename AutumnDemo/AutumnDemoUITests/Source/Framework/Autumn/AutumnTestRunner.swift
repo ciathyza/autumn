@@ -355,6 +355,8 @@ open class AutumnTestRunner : XCTestCase
 		if !AutumnTestRunner.isTestCalledOnce
 		{
 			AutumnTestRunner.instance = self
+			/* Enable logging to file. */
+			Log.logFilePath = AutumnLog.LOGFILE_OUTPUT_PATH
 			AutumnLog.info("*** Welcome to \(AutumnTestRunner.FRAMEWORK_NAME) v\(AutumnTestRunner.FRAMEWORK_VERSION) ***")
 			let df = DateFormatter()
 			df.dateFormat = "HH:mm:ss, EEEE, MMM d, yyyy"

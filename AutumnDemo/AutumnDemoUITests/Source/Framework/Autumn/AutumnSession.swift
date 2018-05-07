@@ -71,6 +71,7 @@ internal class AutumnSession
 		stats.sessionDuration = _sessionTimer.time
 		AutumnUI.decelerate()
 		AutumnLog.debug(stats.getResultStats())
+		Log.debug("Log file written to \(AutumnLog.LOGFILE_OUTPUT_PATH)")
 	}
 	
 	
