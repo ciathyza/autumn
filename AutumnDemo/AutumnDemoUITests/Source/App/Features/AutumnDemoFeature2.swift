@@ -25,6 +25,10 @@ class AutumnDemoFeature2 : AutumnFeature
 		registerScenario(AutumnDemoScenario004.self)
 		registerScenario(AutumnDemoScenario005.self)
 		registerScenario(AutumnDemoScenario006.self)
+		registerScenario(AutumnDemoScenario007.self)
+		registerScenario(AutumnDemoScenario008.self)
+		registerScenario(AutumnDemoScenario009.self)
+		registerScenario(AutumnDemoScenario010.self)
 	}
 	
 	

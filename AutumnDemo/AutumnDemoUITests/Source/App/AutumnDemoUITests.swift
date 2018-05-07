@@ -53,5 +53,6 @@ class AutumnDemoUITests : AutumnTestRunner
 	{
 		registerFeature(AutumnDemoFeature.self)
 		registerFeature(AutumnDemoFeature2.self)
+		registerFeature(AutumnDemoFeature3.self)
 	}
 }

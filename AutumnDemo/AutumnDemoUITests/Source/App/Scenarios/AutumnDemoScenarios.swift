@@ -150,3 +150,263 @@ class AutumnDemoScenario006 : AutumnScenario
 	{
 	}
 }
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario007 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 7
+		title = "Autumn Demo Scenario 007"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(WaitForExists(ACI.APP_VIEW, .other))
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+		when(Wait(1))
+		then(Declare("the user waited for 1 seconds"))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario008 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 8
+		title = "Autumn Demo Scenario 008"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(WaitForExists(ACI.APP_VIEW, .other))
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+		when(Wait(1))
+		then(Declare("the user waited for 1 seconds"))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario009 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 9
+		title = "Autumn Demo Scenario 009"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(WaitForExists(ACI.APP_VIEW, .other))
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+		when(Wait(1))
+		then(Declare("the user waited for 1 seconds"))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario010 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 10
+		title = "Autumn Demo Scenario 010"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(WaitForExists(ACI.APP_VIEW, .other))
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+		when(Wait(1))
+		then(Declare("the user waited for 1 seconds"))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario011 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 11
+		title = "Autumn Demo Scenario 011"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(WaitForExists(ACI.APP_VIEW, .other))
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+		when(Wait(1))
+		then(Declare("the user waited for 1 seconds"))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario012 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 12
+		title = "Autumn Demo Scenario 012"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(WaitForExists(ACI.APP_VIEW, .other))
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+		when(Wait(1))
+		then(Declare("the user waited for 1 seconds"))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario013 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 13
+		title = "Autumn Demo Scenario 013"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(WaitForExists(ACI.APP_VIEW, .other))
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+		when(Wait(1))
+		then(Declare("the user waited for 1 seconds"))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario014 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 14
+		title = "Autumn Demo Scenario 014"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(WaitForExists(ACI.APP_VIEW, .other))
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+		when(Wait(1))
+		then(Declare("the user waited for 1 seconds"))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario015 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 15
+		title = "Autumn Demo Scenario 015"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(WaitForExists(ACI.APP_VIEW, .other))
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+		when(Wait(1))
+		then(Declare("the user waited for 1 seconds"))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class AutumnDemoScenario016 : AutumnScenario
+{
+	override func setup()
+	{
+		id = 16
+		title = "Autumn Demo Scenario 016"
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(WaitForExists(ACI.APP_VIEW, .other))
+	}
+	
+	override func execute()
+	{
+		when(WaitForExists(ACI.APP_LOGIN_PROMPT_LABEL))
+		when(LoginRandom(ACI.APP_USERNAME_INPUT_FIELD, ACI.APP_PASSWORD_INPUT_FIELD, ACI.APP_LOGIN_BUTTON))
+		then(WaitForHittable(ACI.APP_MORE_STUFF_VIEW))
+		when(Wait(1))
+		then(Declare("the user waited for 1 seconds"))
+	}
+}

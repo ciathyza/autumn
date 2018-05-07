@@ -52,6 +52,7 @@
 		5E4BC8AE32F9BB92BE2FB83C /* TestRailTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC597691802289DDE7E6D /* TestRailTestResult.swift */; };
 		5E4BC9654FDFCCE8813CDCF5 /* TestRailTestCaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCE66DB2AB73F36648C1C /* TestRailTestCaseField.swift */; };
 		5E4BC98646CD889CDADE792C /* AutumnEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3A9A27A968047F5E654 /* AutumnEnums.swift */; };
+		5E4BC9C3B75CA62131AE9BFE /* AutumnDemoFeature3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCDE7D095B1BAE8A30EC7 /* AutumnDemoFeature3.swift */; };
 		5E4BCAD3D274E03B78589466 /* WaitForHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCFEC5C62A2B4CBC41216 /* WaitForHittable.swift */; };
 		5E4BCB07C2F143D162A916C7 /* AutumnDemoFeature2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3C90000231FF1CC4503 /* AutumnDemoFeature2.swift */; };
 		5E4BCB5C54EF5E66B4D7012B /* AutumnScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC1C2E91DD7D74A0C3FB7 /* AutumnScenario.swift */; };
@@ -190,6 +191,7 @@
 		5E4BCD72FA663BB146132F07 /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
 		5E4BCDB4C426F4C5C9392E65 /* Metatype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metatype.swift; sourceTree = "<group>"; };
 		5E4BCDBD464850AD85621F63 /* TestRailPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailPriority.swift; sourceTree = "<group>"; };
+		5E4BCDE7D095B1BAE8A30EC7 /* AutumnDemoFeature3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoFeature3.swift; sourceTree = "<group>"; };
 		5E4BCDFB29097D00DD8A6DB8 /* AutumnDemoViewProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnDemoViewProxy.swift; sourceTree = "<group>"; };
 		5E4BCE14D75C89944AB1CCF8 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		5E4BCE5571CAFA9A1A7618EE /* ClearInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearInputField.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 			children = (
 				5E4BCFF34590F538DE0F69BB /* AutumnDemoFeature.swift */,
 				5E4BC3C90000231FF1CC4503 /* AutumnDemoFeature2.swift */,
+				5E4BCDE7D095B1BAE8A30EC7 /* AutumnDemoFeature3.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				5E4BC17B8B840AD176A14EEA /* Character.swift in Sources */,
 				5E4BC75551DA4DA00312EC3C /* Bundle.swift in Sources */,
 				5E4BC0D7104F24AD857CAB1A /* ExecutionTimer.swift in Sources */,
+				5E4BC9C3B75CA62131AE9BFE /* AutumnDemoFeature3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
