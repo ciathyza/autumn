@@ -96,6 +96,9 @@ public class AutumnScenario : AutumnHashable
 	// MARK: - Derrived Properties
 	// ----------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Scenario tags as a comma-separated string.
+	 */
 	internal var tagsString:String
 	{
 		var s = ""
@@ -113,7 +116,7 @@ public class AutumnScenario : AutumnHashable
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
-	 * Initializes a new scenario.as
+	 * Initializes a new scenario.
 	 */
 	required public init(_ feature:AutumnFeature)
 	{

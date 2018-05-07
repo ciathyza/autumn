@@ -43,7 +43,7 @@ open class AutumnTestRunner : XCTestCase
 	internal private(set) var model:AutumnModel!
 	
 	private var _testrailClient:AutumnTestRailClient!
-	private let _fallbackUser = AutumnUser("NONE", "NONE", "NONE")
+	private let _fallbackUser = AutumnUser("fallbackUser", "NONE", "Fallback User")
 	
 	internal static let app = XCUIApplication()
 	internal static var isTestCalledOnce = false
@@ -356,6 +356,9 @@ open class AutumnTestRunner : XCTestCase
 		{
 			AutumnTestRunner.instance = self
 			AutumnLog.info("*** Welcome to \(AutumnTestRunner.FRAMEWORK_NAME) v\(AutumnTestRunner.FRAMEWORK_VERSION) ***")
+			let df = DateFormatter()
+			df.dateFormat = "HH:mm:ss, EEEE, MMM d, yyyy"
+			AutumnLog.info("The time is \(df.string(from: Date()))")
 		}
 		AutumnLog.debug("Creating testRunClass ...")
 		super.run()
