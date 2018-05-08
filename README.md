@@ -21,7 +21,7 @@ $ fastlane scan --workspace "Autumn.xcworkspace" --scheme "Automation (STG)" --d
 $ xcodebuild -workspace Autumn.xcworkspace/ -scheme 'Automation (STG)' -destination 'platform=iOS Simulator,id=38EBA092-13C4-4512-AC9B-CF4B1F9F4C10' clean build test
 ```
 
-### Hierarch
+### Hierarchy
 
 Autumn follows a hierarchy similar to Calabash, therefore tests can be constructed from the following elements (smallest to largest):
 

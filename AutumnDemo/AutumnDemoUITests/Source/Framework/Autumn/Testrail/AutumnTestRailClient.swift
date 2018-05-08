@@ -90,8 +90,13 @@ class AutumnTestRailClient
 	 */
 	func submitTestResult(_ scenario:AutumnScenario)
 	{
-		_isTestRailSubmissionComplete = false
+		if AutumnTestRunner.isLocalMode
+		{
+			_isTestRailSubmissionComplete = true
+			return
+		}
 		
+		_isTestRailSubmissionComplete = false
 		if let testCase = model.getTestRailCaseForScenario(scenario.id), let caseID = testCase.id
 		{
 			/* Determine result status ID from test result. */
