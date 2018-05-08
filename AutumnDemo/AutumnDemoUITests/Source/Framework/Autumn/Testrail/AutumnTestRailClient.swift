@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 
 class AutumnTestRailClient
@@ -18,6 +17,7 @@ class AutumnTestRailClient
 	
 	let config:AutumnConfig
 	let model:AutumnModel
+	private var _networkClient:AlamofireNetworkClient
 	
 	private var _isTestRailRetrievalComplete = false
 	private var _isTestRailSubmissionComplete = false
@@ -29,13 +29,6 @@ class AutumnTestRailClient
 	
 	var isTestRailSubmissionComplete:Bool { return _isTestRailSubmissionComplete }
 	
-	var authString:String
-	{
-		return "\(config.testrailUserEmail)" + ":\(config.testrailPassword)"
-	}
-	var authData:Data? { return authString.data(using: .ascii) }
-	let dispatchQueue = DispatchQueue(label: "com.autumn.manager-response-queue", qos: .userInitiated, attributes:.concurrent)
-	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Init
@@ -45,6 +38,7 @@ class AutumnTestRailClient
 	{
 		self.config = config
 		self.model = model
+		_networkClient = AlamofireNetworkClient(config, model)
 	}
 	
 	
@@ -473,80 +467,80 @@ class AutumnTestRailClient
 	
 	func getStatuses(callback: @escaping (([TestRailStatus]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_statuses", type: [TestRailStatus].self, callback: callback)
+		_networkClient.httpGet(path: "get_statuses", type: [TestRailStatus].self, callback: callback)
 	}
 	
 	
 	func getTestCaseFields(callback: @escaping (([TestRailTestCaseField]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_case_fields", type: [TestRailTestCaseField].self, callback: callback)
+		_networkClient.httpGet(path: "get_case_fields", type: [TestRailTestCaseField].self, callback: callback)
 	}
 	
 	
 	func getTestCaseTypes(callback: @escaping (([TestRailTestCaseType]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_case_types", type: [TestRailTestCaseType].self, callback: callback)
+		_networkClient.httpGet(path: "get_case_types", type: [TestRailTestCaseType].self, callback: callback)
 	}
 	
 	
 	func getTemplates(projectID:Int, callback: @escaping (([TestRailTemplate]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_templates/\(projectID)", type: [TestRailTemplate].self, callback: callback)
+		_networkClient.httpGet(path: "get_templates/\(projectID)", type: [TestRailTemplate].self, callback: callback)
 	}
 	
 	
 	func getTestCaseSections(projectID:Int, suiteID:Int, callback: @escaping (([TestRailSection]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_sections/\(projectID)&suite_id=\(suiteID)", type: [TestRailSection].self, callback: callback)
+		_networkClient.httpGet(path: "get_sections/\(projectID)&suite_id=\(suiteID)", type: [TestRailSection].self, callback: callback)
 	}
 	
 	
 	func getProjects(callback: @escaping (([TestRailProject]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_projects", type: [TestRailProject].self, callback: callback)
+		_networkClient.httpGet(path: "get_projects", type: [TestRailProject].self, callback: callback)
 	}
 	
 	
 	func getSuites(projectID:Int, callback: @escaping (([TestRailSuite]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_suites/\(projectID)", type: [TestRailSuite].self, callback: callback)
+		_networkClient.httpGet(path: "get_suites/\(projectID)", type: [TestRailSuite].self, callback: callback)
 	}
 	
 	
 	func getUsers(callback: @escaping (([TestRailUser]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_users", type: [TestRailUser].self, callback: callback)
+		_networkClient.httpGet(path: "get_users", type: [TestRailUser].self, callback: callback)
 	}
 	
 	
 	func getMilestones(projectID:Int, callback: @escaping (([TestRailMilestone]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_milestones/\(projectID)", type: [TestRailMilestone].self, callback: callback)
+		_networkClient.httpGet(path: "get_milestones/\(projectID)", type: [TestRailMilestone].self, callback: callback)
 	}
 	
 	
 	func getTestPlans(projectID:Int, callback: @escaping (([TestRailTestPlan]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_plans/\(projectID)", type: [TestRailTestPlan].self, callback: callback)
+		_networkClient.httpGet(path: "get_plans/\(projectID)", type: [TestRailTestPlan].self, callback: callback)
 	}
 	
 	
 	func getTestRuns(projectID:Int, callback: @escaping (([TestRailTestRun]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_runs/\(projectID)", type: [TestRailTestRun].self, callback: callback)
+		_networkClient.httpGet(path: "get_runs/\(projectID)", type: [TestRailTestRun].self, callback: callback)
 	}
 	
 	
 	func getTestCases(projectID:Int, suiteID:Int, sectionID:Int? = nil, callback: @escaping (([TestRailTestCase]?, _:String?) -> Void))
 	{
 		let secID = sectionID != nil ? "\(sectionID!)" : ""
-		httpGet(path: "get_cases/\(projectID)&suite_id=\(suiteID)&section_id=\(secID)", type: [TestRailTestCase].self, callback: callback)
+		_networkClient.httpGet(path: "get_cases/\(projectID)&suite_id=\(suiteID)&section_id=\(secID)", type: [TestRailTestCase].self, callback: callback)
 	}
 	
 	
 	func getTests(testRunID:Int, callback: @escaping (([TestRailTest]?, _:String?) -> Void))
 	{
-		httpGet(path: "get_tests/\(testRunID)", type: [TestRailTest].self, callback: callback)
+		_networkClient.httpGet(path: "get_tests/\(testRunID)", type: [TestRailTest].self, callback: callback)
 	}
 	
 	
@@ -559,7 +553,7 @@ class AutumnTestRailClient
 	 */
 	func createNewSection(section:TestRailSection, projectID:Int, callback: @escaping ((TestRailSection?, _:String?) -> Void))
 	{
-		httpPost(path: "add_section/\(projectID)", model: section, type: TestRailSection.self, callback: callback)
+		_networkClient.httpPost(path: "add_section/\(projectID)", model: section, type: TestRailSection.self, callback: callback)
 	}
 	
 	
@@ -568,7 +562,7 @@ class AutumnTestRailClient
 	 */
 	func createNewTestCase(testCase:TestRailTestCase, sectionID:Int, callback:@escaping ((TestRailTestCase?, _:String?) -> Void))
 	{
-		httpPost(path: "add_case/\(sectionID)", model: testCase, type: TestRailTestCase.self, callback: callback)
+		_networkClient.httpPost(path: "add_case/\(sectionID)", model: testCase, type: TestRailTestCase.self, callback: callback)
 	}
 	
 	
@@ -577,7 +571,7 @@ class AutumnTestRailClient
 	 */
 	func updateTestCase(testCase:TestRailTestCase, caseID:Int, callback:@escaping ((TestRailTestCase?, _:String?) -> Void))
 	{
-		httpPost(path: "update_case/\(caseID)", model: testCase, type: TestRailTestCase.self, callback: callback)
+		_networkClient.httpPost(path: "update_case/\(caseID)", model: testCase, type: TestRailTestCase.self, callback: callback)
 	}
 	
 	
@@ -586,7 +580,7 @@ class AutumnTestRailClient
 	 */
 	func createNewTestRun(testRun:TestRailTestRun, projectID:Int, callback:@escaping ((TestRailTestRun?, _:String?) -> Void))
 	{
-		httpPost(path: "add_run/\(projectID)", model: testRun, type: TestRailTestRun.self, callback: callback)
+		_networkClient.httpPost(path: "add_run/\(projectID)", model: testRun, type: TestRailTestRun.self, callback: callback)
 	}
 	
 	
@@ -595,7 +589,7 @@ class AutumnTestRailClient
 	 */
 	func updateTestRun(testRun:TestRailTestRun, callback:@escaping ((TestRailTestRun?, _:String?) -> Void))
 	{
-		httpPost(path: "update_run/\(testRun.id)", model: testRun, type: TestRailTestRun.self, callback: callback)
+		_networkClient.httpPost(path: "update_run/\(testRun.id)", model: testRun, type: TestRailTestRun.self, callback: callback)
 	}
 	
 	
@@ -604,7 +598,7 @@ class AutumnTestRailClient
 	 */
 	func addTestCaseResult(testRunID:Int, caseID:Int, testCaseResult:TestRailTestResult, callback:@escaping ((TestRailTestResult?, _:String?) -> Void))
 	{
-		httpPost(path: "add_result_for_case/\(testRunID)/\(caseID)", model: testCaseResult, type: TestRailTestResult.self, callback: callback)
+		_networkClient.httpPost(path: "add_result_for_case/\(testRunID)/\(caseID)", model: testCaseResult, type: TestRailTestResult.self, callback: callback)
 	}
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -616,7 +610,7 @@ class AutumnTestRailClient
 	 */
 	func deleteSection(sectionID:Int, callback: @escaping ((_:String?) -> Void))
 	{
-		httpPost(path: "delete_section/\(sectionID)", callback: callback)
+		_networkClient.httpPost(path: "delete_section/\(sectionID)", callback: callback)
 	}
 	
 	
@@ -912,209 +906,8 @@ class AutumnTestRailClient
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// MARK: - HTTP Methods
-	// ----------------------------------------------------------------------------------------------------
-	
-	/**
-	 * Sends HTTP GET requests to TestRail.
-	 */
-	func httpGet<T:Codable>(path:String, type:T.Type, callback: @escaping ((T?, String?) -> Void))
-	{
-		let urlString = getURLFor(path)
-		guard let url = URL(string: urlString) else
-		{
-			callback(nil, "HTTP request failed: Failed to create URL from \"\(urlString)\".")
-			return
-		}
-		guard let authData = self.authData else
-		{
-			callback(nil, "HTTP request failed: Failed to create auth data.")
-			return
-		}
-		
-		let headers:HTTPHeaders =
-		[
-			"Authorization": "Basic \(authData.base64EncodedString())",
-			"Content-Type": "application/json",
-			"Content-Length": "0"
-		]
-		
-		Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
-			.validate(statusCode: 200 ..< 300)
-			.responseJSON(queue: dispatchQueue, options: .allowFragments, completionHandler:
-		{
-			(response:DataResponse<Any>) in
-			switch (response.result)
-			{
-				case .success(_):
-					if let data = response.data //, let utf8Text = String(data: data, encoding: .utf8)
-					{
-						let decoder = JSONDecoder()
-						var decodedModel:T?
-						do
-						{
-							decodedModel = try decoder.decode(type, from: data)
-							callback(decodedModel, nil)
-						}
-						catch let e as DecodingError
-						{
-							callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
-						}
-						catch let e
-						{
-							callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
-						}
-					}
-				case .failure(_):
-					let errorDescr = response.error != nil ? response.error!.localizedDescription : ""
-					var content = "(No JSON in response)"
-					if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
-					{
-						content = utf8Text
-					}
-					callback(nil, "HTTP request for \(url.absoluteString) failed: \(errorDescr) \(content)")
-			}
-		})
-	}
-	
-	
-	/**
-	 * Sends HTTP POST requests to TestRail.
-	 */
-	func httpPost<T:Codable>(path:String, model:T, type:T.Type, callback: @escaping ((T?, String?) -> Void))
-	{
-		let encoder = JSONEncoder()
-		var encodedJSON:Any?
-		do
-		{
-			encodedJSON = try encoder.encode(model)
-		}
-		catch let e
-		{
-			callback(nil, "Failed to encode data model. EncodingError: \(e.localizedDescription)")
-		}
-		
-		if let jsonData = encodedJSON as? Data
-		{
-			let urlString = getURLFor(path)
-			guard let url = URL(string: urlString) else
-			{
-				callback(nil, "HTTP request failed: Failed to create URL from \"\(urlString)\".")
-				return
-			}
-			guard let authData = self.authData else
-			{
-				callback(nil, "HTTP request failed: Failed to create auth data.")
-				return
-			}
-			
-			var request = URLRequest(url: url)
-			request.httpMethod = "POST"
-			request.setValue("Basic \(authData.base64EncodedString())", forHTTPHeaderField: "Authorization")
-			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-			request.setValue("\(jsonData.count)", forHTTPHeaderField: "Content-Length")
-			request.httpBody = jsonData
-			
-			Alamofire.request(request)
-				.validate(statusCode: 200 ..< 300)
-				.responseJSON(queue: dispatchQueue, options: .allowFragments, completionHandler:
-			{
-				(response:DataResponse<Any>) in
-				switch (response.result)
-				{
-					case .success(_):
-						if let data = response.data //, let utf8Text = String(data: data, encoding: .utf8)
-						{
-							let decoder = JSONDecoder()
-							var decodedModel:T?
-							do
-							{
-								decodedModel = try decoder.decode(type, from: data)
-								callback(decodedModel, nil)
-							}
-							catch let e as DecodingError
-							{
-								callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
-							}
-							catch let e
-							{
-								callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
-							}
-						}
-						return
-					case .failure(_):
-						let errorDescr = response.error != nil ? response.error!.localizedDescription : ""
-						var content = "(No JSON in response)"
-						if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
-						{
-							content = utf8Text
-						}
-						callback(nil, "HTTP request for \(url.absoluteString) failed: \(errorDescr) \(content)")
-						return
-				}
-			})
-		}
-	}
-	
-	
-	/**
-	 * Simple HTTP POST request to TestRail.
-	 */
-	func httpPost(path:String, callback: @escaping ((String?) -> Void))
-	{
-		let urlString = getURLFor(path)
-		guard let url = URL(string: urlString) else
-		{
-			callback("HTTP request failed: Failed to create URL from \"\(urlString)\".")
-			return
-		}
-		guard let authData = self.authData else
-		{
-			callback("HTTP request failed: Failed to create auth data.")
-			return
-		}
-		
-		var request = URLRequest(url: url)
-		request.httpMethod = "POST"
-		request.setValue("Basic \(authData.base64EncodedString())", forHTTPHeaderField: "Authorization")
-		request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-		
-		Alamofire.request(request)
-			.validate(statusCode: 200 ..< 300)
-			.responseJSON(queue: dispatchQueue, options: .allowFragments, completionHandler:
-			{
-				(response:DataResponse<Any>) in
-				switch (response.result)
-				{
-					case .success(_):
-						callback(nil)
-						return
-					case .failure(_):
-						let errorDescr = response.error != nil ? response.error!.localizedDescription : ""
-						var content = "(No JSON in response)"
-						if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
-						{
-							content = utf8Text
-						}
-						callback("HTTP request for \(url.absoluteString) failed: \(errorDescr) \(content)")
-						return
-				}
-			})
-	}
-	
-	
-	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Helpers
 	// ----------------------------------------------------------------------------------------------------
-	
-	/// return the RESTFul API url
-	/// - Returns: the RESTFul API url.
-	///
-	func getURLFor(_ path:String) -> String
-	{
-		return "\(config.testrailHost)/index.php?/api/v2/\(path)"
-	}
-	
 	
 	func dump<T:TestRailCodable>(_ model:[T], _ maxRows:Int = 20) -> String
 	{
