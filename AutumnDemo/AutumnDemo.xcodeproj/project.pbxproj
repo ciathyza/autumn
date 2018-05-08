@@ -301,8 +301,8 @@
 		5E4BC2FEEA107724E95D1935 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				5E4BC8FA07291636C607DC0B /* Lib */,
 				5E4BC8D3CD0A8752168EA407 /* Autumn */,
+				5E4BC8FA07291636C607DC0B /* Lib */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -370,23 +370,23 @@
 		5E4BC8D3CD0A8752168EA407 /* Autumn */ = {
 			isa = PBXGroup;
 			children = (
-				5E4BC4EEA5B0029E08CC0FC6 /* IOS */,
-				5E4BC8AB8D84C979EC66BA81 /* AutumnTelemetry.swift */,
-				5E4BC3AAF3CD0C86FF266AEB /* AutumnLog.swift */,
-				5E4BC5CE722B7163C63F4120 /* Testrail */,
 				5E4BCC18A79B3DFA6A8D9A4C /* AutumnConfig.swift */,
-				5E4BC3A9A27A968047F5E654 /* AutumnEnums.swift */,
-				5E4BC52BC29FAF11BA176DB2 /* AutumnStats.swift */,
 				5E4BCF1E88C97E6F08DB4888 /* AutumnConstants.swift */,
+				5E4BC3A9A27A968047F5E654 /* AutumnEnums.swift */,
+				5E4BC3AAF3CD0C86FF266AEB /* AutumnLog.swift */,
+				5E4BC3D52844C598FDA62F10 /* AutumnModel.swift */,
 				5E4BC06D683EF9294B9E2B91 /* AutumnSession.swift */,
-				5E4BCFD8E683D846E24670F1 /* AutumnUI.swift */,
 				5E4BC14E26DA35163FD93352 /* AutumnSessionManager.swift */,
+				5E4BC52BC29FAF11BA176DB2 /* AutumnStats.swift */,
+				5E4BC8AB8D84C979EC66BA81 /* AutumnTelemetry.swift */,
 				5E4BCFD1695AFE2FFFA0B56B /* AutumnTestRunner.swift */,
-				5E4BC24DB7D5922D34D9918E /* Steps */,
 				5E4BC6D1126D1923A114D863 /* AutumnTestStep.swift */,
 				5E4BC20FA9BE98D22C3E2FCD /* AutumnTestStepResult.swift */,
-				5E4BC3D52844C598FDA62F10 /* AutumnModel.swift */,
+				5E4BCFD8E683D846E24670F1 /* AutumnUI.swift */,
+				5E4BC4EEA5B0029E08CC0FC6 /* IOS */,
 				5E4BC2F5FA0ED5B61144376C /* Model */,
+				5E4BC24DB7D5922D34D9918E /* Steps */,
+				5E4BC5CE722B7163C63F4120 /* Testrail */,
 			);
 			path = Autumn;
 			sourceTree = "<group>";
@@ -394,10 +394,10 @@
 		5E4BC8FA07291636C607DC0B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				5E4BC722828A497E301E7BC8 /* utils */,
-				5E4BCD7B0F98C0F835D5C085 /* structs */,
-				5E4BC7935AD6AB58976ED040 /* extensions */,
 				5E4BC12DC6618770617B7D27 /* Globals.swift */,
+				5E4BC7935AD6AB58976ED040 /* extensions */,
+				5E4BCD7B0F98C0F835D5C085 /* structs */,
+				5E4BC722828A497E301E7BC8 /* utils */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -538,8 +538,8 @@
 		62E511EE2045349400C2E3E8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				5E4BC2FEEA107724E95D1935 /* Framework */,
 				5E4BCE528D8F2E743576A84F /* App */,
+				5E4BC2FEEA107724E95D1935 /* Framework */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1042,12 +1042,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FD1E27F7603F4DB3B1A64B80 /* Pods-AutumnDemoUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "${inherited}";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BTBN49W3GE;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"$(SRCROOT)/**",
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
 				);
 				INFOPLIST_FILE = AutumnDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1063,12 +1064,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB2F7789FB576970A29EAA16 /* Pods-AutumnDemoUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "${inherited}";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BTBN49W3GE;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"$(SRCROOT)/**",
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
 				);
 				INFOPLIST_FILE = AutumnDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
