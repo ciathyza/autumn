@@ -1,10 +1,11 @@
-//
-// AlamofireNetworkClient.swift
-// AutumnDemo
-//
-// Created by Sascha, Balkau | FINAD on 2018/05/08.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
-//
+/*
+ * ,---..   .--.--.   .,-.-.,   .
+ * |---||   |  |  |   || | ||\  |
+ * |   ||   |  |  |   || | || \ |
+ * `   '`---'  `  `---'` ' '`  `'
+ *  UI Test Automation Framework for Xcode XCTest.
+ *  Written by Sascha Balkau.
+ */
 
 import Foundation
 import Alamofire
@@ -159,12 +160,12 @@ class AlamofireNetworkClient
 								catch let e as DecodingError
 								{
 									callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
-									if config.debug { AutumnLog.error("Response data: \(utf8Text)") }
+									if self.config.debug { AutumnLog.error("Response data: \(utf8Text)") }
 								}
 								catch let e
 								{
 									callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
-									if config.debug { AutumnLog.error("Response data: \(utf8Text)") }
+									if self.config.debug { AutumnLog.error("Response data: \(utf8Text)") }
 								}
 							}
 							return

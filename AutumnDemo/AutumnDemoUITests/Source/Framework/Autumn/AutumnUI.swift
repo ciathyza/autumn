@@ -116,7 +116,8 @@ public class AutumnUI
 	
 	/**
 	 * Tries to retrieve the XCUI element with given ID and type from the view hierarchy.
-	 * You can use .any type to search through all elemnt types for the element.
+	 * You can use .any type to search through all elemnt types for the element. Returns
+	 * nil if no element could be found in the view hierarchy.
 	 */
 	public class func getElement(_ id:String, _ type:XCUIElement.ElementType) -> XCUIElement?
 	{
@@ -370,7 +371,7 @@ public class AutumnUI
 	
 	
 	/**
-	 * Launches the app to running in foreground state.
+	 * Activates the app if it is waiting in background.
 	 */
 	public class func activateApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
@@ -766,21 +767,22 @@ public class AutumnUI
 	}
 	
 	
-	/**
-	 * As of yet unsupported!
-	 */
-	public class func customSwipe(refElement:XCUIElement, startCoord:CGVector, endCoord:CGVector)
-	{
-		let swipeStartPoint = refElement.coordinate(withNormalizedOffset: startCoord)
-		let swipeEndPoint = refElement.coordinate(withNormalizedOffset: endCoord)
-		swipeStartPoint.press(forDuration: 0.1, thenDragTo: swipeEndPoint)
-	}
+	// Currently unsupported!
+	//public class func customSwipe(refElement:XCUIElement, startCoord:CGVector, endCoord:CGVector)
+	//{
+	//	let swipeStartPoint = refElement.coordinate(withNormalizedOffset: startCoord)
+	//	let swipeEndPoint = refElement.coordinate(withNormalizedOffset: endCoord)
+	//	swipeStartPoint.press(forDuration: 0.1, thenDragTo: swipeEndPoint)
+	//}
 	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Assertion
 	// ----------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Asserts that the given UI element exists in the view hierarchy.
+	 */
 	public class func assertExists(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
 		if let e = element
@@ -791,6 +793,9 @@ public class AutumnUI
 	}
 	
 	
+	/**
+	 * Asserts that the given UI element is hittable.
+	 */
 	public class func assertHittable(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
 		if let e = element

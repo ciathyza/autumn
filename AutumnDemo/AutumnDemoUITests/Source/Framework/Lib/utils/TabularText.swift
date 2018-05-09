@@ -4,10 +4,8 @@
  * / /_/ / __/ / (_-<
  * \____/\__/_/_/___/
  *
- * Utils & Extensions for Swiift Projects.
- *
- * Written by Ciathyza | ciathyza@ciathyza.com
- * Copyright (c) 2017 Ciathyza All rights reserved.
+ * Utils & Extensions for Swiift Projects..
+ * Written by Sascha Balkau
  */
 
 import Foundation

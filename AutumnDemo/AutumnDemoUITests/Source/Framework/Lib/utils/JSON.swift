@@ -5,9 +5,7 @@
  * \____/\__/_/_/___/
  *
  * Utils & Extensions for Swiift Projects..
- *
- * Written by Sascha Balkau | ts-balkau.sascha@rakuten.com
- * Copyright (c) 2017 Rakuten, Inc. All rights reserved.
+ * Written by Sascha Balkau
  */
 
 import Foundation
@@ -146,7 +144,6 @@ class JSON
 			if (success && json != nil)
 			{
 				let jsonString = String.init(data: json!, encoding: .utf8)!
-				//Log.debug(category: "JSON", jsonString)
 				return jsonString.data(using: .ascii, allowLossyConversion: true)
 			}
 		}

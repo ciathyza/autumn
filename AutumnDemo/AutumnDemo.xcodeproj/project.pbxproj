@@ -10,13 +10,11 @@
 		27B95ED8496EAB39A05C8344 /* Pods_AutumnDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD752BEA628451EA64C80F0 /* Pods_AutumnDemo.framework */; };
 		5E4BC025886923F66C51B096 /* TestRailConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCBE5029FA4B5EF0FBBFD /* TestRailConfig.swift */; };
 		5E4BC02798FDCBA2FFC23AE1 /* TestRailTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC2A5326A5F325ACE76EA /* TestRailTemplate.swift */; };
-		5E4BC05B5FBB8A22E9A37257 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC62B7257BABCC79D05A8 /* Regex.swift */; };
 		5E4BC072DE7C11D0EB271A0A /* AutumnTestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCFD1695AFE2FFFA0B56B /* AutumnTestRunner.swift */; };
 		5E4BC0861F18C4EEA1EB044A /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCF9B5D7AE7220DCD55F6 /* Springboard.swift */; };
 		5E4BC0AB8BE946C6671FE7E1 /* Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC4C1C3CDD31E9C2D25F6 /* Wait.swift */; };
 		5E4BC0AC87FE7EC5AE4F335F /* AssertExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC273C95F7592614D323A /* AssertExists.swift */; };
 		5E4BC0D7104F24AD857CAB1A /* ExecutionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC4C8C2CA6D0E6D764A85 /* ExecutionTimer.swift */; };
-		5E4BC0E8147E7CD977894C48 /* AutumnTelemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC8AB8D84C979EC66BA81 /* AutumnTelemetry.swift */; };
 		5E4BC0FBB8E0C3BA35F9C8DE /* TestRailSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCCBFFB768300D30B431C /* TestRailSuite.swift */; };
 		5E4BC132C996C48F1D27AB53 /* AutumnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3D52844C598FDA62F10 /* AutumnModel.swift */; };
 		5E4BC17B8B840AD176A14EEA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCE14D75C89944AB1CCF8 /* Character.swift */; };
@@ -61,7 +59,6 @@
 		5E4BCCABE650E96150B25580 /* AlamofireNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCCA512967F248BA74817 /* AlamofireNetworkClient.swift */; };
 		5E4BCD022D276457709646A6 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCEE4C414FB05352A5C63 /* Login.swift */; };
 		5E4BCE19AD27D17255F38AAC /* AutumnTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC20FA9BE98D22C3E2FCD /* AutumnTestStepResult.swift */; };
-		5E4BCE31D0F92E155E40CA18 /* AutumnSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC14E26DA35163FD93352 /* AutumnSessionManager.swift */; };
 		5E4BCE32B89DC6DC6DDB4F2C /* TabularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC502C243C6C2B2C5B5DA /* TabularText.swift */; };
 		5E4BCEACF29ED1D18F75BC2F /* AutumnDemoViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCDFB29097D00DD8A6DB8 /* AutumnDemoViewProxy.swift */; };
 		5E4BCED3A7E47356A49170C8 /* AutumnSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC06D683EF9294B9E2B91 /* AutumnSession.swift */; };
@@ -97,7 +94,6 @@
 		62C8B99E2047DDB3008C2096 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC2730497CA8D8EBB8F06 /* Encodable.swift */; };
 		62C8B99F2047DDB3008C2096 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC9B988FCB5C03D55EE78 /* Dictionary.swift */; };
 		62C8B9A02047DDB3008C2096 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC15278E6B7BC21B951DD /* TimeInterval.swift */; };
-		62C8B9A12047DDB3008C2096 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCE9ED9DEBDEE0E7A97D1 /* CharacterView.swift */; };
 		62C8B9A22047DDB3008C2096 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC899B6B71D352120A964 /* UIApplication.swift */; };
 		62C8B9A32047DDB3008C2096 /* DispatchTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC83F5AD39E1C7EA0714C /* DispatchTimeInterval.swift */; };
 		62C8B9A42047DDE5008C2096 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC12DC6618770617B7D27 /* Globals.swift */; };
@@ -128,7 +124,6 @@
 		5E4BC0E26368EDDC3C07DCFE /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		5E4BC119D537ABBA7D3DC2DB /* LoginRandom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRandom.swift; sourceTree = "<group>"; };
 		5E4BC12DC6618770617B7D27 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
-		5E4BC14E26DA35163FD93352 /* AutumnSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnSessionManager.swift; sourceTree = "<group>"; };
 		5E4BC15278E6B7BC21B951DD /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		5E4BC17B1B4B45E597769CDD /* WaitForExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForExists.swift; sourceTree = "<group>"; };
 		5E4BC1BF085D7F6176B5CCF8 /* TestRailTestRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestRun.swift; sourceTree = "<group>"; };
@@ -165,7 +160,6 @@
 		5E4BC603E3AEA8AAFECE8F05 /* AutumnUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnUser.swift; sourceTree = "<group>"; };
 		5E4BC6105EAC121502EC65A4 /* TestRailTestCaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseType.swift; sourceTree = "<group>"; };
 		5E4BC616433B4864EBF56EDE /* TypePassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypePassword.swift; sourceTree = "<group>"; };
-		5E4BC62B7257BABCC79D05A8 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		5E4BC65C1357DE26BE241973 /* Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
 		5E4BC6D1126D1923A114D863 /* AutumnTestStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestStep.swift; sourceTree = "<group>"; };
 		5E4BC75F2E897972C555E4BD /* TestRailTestPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestPlan.swift; sourceTree = "<group>"; };
@@ -173,7 +167,6 @@
 		5E4BC811B0780FB6CDEA08CF /* TestRailTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTest.swift; sourceTree = "<group>"; };
 		5E4BC83F5AD39E1C7EA0714C /* DispatchTimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchTimeInterval.swift; sourceTree = "<group>"; };
 		5E4BC899B6B71D352120A964 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
-		5E4BC8AB8D84C979EC66BA81 /* AutumnTelemetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTelemetry.swift; sourceTree = "<group>"; };
 		5E4BC96DFFE2059E8D386667 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		5E4BC9AF3F072D77C4A0AE84 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		5E4BC9B988FCB5C03D55EE78 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
@@ -201,7 +194,6 @@
 		5E4BCE66DB2AB73F36648C1C /* TestRailTestCaseField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseField.swift; sourceTree = "<group>"; };
 		5E4BCE73B5C5AC6E6D66FC11 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5E4BCE9D2E9CC200B8B4A585 /* TestRailCustomTestStepResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailCustomTestStepResult.swift; sourceTree = "<group>"; };
-		5E4BCE9ED9DEBDEE0E7A97D1 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		5E4BCEB94E878A8B484E605B /* LogFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFile.swift; sourceTree = "<group>"; };
 		5E4BCEC1BFC7F9D981E9773E /* FrequencyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyTable.swift; sourceTree = "<group>"; };
 		5E4BCEE4C414FB05352A5C63 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -345,7 +337,6 @@
 				5E4BCDB4C426F4C5C9392E65 /* Metatype.swift */,
 				5E4BC0E26368EDDC3C07DCFE /* StopWatch.swift */,
 				5E4BC502C243C6C2B2C5B5DA /* TabularText.swift */,
-				5E4BC62B7257BABCC79D05A8 /* Regex.swift */,
 				5E4BC5F9A710EA6221652A8F /* HashID.swift */,
 				5E4BC4C8C2CA6D0E6D764A85 /* ExecutionTimer.swift */,
 				5E4BCEB94E878A8B484E605B /* LogFile.swift */,
@@ -368,7 +359,6 @@
 				5E4BC2730497CA8D8EBB8F06 /* Encodable.swift */,
 				5E4BC9B988FCB5C03D55EE78 /* Dictionary.swift */,
 				5E4BC15278E6B7BC21B951DD /* TimeInterval.swift */,
-				5E4BCE9ED9DEBDEE0E7A97D1 /* CharacterView.swift */,
 				5E4BC899B6B71D352120A964 /* UIApplication.swift */,
 				5E4BC83F5AD39E1C7EA0714C /* DispatchTimeInterval.swift */,
 				5E4BCE14D75C89944AB1CCF8 /* Character.swift */,
@@ -386,9 +376,7 @@
 				5E4BC3AAF3CD0C86FF266AEB /* AutumnLog.swift */,
 				5E4BC3D52844C598FDA62F10 /* AutumnModel.swift */,
 				5E4BC06D683EF9294B9E2B91 /* AutumnSession.swift */,
-				5E4BC14E26DA35163FD93352 /* AutumnSessionManager.swift */,
 				5E4BC52BC29FAF11BA176DB2 /* AutumnStats.swift */,
-				5E4BC8AB8D84C979EC66BA81 /* AutumnTelemetry.swift */,
 				5E4BCFD1695AFE2FFFA0B56B /* AutumnTestRunner.swift */,
 				5E4BC6D1126D1923A114D863 /* AutumnTestStep.swift */,
 				5E4BC20FA9BE98D22C3E2FCD /* AutumnTestStepResult.swift */,
@@ -807,7 +795,6 @@
 				62C8B99B2047DDB3008C2096 /* UIColor.swift in Sources */,
 				5E4BC6EABEEA9E6FEFADB9CB /* AutumnDemoUITests.swift in Sources */,
 				62C8B9A42047DDE5008C2096 /* Globals.swift in Sources */,
-				62C8B9A12047DDB3008C2096 /* CharacterView.swift in Sources */,
 				62C8B9A32047DDB3008C2096 /* DispatchTimeInterval.swift in Sources */,
 				62C8B9952047DDB3008C2096 /* Int.swift in Sources */,
 				62C8B99E2047DDB3008C2096 /* Encodable.swift in Sources */,
@@ -816,10 +803,8 @@
 				5E4BCEACF29ED1D18F75BC2F /* AutumnDemoViewProxy.swift in Sources */,
 				5E4BCF82E5F7F83D527873CC /* AutumnDemoScenarios.swift in Sources */,
 				5E4BCE32B89DC6DC6DDB4F2C /* TabularText.swift in Sources */,
-				5E4BC05B5FBB8A22E9A37257 /* Regex.swift in Sources */,
 				5E4BC54EBC9803DB5BD63666 /* ACI.swift in Sources */,
 				5E4BCB07C2F143D162A916C7 /* AutumnDemoFeature2.swift in Sources */,
-				5E4BC0E8147E7CD977894C48 /* AutumnTelemetry.swift in Sources */,
 				5E4BC4AD83863866D390C34E /* AutumnLog.swift in Sources */,
 				5E4BCEEFDC993F476CD868E5 /* AutumnTestRailClient.swift in Sources */,
 				5E4BCFCD6906F4E517FE00E8 /* TestRailProject.swift in Sources */,
@@ -847,7 +832,6 @@
 				5E4BC6B66BC47B8D32BE300F /* AutumnConstants.swift in Sources */,
 				5E4BCED3A7E47356A49170C8 /* AutumnSession.swift in Sources */,
 				5E4BCF2EF66E3C78AE48549E /* AutumnUI.swift in Sources */,
-				5E4BCE31D0F92E155E40CA18 /* AutumnSessionManager.swift in Sources */,
 				5E4BC072DE7C11D0EB271A0A /* AutumnTestRunner.swift in Sources */,
 				5E4BC2D9E9FC9B7C75AF410A /* AutumnTestStep.swift in Sources */,
 				5E4BCE19AD27D17255F38AAC /* AutumnTestStepResult.swift in Sources */,

@@ -1,10 +1,12 @@
-//
-//  HashIds.swift
-//  http://hashids.org
-//
-//  Author https://github.com/malczak
-//  Licensed under the MIT license.
-//
+/*
+ *   __  ____  _ __
+ *  / / / / /_(_) /__
+ * / /_/ / __/ / (_-<
+ * \____/\__/_/_/___/
+ *
+ * Utils & Extensions for Swiift Projects..
+ * Written by Sascha Balkau
+ */
 
 import Foundation
 

@@ -5,9 +5,7 @@
  * \____/\__/_/_/___/
  *
  * Utils & Extensions for Swiift Projects..
- *
- * Written by Sascha Balkau | ts-balkau.sascha@rakuten.com
- * Copyright (c) 2017 Rakuten, Inc. All rights reserved.
+ * Written by Sascha Balkau
  */
 
 import Foundation
@@ -167,14 +165,6 @@ extension String
 	{
 		return self.components(separatedBy: separator)
 	}
-	
-	
-	//public func substringDeprecated(_ start:Int, _ end:Int = -1) -> String
-	//{
-	//	let startIndex = self.index(self.startIndex, offsetBy: start)
-	//	let endIndex = self.index(startIndex, offsetBy: end < 0 ? self.count - 2 : end)
-	//	return self.substring(from: startIndex).substring(to: endIndex)
-	//}
 	
 	
 	public func substr(from:Int, to:Int) -> String
