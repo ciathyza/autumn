@@ -26,6 +26,6 @@
     ]
   },
   "pod_target_xcconfig": {
-    "DEVELOPER_FRAMEWORKS_DIR": "$(inherited) \"$(PLATFORM_DIR)/Developer/Library/Frameworks\""
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"$(PLATFORM_DIR)/Developer/Library/Frameworks\""
   }
 }

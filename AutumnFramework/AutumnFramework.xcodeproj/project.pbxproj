@@ -8,6 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		25AFC9EC45F3EB168CFE719E /* Pods_AutumnFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F2F9EE921C96EFB6B1A3F /* Pods_AutumnFramework.framework */; };
+		6220334F20A2F53D00EC3E33 /* TestRailCustomTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220333C20A2F53B00EC3E33 /* TestRailCustomTestStepResult.swift */; };
+		6220335020A2F53D00EC3E33 /* TestRailTestCaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220333D20A2F53C00EC3E33 /* TestRailTestCaseType.swift */; };
+		6220335120A2F53D00EC3E33 /* TestRailTestResultField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220333E20A2F53C00EC3E33 /* TestRailTestResultField.swift */; };
+		6220335220A2F53D00EC3E33 /* TestRailCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220333F20A2F53C00EC3E33 /* TestRailCodable.swift */; };
+		6220335320A2F53D00EC3E33 /* TestRailConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334020A2F53C00EC3E33 /* TestRailConfig.swift */; };
+		6220335420A2F53D00EC3E33 /* TestRailPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334120A2F53C00EC3E33 /* TestRailPriority.swift */; };
+		6220335520A2F53D00EC3E33 /* TestRailStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334220A2F53C00EC3E33 /* TestRailStatus.swift */; };
+		6220335620A2F53D00EC3E33 /* TestRailSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334320A2F53C00EC3E33 /* TestRailSuite.swift */; };
+		6220335720A2F53D00EC3E33 /* TestRailTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334420A2F53C00EC3E33 /* TestRailTestResult.swift */; };
+		6220335820A2F53D00EC3E33 /* TestRailTestRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334520A2F53C00EC3E33 /* TestRailTestRun.swift */; };
+		6220335920A2F53D00EC3E33 /* TestRailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334620A2F53C00EC3E33 /* TestRailSection.swift */; };
+		6220335A20A2F53D00EC3E33 /* TestRailTestPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334720A2F53D00EC3E33 /* TestRailTestPlan.swift */; };
+		6220335B20A2F53D00EC3E33 /* TestRailUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334820A2F53D00EC3E33 /* TestRailUser.swift */; };
+		6220335C20A2F53D00EC3E33 /* TestRailTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334920A2F53D00EC3E33 /* TestRailTemplate.swift */; };
+		6220335D20A2F53D00EC3E33 /* TestRailTestCaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334A20A2F53D00EC3E33 /* TestRailTestCaseField.swift */; };
+		6220335E20A2F53D00EC3E33 /* TestRailProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334B20A2F53D00EC3E33 /* TestRailProject.swift */; };
+		6220335F20A2F53D00EC3E33 /* TestRailTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334C20A2F53D00EC3E33 /* TestRailTestCase.swift */; };
+		6220336020A2F53D00EC3E33 /* TestRailMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334D20A2F53D00EC3E33 /* TestRailMilestone.swift */; };
+		6220336120A2F53D00EC3E33 /* TestRailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220334E20A2F53D00EC3E33 /* TestRailTest.swift */; };
 		6294133C20A2E2FC002BCA8E /* AutumnFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 6294133A20A2E2FC002BCA8E /* AutumnFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		629413BA20A2E587002BCA8E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137520A2E586002BCA8E /* Array.swift */; };
 		629413BB20A2E587002BCA8E /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137620A2E586002BCA8E /* Bundle.swift */; };
@@ -74,6 +93,25 @@
 
 /* Begin PBXFileReference section */
 		159F2F9EE921C96EFB6B1A3F /* Pods_AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6220333C20A2F53B00EC3E33 /* TestRailCustomTestStepResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailCustomTestStepResult.swift; sourceTree = "<group>"; };
+		6220333D20A2F53C00EC3E33 /* TestRailTestCaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseType.swift; sourceTree = "<group>"; };
+		6220333E20A2F53C00EC3E33 /* TestRailTestResultField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestResultField.swift; sourceTree = "<group>"; };
+		6220333F20A2F53C00EC3E33 /* TestRailCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailCodable.swift; sourceTree = "<group>"; };
+		6220334020A2F53C00EC3E33 /* TestRailConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailConfig.swift; sourceTree = "<group>"; };
+		6220334120A2F53C00EC3E33 /* TestRailPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailPriority.swift; sourceTree = "<group>"; };
+		6220334220A2F53C00EC3E33 /* TestRailStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailStatus.swift; sourceTree = "<group>"; };
+		6220334320A2F53C00EC3E33 /* TestRailSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailSuite.swift; sourceTree = "<group>"; };
+		6220334420A2F53C00EC3E33 /* TestRailTestResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestResult.swift; sourceTree = "<group>"; };
+		6220334520A2F53C00EC3E33 /* TestRailTestRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestRun.swift; sourceTree = "<group>"; };
+		6220334620A2F53C00EC3E33 /* TestRailSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailSection.swift; sourceTree = "<group>"; };
+		6220334720A2F53D00EC3E33 /* TestRailTestPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestPlan.swift; sourceTree = "<group>"; };
+		6220334820A2F53D00EC3E33 /* TestRailUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailUser.swift; sourceTree = "<group>"; };
+		6220334920A2F53D00EC3E33 /* TestRailTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTemplate.swift; sourceTree = "<group>"; };
+		6220334A20A2F53D00EC3E33 /* TestRailTestCaseField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseField.swift; sourceTree = "<group>"; };
+		6220334B20A2F53D00EC3E33 /* TestRailProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailProject.swift; sourceTree = "<group>"; };
+		6220334C20A2F53D00EC3E33 /* TestRailTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestCase.swift; sourceTree = "<group>"; };
+		6220334D20A2F53D00EC3E33 /* TestRailMilestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailMilestone.swift; sourceTree = "<group>"; };
+		6220334E20A2F53D00EC3E33 /* TestRailTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTest.swift; sourceTree = "<group>"; };
 		6294133720A2E2FB002BCA8E /* AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AutumnFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6294133A20A2E2FC002BCA8E /* AutumnFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutumnFramework.h; sourceTree = "<group>"; };
 		6294133B20A2E2FC002BCA8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,6 +192,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6220333B20A2F51E00EC3E33 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				6220333F20A2F53C00EC3E33 /* TestRailCodable.swift */,
+				6220334020A2F53C00EC3E33 /* TestRailConfig.swift */,
+				6220333C20A2F53B00EC3E33 /* TestRailCustomTestStepResult.swift */,
+				6220334D20A2F53D00EC3E33 /* TestRailMilestone.swift */,
+				6220334120A2F53C00EC3E33 /* TestRailPriority.swift */,
+				6220334B20A2F53D00EC3E33 /* TestRailProject.swift */,
+				6220334620A2F53C00EC3E33 /* TestRailSection.swift */,
+				6220334220A2F53C00EC3E33 /* TestRailStatus.swift */,
+				6220334320A2F53C00EC3E33 /* TestRailSuite.swift */,
+				6220334920A2F53D00EC3E33 /* TestRailTemplate.swift */,
+				6220334E20A2F53D00EC3E33 /* TestRailTest.swift */,
+				6220334C20A2F53D00EC3E33 /* TestRailTestCase.swift */,
+				6220334A20A2F53D00EC3E33 /* TestRailTestCaseField.swift */,
+				6220333D20A2F53C00EC3E33 /* TestRailTestCaseType.swift */,
+				6220334720A2F53D00EC3E33 /* TestRailTestPlan.swift */,
+				6220334420A2F53C00EC3E33 /* TestRailTestResult.swift */,
+				6220333E20A2F53C00EC3E33 /* TestRailTestResultField.swift */,
+				6220334520A2F53C00EC3E33 /* TestRailTestRun.swift */,
+				6220334820A2F53D00EC3E33 /* TestRailUser.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		6294132D20A2E2FB002BCA8E = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +370,7 @@
 		629413AB20A2E586002BCA8E /* testrail */ = {
 			isa = PBXGroup;
 			children = (
+				6220333B20A2F51E00EC3E33 /* model */,
 				629413AC20A2E586002BCA8E /* AutumnTestRailClient.swift */,
 			);
 			path = testrail;
@@ -466,6 +531,8 @@
 				629413C920A2E587002BCA8E /* UIView.swift in Sources */,
 				629413D320A2E587002BCA8E /* Log.swift in Sources */,
 				629413F620A2E587002BCA8E /* WaitForHittable.swift in Sources */,
+				6220336120A2F53D00EC3E33 /* TestRailTest.swift in Sources */,
+				6220335220A2F53D00EC3E33 /* TestRailCodable.swift in Sources */,
 				629413C520A2E587002BCA8E /* UIApplication.swift in Sources */,
 				629413D620A2E587002BCA8E /* StopWatch.swift in Sources */,
 				629413CD20A2E587002BCA8E /* Dice.swift in Sources */,
@@ -473,11 +540,14 @@
 				629413D720A2E587002BCA8E /* TabularText.swift in Sources */,
 				629413D920A2E587002BCA8E /* AutumnConstants.swift in Sources */,
 				629413DE20A2E587002BCA8E /* AutumnStats.swift in Sources */,
+				6220335920A2F53D00EC3E33 /* TestRailSection.swift in Sources */,
 				629413BC20A2E587002BCA8E /* Character.swift in Sources */,
 				629413C020A2E587002BCA8E /* Encodable.swift in Sources */,
 				629413D220A2E587002BCA8E /* JSON.swift in Sources */,
+				6220336020A2F53D00EC3E33 /* TestRailMilestone.swift in Sources */,
 				629413DD20A2E587002BCA8E /* AutumnSession.swift in Sources */,
 				629413EF20A2E587002BCA8E /* Login.swift in Sources */,
+				6220335E20A2F53D00EC3E33 /* TestRailProject.swift in Sources */,
 				629413CA20A2E587002BCA8E /* Globals.swift in Sources */,
 				629413F220A2E587002BCA8E /* TypePassword.swift in Sources */,
 				629413F320A2E587002BCA8E /* TypeText.swift in Sources */,
@@ -493,17 +563,26 @@
 				629413F420A2E587002BCA8E /* Wait.swift in Sources */,
 				629413D020A2E587002BCA8E /* HashID.swift in Sources */,
 				629413F520A2E587002BCA8E /* WaitForExists.swift in Sources */,
+				6220335F20A2F53D00EC3E33 /* TestRailTestCase.swift in Sources */,
+				6220335B20A2F53D00EC3E33 /* TestRailUser.swift in Sources */,
 				629413E820A2E587002BCA8E /* AutumnUser.swift in Sources */,
 				629413C820A2E587002BCA8E /* UInt.swift in Sources */,
 				629413D120A2E587002BCA8E /* Interval.swift in Sources */,
+				6220335120A2F53D00EC3E33 /* TestRailTestResultField.swift in Sources */,
 				629413D820A2E587002BCA8E /* AutumnConfig.swift in Sources */,
 				629413E420A2E587002BCA8E /* Springboard.swift in Sources */,
 				629413E120A2E587002BCA8E /* AutumnTestStepResult.swift in Sources */,
+				6220335D20A2F53D00EC3E33 /* TestRailTestCaseField.swift in Sources */,
+				6220335620A2F53D00EC3E33 /* TestRailSuite.swift in Sources */,
+				6220335C20A2F53D00EC3E33 /* TestRailTemplate.swift in Sources */,
 				629413E520A2E587002BCA8E /* AutumnFeature.swift in Sources */,
 				629413EA20A2E587002BCA8E /* AutumnTestRailClient.swift in Sources */,
 				629413C220A2E587002BCA8E /* NSObject.swift in Sources */,
+				6220335820A2F53D00EC3E33 /* TestRailTestRun.swift in Sources */,
+				6220335420A2F53D00EC3E33 /* TestRailPriority.swift in Sources */,
 				629413BE20A2E587002BCA8E /* DispatchTimeInterval.swift in Sources */,
 				629413DC20A2E587002BCA8E /* AutumnModel.swift in Sources */,
+				6220335320A2F53D00EC3E33 /* TestRailConfig.swift in Sources */,
 				629413BA20A2E587002BCA8E /* Array.swift in Sources */,
 				629413DB20A2E587002BCA8E /* AutumnLog.swift in Sources */,
 				629413E620A2E587002BCA8E /* AutumnHashable.swift in Sources */,
@@ -511,6 +590,7 @@
 				629413E320A2E587002BCA8E /* AlamofireNetworkClient.swift in Sources */,
 				629413BF20A2E587002BCA8E /* Double.swift in Sources */,
 				629413EE20A2E587002BCA8E /* LaunchApp.swift in Sources */,
+				6220335020A2F53D00EC3E33 /* TestRailTestCaseType.swift in Sources */,
 				629413DF20A2E587002BCA8E /* AutumnTestRunner.swift in Sources */,
 				629413D420A2E587002BCA8E /* LogFile.swift in Sources */,
 				629413C620A2E587002BCA8E /* UIColor.swift in Sources */,
@@ -518,7 +598,11 @@
 				629413E220A2E587002BCA8E /* AutumnUI.swift in Sources */,
 				629413C120A2E587002BCA8E /* Int.swift in Sources */,
 				629413F020A2E587002BCA8E /* LoginRandom.swift in Sources */,
+				6220334F20A2F53D00EC3E33 /* TestRailCustomTestStepResult.swift in Sources */,
+				6220335520A2F53D00EC3E33 /* TestRailStatus.swift in Sources */,
+				6220335A20A2F53D00EC3E33 /* TestRailTestPlan.swift in Sources */,
 				629413E720A2E587002BCA8E /* AutumnScenario.swift in Sources */,
+				6220335720A2F53D00EC3E33 /* TestRailTestResult.swift in Sources */,
 				629413C420A2E587002BCA8E /* TimeInterval.swift in Sources */,
 				629413EC20A2E587002BCA8E /* ClearInputField.swift in Sources */,
 				629413C720A2E587002BCA8E /* UIDevice.swift in Sources */,
@@ -563,6 +647,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -623,6 +708,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -655,7 +741,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
-					$DEVELOPER_FRAMEWORKS_DIR,
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				INFOPLIST_FILE = AutumnFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -682,7 +768,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
-					$DEVELOPER_FRAMEWORKS_DIR,
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				INFOPLIST_FILE = AutumnFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

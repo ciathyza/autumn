@@ -11,5 +11,6 @@ Pod::Spec.new do |spec|
 	spec.requires_arc = true
 	spec.framework    = "XCTest"
 	spec.dependency     'Alamofire', '~> 4.5'
-	spec.pod_target_xcconfig = { 'DEVELOPER_FRAMEWORKS_DIR' => '$(inherited) "$(PLATFORM_DIR)/Developer/Library/Frameworks"' }
+	spec.pod_target_xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(inherited) "$(PLATFORM_DIR)/Developer/Library/Frameworks"', }
+  
 end
