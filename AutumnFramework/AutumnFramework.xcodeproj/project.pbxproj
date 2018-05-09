@@ -7,13 +7,139 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25AFC9EC45F3EB168CFE719E /* Pods_AutumnFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F2F9EE921C96EFB6B1A3F /* Pods_AutumnFramework.framework */; };
 		6294133C20A2E2FC002BCA8E /* AutumnFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 6294133A20A2E2FC002BCA8E /* AutumnFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		629413BA20A2E587002BCA8E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137520A2E586002BCA8E /* Array.swift */; };
+		629413BB20A2E587002BCA8E /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137620A2E586002BCA8E /* Bundle.swift */; };
+		629413BC20A2E587002BCA8E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137720A2E586002BCA8E /* Character.swift */; };
+		629413BD20A2E587002BCA8E /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137820A2E586002BCA8E /* Dictionary.swift */; };
+		629413BE20A2E587002BCA8E /* DispatchTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137920A2E586002BCA8E /* DispatchTimeInterval.swift */; };
+		629413BF20A2E587002BCA8E /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137A20A2E586002BCA8E /* Double.swift */; };
+		629413C020A2E587002BCA8E /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137B20A2E586002BCA8E /* Encodable.swift */; };
+		629413C120A2E587002BCA8E /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137C20A2E586002BCA8E /* Int.swift */; };
+		629413C220A2E587002BCA8E /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137D20A2E586002BCA8E /* NSObject.swift */; };
+		629413C320A2E587002BCA8E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137E20A2E586002BCA8E /* String.swift */; };
+		629413C420A2E587002BCA8E /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294137F20A2E586002BCA8E /* TimeInterval.swift */; };
+		629413C520A2E587002BCA8E /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138020A2E586002BCA8E /* UIApplication.swift */; };
+		629413C620A2E587002BCA8E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138120A2E586002BCA8E /* UIColor.swift */; };
+		629413C720A2E587002BCA8E /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138220A2E586002BCA8E /* UIDevice.swift */; };
+		629413C820A2E587002BCA8E /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138320A2E586002BCA8E /* UInt.swift */; };
+		629413C920A2E587002BCA8E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138420A2E586002BCA8E /* UIView.swift */; };
+		629413CA20A2E587002BCA8E /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138520A2E586002BCA8E /* Globals.swift */; };
+		629413CB20A2E587002BCA8E /* FrequencyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138720A2E586002BCA8E /* FrequencyTable.swift */; };
+		629413CC20A2E587002BCA8E /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138820A2E586002BCA8E /* SortedArray.swift */; };
+		629413CD20A2E587002BCA8E /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138A20A2E586002BCA8E /* Dice.swift */; };
+		629413CE20A2E587002BCA8E /* ExecutionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138B20A2E586002BCA8E /* ExecutionTimer.swift */; };
+		629413CF20A2E587002BCA8E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138C20A2E586002BCA8E /* File.swift */; };
+		629413D020A2E587002BCA8E /* HashID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138D20A2E586002BCA8E /* HashID.swift */; };
+		629413D120A2E587002BCA8E /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138E20A2E586002BCA8E /* Interval.swift */; };
+		629413D220A2E587002BCA8E /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294138F20A2E586002BCA8E /* JSON.swift */; };
+		629413D320A2E587002BCA8E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139020A2E586002BCA8E /* Log.swift */; };
+		629413D420A2E587002BCA8E /* LogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139120A2E586002BCA8E /* LogFile.swift */; };
+		629413D520A2E587002BCA8E /* Metatype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139220A2E586002BCA8E /* Metatype.swift */; };
+		629413D620A2E587002BCA8E /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139320A2E586002BCA8E /* StopWatch.swift */; };
+		629413D720A2E587002BCA8E /* TabularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139420A2E586002BCA8E /* TabularText.swift */; };
+		629413D820A2E587002BCA8E /* AutumnConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139620A2E586002BCA8E /* AutumnConfig.swift */; };
+		629413D920A2E587002BCA8E /* AutumnConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139720A2E586002BCA8E /* AutumnConstants.swift */; };
+		629413DA20A2E587002BCA8E /* AutumnEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139820A2E586002BCA8E /* AutumnEnums.swift */; };
+		629413DB20A2E587002BCA8E /* AutumnLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139920A2E586002BCA8E /* AutumnLog.swift */; };
+		629413DC20A2E587002BCA8E /* AutumnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139A20A2E586002BCA8E /* AutumnModel.swift */; };
+		629413DD20A2E587002BCA8E /* AutumnSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139B20A2E586002BCA8E /* AutumnSession.swift */; };
+		629413DE20A2E587002BCA8E /* AutumnStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139C20A2E586002BCA8E /* AutumnStats.swift */; };
+		629413DF20A2E587002BCA8E /* AutumnTestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139D20A2E586002BCA8E /* AutumnTestRunner.swift */; };
+		629413E020A2E587002BCA8E /* AutumnTestStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139E20A2E586002BCA8E /* AutumnTestStep.swift */; };
+		629413E120A2E587002BCA8E /* AutumnTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294139F20A2E586002BCA8E /* AutumnTestStepResult.swift */; };
+		629413E220A2E587002BCA8E /* AutumnUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413A020A2E586002BCA8E /* AutumnUI.swift */; };
+		629413E320A2E587002BCA8E /* AlamofireNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413A220A2E586002BCA8E /* AlamofireNetworkClient.swift */; };
+		629413E420A2E587002BCA8E /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413A420A2E586002BCA8E /* Springboard.swift */; };
+		629413E520A2E587002BCA8E /* AutumnFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413A620A2E586002BCA8E /* AutumnFeature.swift */; };
+		629413E620A2E587002BCA8E /* AutumnHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413A720A2E586002BCA8E /* AutumnHashable.swift */; };
+		629413E720A2E587002BCA8E /* AutumnScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413A820A2E586002BCA8E /* AutumnScenario.swift */; };
+		629413E820A2E587002BCA8E /* AutumnUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413A920A2E586002BCA8E /* AutumnUser.swift */; };
+		629413E920A2E587002BCA8E /* AutumnViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413AA20A2E586002BCA8E /* AutumnViewProxy.swift */; };
+		629413EA20A2E587002BCA8E /* AutumnTestRailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413AC20A2E586002BCA8E /* AutumnTestRailClient.swift */; };
+		629413EB20A2E587002BCA8E /* AssertExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413AE20A2E587002BCA8E /* AssertExists.swift */; };
+		629413EC20A2E587002BCA8E /* ClearInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413AF20A2E587002BCA8E /* ClearInputField.swift */; };
+		629413ED20A2E587002BCA8E /* Declare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B020A2E587002BCA8E /* Declare.swift */; };
+		629413EE20A2E587002BCA8E /* LaunchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B120A2E587002BCA8E /* LaunchApp.swift */; };
+		629413EF20A2E587002BCA8E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B220A2E587002BCA8E /* Login.swift */; };
+		629413F020A2E587002BCA8E /* LoginRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B320A2E587002BCA8E /* LoginRandom.swift */; };
+		629413F120A2E587002BCA8E /* Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B420A2E587002BCA8E /* Tap.swift */; };
+		629413F220A2E587002BCA8E /* TypePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B520A2E587002BCA8E /* TypePassword.swift */; };
+		629413F320A2E587002BCA8E /* TypeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B620A2E587002BCA8E /* TypeText.swift */; };
+		629413F420A2E587002BCA8E /* Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B720A2E587002BCA8E /* Wait.swift */; };
+		629413F520A2E587002BCA8E /* WaitForExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B820A2E587002BCA8E /* WaitForExists.swift */; };
+		629413F620A2E587002BCA8E /* WaitForHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B920A2E587002BCA8E /* WaitForHittable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		159F2F9EE921C96EFB6B1A3F /* Pods_AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6294133720A2E2FB002BCA8E /* AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AutumnFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6294133A20A2E2FC002BCA8E /* AutumnFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutumnFramework.h; sourceTree = "<group>"; };
 		6294133B20A2E2FC002BCA8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6294137520A2E586002BCA8E /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		6294137620A2E586002BCA8E /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		6294137720A2E586002BCA8E /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		6294137820A2E586002BCA8E /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		6294137920A2E586002BCA8E /* DispatchTimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchTimeInterval.swift; sourceTree = "<group>"; };
+		6294137A20A2E586002BCA8E /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		6294137B20A2E586002BCA8E /* Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		6294137C20A2E586002BCA8E /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		6294137D20A2E586002BCA8E /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		6294137E20A2E586002BCA8E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		6294137F20A2E586002BCA8E /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		6294138020A2E586002BCA8E /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		6294138120A2E586002BCA8E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		6294138220A2E586002BCA8E /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		6294138320A2E586002BCA8E /* UInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
+		6294138420A2E586002BCA8E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		6294138520A2E586002BCA8E /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		6294138720A2E586002BCA8E /* FrequencyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrequencyTable.swift; sourceTree = "<group>"; };
+		6294138820A2E586002BCA8E /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
+		6294138A20A2E586002BCA8E /* Dice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		6294138B20A2E586002BCA8E /* ExecutionTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecutionTimer.swift; sourceTree = "<group>"; };
+		6294138C20A2E586002BCA8E /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		6294138D20A2E586002BCA8E /* HashID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashID.swift; sourceTree = "<group>"; };
+		6294138E20A2E586002BCA8E /* Interval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
+		6294138F20A2E586002BCA8E /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		6294139020A2E586002BCA8E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		6294139120A2E586002BCA8E /* LogFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFile.swift; sourceTree = "<group>"; };
+		6294139220A2E586002BCA8E /* Metatype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metatype.swift; sourceTree = "<group>"; };
+		6294139320A2E586002BCA8E /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		6294139420A2E586002BCA8E /* TabularText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabularText.swift; sourceTree = "<group>"; };
+		6294139620A2E586002BCA8E /* AutumnConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnConfig.swift; sourceTree = "<group>"; };
+		6294139720A2E586002BCA8E /* AutumnConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnConstants.swift; sourceTree = "<group>"; };
+		6294139820A2E586002BCA8E /* AutumnEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnEnums.swift; sourceTree = "<group>"; };
+		6294139920A2E586002BCA8E /* AutumnLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnLog.swift; sourceTree = "<group>"; };
+		6294139A20A2E586002BCA8E /* AutumnModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnModel.swift; sourceTree = "<group>"; };
+		6294139B20A2E586002BCA8E /* AutumnSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnSession.swift; sourceTree = "<group>"; };
+		6294139C20A2E586002BCA8E /* AutumnStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnStats.swift; sourceTree = "<group>"; };
+		6294139D20A2E586002BCA8E /* AutumnTestRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestRunner.swift; sourceTree = "<group>"; };
+		6294139E20A2E586002BCA8E /* AutumnTestStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestStep.swift; sourceTree = "<group>"; };
+		6294139F20A2E586002BCA8E /* AutumnTestStepResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestStepResult.swift; sourceTree = "<group>"; };
+		629413A020A2E586002BCA8E /* AutumnUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnUI.swift; sourceTree = "<group>"; };
+		629413A220A2E586002BCA8E /* AlamofireNetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkClient.swift; sourceTree = "<group>"; };
+		629413A420A2E586002BCA8E /* Springboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
+		629413A620A2E586002BCA8E /* AutumnFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnFeature.swift; sourceTree = "<group>"; };
+		629413A720A2E586002BCA8E /* AutumnHashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnHashable.swift; sourceTree = "<group>"; };
+		629413A820A2E586002BCA8E /* AutumnScenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnScenario.swift; sourceTree = "<group>"; };
+		629413A920A2E586002BCA8E /* AutumnUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnUser.swift; sourceTree = "<group>"; };
+		629413AA20A2E586002BCA8E /* AutumnViewProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnViewProxy.swift; sourceTree = "<group>"; };
+		629413AC20A2E586002BCA8E /* AutumnTestRailClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutumnTestRailClient.swift; sourceTree = "<group>"; };
+		629413AE20A2E587002BCA8E /* AssertExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssertExists.swift; sourceTree = "<group>"; };
+		629413AF20A2E587002BCA8E /* ClearInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearInputField.swift; sourceTree = "<group>"; };
+		629413B020A2E587002BCA8E /* Declare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Declare.swift; sourceTree = "<group>"; };
+		629413B120A2E587002BCA8E /* LaunchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchApp.swift; sourceTree = "<group>"; };
+		629413B220A2E587002BCA8E /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		629413B320A2E587002BCA8E /* LoginRandom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRandom.swift; sourceTree = "<group>"; };
+		629413B420A2E587002BCA8E /* Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
+		629413B520A2E587002BCA8E /* TypePassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypePassword.swift; sourceTree = "<group>"; };
+		629413B620A2E587002BCA8E /* TypeText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeText.swift; sourceTree = "<group>"; };
+		629413B720A2E587002BCA8E /* Wait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wait.swift; sourceTree = "<group>"; };
+		629413B820A2E587002BCA8E /* WaitForExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForExists.swift; sourceTree = "<group>"; };
+		629413B920A2E587002BCA8E /* WaitForHittable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForHittable.swift; sourceTree = "<group>"; };
+		7CF5B3023312623856994954 /* Pods-AutumnFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		B73BFF2E929C1925D97FD3AA /* Pods-AutumnFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25AFC9EC45F3EB168CFE719E /* Pods_AutumnFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +159,8 @@
 			children = (
 				6294133920A2E2FB002BCA8E /* AutumnFramework */,
 				6294133820A2E2FB002BCA8E /* Products */,
+				FCB4FE691D16C5F5D659064F /* Pods */,
+				A7F2C3AF586BEEE116D7209A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,8 +185,166 @@
 			isa = PBXGroup;
 			children = (
 				6294133A20A2E2FC002BCA8E /* AutumnFramework.h */,
+				6294139520A2E586002BCA8E /* core */,
+				629413A320A2E586002BCA8E /* ios */,
+				6294137320A2E586002BCA8E /* lib */,
+				629413A520A2E586002BCA8E /* model */,
+				629413A120A2E586002BCA8E /* network */,
+				629413AD20A2E587002BCA8E /* steps */,
+				629413AB20A2E586002BCA8E /* testrail */,
 			);
 			path = source;
+			sourceTree = "<group>";
+		};
+		6294137320A2E586002BCA8E /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				6294137420A2E586002BCA8E /* extensions */,
+				6294138520A2E586002BCA8E /* Globals.swift */,
+				6294138620A2E586002BCA8E /* structs */,
+				6294138920A2E586002BCA8E /* utils */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		6294137420A2E586002BCA8E /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6294137520A2E586002BCA8E /* Array.swift */,
+				6294137620A2E586002BCA8E /* Bundle.swift */,
+				6294137720A2E586002BCA8E /* Character.swift */,
+				6294137820A2E586002BCA8E /* Dictionary.swift */,
+				6294137920A2E586002BCA8E /* DispatchTimeInterval.swift */,
+				6294137A20A2E586002BCA8E /* Double.swift */,
+				6294137B20A2E586002BCA8E /* Encodable.swift */,
+				6294137C20A2E586002BCA8E /* Int.swift */,
+				6294137D20A2E586002BCA8E /* NSObject.swift */,
+				6294137E20A2E586002BCA8E /* String.swift */,
+				6294137F20A2E586002BCA8E /* TimeInterval.swift */,
+				6294138020A2E586002BCA8E /* UIApplication.swift */,
+				6294138120A2E586002BCA8E /* UIColor.swift */,
+				6294138220A2E586002BCA8E /* UIDevice.swift */,
+				6294138320A2E586002BCA8E /* UInt.swift */,
+				6294138420A2E586002BCA8E /* UIView.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		6294138620A2E586002BCA8E /* structs */ = {
+			isa = PBXGroup;
+			children = (
+				6294138720A2E586002BCA8E /* FrequencyTable.swift */,
+				6294138820A2E586002BCA8E /* SortedArray.swift */,
+			);
+			path = structs;
+			sourceTree = "<group>";
+		};
+		6294138920A2E586002BCA8E /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				6294138A20A2E586002BCA8E /* Dice.swift */,
+				6294138B20A2E586002BCA8E /* ExecutionTimer.swift */,
+				6294138C20A2E586002BCA8E /* File.swift */,
+				6294138D20A2E586002BCA8E /* HashID.swift */,
+				6294138E20A2E586002BCA8E /* Interval.swift */,
+				6294138F20A2E586002BCA8E /* JSON.swift */,
+				6294139020A2E586002BCA8E /* Log.swift */,
+				6294139120A2E586002BCA8E /* LogFile.swift */,
+				6294139220A2E586002BCA8E /* Metatype.swift */,
+				6294139320A2E586002BCA8E /* StopWatch.swift */,
+				6294139420A2E586002BCA8E /* TabularText.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		6294139520A2E586002BCA8E /* core */ = {
+			isa = PBXGroup;
+			children = (
+				6294139620A2E586002BCA8E /* AutumnConfig.swift */,
+				6294139720A2E586002BCA8E /* AutumnConstants.swift */,
+				6294139820A2E586002BCA8E /* AutumnEnums.swift */,
+				6294139920A2E586002BCA8E /* AutumnLog.swift */,
+				6294139A20A2E586002BCA8E /* AutumnModel.swift */,
+				6294139B20A2E586002BCA8E /* AutumnSession.swift */,
+				6294139C20A2E586002BCA8E /* AutumnStats.swift */,
+				6294139D20A2E586002BCA8E /* AutumnTestRunner.swift */,
+				6294139E20A2E586002BCA8E /* AutumnTestStep.swift */,
+				6294139F20A2E586002BCA8E /* AutumnTestStepResult.swift */,
+				629413A020A2E586002BCA8E /* AutumnUI.swift */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		629413A120A2E586002BCA8E /* network */ = {
+			isa = PBXGroup;
+			children = (
+				629413A220A2E586002BCA8E /* AlamofireNetworkClient.swift */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		629413A320A2E586002BCA8E /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				629413A420A2E586002BCA8E /* Springboard.swift */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		629413A520A2E586002BCA8E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				629413A620A2E586002BCA8E /* AutumnFeature.swift */,
+				629413A720A2E586002BCA8E /* AutumnHashable.swift */,
+				629413A820A2E586002BCA8E /* AutumnScenario.swift */,
+				629413A920A2E586002BCA8E /* AutumnUser.swift */,
+				629413AA20A2E586002BCA8E /* AutumnViewProxy.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		629413AB20A2E586002BCA8E /* testrail */ = {
+			isa = PBXGroup;
+			children = (
+				629413AC20A2E586002BCA8E /* AutumnTestRailClient.swift */,
+			);
+			path = testrail;
+			sourceTree = "<group>";
+		};
+		629413AD20A2E587002BCA8E /* steps */ = {
+			isa = PBXGroup;
+			children = (
+				629413AE20A2E587002BCA8E /* AssertExists.swift */,
+				629413AF20A2E587002BCA8E /* ClearInputField.swift */,
+				629413B020A2E587002BCA8E /* Declare.swift */,
+				629413B120A2E587002BCA8E /* LaunchApp.swift */,
+				629413B220A2E587002BCA8E /* Login.swift */,
+				629413B320A2E587002BCA8E /* LoginRandom.swift */,
+				629413B420A2E587002BCA8E /* Tap.swift */,
+				629413B520A2E587002BCA8E /* TypePassword.swift */,
+				629413B620A2E587002BCA8E /* TypeText.swift */,
+				629413B720A2E587002BCA8E /* Wait.swift */,
+				629413B820A2E587002BCA8E /* WaitForExists.swift */,
+				629413B920A2E587002BCA8E /* WaitForHittable.swift */,
+			);
+			path = steps;
+			sourceTree = "<group>";
+		};
+		A7F2C3AF586BEEE116D7209A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				159F2F9EE921C96EFB6B1A3F /* Pods_AutumnFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCB4FE691D16C5F5D659064F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7CF5B3023312623856994954 /* Pods-AutumnFramework.debug.xcconfig */,
+				B73BFF2E929C1925D97FD3AA /* Pods-AutumnFramework.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,10 +365,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6294133F20A2E2FC002BCA8E /* Build configuration list for PBXNativeTarget "AutumnFramework" */;
 			buildPhases = (
+				3EB7FA67866F3925B60861B6 /* [CP] Check Pods Manifest.lock */,
 				6294133220A2E2FB002BCA8E /* Sources */,
 				6294133320A2E2FB002BCA8E /* Frameworks */,
 				6294133420A2E2FB002BCA8E /* Headers */,
 				6294133520A2E2FB002BCA8E /* Resources */,
+				220936B5F14317DBE8352578 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,11 +423,105 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		220936B5F14317DBE8352578 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EB7FA67866F3925B60861B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6294133220A2E2FB002BCA8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				629413CE20A2E587002BCA8E /* ExecutionTimer.swift in Sources */,
+				629413DA20A2E587002BCA8E /* AutumnEnums.swift in Sources */,
+				629413C920A2E587002BCA8E /* UIView.swift in Sources */,
+				629413D320A2E587002BCA8E /* Log.swift in Sources */,
+				629413F620A2E587002BCA8E /* WaitForHittable.swift in Sources */,
+				629413C520A2E587002BCA8E /* UIApplication.swift in Sources */,
+				629413D620A2E587002BCA8E /* StopWatch.swift in Sources */,
+				629413CD20A2E587002BCA8E /* Dice.swift in Sources */,
+				629413E920A2E587002BCA8E /* AutumnViewProxy.swift in Sources */,
+				629413D720A2E587002BCA8E /* TabularText.swift in Sources */,
+				629413D920A2E587002BCA8E /* AutumnConstants.swift in Sources */,
+				629413DE20A2E587002BCA8E /* AutumnStats.swift in Sources */,
+				629413BC20A2E587002BCA8E /* Character.swift in Sources */,
+				629413C020A2E587002BCA8E /* Encodable.swift in Sources */,
+				629413D220A2E587002BCA8E /* JSON.swift in Sources */,
+				629413DD20A2E587002BCA8E /* AutumnSession.swift in Sources */,
+				629413EF20A2E587002BCA8E /* Login.swift in Sources */,
+				629413CA20A2E587002BCA8E /* Globals.swift in Sources */,
+				629413F220A2E587002BCA8E /* TypePassword.swift in Sources */,
+				629413F320A2E587002BCA8E /* TypeText.swift in Sources */,
+				629413ED20A2E587002BCA8E /* Declare.swift in Sources */,
+				629413C320A2E587002BCA8E /* String.swift in Sources */,
+				629413CC20A2E587002BCA8E /* SortedArray.swift in Sources */,
+				629413E020A2E587002BCA8E /* AutumnTestStep.swift in Sources */,
+				629413CF20A2E587002BCA8E /* File.swift in Sources */,
+				629413BD20A2E587002BCA8E /* Dictionary.swift in Sources */,
+				629413EB20A2E587002BCA8E /* AssertExists.swift in Sources */,
+				629413CB20A2E587002BCA8E /* FrequencyTable.swift in Sources */,
+				629413D520A2E587002BCA8E /* Metatype.swift in Sources */,
+				629413F420A2E587002BCA8E /* Wait.swift in Sources */,
+				629413D020A2E587002BCA8E /* HashID.swift in Sources */,
+				629413F520A2E587002BCA8E /* WaitForExists.swift in Sources */,
+				629413E820A2E587002BCA8E /* AutumnUser.swift in Sources */,
+				629413C820A2E587002BCA8E /* UInt.swift in Sources */,
+				629413D120A2E587002BCA8E /* Interval.swift in Sources */,
+				629413D820A2E587002BCA8E /* AutumnConfig.swift in Sources */,
+				629413E420A2E587002BCA8E /* Springboard.swift in Sources */,
+				629413E120A2E587002BCA8E /* AutumnTestStepResult.swift in Sources */,
+				629413E520A2E587002BCA8E /* AutumnFeature.swift in Sources */,
+				629413EA20A2E587002BCA8E /* AutumnTestRailClient.swift in Sources */,
+				629413C220A2E587002BCA8E /* NSObject.swift in Sources */,
+				629413BE20A2E587002BCA8E /* DispatchTimeInterval.swift in Sources */,
+				629413DC20A2E587002BCA8E /* AutumnModel.swift in Sources */,
+				629413BA20A2E587002BCA8E /* Array.swift in Sources */,
+				629413DB20A2E587002BCA8E /* AutumnLog.swift in Sources */,
+				629413E620A2E587002BCA8E /* AutumnHashable.swift in Sources */,
+				629413F120A2E587002BCA8E /* Tap.swift in Sources */,
+				629413E320A2E587002BCA8E /* AlamofireNetworkClient.swift in Sources */,
+				629413BF20A2E587002BCA8E /* Double.swift in Sources */,
+				629413EE20A2E587002BCA8E /* LaunchApp.swift in Sources */,
+				629413DF20A2E587002BCA8E /* AutumnTestRunner.swift in Sources */,
+				629413D420A2E587002BCA8E /* LogFile.swift in Sources */,
+				629413C620A2E587002BCA8E /* UIColor.swift in Sources */,
+				629413BB20A2E587002BCA8E /* Bundle.swift in Sources */,
+				629413E220A2E587002BCA8E /* AutumnUI.swift in Sources */,
+				629413C120A2E587002BCA8E /* Int.swift in Sources */,
+				629413F020A2E587002BCA8E /* LoginRandom.swift in Sources */,
+				629413E720A2E587002BCA8E /* AutumnScenario.swift in Sources */,
+				629413C420A2E587002BCA8E /* TimeInterval.swift in Sources */,
+				629413EC20A2E587002BCA8E /* ClearInputField.swift in Sources */,
+				629413C720A2E587002BCA8E /* UIDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +643,7 @@
 		};
 		6294134020A2E2FC002BCA8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CF5B3023312623856994954 /* Pods-AutumnFramework.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -268,6 +652,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+					$DEVELOPER_FRAMEWORKS_DIR,
+				);
 				INFOPLIST_FILE = AutumnFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -281,6 +670,7 @@
 		};
 		6294134120A2E2FC002BCA8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B73BFF2E929C1925D97FD3AA /* Pods-AutumnFramework.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -289,6 +679,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+					$DEVELOPER_FRAMEWORKS_DIR,
+				);
 				INFOPLIST_FILE = AutumnFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

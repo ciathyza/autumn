@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DB9DBC18D1570AD831BEA2B /* Pods_AutumnDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFCE4584648A642009E8ED3 /* Pods_AutumnDemoUITests.framework */; };
 		6294134F20A2E338002BCA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294134E20A2E338002BCA8E /* AppDelegate.swift */; };
 		6294135120A2E338002BCA8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294135020A2E338002BCA8E /* ViewController.swift */; };
 		6294135420A2E338002BCA8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6294135220A2E338002BCA8E /* Main.storyboard */; };
 		6294135620A2E338002BCA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6294135520A2E338002BCA8E /* Assets.xcassets */; };
 		6294135920A2E338002BCA8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6294135720A2E338002BCA8E /* LaunchScreen.storyboard */; };
 		6294136420A2E339002BCA8E /* AutumnDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294136320A2E339002BCA8E /* AutumnDemoUITests.swift */; };
+		D68FFA48EF8D743041C5E9FA /* Pods_AutumnDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9570DFF4718220D42ED811 /* Pods_AutumnDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FFCE4584648A642009E8ED3 /* Pods_AutumnDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		412C7EF095AC6A2F35B4A7A9 /* Pods-AutumnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4B9570DFF4718220D42ED811 /* Pods_AutumnDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56F6D9F734CD297B57F6E30A /* Pods-AutumnDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemoUITests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6294134B20A2E338002BCA8E /* AutumnDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutumnDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6294134E20A2E338002BCA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6294135020A2E338002BCA8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		6294135F20A2E339002BCA8E /* AutumnDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutumnDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6294136320A2E339002BCA8E /* AutumnDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutumnDemoUITests.swift; sourceTree = "<group>"; };
 		6294136520A2E339002BCA8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ACF1D572801B4C08D7A00E1 /* Pods-AutumnDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemoUITests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EC8C01509179E806FC9BE50B /* Pods-AutumnDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68FFA48EF8D743041C5E9FA /* Pods_AutumnDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DB9DBC18D1570AD831BEA2B /* Pods_AutumnDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +72,8 @@
 				6294134D20A2E338002BCA8E /* AutumnDemo */,
 				6294136220A2E339002BCA8E /* AutumnDemoUITests */,
 				6294134C20A2E338002BCA8E /* Products */,
+				698BB89F97B9572AE77FDC8E /* Pods */,
+				EB554884EE0D726926C7BB90 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +140,26 @@
 			path = source;
 			sourceTree = "<group>";
 		};
+		698BB89F97B9572AE77FDC8E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C01509179E806FC9BE50B /* Pods-AutumnDemo.debug.xcconfig */,
+				412C7EF095AC6A2F35B4A7A9 /* Pods-AutumnDemo.release.xcconfig */,
+				56F6D9F734CD297B57F6E30A /* Pods-AutumnDemoUITests.debug.xcconfig */,
+				7ACF1D572801B4C08D7A00E1 /* Pods-AutumnDemoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EB554884EE0D726926C7BB90 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B9570DFF4718220D42ED811 /* Pods_AutumnDemo.framework */,
+				0FFCE4584648A642009E8ED3 /* Pods_AutumnDemoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6294136820A2E339002BCA8E /* Build configuration list for PBXNativeTarget "AutumnDemo" */;
 			buildPhases = (
+				1DF72F19A33394016BCCECBF /* [CP] Check Pods Manifest.lock */,
 				6294134720A2E338002BCA8E /* Sources */,
 				6294134820A2E338002BCA8E /* Frameworks */,
 				6294134920A2E338002BCA8E /* Resources */,
+				6BC34D5889E02E6136B8153B /* [CP] Embed Pods Frameworks */,
+				E2138832CBC703F0FEAD213A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6294136B20A2E339002BCA8E /* Build configuration list for PBXNativeTarget "AutumnDemoUITests" */;
 			buildPhases = (
+				3B3996B2C9F7B2987250B862 /* [CP] Check Pods Manifest.lock */,
 				6294135B20A2E339002BCA8E /* Sources */,
 				6294135C20A2E339002BCA8E /* Frameworks */,
 				6294135D20A2E339002BCA8E /* Resources */,
+				07E53314F634357055A70C90 /* [CP] Embed Pods Frameworks */,
+				58117020F7CF99D1BCEF933C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -225,6 +263,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07E53314F634357055A70C90 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DF72F19A33394016BCCECBF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3B3996B2C9F7B2987250B862 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		58117020F7CF99D1BCEF933C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BC34D5889E02E6136B8153B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2138832CBC703F0FEAD213A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6294134720A2E338002BCA8E /* Sources */ = {
@@ -383,7 +514,9 @@
 		};
 		6294136920A2E339002BCA8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC8C01509179E806FC9BE50B /* Pods-AutumnDemo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BTBN49W3GE;
@@ -398,7 +531,9 @@
 		};
 		6294136A20A2E339002BCA8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 412C7EF095AC6A2F35B4A7A9 /* Pods-AutumnDemo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BTBN49W3GE;
@@ -413,8 +548,9 @@
 		};
 		6294136C20A2E339002BCA8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56F6D9F734CD297B57F6E30A /* Pods-AutumnDemoUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BTBN49W3GE;
 				INFOPLIST_FILE = AutumnDemoUITests/Info.plist;
@@ -429,8 +565,9 @@
 		};
 		6294136D20A2E339002BCA8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7ACF1D572801B4C08D7A00E1 /* Pods-AutumnDemoUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BTBN49W3GE;
 				INFOPLIST_FILE = AutumnDemoUITests/Info.plist;
