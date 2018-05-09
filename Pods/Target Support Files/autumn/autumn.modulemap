@@ -1,6 +1,0 @@
-framework module autumn {
-  umbrella header "autumn-umbrella.h"
-
-  export *
-  module * { export * }
-}
