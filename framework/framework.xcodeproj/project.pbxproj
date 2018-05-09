@@ -69,9 +69,11 @@
 		629015B320A2B7DE00AF4042 /* TabularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629015A820A2B7DE00AF4042 /* TabularText.swift */; };
 		629015B420A2B7DE00AF4042 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629015A920A2B7DE00AF4042 /* Log.swift */; };
 		629015B620A2B7F100AF4042 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629015B520A2B7F100AF4042 /* Globals.swift */; };
+		D7A0C573231E23639DE6CA51 /* Pods_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F074AE23FA70B1A6D2399C /* Pods_framework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20F074AE23FA70B1A6D2399C /* Pods_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6290152520A2B5A500AF4042 /* framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6290152820A2B5A500AF4042 /* framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = framework.h; sourceTree = "<group>"; };
 		6290152920A2B5A500AF4042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,6 +138,8 @@
 		629015A820A2B7DE00AF4042 /* TabularText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabularText.swift; sourceTree = "<group>"; };
 		629015A920A2B7DE00AF4042 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		629015B520A2B7F100AF4042 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		9A0BB677E475B23CC9447C64 /* Pods-framework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-framework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-framework/Pods-framework.release.xcconfig"; sourceTree = "<group>"; };
+		A23C26294BB930711FF67580 /* Pods-framework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-framework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-framework/Pods-framework.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7A0C573231E23639DE6CA51 /* Pods_framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +159,8 @@
 			children = (
 				6290152720A2B5A500AF4042 /* framework */,
 				6290152620A2B5A500AF4042 /* Products */,
+				ACB4486FCD799A30322D2D2A /* Pods */,
+				EAC1FA685FFCE033613BB887 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,9 +175,8 @@
 		6290152720A2B5A500AF4042 /* framework */ = {
 			isa = PBXGroup;
 			children = (
-				6290153020A2B5FF00AF4042 /* source */,
-				6290152820A2B5A500AF4042 /* framework.h */,
 				6290152920A2B5A500AF4042 /* Info.plist */,
+				6290153020A2B5FF00AF4042 /* source */,
 			);
 			path = framework;
 			sourceTree = "<group>";
@@ -178,6 +184,7 @@
 		6290153020A2B5FF00AF4042 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				6290152820A2B5A500AF4042 /* framework.h */,
 				6290153220A2B6A400AF4042 /* core */,
 				6290153320A2B6AB00AF4042 /* ios */,
 				6290153920A2B70200AF4042 /* lib */,
@@ -323,6 +330,23 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		ACB4486FCD799A30322D2D2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A23C26294BB930711FF67580 /* Pods-framework.debug.xcconfig */,
+				9A0BB677E475B23CC9447C64 /* Pods-framework.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EAC1FA685FFCE033613BB887 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20F074AE23FA70B1A6D2399C /* Pods_framework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -341,10 +365,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6290152D20A2B5A500AF4042 /* Build configuration list for PBXNativeTarget "framework" */;
 			buildPhases = (
+				E9E1320E1FF01943F3CFD173 /* [CP] Check Pods Manifest.lock */,
 				6290152020A2B5A500AF4042 /* Sources */,
 				6290152120A2B5A500AF4042 /* Frameworks */,
 				6290152220A2B5A500AF4042 /* Headers */,
 				6290152320A2B5A500AF4042 /* Resources */,
+				5F57B04D58E2E4584C0C82BC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -397,6 +423,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F57B04D58E2E4584C0C82BC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-framework/Pods-framework-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9E1320E1FF01943F3CFD173 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6290152020A2B5A500AF4042 /* Sources */ = {
@@ -473,6 +532,7 @@
 		6290152B20A2B5A500AF4042 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -505,6 +565,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = $DEVELOPER_FRAMEWORKS_DIR;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -533,6 +594,7 @@
 		6290152C20A2B5A500AF4042 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -565,6 +627,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = $DEVELOPER_FRAMEWORKS_DIR;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -585,6 +648,7 @@
 		};
 		6290152E20A2B5A500AF4042 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A23C26294BB930711FF67580 /* Pods-framework.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -594,6 +658,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+				);
 				INFOPLIST_FILE = framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -608,6 +676,7 @@
 		};
 		6290152F20A2B5A500AF4042 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A0BB677E475B23CC9447C64 /* Pods-framework.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -617,6 +686,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+				);
 				INFOPLIST_FILE = framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

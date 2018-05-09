@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (4.6.0)
+  - autumn (0.1.0):
+    - Alamofire (~> 4.5)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - autumn (from `autumn.podspec`)
+
+EXTERNAL SOURCES:
+  autumn:
+    :path: autumn.podspec
+
+SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  autumn: 0d6cc1a39c2b938443d7d635bc2b719294358023
+
+PODFILE CHECKSUM: bb761bf317f4a0356d80edbdee3f4fc8de1a2f7a
+
+COCOAPODS: 1.2.1
