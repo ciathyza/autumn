@@ -1,5 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Automation (STG)" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" singleton="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AutumnDemo" TARGET_NAME="AutumnDemoUITests" CONFIG_NAME="Debug" SCHEME_NAME="Automation (STG)" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="Tokyo, Japan" LOCATION_SCENARIO_TYPE="1" TEST_CLASS="AutumnDemoUITests" TEST_MODE="SUITE_TEST" XCODE_SKIPPED_TESTS_HASH_CODE="-826332872">
-    <method />
-  </configuration>
-</component>
