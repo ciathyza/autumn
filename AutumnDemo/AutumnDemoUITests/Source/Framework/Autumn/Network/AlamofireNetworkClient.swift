@@ -147,7 +147,7 @@ class AlamofireNetworkClient
 					switch (response.result)
 					{
 						case .success(_):
-							if let data = response.data //, let utf8Text = String(data: data, encoding: .utf8)
+							if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
 							{
 								let decoder = JSONDecoder()
 								var decodedModel:T?
@@ -159,10 +159,12 @@ class AlamofireNetworkClient
 								catch let e as DecodingError
 								{
 									callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
+									if config.debug { AutumnLog.error("Response data: \(utf8Text)") }
 								}
 								catch let e
 								{
 									callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
+									if config.debug { AutumnLog.error("Response data: \(utf8Text)") }
 								}
 							}
 							return
