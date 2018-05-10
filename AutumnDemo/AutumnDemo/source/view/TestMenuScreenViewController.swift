@@ -2,8 +2,7 @@
 //  TestMenuScreenViewController.swift
 //  demo-swift
 //
-//  Created by Sascha, Balkau | FINAD on 2017/09/29.
-//  Copyright © 2017 Rakuten. All rights reserved.
+//  Created by Sascha Balkau
 //
 
 import UIKit
@@ -46,13 +45,13 @@ class TestMenuScreenViewController : UIViewController
 	
 	func setupAccessibilityIdentifiers()
 	{
-		view.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_VIEW_ACI
-		button1.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_BUTTON1_ACI
-		button2.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_BUTTON2_ACI
-		button3.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_BUTTON3_ACI
-		button4.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_BUTTON4_ACI
-		button5.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_BUTTON5_ACI
-		resetButton.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_RESET_BUTTON_ACI
+		view.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_VIEW_ACI.id
+		button1.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_BUTTON1_ACI.id
+		button2.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_BUTTON2_ACI.id
+		button3.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_BUTTON3_ACI.id
+		button4.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_BUTTON4_ACI.id
+		button5.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_BUTTON5_ACI.id
+		resetButton.accessibilityIdentifier = DEMO_TEST_MENU_SCREEN_RESET_BUTTON_ACI.id
 	}
 	
 	
@@ -70,17 +69,17 @@ class TestMenuScreenViewController : UIViewController
 		let buttonID = sender.accessibilityIdentifier!
 		switch buttonID
 		{
-			case DEMO_TEST_MENU_SCREEN_BUTTON1_ACI:
+			case DEMO_TEST_MENU_SCREEN_BUTTON1_ACI.id:
 				return
-			case DEMO_TEST_MENU_SCREEN_BUTTON2_ACI:
+			case DEMO_TEST_MENU_SCREEN_BUTTON2_ACI.id:
 				return
-			case DEMO_TEST_MENU_SCREEN_BUTTON3_ACI:
+			case DEMO_TEST_MENU_SCREEN_BUTTON3_ACI.id:
 				return
-			case DEMO_TEST_MENU_SCREEN_BUTTON4_ACI:
+			case DEMO_TEST_MENU_SCREEN_BUTTON4_ACI.id:
 				return
-			case DEMO_TEST_MENU_SCREEN_BUTTON5_ACI:
+			case DEMO_TEST_MENU_SCREEN_BUTTON5_ACI.id:
 				return
-			case DEMO_TEST_MENU_SCREEN_RESET_BUTTON_ACI:
+			case DEMO_TEST_MENU_SCREEN_RESET_BUTTON_ACI.id:
 				resetApp()
 			default:
 				print("No option for \(buttonID)!")

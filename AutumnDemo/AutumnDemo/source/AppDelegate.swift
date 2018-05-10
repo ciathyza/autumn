@@ -2,8 +2,7 @@
 //  AppDelegate.swift
 //  demo-swift
 //
-//  Created by Sascha, Balkau | FINAD on 2017/09/29.
-//  Copyright © 2017 Rakuten. All rights reserved.
+//  Created by Sascha Balkau
 //
 
 import UIKit

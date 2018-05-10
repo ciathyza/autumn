@@ -1,15 +1,14 @@
 //
-// GetCoffeeViewController.swift
+// ObtainCoffeeViewController.swift
 // demo-swift
 //
-// Created by Sascha, Balkau | FINAD on 2017/10/02.
-// Copyright (c) 2017 Rakuten. All rights reserved.
+// Created by Sascha Balkau
 //
 
 import UIKit
 
 
-class GetCoffeeViewController: UIViewController
+class ObtainCoffeeViewController : UIViewController
 {
 	// ------------------------------------------------------------------------------------------------
 	// MARK: Properties
@@ -58,21 +57,21 @@ class GetCoffeeViewController: UIViewController
 	
 	func setupAccessibilityIdentifiers()
 	{
-		view.accessibilityIdentifier = DEMO_COFFEE_VIEW_ACI
-		loginPromptLabel.accessibilityIdentifier = DEMO_COFFEE_LOGIN_PROMPT_ACI
-		usernameInput.accessibilityIdentifier = DEMO_COFFEE_USERNAME_INPUT_ACI
-		passwordInput.accessibilityIdentifier = DEMO_COFFEE_PASSWORD_INPUT_ACI
-		loginButton.accessibilityIdentifier = DEMO_COFFEE_LOGIN_BUTTON_ACI
-		coffeeStrengthLabel.accessibilityIdentifier = DEMO_COFFEE_STRENGTH_LABEL_ACI
-		coffeeStrengthSelector.accessibilityIdentifier = DEMO_COFFEE_STRENGTH_SELECTOR_ACI
-		sugarLabel.accessibilityIdentifier = DEMO_COFFEE_SUGAR_LABEL_ACI
-		sugarSlider.accessibilityIdentifier = DEMO_COFFEE_SUGAR_SLIDER_ACI
-		whipCreamLabel.accessibilityIdentifier = DEMO_COFFEE_WHIPCREAM_LABEL_ACI
-		whipCreamSwitch.accessibilityIdentifier = DEMO_COFFEE_WHIPCREAM_SWITCH_ACI
-		extraCaffeineLabel.accessibilityIdentifier = DEMO_COFFEE_EXTRA_CAFFEINE_LABEL_ACI
-		extraCaffeineValueLabel.accessibilityIdentifier = DEMO_COFFEE_EXTRA_CAFFEINE_VALUE_LABEL_ACI
-		extraCaffeineStepper.accessibilityIdentifier = DEMO_COFFEE_EXTRA_CAFFEINE_STEPPER_ACI
-		brewButton.accessibilityIdentifier = DEMO_COFFEE_BREW_BUTTON_ACI
+		view.accessibilityIdentifier                    = DEMO_COFFEE_VIEW_ACI.id
+		loginPromptLabel.accessibilityIdentifier        = DEMO_COFFEE_LOGIN_PROMPT_ACI.id
+		usernameInput.accessibilityIdentifier           = DEMO_COFFEE_USERNAME_INPUT_ACI.id
+		passwordInput.accessibilityIdentifier           = DEMO_COFFEE_PASSWORD_INPUT_ACI.id
+		loginButton.accessibilityIdentifier             = DEMO_COFFEE_LOGIN_BUTTON_ACI.id
+		coffeeStrengthLabel.accessibilityIdentifier     = DEMO_COFFEE_STRENGTH_LABEL_ACI.id
+		coffeeStrengthSelector.accessibilityIdentifier  = DEMO_COFFEE_STRENGTH_SELECTOR_ACI.id
+		sugarLabel.accessibilityIdentifier              = DEMO_COFFEE_SUGAR_LABEL_ACI.id
+		sugarSlider.accessibilityIdentifier             = DEMO_COFFEE_SUGAR_SLIDER_ACI.id
+		whipCreamLabel.accessibilityIdentifier          = DEMO_COFFEE_WHIPCREAM_LABEL_ACI.id
+		whipCreamSwitch.accessibilityIdentifier         = DEMO_COFFEE_WHIPCREAM_SWITCH_ACI.id
+		extraCaffeineLabel.accessibilityIdentifier      = DEMO_COFFEE_EXTRA_CAFFEINE_LABEL_ACI.id
+		extraCaffeineValueLabel.accessibilityIdentifier = DEMO_COFFEE_EXTRA_CAFFEINE_VALUE_LABEL_ACI.id
+		extraCaffeineStepper.accessibilityIdentifier    = DEMO_COFFEE_EXTRA_CAFFEINE_STEPPER_ACI.id
+		brewButton.accessibilityIdentifier              = DEMO_COFFEE_BREW_BUTTON_ACI.id
 	}
 	
 	
