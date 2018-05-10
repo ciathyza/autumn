@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="UI Tests (STG)" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AutumnDemo" TARGET_NAME="AutumnDemoUITests" CONFIG_NAME="Debug" SCHEME_NAME="UI Tests (STG)" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier" LOCATION_SCENARIO_TYPE="1" TEST_PATTERN="AutumnDemoUITests" TEST_MODE="PATTERN" XCODE_SKIPPED_TESTS_HASH_CODE="1">
+  <configuration default="false" name="UI Tests (STG)" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AutumnDemo" TARGET_NAME="AutumnDemoUITests" CONFIG_NAME="Debug" SCHEME_NAME="UI Tests (STG)" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier" LOCATION_SCENARIO_TYPE="1" TEST_MODE="SUITE_TEST" XCODE_SKIPPED_TESTS_HASH_CODE="0">
     <method />
   </configuration>
 </component>

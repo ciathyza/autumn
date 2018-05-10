@@ -2,7 +2,7 @@
 //  AutumnFramework.h
 //  AutumnFramework
 //
-//  Created by Sascha, Balkau
+//  Created by Sascha Balkau
 //
 
 #import <UIKit/UIKit.h>

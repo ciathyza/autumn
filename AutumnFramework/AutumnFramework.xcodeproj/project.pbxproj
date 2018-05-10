@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25AFC9EC45F3EB168CFE719E /* Pods_AutumnFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F2F9EE921C96EFB6B1A3F /* Pods_AutumnFramework.framework */; };
 		6220334F20A2F53D00EC3E33 /* TestRailCustomTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220333C20A2F53B00EC3E33 /* TestRailCustomTestStepResult.swift */; };
 		6220335020A2F53D00EC3E33 /* TestRailTestCaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220333D20A2F53C00EC3E33 /* TestRailTestCaseType.swift */; };
 		6220335120A2F53D00EC3E33 /* TestRailTestResultField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220333E20A2F53C00EC3E33 /* TestRailTestResultField.swift */; };
@@ -92,10 +91,10 @@
 		62FC40CF20A3C80200FD6969 /* autumn.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 62FC40CE20A3C80200FD6969 /* autumn.podspec */; };
 		62FC40D120A3C80A00FD6969 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 62FC40D020A3C80A00FD6969 /* LICENSE */; };
 		62FC40D320A3C84500FD6969 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 62FC40D220A3C84500FD6969 /* README.md */; };
+		7F15D0A6CE655D4885459F1B /* Pods_AutumnFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA06D75B2B9F419953CD8F0 /* Pods_AutumnFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		159F2F9EE921C96EFB6B1A3F /* Pods_AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6220333C20A2F53B00EC3E33 /* TestRailCustomTestStepResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailCustomTestStepResult.swift; sourceTree = "<group>"; };
 		6220333D20A2F53C00EC3E33 /* TestRailTestCaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseType.swift; sourceTree = "<group>"; };
 		6220333E20A2F53C00EC3E33 /* TestRailTestResultField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestResultField.swift; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 		62FC40D020A3C80A00FD6969 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
 		62FC40D220A3C84500FD6969 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		7CF5B3023312623856994954 /* Pods-AutumnFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		AEA06D75B2B9F419953CD8F0 /* Pods_AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73BFF2E929C1925D97FD3AA /* Pods-AutumnFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,7 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25AFC9EC45F3EB168CFE719E /* Pods_AutumnFramework.framework in Frameworks */,
+				7F15D0A6CE655D4885459F1B /* Pods_AutumnFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +407,7 @@
 		A7F2C3AF586BEEE116D7209A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				159F2F9EE921C96EFB6B1A3F /* Pods_AutumnFramework.framework */,
+				AEA06D75B2B9F419953CD8F0 /* Pods_AutumnFramework.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

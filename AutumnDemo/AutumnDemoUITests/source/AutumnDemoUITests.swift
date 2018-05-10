@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import AutumnFramework
 
 
 class AutumnDemoUITests : AutumnTestRunner
