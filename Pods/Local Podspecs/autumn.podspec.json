@@ -1,13 +1,13 @@
 {
   "name": "autumn",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": {
     "type": "Proprietary",
     "file": "LICENSE"
   },
   "homepage": "https://git.rakuten-it.com/users/ts-balkau.sascha/repos/autumn",
   "authors": {
-    "Sascha, Balkau": "ts-balkau.sascha@rakuten.com"
+    "Sascha Balkau": "ts-balkau.sascha@rakuten.com"
   },
   "summary": "A Swift UI test framework built around XCTest.",
   "platforms": {
@@ -15,17 +15,17 @@
   },
   "source": {
     "git": "https://git.rakuten-it.com/scm/~ts-balkau.sascha/autumn.git",
-    "tag": "0.1.0"
+    "tag": "1.0.0"
   },
   "source_files": "AutumnFramework/AutumnFramework/source/**/*.{swift,h,m}",
   "requires_arc": true,
   "frameworks": "XCTest",
+  "pod_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"$(PLATFORM_DIR)/Developer/Library/Frameworks\""
+  },
   "dependencies": {
     "Alamofire": [
       "~> 4.5"
     ]
-  },
-  "pod_target_xcconfig": {
-    "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"$(PLATFORM_DIR)/Developer/Library/Frameworks\""
   }
 }

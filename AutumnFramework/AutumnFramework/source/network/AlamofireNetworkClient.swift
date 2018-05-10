@@ -31,8 +31,8 @@ class AlamofireNetworkClient
 	
 	init(_ config:AutumnConfig, _ model:AutumnModel)
 	{
-		self._config = config
-		self._model = model
+		_config = config
+		_model = model
 	}
 	
 	

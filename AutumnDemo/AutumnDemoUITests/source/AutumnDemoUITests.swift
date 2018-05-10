@@ -8,35 +8,50 @@
 import XCTest
 
 
-class AutumnDemoUITests : XCTestCase
+class AutumnDemoUITests : AutumnTestRunner
 {
-	
-	override func setUp()
-	{
-		super.setUp()
-		
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-		
-		// In UI tests it is usually best to stop immediately when a failure occurs.
-		continueAfterFailure = false
-		// UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-		XCUIApplication().launch()
-		
-		// In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-	}
-	
-	
-	override func tearDown()
-	{
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-	
-	
-	func testExample()
-	{
-		// Use recording to get started writing UI tests.
-		// Use XCTAssert and related functions to verify your tests produce the correct results.
-	}
-	
+//	override func configure()
+//	{
+//		config.networkRequestTimeout = 20
+//
+//		config.projectName           = "PointPartner"
+//		config.appName               = "AutumnDemo"
+//		config.appID                 = "com.ciathyza.AutumnDemo"
+//		config.testrailHost          = "https://pointpartner.testrail.net"
+//		config.testrailUserEmail     = "ts-balkau.sascha@rakuten.com"
+//		config.testrailPassword      = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
+//		config.testrailMilestoneName = "App 4.2.0"
+//		config.testrailProjectID     = 4
+//		config.testrailTestType      = .Functional
+//		config.isStagingBuild        = true
+//		config.logInstructions       = true
+//		config.debug                 = false
+//	}
+//
+//
+//	override func registerUsers()
+//	{
+//		registerUser(AutumnUser("James Seth Lynch", "MyUltraSecretExtraLongPassword12345%!", "Lynch"), isDefaultSTG: true)
+//		registerUser(AutumnUser("Norman Bates", "MyMotherIsMyLove", "Bates"), isDefaultPRD: true)
+//		registerUser(AutumnUser("Patrick Bateman", "HeadsInFridges", "Bateman"))
+//		registerUser(AutumnUser("Fred Kraeger", "Claws666!LOLwut#", "Freddy"))
+//		registerUser(AutumnUser("Hannibal Lecter", "Bodies123OmnomnomFTW$", "Lecter"))
+//		registerUser(AutumnUser("Michael Myers", "LookUnderYourBedBeforeSleeping!", "MaskFace"))
+//		registerUser(AutumnUser("Catherine Tramell", "BetweenTeheLegs", "Cathy"))
+//		registerUser(AutumnUser("Jason Voorhees", "ILoveTeenies!$^*%", "Jason"))
+//	}
+//
+//
+//	override func registerViewProxies()
+//	{
+//		registerViewProxy(AutumnDemoViewProxy.self, "Demo View Proxy")
+//	}
+//
+//
+//	override func registerFeatures()
+//	{
+//		registerFeature(AutumnDemoFeature.self)
+//		registerFeature(AutumnDemoFeature2.self)
+//		registerFeature(AutumnDemoFeature3.self)
+//	}
 }
