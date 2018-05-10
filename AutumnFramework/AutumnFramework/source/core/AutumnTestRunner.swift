@@ -361,9 +361,10 @@ open class AutumnTestRunner : XCTestCase
 			let df = DateFormatter()
 			df.dateFormat = "HH:mm:ss, EEEE, MMM d, yyyy"
 			AutumnLog.info("The time is \(df.string(from: Date()))")
+			
+			AutumnLog.debug("Creating testRunClass ...")
+			super.run()
 		}
-		AutumnLog.debug("Creating testRunClass ...")
-		super.run()
 	}
 	
 	
@@ -372,8 +373,11 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	override open func perform(_ run:XCTestRun)
 	{
-		AutumnLog.debug("Performing test run \"\(run.test.name)\" ...")
-		super.perform(run)
+		if !AutumnTestRunner.isTestCalledOnce
+		{
+			AutumnLog.debug("Performing test run \"\(run.test.name)\" ...")
+			super.perform(run)
+		}
 	}
 	
 	
@@ -382,9 +386,12 @@ open class AutumnTestRunner : XCTestCase
 	 */
 	override open func setUp()
 	{
-		AutumnLog.debug("Setting up test ...")
-		super.setUp()
-		continueAfterFailure = true
+		if !AutumnTestRunner.isTestCalledOnce
+		{
+			AutumnLog.debug("Setting up test ...")
+			super.setUp()
+			continueAfterFailure = true
+		}
 	}
 	
 	
@@ -408,7 +415,7 @@ open class AutumnTestRunner : XCTestCase
 	 * a dedicated test method but we want Autumn to control the flow of test case execution therefore
 	 * we initiate test case launches from within this single test method.
 	 */
-	func test()
+	final func test()
 	{
 		/* Ensure this only gets called once! */
 		if !AutumnTestRunner.isTestCalledOnce
