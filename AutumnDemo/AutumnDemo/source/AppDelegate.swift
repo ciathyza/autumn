@@ -1,17 +1,18 @@
 //
 //  AppDelegate.swift
-//  AutumnDemo
+//  demo-swift
 //
-//  Created by Sascha Balkau
+//  Created by Sascha, Balkau | FINAD on 2017/09/29.
+//  Copyright © 2017 Rakuten. All rights reserved.
 //
 
 import UIKit
 
 
+// ------------------------------------------------------------------------------------------------
 @UIApplicationMain
 class AppDelegate : UIResponder, UIApplicationDelegate
 {
-	
 	var window:UIWindow?
 	
 	
