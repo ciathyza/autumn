@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import autumn
+import Autumn
 
 
 class AutumnDemoUITests : AutumnTestRunner

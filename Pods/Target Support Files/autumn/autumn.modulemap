@@ -1,5 +1,5 @@
-framework module autumn {
-  umbrella header "autumn-umbrella.h"
+framework module Autumn {
+  umbrella header "Autumn-umbrella.h"
 
   export *
   module * { export * }

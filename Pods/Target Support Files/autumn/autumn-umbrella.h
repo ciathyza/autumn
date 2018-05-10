@@ -12,6 +12,6 @@
 
 #import "AutumnFramework.h"
 
-FOUNDATION_EXPORT double autumnVersionNumber;
-FOUNDATION_EXPORT const unsigned char autumnVersionString[];
+FOUNDATION_EXPORT double AutumnVersionNumber;
+FOUNDATION_EXPORT const unsigned char AutumnVersionString[];
 

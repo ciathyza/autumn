@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_autumn : NSObject
+@interface PodsDummy_Autumn : NSObject
 @end
-@implementation PodsDummy_autumn
+@implementation PodsDummy_Autumn
 @end
