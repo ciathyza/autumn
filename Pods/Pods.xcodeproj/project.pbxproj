@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -198,11 +198,11 @@
 		35A7412A275B0676162E32304446A7D8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37F444537D7D608FFE95618F8D574226 /* TimeInterval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		38D743B163E400AAF802CD2DA50DD4E6 /* Declare.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Declare.swift; sourceTree = "<group>"; };
-		3A343007EEDD75531BB589AF4B7FAC55 /* Pods_AutumnDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AutumnDemo.framework; path = "Pods-AutumnDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A343007EEDD75531BB589AF4B7FAC55 /* Pods_AutumnDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C6DA799DC8BEB0FE005BC76D1B5B1B7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3D60BC9955B4F7FFA62D7440CB385C11 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		3F0C49459EC7A377094CCB9C3DCE46B0 /* Pods-AutumnDemoUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AutumnDemoUITests.modulemap"; sourceTree = "<group>"; };
-		3FCC325AA749278E054BED947DD68A1A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FCC325AA749278E054BED947DD68A1A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FA5E3B04296DEF7B24669DB458C595 /* AutumnFramework.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AutumnFramework.h; sourceTree = "<group>"; };
 		460FF055D5058E4B0F53D3516991B59C /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		468178D8CDB16C1C8CF57FE95A8E1C1C /* Pods-AutumnDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutumnDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		4ED9096D045E81C18509EC3CB8A39210 /* FrequencyTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FrequencyTable.swift; sourceTree = "<group>"; };
 		511A74EA37470C65D562F58B644B82FD /* TestRailStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailStatus.swift; sourceTree = "<group>"; };
 		533D62758C4C7BB1CC683C97C964B9CD /* Tap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
-		556BD27805AD35F88AB524711A3D2C6E /* Pods_AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AutumnFramework.framework; path = "Pods-AutumnFramework.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		556BD27805AD35F88AB524711A3D2C6E /* Pods_AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C5478B6EEA21A5AB050AD73DC97031 /* Character.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		61D920D6E48023BCBF18CD83450D05F5 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		623DC6BED17555439CE11C3899419053 /* Pods-AutumnDemoUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AutumnDemoUITests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -236,12 +236,12 @@
 		80F896922275FD0A620A22BAF5ADDCF6 /* Pods-AutumnFramework-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AutumnFramework-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8409582FE7D610EDADDAFF14FA77EF54 /* Pods-AutumnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutumnDemo.release.xcconfig"; sourceTree = "<group>"; };
 		847A940929CFEB4BD24AF4240B3A0B91 /* Pods-AutumnDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutumnDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		859C9CB90C582BDA55501B17764A38C0 /* autumn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = autumn.framework; path = autumn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		859C9CB90C582BDA55501B17764A38C0 /* autumn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = autumn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8650502FBD7301663EE5A445A874DD70 /* Dictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		875C4E2609B169AD2C76CAC6AFF898E9 /* LogFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogFile.swift; sourceTree = "<group>"; };
 		876EA080EC621658A012992D1AF96F02 /* autumn-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "autumn-prefix.pch"; sourceTree = "<group>"; };
 		87882A1F5A92C8138D54545E51D51E6F /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		940222359DC79388C3462A0E7F97E3B8 /* Pods-AutumnDemoUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AutumnDemoUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9490443898D3D0F7316C194518E6A12F /* Wait.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Wait.swift; sourceTree = "<group>"; };
 		95ED5BFEAE299A09F1CFE6446AF33010 /* UIView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 		B8E8C2C147F568B85D1AE9061AC0F613 /* Pods-AutumnDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AutumnDemo-umbrella.h"; sourceTree = "<group>"; };
 		BA38B2EB54720BFC99B96096BB31D1BF /* LoginRandom.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginRandom.swift; sourceTree = "<group>"; };
 		BD20215F9812D7A3E757BD8A82DFA4C8 /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		C3AEBF50BE5C2C56A3081D20F42B6083 /* Pods_AutumnDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AutumnDemoUITests.framework; path = "Pods-AutumnDemoUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3AEBF50BE5C2C56A3081D20F42B6083 /* Pods_AutumnDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C411A6F11136F1AE98F3DEBC08F3C351 /* UInt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
 		C42674C9E8B6212BE09A6DC44D17B8B2 /* TestRailProject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailProject.swift; sourceTree = "<group>"; };
 		C492A10A04D99D14A663F2E1E6419DBC /* Pods-AutumnFramework-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AutumnFramework-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -361,7 +361,6 @@
 				CBA68741CF7975C219745ACCFE09336A /* AutumnUser.swift */,
 				E2F16EB7B80A653E3758C94F3A7C37CC /* AutumnViewProxy.swift */,
 			);
-			name = model;
 			path = model;
 			sourceTree = "<group>";
 		};
@@ -387,7 +386,6 @@
 				B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */,
 				2E5925946A4DE3B8F7E4137BACAD9618 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -396,7 +394,6 @@
 			children = (
 				5391C6379F8C61620C3513C9CCEB93B9 /* AutumnFramework */,
 			);
-			name = AutumnFramework;
 			path = AutumnFramework;
 			sourceTree = "<group>";
 		};
@@ -432,7 +429,6 @@
 				716EAFF314D2D9077B6B6D6EA1282482 /* structs */,
 				3E252FA9D6C267D9757D41BC5D00B188 /* utils */,
 			);
-			name = lib;
 			path = lib;
 			sourceTree = "<group>";
 		};
@@ -459,7 +455,6 @@
 				10C810069F4A1E4EAC41AD29692B9437 /* StopWatch.swift */,
 				6CD9F9B45B7B6A75D5392E3B27A55E1E /* TabularText.swift */,
 			);
-			name = utils;
 			path = utils;
 			sourceTree = "<group>";
 		};
@@ -479,7 +474,6 @@
 				F48A70D865233C47E936E135DC0376F7 /* WaitForExists.swift */,
 				B35236B30708BC6EC85F238AEC8D46D3 /* WaitForHittable.swift */,
 			);
-			name = steps;
 			path = steps;
 			sourceTree = "<group>";
 		};
@@ -496,7 +490,6 @@
 			children = (
 				61E9F39CFBBB6F9820EE91C686ED11B1 /* source */,
 			);
-			name = AutumnFramework;
 			path = AutumnFramework;
 			sourceTree = "<group>";
 		};
@@ -512,7 +505,6 @@
 				3E5937201C852113D3AE569BD770B00C /* steps */,
 				CDBFBF29707646F9D566E72BEB9C9D20 /* testrail */,
 			);
-			name = source;
 			path = source;
 			sourceTree = "<group>";
 		};
@@ -536,7 +528,6 @@
 				4ED9096D045E81C18509EC3CB8A39210 /* FrequencyTable.swift */,
 				63DCE6A2CC940C38BF90673653F04154 /* SortedArray.swift */,
 			);
-			name = structs;
 			path = structs;
 			sourceTree = "<group>";
 		};
@@ -563,7 +554,6 @@
 				995F95064C3EB54CAB3E48154E5804F5 /* TestRailTestRun.swift */,
 				CFE86315EB27B0C30F1AA289DE7839AE /* TestRailUser.swift */,
 			);
-			name = model;
 			path = model;
 			sourceTree = "<group>";
 		};
@@ -603,7 +593,6 @@
 				AB6951E346387B3CCF52079185CD2D5A /* AutumnTestStepResult.swift */,
 				D0BA76684DCB70B0BA834C0D1D1CEEDF /* AutumnUI.swift */,
 			);
-			name = core;
 			path = core;
 			sourceTree = "<group>";
 		};
@@ -642,7 +631,6 @@
 			children = (
 				A9E96675F5C950E41E58ADB9E6F1FFA3 /* Springboard.swift */,
 			);
-			name = ios;
 			path = ios;
 			sourceTree = "<group>";
 		};
@@ -679,7 +667,6 @@
 			children = (
 				E63A68DB56ABC6CC0191F3B9E74E28AF /* AlamofireNetworkClient.swift */,
 			);
-			name = network;
 			path = network;
 			sourceTree = "<group>";
 		};
@@ -703,7 +690,6 @@
 				C411A6F11136F1AE98F3DEBC08F3C351 /* UInt.swift */,
 				95ED5BFEAE299A09F1CFE6446AF33010 /* UIView.swift */,
 			);
-			name = extensions;
 			path = extensions;
 			sourceTree = "<group>";
 		};
@@ -730,7 +716,6 @@
 				05DAA4DFF436C32D983D1DBB797916DC /* AutumnTestRailClient.swift */,
 				73640FBA3A8EDA346E8005247C012F06 /* model */,
 			);
-			name = testrail;
 			path = testrail;
 			sourceTree = "<group>";
 		};

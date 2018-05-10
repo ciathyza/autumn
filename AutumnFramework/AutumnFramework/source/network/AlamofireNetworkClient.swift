@@ -17,12 +17,12 @@ class AlamofireNetworkClient
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	let config:AutumnConfig
-	let model:AutumnModel
-	let dispatchQueue = DispatchQueue(label: "com.autumn.manager-response-queue", qos: .userInitiated, attributes:.concurrent)
+	private let _config:AutumnConfig
+	private let _model:AutumnModel
+	private let _dispatchQueue = DispatchQueue(label: "com.autumn.manager-response-queue", qos: .userInitiated, attributes:.concurrent)
 	
-	var authString:String { return "\(config.testrailUserEmail)" + ":\(config.testrailPassword)" }
-	var authData:Data? { return authString.data(using: .ascii) }
+	private var _authString:String { return "\(_config.testrailUserEmail)" + ":\(_config.testrailPassword)" }
+	private var _authData:Data? { return _authString.data(using: .ascii) }
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -31,8 +31,8 @@ class AlamofireNetworkClient
 	
 	init(_ config:AutumnConfig, _ model:AutumnModel)
 	{
-		self.config = config
-		self.model = model
+		self._config = config
+		self._model = model
 	}
 	
 	
@@ -51,7 +51,7 @@ class AlamofireNetworkClient
 			callback(nil, "HTTP request failed: Failed to create URL from \"\(urlString)\".")
 			return
 		}
-		guard let authData = self.authData else
+		guard let authData = self._authData else
 		{
 			callback(nil, "HTTP request failed: Failed to create auth data.")
 			return
@@ -66,13 +66,13 @@ class AlamofireNetworkClient
 		
 		Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
 			.validate(statusCode: 200 ..< 300)
-			.responseJSON(queue: dispatchQueue, options: .allowFragments, completionHandler:
+			.responseJSON(queue: _dispatchQueue, options: .allowFragments, completionHandler:
 			{
 				(response:DataResponse<Any>) in
 				switch (response.result)
 				{
 					case .success(_):
-						if let data = response.data //, let utf8Text = String(data: data, encoding: .utf8)
+						if let data = response.data, let utf8Text = String(data: data, encoding: .utf8)
 						{
 							let decoder = JSONDecoder()
 							var decodedModel:T?
@@ -84,10 +84,12 @@ class AlamofireNetworkClient
 							catch let e as DecodingError
 							{
 								callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
+								if self._config.debug { AutumnLog.error("Response data: \(utf8Text)") }
 							}
 							catch let e
 							{
 								callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
+								if self._config.debug { AutumnLog.error("Response data: \(utf8Text)") }
 							}
 						}
 					case .failure(_):
@@ -127,7 +129,7 @@ class AlamofireNetworkClient
 				callback(nil, "HTTP request failed: Failed to create URL from \"\(urlString)\".")
 				return
 			}
-			guard let authData = self.authData else
+			guard let authData = self._authData else
 			{
 				callback(nil, "HTTP request failed: Failed to create auth data.")
 				return
@@ -142,7 +144,7 @@ class AlamofireNetworkClient
 			
 			Alamofire.request(request)
 				.validate(statusCode: 200 ..< 300)
-				.responseJSON(queue: dispatchQueue, options: .allowFragments, completionHandler:
+				.responseJSON(queue: _dispatchQueue, options: .allowFragments, completionHandler:
 				{
 					(response:DataResponse<Any>) in
 					switch (response.result)
@@ -160,12 +162,12 @@ class AlamofireNetworkClient
 								catch let e as DecodingError
 								{
 									callback(nil, "Failed to decode JSON response. DecodingError: \(e.localizedDescription)")
-									if self.config.debug { AutumnLog.error("Response data: \(utf8Text)") }
+									if self._config.debug { AutumnLog.error("Response data: \(utf8Text)") }
 								}
 								catch let e
 								{
 									callback(nil, "Failed to decode JSON response. Error: \(e.localizedDescription)")
-									if self.config.debug { AutumnLog.error("Response data: \(utf8Text)") }
+									if self._config.debug { AutumnLog.error("Response data: \(utf8Text)") }
 								}
 							}
 							return
@@ -195,7 +197,7 @@ class AlamofireNetworkClient
 			callback("HTTP request failed: Failed to create URL from \"\(urlString)\".")
 			return
 		}
-		guard let authData = self.authData else
+		guard let authData = self._authData else
 		{
 			callback("HTTP request failed: Failed to create auth data.")
 			return
@@ -208,7 +210,7 @@ class AlamofireNetworkClient
 		
 		Alamofire.request(request)
 			.validate(statusCode: 200 ..< 300)
-			.responseJSON(queue: dispatchQueue, options: .allowFragments, completionHandler:
+			.responseJSON(queue: _dispatchQueue, options: .allowFragments, completionHandler:
 			{
 				(response:DataResponse<Any>) in
 				switch (response.result)
@@ -239,6 +241,6 @@ class AlamofireNetworkClient
 	///
 	func getURLFor(_ path:String) -> String
 	{
-		return "\(config.testrailHost)/index.php?/api/v2/\(path)"
+		return "\(_config.testrailHost)/index.php?/api/v2/\(path)"
 	}
 }

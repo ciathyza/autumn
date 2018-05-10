@@ -89,6 +89,9 @@
 		629413F420A2E587002BCA8E /* Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B720A2E587002BCA8E /* Wait.swift */; };
 		629413F520A2E587002BCA8E /* WaitForExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B820A2E587002BCA8E /* WaitForExists.swift */; };
 		629413F620A2E587002BCA8E /* WaitForHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B920A2E587002BCA8E /* WaitForHittable.swift */; };
+		62FC40CF20A3C80200FD6969 /* autumn.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 62FC40CE20A3C80200FD6969 /* autumn.podspec */; };
+		62FC40D120A3C80A00FD6969 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 62FC40D020A3C80A00FD6969 /* LICENSE */; };
+		62FC40D320A3C84500FD6969 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 62FC40D220A3C84500FD6969 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +179,9 @@
 		629413B720A2E587002BCA8E /* Wait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wait.swift; sourceTree = "<group>"; };
 		629413B820A2E587002BCA8E /* WaitForExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForExists.swift; sourceTree = "<group>"; };
 		629413B920A2E587002BCA8E /* WaitForHittable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForHittable.swift; sourceTree = "<group>"; };
+		62FC40CE20A3C80200FD6969 /* autumn.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = autumn.podspec; path = ../../autumn.podspec; sourceTree = "<group>"; };
+		62FC40D020A3C80A00FD6969 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
+		62FC40D220A3C84500FD6969 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		7CF5B3023312623856994954 /* Pods-AutumnFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		B73BFF2E929C1925D97FD3AA /* Pods-AutumnFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,7 +245,10 @@
 		6294133920A2E2FB002BCA8E /* AutumnFramework */ = {
 			isa = PBXGroup;
 			children = (
+				62FC40D020A3C80A00FD6969 /* LICENSE */,
+				62FC40D220A3C84500FD6969 /* README.md */,
 				6294133B20A2E2FC002BCA8E /* Info.plist */,
+				62FC40CE20A3C80200FD6969 /* autumn.podspec */,
 				6294137220A2E3D0002BCA8E /* source */,
 			);
 			path = AutumnFramework;
@@ -483,6 +492,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62FC40D320A3C84500FD6969 /* README.md in Resources */,
+				62FC40D120A3C80A00FD6969 /* LICENSE in Resources */,
+				62FC40CF20A3C80200FD6969 /* autumn.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="AutumnFramework" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AutumnFramework" TARGET_NAME="AutumnFramework" CONFIG_NAME="Debug" SCHEME_NAME="AutumnFramework" IS_LOCATION_SIMULATION_ALLOWED="true" MAKE_ACTIVE="TRUE">
+  <configuration default="false" name="AutumnFramework" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AutumnFramework" TARGET_NAME="AutumnFramework" CONFIG_NAME="Debug" SCHEME_NAME="AutumnFramework" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier" LOCATION_SCENARIO_TYPE="1" RUN_TARGET_PROJECT_NAME="AutumnDemo" RUN_TARGET_NAME="AutumnDemo" MAKE_ACTIVE="TRUE">
     <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
       <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
     </EXTENSION>
