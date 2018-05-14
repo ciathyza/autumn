@@ -2,8 +2,7 @@
 // EnterTestMenuScreen.swift
 // AutumnDemo
 //
-// Created by Sascha, Balkau | FINAD on 2018/05/14.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
+// Created by Sascha Balkau
 //
 
 import Foundation
@@ -32,22 +31,20 @@ class EnterTestMenuScreen : AutumnTestStepAdv
 	
 	public override func execute() -> AutumnTestStepResult
 	{
+		/* Currently on Coffee screen? */
+		if let coffeeScreen = AutumnUI.getElement(DEMO_COFFEE_VIEW_ACI.id, .any)
+		{
+			if coffeeScreen.isHittable
+			{
+				result.add("Tap [\(DEMO_COFFEE_VIEW_ACI.id)] navigation bar back button", AutumnUI.tap(app.navigationBars["Obtain Coffee"].buttons["Back"]))
+			}
+		}
+		
 		if let element = element
 		{
-			/* Already on test menu screen? */
 			if element.isHittable
 			{
 				result.add("Enter [\(id)]", AutumnUI.assertHittable(element))
-			}
-			else
-			{
-				if let coffeView = AutumnUI.getElement(DEMO_COFFEE_VIEW_ACI.id, .any)
-				{
-					if coffeView.isHittable
-					{
-						// TODO press back button
-					}
-				}
 			}
 		}
 		

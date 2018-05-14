@@ -33,6 +33,11 @@ open class AutumnTestStep : Hashable, Equatable
 		return name.hashValue
 	}
 	
+	public var app:XCUIApplication
+	{
+		return AutumnTestRunner.app
+	}
+	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Init

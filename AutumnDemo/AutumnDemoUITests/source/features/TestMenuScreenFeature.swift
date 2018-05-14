@@ -2,8 +2,7 @@
 // TestMenuScreenFeature.swift
 // AutumnDemo
 //
-// Created by Sascha, Balkau | FINAD on 2018/05/14.
-// Copyright (c) 2018 Ciathyza. All rights reserved.
+// Created by Sascha Balkau
 //
 
 import Foundation
@@ -23,10 +22,5 @@ class TestMenuScreenFeature : AutumnFeature
 	override func registerScenarios()
 	{
 		registerScenario(ScenarioEnterTestMenuScreen.self)
-	}
-	
-	
-	override func preLaunch()
-	{
 	}
 }

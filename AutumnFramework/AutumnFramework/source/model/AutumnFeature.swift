@@ -121,7 +121,6 @@ open class AutumnFeature : AutumnHashable
 	open func preLaunch()
 	{
 		/* Abstract method! */
-		preconditionFailure("This method must be overridden!")
 	}
 	
 	
