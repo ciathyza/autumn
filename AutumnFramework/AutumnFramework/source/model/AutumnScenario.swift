@@ -43,7 +43,7 @@ struct ScenarioResultRow
 /**
  * Represents a test scenario that defines test steps.
  */
-public class AutumnScenario : AutumnHashable
+open class AutumnScenario : AutumnHashable
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Static
@@ -62,13 +62,16 @@ public class AutumnScenario : AutumnHashable
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	public internal(set) var id       = 0
-	public internal(set) var title    = ""
-	public internal(set) var link     = ""
-	public internal(set) var tags     = [String]()
-	public internal(set) var priority = TestRailTestCasePriorityOption.Medium
-	public internal(set) var estimate:String?
-	public internal(set) var elapsed:String?
+	public var id       = 0
+	public var title    = ""
+	public var descr    = ""
+	public var link     = ""
+	public var tags     = [String]()
+	public var priority = TestRailTestCasePriorityOption.Medium
+	public var estimate:String?
+	public var elapsed:String?
+	public var status = AutumnTestStatus.None
+	public var unsupportedReason = AutumnUnsupportedReason.None
 	
 	public var uninstallBefore = true
 	public var resetBefore     = false
@@ -80,8 +83,6 @@ public class AutumnScenario : AutumnHashable
 	public private(set) var runner:AutumnTestRunner
 	
 	internal var phase = AutumnScenarioPhase.None
-	internal var status = AutumnTestStatus.None
-	internal var unsupportedReason = AutumnUnsupportedReason.None
 	
 	internal private(set) var steps = [AutumnTestStep]()
 	internal private(set) var results = [(step:AutumnTestStep, result:AutumnTestStepResult)]()

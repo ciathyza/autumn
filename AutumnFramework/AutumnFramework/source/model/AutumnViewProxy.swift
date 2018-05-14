@@ -14,7 +14,7 @@ import XCTest
 /**
  * Represents a view proxy for a view that is used for UI testing.
  */
-public class AutumnViewProxy : AutumnHashable
+open class AutumnViewProxy : AutumnHashable
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Static
@@ -33,9 +33,9 @@ public class AutumnViewProxy : AutumnHashable
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	public var app:XCUIApplication
-	public var runner:AutumnTestRunner
-	public var viewName:String
+	public private(set) var app:XCUIApplication
+	public private(set) var runner:AutumnTestRunner
+	public private(set) var viewName:String
 	
 	
 	// ----------------------------------------------------------------------------------------------------

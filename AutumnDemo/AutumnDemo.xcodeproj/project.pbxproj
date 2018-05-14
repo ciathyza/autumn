@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		14CBD33ADBF99C4DCD9FACB9 /* Pods_AutumnDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EDE8245A8C70845641F5CB /* Pods_AutumnDemoUITests.framework */; };
 		197EB9402402559332B15BB1 /* Pods_AutumnDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F531D6B751E0F50879C77F92 /* Pods_AutumnDemo.framework */; };
+		5E4BC40C18B6D4EA597EA6BF /* TestMenuScreenScenarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC6F2E09AF31E70663DCF /* TestMenuScreenScenarios.swift */; };
+		5E4BC806A7460C3D0F48EF03 /* ObtainCoffeeScreenScenarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCE1C1099D89D40662CE8 /* ObtainCoffeeScreenScenarios.swift */; };
+		5E4BCD02A5C65ABFFBE2099F /* TestMenuScreenFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC9E6E77576960BA9B6EA /* TestMenuScreenFeature.swift */; };
+		5E4BCE333D27CD36DB85F79D /* ACI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B178E720A405BB006F4D5B /* ACI.swift */; };
 		6294134F20A2E338002BCA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294134E20A2E338002BCA8E /* AppDelegate.swift */; };
 		6294135420A2E338002BCA8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6294135220A2E338002BCA8E /* Main.storyboard */; };
 		6294135620A2E338002BCA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6294135520A2E338002BCA8E /* Assets.xcassets */; };
@@ -34,6 +38,9 @@
 		1D0F0AD1087436454CFBAF6A /* Pods-AutumnDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemoUITests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		506962434E15E97B344C28FB /* Pods-AutumnDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemoUITests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5E4BC652159A673A4825FA33 /* ObtainCoffeeScreenFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObtainCoffeeScreenFeature.swift; sourceTree = "<group>"; };
+		5E4BC6F2E09AF31E70663DCF /* TestMenuScreenScenarios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMenuScreenScenarios.swift; sourceTree = "<group>"; };
+		5E4BC9E6E77576960BA9B6EA /* TestMenuScreenFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMenuScreenFeature.swift; sourceTree = "<group>"; };
+		5E4BCE1C1099D89D40662CE8 /* ObtainCoffeeScreenScenarios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObtainCoffeeScreenScenarios.swift; sourceTree = "<group>"; };
 		6294134B20A2E338002BCA8E /* AutumnDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutumnDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6294134E20A2E338002BCA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6294135320A2E338002BCA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				5E4BC652159A673A4825FA33 /* ObtainCoffeeScreenFeature.swift */,
+				5E4BC9E6E77576960BA9B6EA /* TestMenuScreenFeature.swift */,
 			);
 			path = features;
 			sourceTree = "<group>";
@@ -83,6 +91,8 @@
 		5E4BCAEC86CA378721451570 /* scenarios */ = {
 			isa = PBXGroup;
 			children = (
+				5E4BCE1C1099D89D40662CE8 /* ObtainCoffeeScreenScenarios.swift */,
+				5E4BC6F2E09AF31E70663DCF /* TestMenuScreenScenarios.swift */,
 			);
 			path = scenarios;
 			sourceTree = "<group>";
@@ -379,6 +389,10 @@
 			files = (
 				62F831F120A9147A00B4B6BC /* AutumnDemoUITests.swift in Sources */,
 				62F831F020A9147500B4B6BC /* ObtainCoffeeScreenFeature.swift in Sources */,
+				5E4BC806A7460C3D0F48EF03 /* ObtainCoffeeScreenScenarios.swift in Sources */,
+				5E4BCD02A5C65ABFFBE2099F /* TestMenuScreenFeature.swift in Sources */,
+				5E4BC40C18B6D4EA597EA6BF /* TestMenuScreenScenarios.swift in Sources */,
+				5E4BCE333D27CD36DB85F79D /* ACI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

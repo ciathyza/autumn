@@ -12,9 +12,9 @@ import XCTest
 
 
 /**
- * A test step used to assert the existance of a given element.
+ * A test step used to assert a given element being hittable.
  */
-public class AssertExists : AutumnTestStepAdv
+public class AssertHittable : AutumnTestStepAdv
 {
 	public override init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
 	{
@@ -24,13 +24,13 @@ public class AssertExists : AutumnTestStepAdv
 	
 	public override func setup()
 	{
-		name = "\(elementName) exists"
+		name = "\(elementName) is hittable"
 	}
 	
 	
 	public override func execute() -> AutumnTestStepResult
 	{
-		result.add("Assert [\(id)] exists", AutumnUI.assertExists(element))
+		result.add("Assert [\(id)] is hittable", AutumnUI.assertHittable(element))
 		return result
 	}
 }

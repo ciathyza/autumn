@@ -49,5 +49,7 @@ class AutumnDemoUITests : AutumnTestRunner
 
 	override func registerFeatures()
 	{
+		registerFeature(TestMenuScreenFeature.self)
+		registerFeature(ObtainCoffeeScreenFeature.self)
 	}
 }

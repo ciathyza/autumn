@@ -27,16 +27,4 @@ class ObtainCoffeeScreenFeature : AutumnFeature
 	override func preLaunch()
 	{
 	}
-	
-	
-	override func resetApp() -> Bool
-	{
-		return super.resetApp()
-	}
-	
-	
-	override func gotoView(_ viewID:AutumnViewProxy.Type, _ ready:Bool) -> Bool
-	{
-		return super.gotoView(viewID, ready)
-	}
 }
