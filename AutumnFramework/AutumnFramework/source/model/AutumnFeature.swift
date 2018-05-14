@@ -33,9 +33,9 @@ open class AutumnFeature : AutumnHashable
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	public internal(set) var name = ""
-	public internal(set) var descr = ""
-	public internal(set) var tags = [String]()
+	public var name = ""
+	public var descr = ""
+	public var tags = [String]()
 	
 	public private(set) var app:XCUIApplication
 	public private(set) var runner:AutumnTestRunner

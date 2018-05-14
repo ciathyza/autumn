@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		14CBD33ADBF99C4DCD9FACB9 /* Pods_AutumnDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EDE8245A8C70845641F5CB /* Pods_AutumnDemoUITests.framework */; };
 		197EB9402402559332B15BB1 /* Pods_AutumnDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F531D6B751E0F50879C77F92 /* Pods_AutumnDemo.framework */; };
-		5E4BCA2C8345E0D361DAB667 /* ObtainCoffeeScreenFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC652159A673A4825FA33 /* ObtainCoffeeScreenFeature.swift */; };
 		6294134F20A2E338002BCA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294134E20A2E338002BCA8E /* AppDelegate.swift */; };
 		6294135420A2E338002BCA8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6294135220A2E338002BCA8E /* Main.storyboard */; };
 		6294135620A2E338002BCA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6294135520A2E338002BCA8E /* Assets.xcassets */; };
 		6294135920A2E338002BCA8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6294135720A2E338002BCA8E /* LaunchScreen.storyboard */; };
-		6294136420A2E339002BCA8E /* AutumnDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294136320A2E339002BCA8E /* AutumnDemoUITests.swift */; };
 		62B178E520A40565006F4D5B /* ObtainCoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B178E320A40564006F4D5B /* ObtainCoffeeViewController.swift */; };
 		62B178E620A40565006F4D5B /* TestMenuScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B178E420A40565006F4D5B /* TestMenuScreenViewController.swift */; };
 		62B178E820A405BB006F4D5B /* ACI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B178E720A405BB006F4D5B /* ACI.swift */; };
+		62F831F020A9147500B4B6BC /* ObtainCoffeeScreenFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC652159A673A4825FA33 /* ObtainCoffeeScreenFeature.swift */; };
+		62F831F120A9147A00B4B6BC /* AutumnDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294136320A2E339002BCA8E /* AutumnDemoUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -370,7 +370,6 @@
 				62B178E520A40565006F4D5B /* ObtainCoffeeViewController.swift in Sources */,
 				62B178E820A405BB006F4D5B /* ACI.swift in Sources */,
 				6294134F20A2E338002BCA8E /* AppDelegate.swift in Sources */,
-				5E4BCA2C8345E0D361DAB667 /* ObtainCoffeeScreenFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +377,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6294136420A2E339002BCA8E /* AutumnDemoUITests.swift in Sources */,
+				62F831F120A9147A00B4B6BC /* AutumnDemoUITests.swift in Sources */,
+				62F831F020A9147500B4B6BC /* ObtainCoffeeScreenFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
