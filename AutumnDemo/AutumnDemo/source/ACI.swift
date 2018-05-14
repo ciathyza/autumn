@@ -18,7 +18,7 @@ let DEMO_TEST_MENU_SCREEN_BUTTON4_ACI          = (name: "the test menu button 4"
 let DEMO_TEST_MENU_SCREEN_BUTTON5_ACI          = (name: "the test menu button 5",                id: "test_menu_screen_button5")
 let DEMO_TEST_MENU_SCREEN_RESET_BUTTON_ACI     = (name: "the reset button",                      id: "test_menu_screen_reset_button")
 
-let DEMO_COFFEE_VIEW_ACI                       = (name: "the coffee title",                      id: "coffee_view_label")
+let DEMO_COFFEE_VIEW_ACI                       = (name: "the coffee view",                       id: "coffee_view")
 let DEMO_COFFEE_LOGIN_PROMPT_ACI               = (name: "the coffee prompt",                     id: "coffee_login_prompt_label")
 let DEMO_COFFEE_USERNAME_INPUT_ACI             = (name: "the coffee username field",             id: "coffee_username_input")
 let DEMO_COFFEE_PASSWORD_INPUT_ACI             = (name: "the coffee password field",             id: "coffee_password_input")

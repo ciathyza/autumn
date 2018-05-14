@@ -14,7 +14,7 @@ import XCTest
 /**
  * Represents a test step that is executed in a test scenario.
  */
-public class AutumnTestStep : Hashable, Equatable
+open class AutumnTestStep : Hashable, Equatable
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties
@@ -79,7 +79,7 @@ public class AutumnTestStep : Hashable, Equatable
 /**
  * Represents a test step with UI interaction that is executed in a test scenario.
  */
-public class AutumnTestStepAdv : AutumnTestStep
+open class AutumnTestStepAdv : AutumnTestStep
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties

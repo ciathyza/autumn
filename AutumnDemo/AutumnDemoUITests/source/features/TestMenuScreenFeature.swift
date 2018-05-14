@@ -22,7 +22,7 @@ class TestMenuScreenFeature : AutumnFeature
 	
 	override func registerScenarios()
 	{
-		registerScenario(ScenarioDisplayTestMenuScreen.self)
+		registerScenario(ScenarioEnterTestMenuScreen.self)
 	}
 	
 	

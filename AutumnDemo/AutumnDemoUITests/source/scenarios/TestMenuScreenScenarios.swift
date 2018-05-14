@@ -10,13 +10,13 @@ import Foundation
 import Autumn
 
 
-class ScenarioDisplayTestMenuScreen : AutumnScenario
+class ScenarioEnterTestMenuScreen : AutumnScenario
 {
 	override func setup()
 	{
 		id = 1
-		title = "Display Test Menu Screen"
-		descr = "Tests that the test menu screen can be opened and displayed."
+		title = "Enter Test Menu Screen"
+		descr = "Tests that the test menu screen can be entered and displayed."
 	}
 	
 	override func establish()
@@ -26,6 +26,7 @@ class ScenarioDisplayTestMenuScreen : AutumnScenario
 	
 	override func execute()
 	{
-		when(AssertHittable(DEMO_TEST_MENU_SCREEN_VIEW_ACI))
+		when(EnterTestMenuScreen())
+		then(AssertHittable(DEMO_TEST_MENU_SCREEN_VIEW_ACI))
 	}
 }
