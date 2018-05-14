@@ -14,7 +14,7 @@ import XCTest
 /**
  * Represents a test feature that holds several test scenarios.
  */
-public class AutumnFeature : AutumnHashable
+open class AutumnFeature : AutumnHashable
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Static

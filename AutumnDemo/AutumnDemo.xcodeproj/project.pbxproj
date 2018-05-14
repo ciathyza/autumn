@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14CBD33ADBF99C4DCD9FACB9 /* Pods_AutumnDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EDE8245A8C70845641F5CB /* Pods_AutumnDemoUITests.framework */; };
 		197EB9402402559332B15BB1 /* Pods_AutumnDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F531D6B751E0F50879C77F92 /* Pods_AutumnDemo.framework */; };
+		5E4BCA2C8345E0D361DAB667 /* ObtainCoffeeScreenFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC652159A673A4825FA33 /* ObtainCoffeeScreenFeature.swift */; };
 		6294134F20A2E338002BCA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294134E20A2E338002BCA8E /* AppDelegate.swift */; };
 		6294135420A2E338002BCA8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6294135220A2E338002BCA8E /* Main.storyboard */; };
 		6294135620A2E338002BCA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6294135520A2E338002BCA8E /* Assets.xcassets */; };
@@ -30,7 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		20F4022FF9492493B4D4C15B /* Pods-AutumnDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemoUITests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1D0F0AD1087436454CFBAF6A /* Pods-AutumnDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemoUITests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		506962434E15E97B344C28FB /* Pods-AutumnDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemoUITests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5E4BC652159A673A4825FA33 /* ObtainCoffeeScreenFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObtainCoffeeScreenFeature.swift; sourceTree = "<group>"; };
 		6294134B20A2E338002BCA8E /* AutumnDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutumnDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6294134E20A2E338002BCA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6294135320A2E338002BCA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,11 +46,10 @@
 		62B178E320A40564006F4D5B /* ObtainCoffeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObtainCoffeeViewController.swift; sourceTree = "<group>"; };
 		62B178E420A40565006F4D5B /* TestMenuScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMenuScreenViewController.swift; sourceTree = "<group>"; };
 		62B178E720A405BB006F4D5B /* ACI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACI.swift; sourceTree = "<group>"; };
+		6FB86211BFC97345AD6620B7 /* Pods-AutumnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo.release.xcconfig"; sourceTree = "<group>"; };
 		98EDE8245A8C70845641F5CB /* Pods_AutumnDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE6011040FD43766B5EBE0E1 /* Pods-AutumnDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		B283D1E0FDEE5C59E966A76A /* Pods-AutumnDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemoUITests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BC1E36D22E164C22DFE4957F /* Pods-AutumnDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F531D6B751E0F50879C77F92 /* Pods_AutumnDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD7D5F9A2FF6A206D7FD56A5 /* Pods-AutumnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E4BC095A90C586342A91761 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				5E4BC652159A673A4825FA33 /* ObtainCoffeeScreenFeature.swift */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		5E4BCAEC86CA378721451570 /* scenarios */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = scenarios;
+			sourceTree = "<group>";
+		};
+		5E4BCB7FE5FCBC5BB864CC1B /* steps */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = steps;
+			sourceTree = "<group>";
+		};
 		6294134220A2E338002BCA8E = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				6294136320A2E339002BCA8E /* AutumnDemoUITests.swift */,
+				5E4BC095A90C586342A91761 /* features */,
+				5E4BCAEC86CA378721451570 /* scenarios */,
+				5E4BCB7FE5FCBC5BB864CC1B /* steps */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -157,10 +184,10 @@
 		698BB89F97B9572AE77FDC8E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AE6011040FD43766B5EBE0E1 /* Pods-AutumnDemo.debug.xcconfig */,
-				FD7D5F9A2FF6A206D7FD56A5 /* Pods-AutumnDemo.release.xcconfig */,
-				B283D1E0FDEE5C59E966A76A /* Pods-AutumnDemoUITests.debug.xcconfig */,
-				20F4022FF9492493B4D4C15B /* Pods-AutumnDemoUITests.release.xcconfig */,
+				BC1E36D22E164C22DFE4957F /* Pods-AutumnDemo.debug.xcconfig */,
+				6FB86211BFC97345AD6620B7 /* Pods-AutumnDemo.release.xcconfig */,
+				1D0F0AD1087436454CFBAF6A /* Pods-AutumnDemoUITests.debug.xcconfig */,
+				506962434E15E97B344C28FB /* Pods-AutumnDemoUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -185,8 +212,6 @@
 				6294134720A2E338002BCA8E /* Sources */,
 				6294134820A2E338002BCA8E /* Frameworks */,
 				6294134920A2E338002BCA8E /* Resources */,
-				6BC34D5889E02E6136B8153B /* [CP] Embed Pods Frameworks */,
-				E2138832CBC703F0FEAD213A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,7 +231,6 @@
 				6294135C20A2E339002BCA8E /* Frameworks */,
 				6294135D20A2E339002BCA8E /* Resources */,
 				07E53314F634357055A70C90 /* [CP] Embed Pods Frameworks */,
-				58117020F7CF99D1BCEF933C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,9 +309,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Autumn/Autumn.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Autumn.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -300,13 +329,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutumnDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3B3996B2C9F7B2987250B862 /* [CP] Check Pods Manifest.lock */ = {
@@ -315,58 +347,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutumnDemoUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		58117020F7CF99D1BCEF933C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnDemoUITests/Pods-AutumnDemoUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6BC34D5889E02E6136B8153B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E2138832CBC703F0FEAD213A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnDemo/Pods-AutumnDemo-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -380,6 +370,7 @@
 				62B178E520A40565006F4D5B /* ObtainCoffeeViewController.swift in Sources */,
 				62B178E820A405BB006F4D5B /* ACI.swift in Sources */,
 				6294134F20A2E338002BCA8E /* AppDelegate.swift in Sources */,
+				5E4BCA2C8345E0D361DAB667 /* ObtainCoffeeScreenFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +521,7 @@
 		};
 		6294136920A2E339002BCA8E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE6011040FD43766B5EBE0E1 /* Pods-AutumnDemo.debug.xcconfig */;
+			baseConfigurationReference = BC1E36D22E164C22DFE4957F /* Pods-AutumnDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -547,7 +538,7 @@
 		};
 		6294136A20A2E339002BCA8E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD7D5F9A2FF6A206D7FD56A5 /* Pods-AutumnDemo.release.xcconfig */;
+			baseConfigurationReference = 6FB86211BFC97345AD6620B7 /* Pods-AutumnDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -564,7 +555,7 @@
 		};
 		6294136C20A2E339002BCA8E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B283D1E0FDEE5C59E966A76A /* Pods-AutumnDemoUITests.debug.xcconfig */;
+			baseConfigurationReference = 1D0F0AD1087436454CFBAF6A /* Pods-AutumnDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -581,7 +572,7 @@
 		};
 		6294136D20A2E339002BCA8E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20F4022FF9492493B4D4C15B /* Pods-AutumnDemoUITests.release.xcconfig */;
+			baseConfigurationReference = 506962434E15E97B344C28FB /* Pods-AutumnDemoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;

@@ -88,7 +88,7 @@
 		629413F420A2E587002BCA8E /* Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B720A2E587002BCA8E /* Wait.swift */; };
 		629413F520A2E587002BCA8E /* WaitForExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B820A2E587002BCA8E /* WaitForExists.swift */; };
 		629413F620A2E587002BCA8E /* WaitForHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B920A2E587002BCA8E /* WaitForHittable.swift */; };
-		62FC40CF20A3C80200FD6969 /* autumn.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 62FC40CE20A3C80200FD6969 /* autumn.podspec */; };
+		62FC40CF20A3C80200FD6969 /* Autumn.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 62FC40CE20A3C80200FD6969 /* Autumn.podspec */; };
 		62FC40D120A3C80A00FD6969 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 62FC40D020A3C80A00FD6969 /* LICENSE */; };
 		62FC40D320A3C84500FD6969 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 62FC40D220A3C84500FD6969 /* README.md */; };
 		7F15D0A6CE655D4885459F1B /* Pods_AutumnFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA06D75B2B9F419953CD8F0 /* Pods_AutumnFramework.framework */; };
@@ -178,12 +178,12 @@
 		629413B720A2E587002BCA8E /* Wait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wait.swift; sourceTree = "<group>"; };
 		629413B820A2E587002BCA8E /* WaitForExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForExists.swift; sourceTree = "<group>"; };
 		629413B920A2E587002BCA8E /* WaitForHittable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForHittable.swift; sourceTree = "<group>"; };
-		62FC40CE20A3C80200FD6969 /* autumn.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = autumn.podspec; path = ../../autumn.podspec; sourceTree = "<group>"; };
+		62FC40CE20A3C80200FD6969 /* Autumn.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.podspec; name = Autumn.podspec; path = ../../Autumn.podspec; sourceTree = "<group>"; };
 		62FC40D020A3C80A00FD6969 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
 		62FC40D220A3C84500FD6969 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		7CF5B3023312623856994954 /* Pods-AutumnFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		9EDD758A557F608EFE3EF8DE /* Pods-AutumnFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.release.xcconfig"; sourceTree = "<group>"; };
+		A296259AAD6563C0343C2064 /* Pods-AutumnFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		AEA06D75B2B9F419953CD8F0 /* Pods_AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutumnFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B73BFF2E929C1925D97FD3AA /* Pods-AutumnFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutumnFramework.release.xcconfig"; path = "../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +248,7 @@
 				62FC40D020A3C80A00FD6969 /* LICENSE */,
 				62FC40D220A3C84500FD6969 /* README.md */,
 				6294133B20A2E2FC002BCA8E /* Info.plist */,
-				62FC40CE20A3C80200FD6969 /* autumn.podspec */,
+				62FC40CE20A3C80200FD6969 /* Autumn.podspec */,
 				6294137220A2E3D0002BCA8E /* source */,
 			);
 			path = AutumnFramework;
@@ -415,8 +415,8 @@
 		FCB4FE691D16C5F5D659064F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7CF5B3023312623856994954 /* Pods-AutumnFramework.debug.xcconfig */,
-				B73BFF2E929C1925D97FD3AA /* Pods-AutumnFramework.release.xcconfig */,
+				A296259AAD6563C0343C2064 /* Pods-AutumnFramework.debug.xcconfig */,
+				9EDD758A557F608EFE3EF8DE /* Pods-AutumnFramework.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -444,7 +444,6 @@
 				6294133320A2E2FB002BCA8E /* Frameworks */,
 				6294133420A2E2FB002BCA8E /* Headers */,
 				6294133520A2E2FB002BCA8E /* Resources */,
-				220936B5F14317DBE8352578 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -494,41 +493,29 @@
 			files = (
 				62FC40D320A3C84500FD6969 /* README.md in Resources */,
 				62FC40D120A3C80A00FD6969 /* LICENSE in Resources */,
-				62FC40CF20A3C80200FD6969 /* autumn.podspec in Resources */,
+				62FC40CF20A3C80200FD6969 /* Autumn.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		220936B5F14317DBE8352578 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AutumnFramework/Pods-AutumnFramework-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3EB7FA67866F3925B60861B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutumnFramework-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -741,7 +728,7 @@
 		};
 		6294134020A2E2FC002BCA8E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CF5B3023312623856994954 /* Pods-AutumnFramework.debug.xcconfig */;
+			baseConfigurationReference = A296259AAD6563C0343C2064 /* Pods-AutumnFramework.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -768,7 +755,7 @@
 		};
 		6294134120A2E2FC002BCA8E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B73BFF2E929C1925D97FD3AA /* Pods-AutumnFramework.release.xcconfig */;
+			baseConfigurationReference = 9EDD758A557F608EFE3EF8DE /* Pods-AutumnFramework.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

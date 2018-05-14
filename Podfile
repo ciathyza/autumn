@@ -16,7 +16,7 @@ target 'AutumnDemo' do
 	target 'AutumnDemoUITests' do
 		use_frameworks!
 		inherit! :search_paths
-		pod 'Autumn', :path => 'autumn.podspec'
+		pod 'Autumn', :path => 'Autumn.podspec'
 	end
 end
 

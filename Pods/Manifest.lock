@@ -5,16 +5,20 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
-  - Autumn (from `autumn.podspec`)
+  - Autumn (from `Autumn.podspec`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
 
 EXTERNAL SOURCES:
   Autumn:
-    :path: autumn.podspec
+    :path: Autumn.podspec
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  Autumn: 21b102a68400d1714fc34e4e598880e08e6ae7f3
+  Autumn: 82823e6221d344a1a16edd8f00144374fc868aec
 
-PODFILE CHECKSUM: adb2609248f83264fb571bac48627f513bdb2624
+PODFILE CHECKSUM: fc920f94374cf2932a438a8a5b9aea4e31e38cd2
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.2

@@ -5,7 +5,6 @@
 //  Created by Sascha Balkau
 //
 
-import XCTest
 import Autumn
 
 

@@ -18,11 +18,11 @@
     "tag": "1.0.0"
   },
   "source_files": "AutumnFramework/AutumnFramework/source/**/*.{swift,h,m}",
-  "requires_arc": true,
-  "frameworks": "XCTest",
   "pod_target_xcconfig": {
     "FRAMEWORK_SEARCH_PATHS": "$(inherited) \"$(PLATFORM_DIR)/Developer/Library/Frameworks\""
   },
+  "requires_arc": true,
+  "frameworks": "XCTest",
   "dependencies": {
     "Alamofire": [
       "~> 4.5"
