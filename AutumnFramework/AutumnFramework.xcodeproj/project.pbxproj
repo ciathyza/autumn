@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5E4BC05EB20557DC4DE1905A /* AssertHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCD8A7A4CA0466F0734D6 /* AssertHittable.swift */; };
+		5E4BC57ACD288D9FA47CF119 /* AssertNotHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC2B79ECF09924E22BEC1 /* AssertNotHittable.swift */; };
+		5E4BC9AA194E0EC2A0C39C0C /* AssertNotExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCB9AF0C5AE4A24AB7413 /* AssertNotExists.swift */; };
 		6220334F20A2F53D00EC3E33 /* TestRailCustomTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220333C20A2F53B00EC3E33 /* TestRailCustomTestStepResult.swift */; };
 		6220335020A2F53D00EC3E33 /* TestRailTestCaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220333D20A2F53C00EC3E33 /* TestRailTestCaseType.swift */; };
 		6220335120A2F53D00EC3E33 /* TestRailTestResultField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6220333E20A2F53C00EC3E33 /* TestRailTestResultField.swift */; };
@@ -96,6 +98,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E4BC2B79ECF09924E22BEC1 /* AssertNotHittable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssertNotHittable.swift; sourceTree = "<group>"; };
+		5E4BCB9AF0C5AE4A24AB7413 /* AssertNotExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssertNotExists.swift; sourceTree = "<group>"; };
 		5E4BCD8A7A4CA0466F0734D6 /* AssertHittable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssertHittable.swift; sourceTree = "<group>"; };
 		6220333C20A2F53B00EC3E33 /* TestRailCustomTestStepResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailCustomTestStepResult.swift; sourceTree = "<group>"; };
 		6220333D20A2F53C00EC3E33 /* TestRailTestCaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseType.swift; sourceTree = "<group>"; };
@@ -403,6 +407,8 @@
 				629413B820A2E587002BCA8E /* WaitForExists.swift */,
 				629413B920A2E587002BCA8E /* WaitForHittable.swift */,
 				5E4BCD8A7A4CA0466F0734D6 /* AssertHittable.swift */,
+				5E4BCB9AF0C5AE4A24AB7413 /* AssertNotExists.swift */,
+				5E4BC2B79ECF09924E22BEC1 /* AssertNotHittable.swift */,
 			);
 			path = steps;
 			sourceTree = "<group>";
@@ -609,6 +615,8 @@
 				629413EC20A2E587002BCA8E /* ClearInputField.swift in Sources */,
 				629413C720A2E587002BCA8E /* UIDevice.swift in Sources */,
 				5E4BC05EB20557DC4DE1905A /* AssertHittable.swift in Sources */,
+				5E4BC9AA194E0EC2A0C39C0C /* AssertNotExists.swift in Sources */,
+				5E4BC57ACD288D9FA47CF119 /* AssertNotHittable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

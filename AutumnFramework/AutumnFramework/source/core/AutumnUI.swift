@@ -794,6 +794,19 @@ public class AutumnUI
 	
 	
 	/**
+	 * Asserts that the given UI element doesn't exist in the view hierarchy.
+	 */
+	public class func assertNotExists(_ element:XCUIElement?) -> AutumnUIActionResult
+	{
+		if let e = element
+		{
+			return e.exists ? AutumnUIActionResult.FailedExist : AutumnUIActionResult.Success
+		}
+		return .FailedIsNil
+	}
+	
+	
+	/**
 	 * Asserts that the given UI element is hittable.
 	 */
 	public class func assertHittable(_ element:XCUIElement?) -> AutumnUIActionResult
@@ -801,6 +814,19 @@ public class AutumnUI
 		if let e = element
 		{
 			return e.isHittable ? AutumnUIActionResult.Success : AutumnUIActionResult.FailedNotHittable
+		}
+		return .FailedIsNil
+	}
+	
+	
+	/**
+	 * Asserts that the given UI element is not hittable.
+	 */
+	public class func assertNotHittable(_ element:XCUIElement?) -> AutumnUIActionResult
+	{
+		if let e = element
+		{
+			return e.isHittable ? AutumnUIActionResult.FailedHittable : AutumnUIActionResult.Success
 		}
 		return .FailedIsNil
 	}
