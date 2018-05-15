@@ -28,7 +28,7 @@ class AutumnModel
 	
 	var features                   = [AutumnFeature]()
 	var scenarioClasses            = [Metatype<AutumnScenario>:AutumnScenario.Type]()
-	var scenarioIDs                = [Metatype<AutumnScenario>:Int]()
+	var scenarioIDs                = [Metatype<AutumnScenario>:String]()
 	var viewProxyClasses           = [Metatype<AutumnViewProxy>:AutumnViewProxy]()
 	var users                      = [String:AutumnUser]()
 	
@@ -228,7 +228,7 @@ class AutumnModel
 	}
 	
 	
-	func getTestRailCaseForScenario(_ scenarioID:Int) -> TestRailTestCase?
+	func getTestRailCaseForScenario(_ scenarioID:String) -> TestRailTestCase?
 	{
 		for tc in testrailCases
 		{

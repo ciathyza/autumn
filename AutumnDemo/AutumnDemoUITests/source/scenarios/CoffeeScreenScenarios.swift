@@ -14,7 +14,7 @@ class ScenarioEnterCoffeeScreen : AutumnScenario
 {
 	override func setup()
 	{
-		id = 2
+		id = "B001"
 		title = "Enter Coffee Screen"
 		descr = "Tests that the coffee screen can be entered and displayed."
 	}
@@ -36,7 +36,7 @@ class ScenarioLoginCoffeeScreen : AutumnScenario
 {
 	override func setup()
 	{
-		id = 3
+		id = "B002"
 		title = "Login Coffee Screen"
 		descr = "Tests login into the coffee screen."
 	}

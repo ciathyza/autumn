@@ -62,7 +62,7 @@ open class AutumnScenario : AutumnHashable
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	public var id       = 0
+	public var id       = ""
 	public var title    = ""
 	public var descr    = ""
 	public var link     = ""

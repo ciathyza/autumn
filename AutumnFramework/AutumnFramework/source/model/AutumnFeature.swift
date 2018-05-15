@@ -167,7 +167,7 @@ open class AutumnFeature : AutumnHashable
 			runner.model.scenarioClasses[scenarioClass.metatype] = scenarioClass
 			
 			/* Get legitimate scenario ID. */
-			if scenario.id > -1
+			if scenario.id.length > 0
 			{
 				if runner.model.scenarioIDs[scenarioClass.metatype] == nil
 				{

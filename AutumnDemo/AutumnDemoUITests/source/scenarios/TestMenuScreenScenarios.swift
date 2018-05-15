@@ -14,7 +14,7 @@ class ScenarioEnterTestMenuScreen : AutumnScenario
 {
 	override func setup()
 	{
-		id = 1
+		id = "A001"
 		title = "Enter Test Menu Screen"
 		descr = "Tests that the test menu screen can be entered and displayed."
 	}
