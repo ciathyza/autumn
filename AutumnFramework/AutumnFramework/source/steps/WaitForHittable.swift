@@ -26,6 +26,13 @@ public class WaitForHittable: AutumnTestStepAdv
 	}
 	
 	
+	public init(_ element:XCUIElement, _ elementType:XCUIElement.ElementType = .any, _ timeout:UInt = 0)
+	{
+		_timeout = timeout > 0 ? timeout : AutumnTestRunner.instance.config.viewPresentTimeout
+		super.init(element, elementType)
+	}
+	
+	
 	public override func setup()
 	{
 		name = "\(elementName) becomes hittable within \(_timeout) seconds"

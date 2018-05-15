@@ -22,6 +22,12 @@ public class TypePassword: TypeText
 	}
 	
 	
+	public override init(_ element:XCUIElement, _ text:String, _ elementType:XCUIElement.ElementType = .secureTextField)
+	{
+		super.init(element, text, elementType)
+	}
+	
+	
 	public override func setup()
 	{
 		name = "the user enters '\(_text.obscured)' into \(elementName)"

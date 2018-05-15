@@ -105,12 +105,28 @@ open class AutumnTestStepAdv : AutumnTestStep
 	// MARK: - Init
 	// ----------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Init with element ACI.
+	 */
 	public init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
 	{
 		self.elementID = aci.id
 		self.elementName = aci.name
 		self.elementType = elementType
 		self.element = AutumnUI.getElement(elementID, elementType)
+		super.init()
+	}
+	
+	
+	/**
+	 * Init with element.
+	 */
+	public init(_ element:XCUIElement, _ elementType:XCUIElement.ElementType = .any)
+	{
+		self.elementID = "\(element.description)"
+		self.elementName = "\(element.description)"
+		self.elementType = elementType
+		self.element = element
 		super.init()
 	}
 }

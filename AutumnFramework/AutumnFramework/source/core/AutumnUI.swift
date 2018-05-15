@@ -663,6 +663,26 @@ public class AutumnUI
 	
 	
 	/**
+	 * Sends a tap event twice to a hittable point computed for the element.
+	 *
+	 * @param element
+	 */
+	public class func tapTwice(_ element:XCUIElement?) -> AutumnUIActionResult
+	{
+		if let e = element
+		{
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.tap()
+			AutumnUI.sleep(1)
+			e.tap()
+			return .Success
+		}
+		return .FailedIsNil
+	}
+	
+	
+	/**
 	 * Sends a tap event to a hittable point computed for the element. Does not fail if the element isn't hittable or doesn't exist.
 	 *
 	 * @param element

@@ -14,11 +14,17 @@ import XCTest
 /**
  * A test step that clears a given UI input field.
  */
-public class ClearInputField: AutumnTestStepAdv
+public class ClearInputField : AutumnTestStepAdv
 {
 	public init(_ aci:(name:String, id:String))
 	{
 		super.init(aci, .textField)
+	}
+	
+	
+	public init(_ element:XCUIElement)
+	{
+		super.init(element, .textField)
 	}
 	
 	

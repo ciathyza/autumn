@@ -22,6 +22,12 @@ public class AssertExists : AutumnTestStepAdv
 	}
 	
 	
+	public override init(_ element:XCUIElement, _ elementType:XCUIElement.ElementType = .any)
+	{
+		super.init(element, elementType)
+	}
+	
+	
 	public override func setup()
 	{
 		name = "\(elementName) exists"

@@ -26,6 +26,13 @@ public class TypeText: AutumnTestStepAdv
 	}
 	
 	
+	public init(_ element:XCUIElement, _ text:String, _ elementType:XCUIElement.ElementType = .textField)
+	{
+		_text = text
+		super.init(element, elementType)
+	}
+	
+	
 	public override func setup()
 	{
 		name = "the user enters '\(_text)' into \(elementName)"

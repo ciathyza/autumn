@@ -14,7 +14,7 @@ import XCTest
 /**
  * A test step that logs in with a given input form and user.
  */
-public class Login: AutumnTestStep
+public class Login : AutumnTestStep
 {
 	internal var _userNameInputACI:(name:String, id:String)
 	internal var _passwordInputACI:(name:String, id:String)
@@ -32,6 +32,14 @@ public class Login: AutumnTestStep
 		_loginButtonACI = loginButtonACI
 		_userNameInput = AutumnUI.getElement(_userNameInputACI.id, .textField)
 		_passwordInput = AutumnUI.getElement(_passwordInputACI.id, .secureTextField)
+		if _passwordInput == nil
+		{
+			_passwordInput = AutumnUI.getElement(_passwordInputACI.id, .textField)
+			if _passwordInput != nil
+			{
+				AutumnLog.warning("Password input field \"\(_passwordInputACI.id)\" is not a secure text field.")
+			}
+		}
 		_loginButton = AutumnUI.getElement(_loginButtonACI.id, .button)
 		_user = user
 		super.init()

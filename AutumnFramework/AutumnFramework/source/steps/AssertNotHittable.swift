@@ -22,6 +22,12 @@ public class AssertNotHittable : AutumnTestStepAdv
 	}
 	
 	
+	public override init(_ element:XCUIElement, _ elementType:XCUIElement.ElementType = .any)
+	{
+		super.init(element, elementType)
+	}
+	
+	
 	public override func setup()
 	{
 		name = "\(elementName) is not hittable"

@@ -84,9 +84,7 @@ class ObtainCoffeeViewController : UIViewController
 		let localizedTitle = NSLocalizedString(title, comment: "")
 		let localizedMessage = NSLocalizedString(message, comment: "")
 		let alertController = UIAlertController(title: localizedTitle, message: localizedMessage, preferredStyle: .alert)
-		let action = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler:
-		{ (alert) in
-		})
+		let action = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (alert) in })
 		alertController.addAction(action)
 		present(alertController, animated: true, completion: nil)
 	}
