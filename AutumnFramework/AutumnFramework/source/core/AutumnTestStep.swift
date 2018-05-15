@@ -81,7 +81,7 @@ open class AutumnTestStep : Hashable, Equatable
 /**
  * Represents a test step with UI interaction that is executed in a test scenario.
  */
-open class AutumnTestStepAdv : AutumnTestStep
+open class AutumnUITestStep : AutumnTestStep
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties

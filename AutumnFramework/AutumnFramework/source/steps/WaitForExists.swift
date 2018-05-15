@@ -14,7 +14,7 @@ import XCTest
 /**
  * A test step that waits for the specified element to exist within a specified timeout.
  */
-public class WaitForExists : AutumnTestStepAdv
+public class WaitForExists : AutumnUITestStep
 {
 	private var _timeout:UInt = 0
 	

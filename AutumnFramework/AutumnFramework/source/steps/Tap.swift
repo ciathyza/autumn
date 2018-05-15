@@ -14,7 +14,7 @@ import XCTest
 /**
  * A test step that taps the specified UI element.
  */
-public class Tap : AutumnTestStepAdv
+public class Tap : AutumnUITestStep
 {
 	public override init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
 	{

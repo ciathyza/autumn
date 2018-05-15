@@ -16,7 +16,7 @@ import XCTest
  *
  * If the input field still contains any text it will be cleared before entering the new text.
  */
-public class TypeText : AutumnTestStepAdv
+public class TypeText : AutumnUITestStep
 {
 	internal var _text:String
 	

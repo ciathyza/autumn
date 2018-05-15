@@ -14,7 +14,7 @@ import XCTest
 /**
  * A test step that clears the specified text input field.
  */
-public class ClearInputField : AutumnTestStepAdv
+public class ClearInputField : AutumnUITestStep
 {
 	public init(_ aci:(name:String, id:String))
 	{

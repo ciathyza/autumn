@@ -14,7 +14,7 @@ import XCTest
 /**
  * A test step used to assert the non-existance of the specified element.
  */
-public class AssertNotExists : AutumnTestStepAdv
+public class AssertNotExists : AutumnUITestStep
 {
 	public override init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
 	{

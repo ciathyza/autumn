@@ -15,7 +15,7 @@ import Autumn
  * This step tries to navigate to the test menu screen,
  * regardless on which screen the user currently is.
  */
-class EnterTestMenuScreen : AutumnTestStepAdv
+class EnterTestMenuScreen : AutumnUITestStep
 {
 	public init()
 	{

@@ -14,7 +14,7 @@ import XCTest
 /**
  * A test step used to assert the specified element being hittable.
  */
-public class AssertHittable : AutumnTestStepAdv
+public class AssertHittable : AutumnUITestStep
 {
 	public override init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
 	{

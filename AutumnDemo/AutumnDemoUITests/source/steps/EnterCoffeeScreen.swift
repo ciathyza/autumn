@@ -15,7 +15,7 @@ import Autumn
  * This step tries to navigate to the coffee screen,
  * regardless on which screen the user currently is.
  */
-class EnterCoffeeScreen : AutumnTestStepAdv
+class EnterCoffeeScreen : AutumnUITestStep
 {
 	public init()
 	{
