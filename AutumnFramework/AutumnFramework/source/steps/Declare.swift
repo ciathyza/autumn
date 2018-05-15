@@ -12,16 +12,19 @@ import XCTest
 
 
 /**
- * A simple test step that can be used to create non-evaluating Then steps.
+ * A test step that can be used to output a message with a specific result.
+ * This step can be used in situations where no test logic is required and the result is certain.
  */
-public class Declare: AutumnTestStep
+public class Message : AutumnTestStep
 {
 	private var _message:String
+	private var _uiResult:AutumnUIActionResult
 	
 	
-	public init(_ message:String)
+	public init(_ message:String, _ result:AutumnUIActionResult = .Success)
 	{
 		_message = message
+		_uiResult = result
 		super.init()
 	}
 	
@@ -34,7 +37,7 @@ public class Declare: AutumnTestStep
 	
 	public override func execute() -> AutumnTestStepResult
 	{
-		result.add("Declare \(_message)", .Success)
+		result.add("\(_message)", _uiResult)
 		return result
 	}
 }

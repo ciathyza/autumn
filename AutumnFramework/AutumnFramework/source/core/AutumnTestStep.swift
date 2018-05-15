@@ -12,7 +12,11 @@ import XCTest
 
 
 /**
- * Represents a test step that is executed in a test scenario.
+ * Base class for test steps.
+ *
+ * Test steps can be used in scenario Given/When/Then calls to provide any test logic like
+ * executing an action, asserting an element, or simply wait for a while. A test step is
+ * synonimic with a TestRail step.
  */
 open class AutumnTestStep : Hashable, Equatable
 {
@@ -28,15 +32,8 @@ open class AutumnTestStep : Hashable, Equatable
 	internal var phase = AutumnScenarioPhase.None
 	internal var scenario:AutumnScenario!
 	
-	public var hashValue:Int
-	{
-		return name.hashValue
-	}
-	
-	public var app:XCUIApplication
-	{
-		return AutumnTestRunner.app
-	}
+	public var hashValue:Int { return name.hashValue }
+	public var app:XCUIApplication { return AutumnTestRunner.app }
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -64,7 +61,7 @@ open class AutumnTestStep : Hashable, Equatable
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
-	 * Abstract method! Override and set type, status, and name here!
+	 * Abstract method! Override and set type, status, and name here.
 	 */
 	open func setup()
 	{
@@ -72,7 +69,7 @@ open class AutumnTestStep : Hashable, Equatable
 	
 	
 	/**
-	 * Abstract method! Override and execute test instructions here and return the result!
+	 * Abstract method! Override and execute test instructions here and return the result.
 	 */
 	open func execute() -> AutumnTestStepResult
 	{
@@ -106,7 +103,7 @@ open class AutumnTestStepAdv : AutumnTestStep
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
-	 * Init with element ACI.
+	 * Initializes the step with an element ACI.
 	 */
 	public init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
 	{
@@ -119,12 +116,12 @@ open class AutumnTestStepAdv : AutumnTestStep
 	
 	
 	/**
-	 * Init with element.
+	 * Initializes the step with a XCUI element.
 	 */
 	public init(_ element:XCUIElement, _ elementType:XCUIElement.ElementType = .any)
 	{
 		self.elementID = "\(element.description)"
-		self.elementName = "\(element.description)"
+		self.elementName = "the \(element.description)"
 		self.elementType = elementType
 		self.element = element
 		super.init()

@@ -12,7 +12,7 @@ import XCTest
 
 
 /**
- * A test step that taps a given UI element.
+ * A test step that taps the specified UI element.
  */
 public class Tap : AutumnTestStepAdv
 {
@@ -30,7 +30,7 @@ public class Tap : AutumnTestStepAdv
 	
 	public override func setup()
 	{
-		name = "the user taps \(elementName)"
+		name = "\(elementName) is tapped"
 	}
 	
 	

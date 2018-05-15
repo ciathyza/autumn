@@ -12,9 +12,9 @@ import XCTest
 
 
 /**
- * A test step that let's the app wait for X seconds.
+ * A test step that let's the app wait for x seconds.
  */
-public class Wait: AutumnTestStep
+public class Wait : AutumnTestStep
 {
 	private var _seconds:UInt = 0
 	

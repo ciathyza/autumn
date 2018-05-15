@@ -12,9 +12,12 @@ import XCTest
 
 
 /**
- * A test step that types a password into a given UI input field.
+ * A test step that types a password into the specified UI input field.
+ * The input field mut be a secure text field for this to work.
+ *
+ * If the input field still contains any text it will be cleared before entering the new text.
  */
-public class TypePassword: TypeText
+public class TypePassword : TypeText
 {
 	public override init(_ aci:(name:String, id:String), _ text:String, _ elementType:XCUIElement.ElementType = .secureTextField)
 	{
@@ -30,7 +33,7 @@ public class TypePassword: TypeText
 	
 	public override func setup()
 	{
-		name = "the user enters '\(_text.obscured)' into \(elementName)"
+		name = "'\(_text.obscured)' is entered into \(elementName)"
 	}
 	
 	

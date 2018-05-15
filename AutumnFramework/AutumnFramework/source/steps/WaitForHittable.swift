@@ -12,9 +12,9 @@ import XCTest
 
 
 /**
- * A test step that waits for a given UI element to become hittable.
+ * A test step that waits for the specified element to be hittable within a specified timeout.
  */
-public class WaitForHittable: AutumnTestStepAdv
+public class WaitForHittable : AutumnTestStepAdv
 {
 	private var _timeout:UInt = 0
 	

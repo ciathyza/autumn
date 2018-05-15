@@ -12,7 +12,7 @@ import XCTest
 
 
 /**
- * A test step that waits for a given UI element to exist.
+ * A test step that waits for the specified element to exist within a specified timeout.
  */
 public class WaitForExists : AutumnTestStepAdv
 {

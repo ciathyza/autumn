@@ -25,7 +25,7 @@ class EnterCoffeeScreen : AutumnTestStepAdv
 	
 	public override func setup()
 	{
-		name = "entering \(elementName)"
+		name = "\(elementName) is entered"
 	}
 	
 	

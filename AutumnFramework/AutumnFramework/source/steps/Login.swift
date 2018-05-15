@@ -12,10 +12,14 @@ import XCTest
 
 
 /**
- * A test step that logs in with a given input form and user.
+ * A test step that logs in wia the specified login input form and user.
  */
 public class Login : AutumnTestStep
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Properties
+	// ----------------------------------------------------------------------------------------------------
+	
 	internal var _userNameInputACI:(name:String, id:String)
 	internal var _passwordInputACI:(name:String, id:String)
 	internal var _userNameInput:XCUIElement?
@@ -24,6 +28,10 @@ public class Login : AutumnTestStep
 	internal var _loginButton:XCUIElement?
 	internal var _user:AutumnUser
 	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Init
+	// ----------------------------------------------------------------------------------------------------
 	
 	public init(_ userNameInputACI:(name:String, id:String), _ passwordInputACI:(name:String, id:String), _ loginButtonACI:(name:String, id:String), _ user:AutumnUser)
 	{
@@ -45,6 +53,23 @@ public class Login : AutumnTestStep
 		super.init()
 	}
 	
+	
+	public init(_ userNameInput:XCUIElement, _ passwordInput:XCUIElement, _ loginButton:XCUIElement, _ user:AutumnUser)
+	{
+		_userNameInputACI = (name: "the \(userNameInput.description)", id: "\(userNameInput.description)")
+		_passwordInputACI = (name: "the \(passwordInput.description)", id: "\(passwordInput.description)")
+		_loginButtonACI = (name: "the \(loginButton.description)", id: "\(loginButton.description)")
+		_userNameInput = userNameInput
+		_passwordInput = passwordInput
+		_loginButton = loginButton
+		_user = user
+		super.init()
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
 	
 	public override func setup()
 	{

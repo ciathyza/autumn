@@ -12,7 +12,7 @@ import XCTest
 
 
 /**
- * A test step that clears a given UI input field.
+ * A test step that clears the specified text input field.
  */
 public class ClearInputField : AutumnTestStepAdv
 {
@@ -30,7 +30,7 @@ public class ClearInputField : AutumnTestStepAdv
 	
 	public override func setup()
 	{
-		name = "the user clears \(elementName)"
+		name = "\(elementName) is cleared"
 	}
 	
 	

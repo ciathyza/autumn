@@ -12,7 +12,7 @@ import XCTest
 
 
 /**
- * A test step used to assert the existance of a given element.
+ * A test step used to assert the existance of the specified element.
  */
 public class AssertExists : AutumnTestStepAdv
 {

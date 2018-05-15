@@ -12,10 +12,14 @@ import XCTest
 
 
 /**
- * A test step that logs in with a given input form and a random user.
+ * A test step that logs in via the specified login input form and a randomly chosen user.
  */
 public class LoginRandom : AutumnTestStep
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Properties
+	// ----------------------------------------------------------------------------------------------------
+	
 	internal var _userNameInputACI:(name:String, id:String)
 	internal var _passwordInputACI:(name:String, id:String)
 	internal var _userNameInput:XCUIElement?
@@ -25,6 +29,10 @@ public class LoginRandom : AutumnTestStep
 	internal var _user:AutumnUser
 	
 	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Init
+	// ----------------------------------------------------------------------------------------------------
+
 	public init(_ userNameInputACI:(name:String, id:String), _ passwordInputACI:(name:String, id:String), _ loginButtonACI:(name:String, id:String))
 	{
 		_userNameInputACI = userNameInputACI
@@ -46,9 +54,26 @@ public class LoginRandom : AutumnTestStep
 	}
 	
 	
+	public init(_ userNameInput:XCUIElement, _ passwordInput:XCUIElement, _ loginButton:XCUIElement)
+	{
+		_userNameInputACI = (name: "the \(userNameInput.description)", id: "\(userNameInput.description)")
+		_passwordInputACI = (name: "the \(passwordInput.description)", id: "\(passwordInput.description)")
+		_loginButtonACI = (name: "the \(loginButton.description)", id: "\(loginButton.description)")
+		_userNameInput = userNameInput
+		_passwordInput = passwordInput
+		_loginButton = loginButton
+		_user = AutumnTestRunner.instance.getRandomUser() ?? AutumnTestRunner.instance.getFallbackUser()
+		super.init()
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
+	
 	public override func setup()
 	{
-		name = "the user logs-in with any available ID"
+		name = "the user logs-in with a random ID"
 	}
 	
 	

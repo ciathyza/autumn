@@ -12,9 +12,11 @@ import XCTest
 
 
 /**
- * A test step that types text into a given UI input field.
+ * A test step that types text into the specified input field.
+ *
+ * If the input field still contains any text it will be cleared before entering the new text.
  */
-public class TypeText: AutumnTestStepAdv
+public class TypeText : AutumnTestStepAdv
 {
 	internal var _text:String
 	
@@ -35,7 +37,7 @@ public class TypeText: AutumnTestStepAdv
 	
 	public override func setup()
 	{
-		name = "the user enters '\(_text)' into \(elementName)"
+		name = "'\(_text)' is entered into \(elementName)"
 	}
 	
 	

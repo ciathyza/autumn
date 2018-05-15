@@ -12,7 +12,7 @@ import XCTest
 
 
 /**
- * A test step used to assert a given element being hittable.
+ * A test step used to assert the specified element being hittable.
  */
 public class AssertHittable : AutumnTestStepAdv
 {

@@ -14,11 +14,11 @@ import XCTest
 /**
  * A test step that launches the app.
  */
-public class LaunchApp: AutumnTestStep
+public class LaunchApp : AutumnTestStep
 {
 	public override func setup()
 	{
-		name = "the user has launched the app"
+		name = "the app is launched"
 	}
 	
 	
