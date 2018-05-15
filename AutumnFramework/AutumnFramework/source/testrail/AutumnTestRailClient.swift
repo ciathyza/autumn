@@ -306,24 +306,44 @@ class AutumnTestRailClient
 						
 						/* Record execution steps. */
 						scenario.execute()
-						var executionStepsBatch = ""
-						index = 0
-						for n in scenario.executionStrings
+						var customStepsSeparated = [TestRailTestCaseCustom]()
+						/* Create test steps from When occurences. */
+						for executionString in scenario.executionStrings
 						{
-							if n.starts(with: AutumnStepType.When.rawValue)
+							if executionString.starts(with: AutumnStepType.When.rawValue)
 							{
-								executionStepsBatch += "\(n)"
-								if index < scenario.executionStrings.count - 1 { executionStepsBatch += "\n" }
-								index += 1
-							}
-							else if n.starts(with: AutumnStepType.Then.rawValue)
-							{
-								let customTestStep = TestRailTestCaseCustom(content: executionStepsBatch, expected: n)
-								testCase.customStepsSeparated!.append(customTestStep)
-								executionStepsBatch = ""
+								customStepsSeparated.append(TestRailTestCaseCustom(content: executionString, expected: ""))
 							}
 						}
 						
+						if customStepsSeparated.count > 0
+						{
+							index = -1
+							for executionString in scenario.executionStrings
+							{
+								if executionString.starts(with: AutumnStepType.When.rawValue)
+								{
+									index += 1
+								}
+								else if executionString.starts(with: AutumnStepType.Then.rawValue)
+								{
+									if var step = customStepsSeparated[index] as? TestRailTestCaseCustom
+									{
+										step.expected += "\(executionString)\n"
+										customStepsSeparated[index] = step
+									}
+								}
+							}
+						}
+						
+						/* Lazy way to remove unnecessary new lines. */
+						for var s in customStepsSeparated
+						{
+							s.content = s.content.trimmed
+							s.expected = s.expected.trimmed
+						}
+						
+						testCase.customStepsSeparated = customStepsSeparated
 						syncTestCase(testCase, sectionID: section.id)
 						AutumnUI.waitUntil { return self._isTestRailRetrievalComplete }
 					}

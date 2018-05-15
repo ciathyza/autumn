@@ -234,8 +234,8 @@ struct TestRailTestCase : TestRailCodable
  */
 struct TestRailTestCaseCustom : TestRailCodable
 {
-	let content:String
-	let expected:String
+	var content:String
+	var expected:String
 	
 	enum CodingKeys: String, CodingKey
 	{
@@ -271,6 +271,11 @@ struct TestRailTestCaseCustom : TestRailCodable
 	func toTableRow() -> [String]
 	{
 		return ["\(content)", "\(expected)"]
+	}
+	
+	func toString() -> String
+	{
+		return "\(content) --> \(expected)"
 	}
 	
 	var hashValue:Int
