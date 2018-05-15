@@ -58,12 +58,20 @@ public class ExecutionTimer
 		return "\(days)d \(hours)h \(minutes)m \(seconds)s \(milliseconds)ms"
 	}
 	
-	var timePretty:String
+	var timeShort:String
 	{
 		if days > 0 { return "\(days)d \(hours)h \(minutes)m \(seconds)s" }
 		else if hours > 0 { return "\(hours)h \(minutes)m \(seconds)s" }
 		else if minutes > 0 { return "\(minutes)m \(seconds)s" }
 		return "\(seconds)s"
+	}
+	
+	var timeLong:String
+	{
+		if days > 0 { return "\(days) days, \(hours) hours, \(minutes) minutes, and \(seconds) seconds" }
+		else if hours > 0 { return "\(hours) hours, \(minutes) minutes, and \(seconds) seconds" }
+		else if minutes > 0 { return "\(minutes) minutes and \(seconds) seconds" }
+		return "\(seconds) seconds"
 	}
 	
 	

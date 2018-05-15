@@ -20,7 +20,7 @@ class AutumnDemoUITests : AutumnTestRunner
 		config.appID                 = "com.ciathyza.AutumnDemo"
 		config.testrailHost          = "https://pointpartner.testrail.net"
 		config.testrailUserEmail     = "ts-balkau.sascha@rakuten.com"
-		//config.testrailPassword      = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
+		config.testrailPassword      = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
 		config.testrailMilestoneName = "App 4.2.0"
 		config.testrailProjectID     = 4
 		config.testrailTestType      = .Functional
@@ -50,7 +50,7 @@ class AutumnDemoUITests : AutumnTestRunner
 
 	override func registerFeatures()
 	{
-		//registerFeature(TestMenuScreenFeature.self)
+		registerFeature(TestMenuScreenFeature.self)
 		registerFeature(CoffeeScreenFeature.self)
 	}
 	
