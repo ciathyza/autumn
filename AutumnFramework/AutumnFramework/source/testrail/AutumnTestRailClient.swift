@@ -327,11 +327,9 @@ class AutumnTestRailClient
 								}
 								else if executionString.starts(with: AutumnStepType.Then.rawValue)
 								{
-									if var step = customStepsSeparated[index] as? TestRailTestCaseCustom
-									{
-										step.expected += "\(executionString)\n"
-										customStepsSeparated[index] = step
-									}
+									var step = customStepsSeparated[index]
+									step.expected += "\(executionString)\n"
+									customStepsSeparated[index] = step
 								}
 							}
 						}

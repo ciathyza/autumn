@@ -17,6 +17,19 @@ import XCTest
 public class AutumnUI
 {
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Enums
+	// ----------------------------------------------------------------------------------------------------
+	
+	public enum SwipeDirection : String
+	{
+		case Up    = "up"
+		case Down  = "down"
+		case Left  = "left"
+		case Right = "right"
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
@@ -717,6 +730,22 @@ public class AutumnUI
 			return .Success
 		}
 		return .FailedIsNil
+	}
+	
+	
+	/**
+	 * Sends a swipe-up gesture.
+	 * @param element
+	 */
+	public class func swipe(_ element:XCUIElement?, _ direction:AutumnUI.SwipeDirection) -> AutumnUIActionResult
+	{
+		switch direction
+		{
+			case .Up: return AutumnUI.swipeUp(element)
+			case .Down: return AutumnUI.swipeDown(element)
+			case .Left: return AutumnUI.swipeLeft(element)
+			case .Right: return AutumnUI.swipeRight(element)
+		}
 	}
 	
 	
