@@ -149,7 +149,11 @@ public struct Log
 		
 		if let logFilePath = Log.logFilePath
 		{
-			if Log.logFile == nil { Log.logFile = LogFile(logFilePath) }
+			if Log.logFile == nil
+			{
+				Log.logFile = LogFile(logFilePath)
+				Log.logFile!.delete()
+			}
 			if let logFile = Log.logFile
 			{
 				logFile.append(content: "\(line)\(Log.terminator)")
