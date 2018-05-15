@@ -52,11 +52,6 @@ class AutumnModel
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// MARK: - Derived Properties
-	// ----------------------------------------------------------------------------------------------------
-	
-	
-	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Init
 	// ----------------------------------------------------------------------------------------------------
 	
@@ -78,8 +73,7 @@ class AutumnModel
 	 */
 	func isTestRailDataValid() -> Bool
 	{
-		return testrailProjects.count > 0
-			&& testrailSuites.count > 0
+		return testrailProjects.count > 0 && testrailSuites.count > 0
 	}
 	
 	
@@ -88,8 +82,7 @@ class AutumnModel
 	 */
 	func isDataValid() -> Bool
 	{
-		return features.count > 0
-			&& scenarioClasses.count > 0
+		return features.count > 0 && scenarioClasses.count > 0
 	}
 	
 	
@@ -275,31 +268,28 @@ class AutumnModel
 	}
 	
 	
-	func addTestRailCasesFromFeature(_ feature:AutumnFeature)
-	{
-		//let featureScenarios =
-	}
+	//func addTestRailCasesFromFeature(_ feature:AutumnFeature)
+	//{
+	//}
 	
 	
-	func addTestRailCaseFromScenario(_ scenario:AutumnScenario, _ feature:AutumnFeature)
-	{
-		var exists = false
-		for c in testrailCases
-		{
-			if c.title == scenario.title
-			{
-				exists = true
-				break
-			}
-		}
-		
-		if !exists
-		{
-			//var testCase = TestRailTestCase(masterSuiteID, )
-			
-		}
-		
-	}
+	//func addTestRailCaseFromScenario(_ scenario:AutumnScenario, _ feature:AutumnFeature)
+	//{
+	//	var exists = false
+	//	for c in testrailCases
+	//	{
+	//		if c.title == scenario.title
+	//		{
+	//			exists = true
+	//			break
+	//		}
+	//	}
+	//
+	//	if !exists
+	//	{
+	//		//var testCase = TestRailTestCase(masterSuiteID, )
+	//	}
+	//}
 	
 	
 	/**

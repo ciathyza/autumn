@@ -13,7 +13,7 @@ import Foundation
 /**
  * Used to keep track of test step instructions and their results.
  */
-open class AutumnTestStepResult
+public class AutumnTestStepResult
 {
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties

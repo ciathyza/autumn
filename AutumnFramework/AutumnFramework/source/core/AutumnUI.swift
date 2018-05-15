@@ -734,7 +734,7 @@ public class AutumnUI
 	
 	
 	/**
-	 * Sends a swipe-up gesture.
+	 * Sends a swipe gesture.
 	 * @param element
 	 */
 	public class func swipe(_ element:XCUIElement?, _ direction:AutumnUI.SwipeDirection) -> AutumnUIActionResult
