@@ -21,7 +21,6 @@ class CoffeeScreenFeature : AutumnFeature
 	
 	override func registerScenarios()
 	{
-		registerScenario(ScenarioEnterCoffeeScreen.self)
 		registerScenario(ScenarioLoginCoffeeScreen.self)
 	}
 }

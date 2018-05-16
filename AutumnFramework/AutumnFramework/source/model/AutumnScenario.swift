@@ -42,6 +42,14 @@ struct ScenarioResultRow
 
 /**
  * Represents a test scenario that defines test steps.
+ *
+ * Use this class by creating sub-classes and overriding setup(), establish(), and execute().
+ * Then in setup() specify the properties such as ID, title, status, etc. for the scenario.
+ * In establish() you should add Given declarations that establish the required state for
+ * the test, such as launching the app, navigating to the desired view, etc.
+ * In execute() you should define the actual test steps by adding When/Then declarations.
+ * A When declaration determines an action and a Then declaration determines an assert.
+ * Every When declaration should be followed by one or more Then declartions.
  */
 open class AutumnScenario : AutumnHashable
 {
