@@ -33,7 +33,7 @@ public class TypePassword : TypeText
 	
 	public override func setup()
 	{
-		name = "'\(_text.obscured)' is entered into \(elementName)"
+		if name.isEmpty { name = "'\(_text.obscured)' is entered into \(elementName)" }
 	}
 	
 	

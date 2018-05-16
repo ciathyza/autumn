@@ -178,11 +178,29 @@ open class AutumnScenario : AutumnHashable
 	
 	
 	/**
+	 * Executes a given test step. Step name can be specified.
+	 */
+	public func given(_ name:String, _ step:AutumnTestStep)
+	{
+		self.step(AutumnStepType.Given, step, name)
+	}
+	
+	
+	/**
 	 * Executes a when test step.
 	 */
 	public func when(_ step:AutumnTestStep)
 	{
 		self.step(AutumnStepType.When, step)
+	}
+	
+	
+	/**
+	 * Executes a when test step. Step name can be specified.
+	 */
+	public func when(_ name:String, _ step:AutumnTestStep)
+	{
+		self.step(AutumnStepType.When, step, name)
 	}
 	
 	
@@ -196,15 +214,24 @@ open class AutumnScenario : AutumnHashable
 	
 	
 	/**
+	 * Executes a then test step. Step name can be specified.
+	 */
+	public func then(_ name:String, _ step:AutumnTestStep)
+	{
+		self.step(AutumnStepType.Then, step, name)
+	}
+	
+	
+	/**
 	 * Executes a test step.
 	 */
-	internal func step(_ type:AutumnStepType, _ step:AutumnTestStep)
+	internal func step(_ type:AutumnStepType, _ step:AutumnTestStep, _ name:String = "")
 	{
 		/* If we're in the registration phase then only record the step names for TestRail case generation,
 		   don't run any actual test execution. */
 		if AutumnTestRunner.phase == .DataRegistration || AutumnTestRunner.phase == .DataSync
 		{
-			let testRailStepName = "\(type.rawValue) \(step.name)."
+			let testRailStepName = name.isEmpty ? "\(type.rawValue) \(step.name)." : "\(type.rawValue) \(name)."
 			if type == .Given { preconditionStrings.append(testRailStepName) }
 			else { executionStrings.append(testRailStepName) }
 		}
@@ -213,6 +240,7 @@ open class AutumnScenario : AutumnHashable
 			step.scenario = self
 			step.type = type
 			step.phase = phase
+			if !name.isEmpty { step.name = name }
 			steps.append(step)
 			let result = step.execute()
 			results.append((step: step, result: result))

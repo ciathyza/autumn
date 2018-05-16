@@ -31,7 +31,7 @@ public class Message : AutumnTestStep
 	
 	public override func setup()
 	{
-		name = _message
+		if name.isEmpty { name = _message }
 	}
 	
 	

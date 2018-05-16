@@ -35,7 +35,7 @@ public class WaitForExists : AutumnUITestStep
 	
 	public override func setup()
 	{
-		name = "\(elementName) exists within \(_timeout) seconds"
+		if name.isEmpty { name = "\(elementName) exists within \(_timeout) seconds" }
 	}
 	
 	

@@ -18,7 +18,7 @@ public class AssertHittable : AutumnUITestStep
 {
 	public override func setup()
 	{
-		name = "\(elementName) is hittable"
+		if name.isEmpty { name = "\(elementName) is hittable" }
 	}
 	
 	

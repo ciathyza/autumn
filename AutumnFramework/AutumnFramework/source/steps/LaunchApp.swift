@@ -18,7 +18,7 @@ public class LaunchApp : AutumnTestStep
 {
 	public override func setup()
 	{
-		name = "the app is launched"
+		if name.isEmpty { name = "the app is launched" }
 	}
 	
 	

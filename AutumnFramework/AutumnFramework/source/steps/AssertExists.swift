@@ -18,7 +18,7 @@ public class AssertExists : AutumnUITestStep
 {
 	public override func setup()
 	{
-		name = "\(elementName) exists"
+		if name.isEmpty { name = "\(elementName) exists" }
 	}
 	
 	

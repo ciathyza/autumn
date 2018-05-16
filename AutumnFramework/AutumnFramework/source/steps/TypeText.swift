@@ -37,7 +37,7 @@ public class TypeText : AutumnUITestStep
 	
 	public override func setup()
 	{
-		name = "'\(_text)' is entered into \(elementName)"
+		if name.isEmpty { name = "'\(_text)' is entered into \(elementName)" }
 	}
 	
 	

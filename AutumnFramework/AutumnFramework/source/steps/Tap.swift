@@ -18,7 +18,7 @@ public class Tap : AutumnUITestStep
 {
 	public override func setup()
 	{
-		name = "\(elementName) is tapped"
+		if name.isEmpty { name = "\(elementName) is tapped" }
 	}
 	
 	

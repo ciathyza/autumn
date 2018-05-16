@@ -73,7 +73,7 @@ public class Login : AutumnTestStep
 	
 	public override func setup()
 	{
-		name = "the user logs-in with ID '\(_user.id)'"
+		if name.isEmpty { name = "the user logs-in with ID '\(_user.id)'" }
 	}
 	
 	

@@ -73,7 +73,7 @@ public class LoginRandom : AutumnTestStep
 	
 	public override func setup()
 	{
-		name = "the user logs-in with a random ID"
+		if name.isEmpty { name = "the user logs-in with a random ID" }
 	}
 	
 	

@@ -27,7 +27,21 @@ class ScenarioCheckCoffeeScreenDisplay : AutumnScenario
 	
 	override func execute()
 	{
-		when(AssertExists(DEMO_COFFEE_VIEW_ACI))
+		when("the coffee screen is entered", AssertHittable(DEMO_COFFEE_VIEW_ACI))
+		then(AssertHittable(DEMO_COFFEE_LOGIN_PROMPT_ACI))
+		then(AssertHittable(DEMO_COFFEE_USERNAME_INPUT_ACI))
+		then(AssertHittable(DEMO_COFFEE_PASSWORD_INPUT_ACI))
+		then(AssertHittable(DEMO_COFFEE_LOGIN_BUTTON_ACI))
+		then(AssertHittable(DEMO_COFFEE_STRENGTH_LABEL_ACI))
+		then(AssertHittable(DEMO_COFFEE_STRENGTH_SELECTOR_ACI))
+		then(AssertHittable(DEMO_COFFEE_SUGAR_LABEL_ACI))
+		then(AssertHittable(DEMO_COFFEE_SUGAR_SLIDER_ACI))
+		then(AssertHittable(DEMO_COFFEE_WHIPCREAM_LABEL_ACI))
+		then(AssertHittable(DEMO_COFFEE_WHIPCREAM_SWITCH_ACI))
+		then(AssertHittable(DEMO_COFFEE_EXTRA_CAFFEINE_LABEL_ACI))
+		then(AssertHittable(DEMO_COFFEE_EXTRA_CAFFEINE_VALUE_LABEL_ACI))
+		then(AssertHittable(DEMO_COFFEE_EXTRA_CAFFEINE_STEPPER_ACI))
+		then(AssertHittable(DEMO_COFFEE_BREW_BUTTON_ACI))
 	}
 }
 

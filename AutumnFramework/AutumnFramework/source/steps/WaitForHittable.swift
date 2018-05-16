@@ -35,7 +35,7 @@ public class WaitForHittable : AutumnUITestStep
 	
 	public override func setup()
 	{
-		name = "\(elementName) becomes hittable within \(_timeout) seconds"
+		if name.isEmpty { name = "\(elementName) becomes hittable within \(_timeout) seconds" }
 	}
 	
 	

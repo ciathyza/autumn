@@ -30,7 +30,7 @@ public class ClearInputField : AutumnUITestStep
 	
 	public override func setup()
 	{
-		name = "\(elementName) is cleared"
+		if name.isEmpty { name = "\(elementName) is cleared" }
 	}
 	
 	

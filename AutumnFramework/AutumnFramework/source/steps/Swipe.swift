@@ -35,7 +35,7 @@ public class Swipe : AutumnUITestStep
 	
 	public override func setup()
 	{
-		name = "\(elementName) is swiped \(_direction.rawValue)"
+		if name.isEmpty { name = "\(elementName) is swiped \(_direction.rawValue)" }
 	}
 	
 	

@@ -28,7 +28,7 @@ public class Wait : AutumnTestStep
 	
 	public override func setup()
 	{
-		name = "the user waits for \(_seconds) seconds"
+		if name.isEmpty { name = "the user waits for \(_seconds) seconds" }
 	}
 	
 	
