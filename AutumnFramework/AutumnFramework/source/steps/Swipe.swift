@@ -26,8 +26,9 @@ public class Swipe : AutumnUITestStep
 	}
 	
 	
-	public override init(_ element:XCUIElement, _ elementType:XCUIElement.ElementType = .any)
+	public init(_ element:XCUIElement, _ direction:AutumnUI.SwipeDirection, _ elementType:XCUIElement.ElementType = .any)
 	{
+		_direction = direction
 		super.init(element, elementType)
 	}
 	

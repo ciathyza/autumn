@@ -32,11 +32,11 @@ struct ScenarioResult
  */
 struct ScenarioResultRow
 {
-	var phase  = AutumnScenarioPhase.None
-	var type   = AutumnScenarioInstructionType.Instr
+	var phase    = AutumnScenarioPhase.None
+	var type     = AutumnScenarioInstructionType.Instr
 	var stepType = AutumnStepType.None
-	var name   = ""
-	var result = AutumnUIActionResult.Failed
+	var name     = ""
+	var result   = AutumnUIActionResult.Failed
 }
 
 

@@ -16,18 +16,6 @@ import XCTest
  */
 public class AssertExists : AutumnUITestStep
 {
-	public override init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
-	{
-		super.init(aci, elementType)
-	}
-	
-	
-	public override init(_ element:XCUIElement, _ elementType:XCUIElement.ElementType = .any)
-	{
-		super.init(element, elementType)
-	}
-	
-	
 	public override func setup()
 	{
 		name = "\(elementName) exists"

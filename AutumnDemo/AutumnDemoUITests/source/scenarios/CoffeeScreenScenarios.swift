@@ -10,11 +10,34 @@ import Autumn
 
 
 // ------------------------------------------------------------------------------------------------
-class ScenarioLoginCoffeeScreen : AutumnScenario
+class ScenarioCheckCoffeeScreenDisplay : AutumnScenario
 {
 	override func setup()
 	{
 		id = "B001"
+		title = "Check Coffee Screen Display"
+		descr = "Checks correct display of all coffee screen UI elements."
+	}
+	
+	override func establish()
+	{
+		given(LaunchApp())
+		given(EnterCoffeeScreen())
+	}
+	
+	override func execute()
+	{
+		when(AssertExists(DEMO_COFFEE_VIEW_ACI))
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------------
+class ScenarioLoginCoffeeScreen : AutumnScenario
+{
+	override func setup()
+	{
+		id = "B002"
 		title = "Login Coffee Screen"
 		descr = "Tests login into the coffee screen."
 	}
