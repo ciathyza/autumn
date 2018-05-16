@@ -142,6 +142,7 @@ public enum AutumnUnsupportedReason : String
 	case RequiresSpecificServerSideStatus     = "Requires specific server side status (e.g. maintenance, error)"
 	case RequiresThirdPartyAppInstall         = "Requires third-party app install"
 	case UnreachableAppUIState                = "Unreachable app UI state"
+	case IntentionallyUnsupported             = "Intentionally not supported for testing purpose"
 }
 
 

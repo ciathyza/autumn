@@ -18,14 +18,18 @@ $ xcrun instruments -s devices
 ### Fastlane Test Invocation
 
 ```
-$ fastlane scan --workspace "autumn.xcworkspace" --scheme "UI Tests (STG)" --device "iPhone 8 (11.2)" --clean --include_simulator_log true || true
+$ bundle exec fastlane scan --workspace "autumn.xcworkspace" --scheme "UI Tests (STG)" --device "iPhone 8 (11.2)" --clean --include_simulator_log true || true
 ```
+
+(Won't show framework log output in console.)
 
 ### Xcode Test Invocation
 
 ```
 $ xcodebuild -workspace autumn.xcworkspace/ -scheme 'UI Tests (STG)' -destination 'platform=iOS Simulator,id=7E42917B-AC3F-4CE3-87DF-4371E1D63DAB' clean build test
 ```
+
+(Show framework log output in console.)
 
 ### Hierarchy
 

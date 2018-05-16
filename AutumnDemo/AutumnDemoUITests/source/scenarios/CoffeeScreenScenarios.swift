@@ -86,7 +86,7 @@ class ScenarioCoffeeScreen003: AutumnScenario
 		title = "Coffee Screen Not Supported"
 		descr = "An intentionally not supported test scenario."
 		status = .Unsupported
-		unsupportedReason = "Intentionally not supported for testing purpose"
+		unsupportedReason = .IntentionallyUnsupported
 	}
 	
 	override func establish()
