@@ -9,16 +9,22 @@ Test cases are defined in the code, incl. their readable test instructions for T
 
 The Autumn framework in this repository can be found under ```autumn/AutumnDemo/AutumnDemoUITests/Source/Framework```.
 
+### Get list of Emulator IDs
+
+```
+$ xcrun instruments -s devices
+```
+
 ### Fastlane Test Invocation
 
 ```
-$ fastlane scan --workspace "Autumn.xcworkspace" --scheme "Automation (STG)" --device "iPhone 7 (11.2)" --clean --include_simulator_log true || true
+$ fastlane scan --workspace "autumn.xcworkspace" --scheme "UI Tests (STG)" --device "iPhone 8 (11.2)" --clean --include_simulator_log true || true
 ```
 
 ### Xcode Test Invocation
 
 ```
-$ xcodebuild -workspace Autumn.xcworkspace/ -scheme 'Automation (STG)' -destination 'platform=iOS Simulator,id=38EBA092-13C4-4512-AC9B-CF4B1F9F4C10' clean build test
+$ xcodebuild -workspace autumn.xcworkspace/ -scheme 'UI Tests (STG)' -destination 'platform=iOS Simulator,id=7E42917B-AC3F-4CE3-87DF-4371E1D63DAB' clean build test
 ```
 
 ### Hierarchy
