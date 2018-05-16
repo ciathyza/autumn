@@ -33,7 +33,7 @@
 		38CBB9DC0E017B6A335423C7893352C8 /* TestRailTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B990B3C45F0479C642620E8ED2304ED7 /* TestRailTestCase.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		3EF1B8617C4F42C26E8C751B8DBFDF03 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EEB4179F750EB4AB763CD8CC895256 /* XCTest.framework */; };
 		41EB8859453679F2AC4F0A44E76D1026 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA73EC74276F4CDE430960A06ACADFCB /* Int.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		426128E265C0BD8CAA6E014584A1337F /* Autumn-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 18E7009BF438339550DB311F80D17E7C /* Autumn-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		426128E265C0BD8CAA6E014584A1337F /* autumn-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 18E7009BF438339550DB311F80D17E7C /* autumn-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43EFA956EC39A034A80337A32F2238CD /* TestRailProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734E6F3EB146054153FA7D25C348F9C8 /* TestRailProject.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		45536D5E16734189A488F2A77D7A12D0 /* AutumnLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78459B5B26168F50877D8860458AB71 /* AutumnLog.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		471AAF14C6723ED931A4F9B21CDFED72 /* TestRailTestCaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A68E903E8029EADEEB41A447126DFD0 /* TestRailTestCaseField.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -118,7 +118,7 @@
 		E4311611BE46D5AF60E13957FE7327AC /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6BCA4BFF75B539E180F551BA69F69B /* UIApplication.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E58BD891DD6DFC7BAD5A955BE2783B1D /* Pods-AutumnFramework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADA89CD44B99EFFBFD0EE3F1263B640 /* Pods-AutumnFramework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EBA0781A1E2822CF7DFD56ACD394A63E /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		EEE37636C0ED728A6FB5B2CE9367C42D /* Autumn-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70111F668607483872BEC9CFEF28A9 /* Autumn-dummy.m */; };
+		EEE37636C0ED728A6FB5B2CE9367C42D /* autumn-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70111F668607483872BEC9CFEF28A9 /* autumn-dummy.m */; };
 		EEFA566A2BF345201D93E26F93AFE376 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF8227D586D7C79B58E11596E161D4 /* Foundation.framework */; };
 		EFD30A50CFF333C0403185C9C737B4E4 /* Metatype.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B8999050912FE5EB50C73B8A72C8B /* Metatype.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F10A46C11480153C3F7B46784C677A2D /* TestRailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44158A54E743077788A30FBB1860B1A /* TestRailSection.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -187,7 +187,7 @@
 		13A42D71C983EF62BE0E5DCDB3A19753 /* AlamofireNetworkClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkClient.swift; sourceTree = "<group>"; };
 		155538D91ACEEEDF82069ACF6C1A02E7 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		180DA1D2E769D9EF096D7325E6DFCEB2 /* AutumnModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnModel.swift; sourceTree = "<group>"; };
-		18E7009BF438339550DB311F80D17E7C /* Autumn-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Autumn-umbrella.h"; sourceTree = "<group>"; };
+		18E7009BF438339550DB311F80D17E7C /* autumn-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "autumn-umbrella.h"; sourceTree = "<group>"; };
 		195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		1BA6EC4D0F974E82DD836A6FE36D0FD3 /* Login.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		1D3B36AE5033CFB89CC3590A4BC21483 /* AutumnStats.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnStats.swift; sourceTree = "<group>"; };
@@ -196,9 +196,9 @@
 		2079C2B358A36341FEEBC06894945959 /* AutumnTestStepResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestStepResult.swift; sourceTree = "<group>"; };
 		210971763CB2FC0DC4E378271A37BE32 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		21362A9E6A790ABD6B33C26439E65870 /* TestRailPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailPriority.swift; sourceTree = "<group>"; };
-		2189FAA5ECD5F6E2CE0E9ABFD63E7C33 /* Autumn.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Autumn.xcconfig; sourceTree = "<group>"; };
+		2189FAA5ECD5F6E2CE0E9ABFD63E7C33 /* autumn.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = autumn.xcconfig; sourceTree = "<group>"; };
 		27568C377E9C02BE1EBBF8FCBCE9CEEB /* Pods-AutumnFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutumnFramework.release.xcconfig"; sourceTree = "<group>"; };
-		283CD6B4398B73010FFC145F640631FE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		283CD6B4398B73010FFC145F640631FE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		2AAB071DD3D85938D902F68D8B686444 /* TestRailTestRun.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestRun.swift; sourceTree = "<group>"; };
 		2ADA89CD44B99EFFBFD0EE3F1263B640 /* Pods-AutumnFramework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AutumnFramework-umbrella.h"; sourceTree = "<group>"; };
 		2D487792941B3D2A0372383198562519 /* ClearInputField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ClearInputField.swift; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 		33A04B5D27E86AF4B84D95E21CF3F452 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		35A7412A275B0676162E32304446A7D8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35DF5B3296D9117F7BFC85F6F2A841CE /* AutumnTestStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestStep.swift; sourceTree = "<group>"; };
-		36AEE2B48DC381840474E18C822BD4FC /* Autumn-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Autumn-prefix.pch"; sourceTree = "<group>"; };
+		36AEE2B48DC381840474E18C822BD4FC /* autumn-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "autumn-prefix.pch"; sourceTree = "<group>"; };
 		36E94896CA222FB1C16AE3C404E8C170 /* AutumnViewProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnViewProxy.swift; sourceTree = "<group>"; };
 		3957FEEB9BBEDD6818BCC7CD1AC2217C /* Springboard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
 		3B8EEE4C8EA4F99D182046B639E1BCF4 /* Pods_AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AutumnFramework.framework; path = "Pods-AutumnFramework.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,7 +243,7 @@
 		722D1983DD6D00B0A889AC8AD984F405 /* FrequencyTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FrequencyTable.swift; sourceTree = "<group>"; };
 		734E6F3EB146054153FA7D25C348F9C8 /* TestRailProject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailProject.swift; sourceTree = "<group>"; };
 		736699A12650F131FD4EFFD63E9F0FCF /* TestRailTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTest.swift; sourceTree = "<group>"; };
-		73DC106D7757CAEF196AAB8D82C8282D /* Autumn.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Autumn.modulemap; sourceTree = "<group>"; };
+		73DC106D7757CAEF196AAB8D82C8282D /* autumn.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = autumn.modulemap; sourceTree = "<group>"; };
 		769317DA191A98DFA7248CBB0A9625BF /* TestRailTestResultField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestResultField.swift; sourceTree = "<group>"; };
 		79E1F5EB68D7674F2B27D21CDDCF2076 /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		7D2CF2A30FFB2C27427D8E3642B9F9B3 /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -275,7 +275,7 @@
 		A6F0087379126520201C943B4BB70DAF /* Autumn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Autumn.framework; path = Autumn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D572D5D85C60D96DD1579C2B60308B /* TabularText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabularText.swift; sourceTree = "<group>"; };
 		AA2C3952BC756DE74A60A723DF65307D /* Interval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
-		AA70111F668607483872BEC9CFEF28A9 /* Autumn-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Autumn-dummy.m"; sourceTree = "<group>"; };
+		AA70111F668607483872BEC9CFEF28A9 /* autumn-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "autumn-dummy.m"; sourceTree = "<group>"; };
 		B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
 		B145F1BBA1E25740684E33E3C77F70A8 /* TestRailTemplate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTemplate.swift; sourceTree = "<group>"; };
 		B1EABB8F5BEE99040FD9870263507860 /* Encodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
@@ -603,15 +603,15 @@
 		9D308357B5E297BA856578B784528BDF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				73DC106D7757CAEF196AAB8D82C8282D /* Autumn.modulemap */,
-				2189FAA5ECD5F6E2CE0E9ABFD63E7C33 /* Autumn.xcconfig */,
-				AA70111F668607483872BEC9CFEF28A9 /* Autumn-dummy.m */,
-				36AEE2B48DC381840474E18C822BD4FC /* Autumn-prefix.pch */,
-				18E7009BF438339550DB311F80D17E7C /* Autumn-umbrella.h */,
+				73DC106D7757CAEF196AAB8D82C8282D /* autumn.modulemap */,
+				2189FAA5ECD5F6E2CE0E9ABFD63E7C33 /* autumn.xcconfig */,
+				AA70111F668607483872BEC9CFEF28A9 /* autumn-dummy.m */,
+				36AEE2B48DC381840474E18C822BD4FC /* autumn-prefix.pch */,
+				18E7009BF438339550DB311F80D17E7C /* autumn-umbrella.h */,
 				283CD6B4398B73010FFC145F640631FE /* Info.plist */,
 			);
 			name = "Support Files";
-			path = "Pods/Target Support Files/Autumn";
+			path = "Pods/Target Support Files/autumn";
 			sourceTree = "<group>";
 		};
 		9D74283A5CE897C135AF3DAA4F4D7D13 /* Autumn */ = {
@@ -764,7 +764,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				426128E265C0BD8CAA6E014584A1337F /* Autumn-umbrella.h in Headers */,
+				426128E265C0BD8CAA6E014584A1337F /* autumn-umbrella.h in Headers */,
 				81C49BC5266716F0D3504F97F2378093 /* AutumnFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -968,7 +968,7 @@
 				66A19D7635A0BE8ABFC85AEC07E14B78 /* AssertHittable.swift in Sources */,
 				09E44756BA56C94260E9E0E1EB9B2E13 /* AssertNotExists.swift in Sources */,
 				34B6B645A608904AA48111849E664719 /* AssertNotHittable.swift in Sources */,
-				EEE37636C0ED728A6FB5B2CE9367C42D /* Autumn-dummy.m in Sources */,
+				EEE37636C0ED728A6FB5B2CE9367C42D /* autumn-dummy.m in Sources */,
 				D003B78F2BD6C5659D8F8417861C4CEA /* AutumnConfig.swift in Sources */,
 				51B8ADA988D60244C33ABCC87147DA44 /* AutumnConstants.swift in Sources */,
 				BDA50F8B46149DEED8879337345E3E48 /* AutumnEnums.swift in Sources */,
@@ -1096,7 +1096,7 @@
 /* Begin XCBuildConfiguration section */
 		340DA822A975A4F67CBEB28C1BC950E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2189FAA5ECD5F6E2CE0E9ABFD63E7C33 /* Autumn.xcconfig */;
+			baseConfigurationReference = 2189FAA5ECD5F6E2CE0E9ABFD63E7C33 /* autumn.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -1166,7 +1166,7 @@
 		};
 		474DE680800EE54BA3676F3F880919F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2189FAA5ECD5F6E2CE0E9ABFD63E7C33 /* Autumn.xcconfig */;
+			baseConfigurationReference = 2189FAA5ECD5F6E2CE0E9ABFD63E7C33 /* autumn.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";

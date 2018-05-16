@@ -38,8 +38,6 @@
                BlueprintName = "AutumnDemoUITests"
                ReferencedContainer = "container:AutumnDemo.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <AdditionalOptions>

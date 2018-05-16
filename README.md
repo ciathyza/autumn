@@ -53,14 +53,73 @@ Another important building block are **View Proxies**. A view proxy class acts a
 
 ### How-To
 
-#### New Autumn Project Setup
+#### Installation & Setup
 
-A quick run-down on how to set up Autumn and define test scenarios:
+1. Create a new Xcode workspace.
+2. Create a new Xcode project, add it to the workspace.
+3. When creating the project ensure `Create UI Tests` is checked.
+4. Init the workspace with `$ pod init`.
+5. Add the following line to the UI test target in your Podfile:
 
-  1. Create sub-class of ```AutumnTestRunner```, override ```configure()```, ```registerUsers()```, ```registerViewProxies()```, and ```registerFeatures()```.
-  2. Register any test users in ```registerUsers()```.
-  3. Create view proxies for any important app views/screens by sub-classing ```AutumnViewProxy```. Register them in ```registerViewProxies()```.
-  4. Create features by sub-classing ```AutumnFeature``` and register them in ```registerFeatures()```.
-  5. Create scenarios for the features by sub-classing ```AutumnScenario```. Register them in ```registerScenarios()``` of the respective feature class you've defined before.
-  6. Create necessary step classes by sub-classing ```AutumnTestStep```.
-  7. Use the steps (and pre-defined steps) in your scenario classes by executing them with ```given()```, ```when()```, and ```then()```.
+```
+pod 'Autumn', :git => 'https://git.rakuten-it.com/scm/~ts-balkau.sascha/autumn.git', :tag => '1.0.0'
+```
+
+Podfile example:
+
+```
+workspace 'autumntest.xcworkspace'
+platform :ios, '10.0'
+
+target 'AutumnTest' do
+	project 'AutumnTest/AutumnTest.xcodeproj'
+	use_frameworks!
+	inherit! :search_paths
+
+	target 'AutumnTestUITests' do
+		use_frameworks!
+		inherit! :search_paths
+		pod 'Autumn', :git => 'https://git.rakuten-it.com/scm/~ts-balkau.sascha/autumn.git', :tag => '1.0.0'
+	end
+end
+
+post_install do |installer|
+	installer.pods_project.targets.each do |target|
+		target.build_configurations.each do |config|
+			config.build_settings['ENABLE_BITCODE'] = 'NO'
+		end
+	end
+end
+```
+
+6. Run `$ pod install`.
+7. Change the `YourAppUITests.swift` class in your Xcode UI tests target to extend from `AutumnTestRunner` and override the required methods:
+
+```
+import Autumn
+
+class AutumnTestUITests : AutumnTestRunner
+{
+	override func configure()
+	{
+	}
+	
+	override func registerUsers()
+	{
+	}
+	
+	override func registerViewProxies()
+	{
+	}
+	
+	override func registerFeatures()
+	{
+	}
+}
+```
+
+8. Register any test users in ```registerUsers()```.
+9. Create features by sub-classing ```AutumnFeature``` and register them in ```registerFeatures()```.
+10. Create scenarios for the features by sub-classing ```AutumnScenario```. Register them in ```registerScenarios()``` of the respective feature class you've defined before.
+11. Create necessary step classes by sub-classing ```AutumnTestStep```, or re-use factory step classes.
+13. Use the steps (and pre-defined steps) in your scenario classes by executing them with ```given()```, ```when()```, and ```then()```.
