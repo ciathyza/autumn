@@ -10,11 +10,11 @@ import Autumn
 
 
 // ------------------------------------------------------------------------------------------------
-class ScenarioEnterTestMenuScreen : AutumnScenario
+class ScenarioTestMenuScreen001: AutumnScenario
 {
 	override func setup()
 	{
-		id = "A001"
+		id = "STMS001"
 		title = "Enter Test Menu Screen"
 		descr = "Tests that the test menu screen can be entered and displayed."
 	}
