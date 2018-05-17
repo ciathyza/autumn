@@ -67,7 +67,7 @@ class ScenarioCoffeeScreen002: AutumnScenario
 	
 	override func execute()
 	{
-		when(LoginRandom(DEMO_COFFEE_USERNAME_INPUT_ACI, DEMO_COFFEE_PASSWORD_INPUT_ACI, DEMO_COFFEE_LOGIN_BUTTON_ACI))
+		when(Login(DEMO_COFFEE_USERNAME_INPUT_ACI, DEMO_COFFEE_PASSWORD_INPUT_ACI, DEMO_COFFEE_LOGIN_BUTTON_ACI))
 		then(AssertHittable(app.alerts["Logged-in!"]))
 		then(AssertHittable(app.alerts["Logged-in!"].staticTexts["Logged-in!"]))
 		
