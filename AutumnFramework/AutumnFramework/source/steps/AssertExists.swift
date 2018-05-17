@@ -16,6 +16,10 @@ import XCTest
  */
 public class AssertExists : AutumnUITestStep
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
+	
 	public override func setup()
 	{
 		if name.isEmpty { name = "\(elementName) exists" }

@@ -16,6 +16,10 @@ import XCTest
  */
 public class LaunchApp : AutumnTestStep
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
+	
 	public override func setup()
 	{
 		if name.isEmpty { name = "the app is launched" }

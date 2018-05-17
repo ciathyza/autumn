@@ -16,6 +16,10 @@ import XCTest
  */
 public class AssertHittable : AutumnUITestStep
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
+	
 	public override func setup()
 	{
 		if name.isEmpty { name = "\(elementName) is hittable" }

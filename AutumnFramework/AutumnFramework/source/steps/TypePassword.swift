@@ -19,6 +19,10 @@ import XCTest
  */
 public class TypePassword : TypeText
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Init
+	// ----------------------------------------------------------------------------------------------------
+	
 	public override init(_ aci:(name:String, id:String), _ text:String, _ elementType:XCUIElement.ElementType = .secureTextField)
 	{
 		super.init(aci, text, elementType)
@@ -30,6 +34,10 @@ public class TypePassword : TypeText
 		super.init(element, text, elementType)
 	}
 	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
 	
 	public override func setup()
 	{

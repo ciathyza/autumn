@@ -16,9 +16,19 @@ import XCTest
  */
 public class ClearInputField : AutumnUITestStep
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Init
+	// ----------------------------------------------------------------------------------------------------
+	
 	public init(_ aci:(name:String, id:String))
 	{
 		super.init(aci, .textField)
+	}
+	
+	
+	public init(_ dict:NSDictionary)
+	{
+		super.init(dict)
 	}
 	
 	
@@ -27,6 +37,10 @@ public class ClearInputField : AutumnUITestStep
 		super.init(element, .textField)
 	}
 	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
 	
 	public override func setup()
 	{

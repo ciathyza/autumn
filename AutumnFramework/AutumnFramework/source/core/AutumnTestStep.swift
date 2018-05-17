@@ -57,6 +57,43 @@ open class AutumnTestStep : Hashable, Equatable
 	
 	
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Helper
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Helper method to convert an NSDictionary ACI to a Swift tuple ACI.
+	 */
+	public class func getACIFromDict(_ dict:NSDictionary) -> (name:String, id:String)
+	{
+		var aci = (name: "nil", id: "nil")
+		if let d = dict as? [String:String]
+		{
+			if let id = d["id"]
+			{
+				aci.id = id
+			}
+			else
+			{
+				fatalError("NSDictionary ACI must be of type [String:String] and contain valid name and ID values!")
+			}
+			if let name = d["name"]
+			{
+				aci.name = name
+			}
+			else
+			{
+				fatalError("NSDictionary ACI must be of type [String:String] and contain valid name and ID values!")
+			}
+		}
+		else
+		{
+			fatalError("NSDictionary ACI must be of type [String:String]!")
+		}
+		return aci
+	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
 	
@@ -103,10 +140,24 @@ open class AutumnUITestStep : AutumnTestStep
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
-	 * Initializes the step with an element ACI.
+	 * Initializes the step with an element ACI tuple.
 	 */
 	public init(_ aci:(name:String, id:String), _ elementType:XCUIElement.ElementType = .any)
 	{
+		self.elementID = aci.id
+		self.elementName = aci.name
+		self.elementType = elementType
+		self.element = AutumnUI.getElement(elementID, elementType)
+		super.init()
+	}
+	
+	
+	/**
+	 * Initializes the step with a dictionary. The dictionary must have two keys named "id" and "name".
+	 */
+	public init(_ dict:NSDictionary, _ elementType:XCUIElement.ElementType = .any)
+	{
+		let aci = AutumnTestStep.getACIFromDict(dict)
 		self.elementID = aci.id
 		self.elementName = aci.name
 		self.elementType = elementType

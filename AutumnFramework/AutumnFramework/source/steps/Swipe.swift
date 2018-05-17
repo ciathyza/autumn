@@ -16,13 +16,28 @@ import XCTest
  */
 public class Swipe : AutumnUITestStep
 {
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Properties
+	// ----------------------------------------------------------------------------------------------------
+	
 	private var _direction = AutumnUI.SwipeDirection.Left
 	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Init
+	// ----------------------------------------------------------------------------------------------------
 	
 	public init(_ aci:(name:String, id:String), _ direction:AutumnUI.SwipeDirection, _ elementType:XCUIElement.ElementType = .any)
 	{
 		_direction = direction
 		super.init(aci, elementType)
+	}
+	
+	
+	public init(_ dict:NSDictionary, _ direction:AutumnUI.SwipeDirection, _ elementType:XCUIElement.ElementType = .any)
+	{
+		_direction = direction
+		super.init(dict, elementType)
 	}
 	
 	
@@ -32,6 +47,10 @@ public class Swipe : AutumnUITestStep
 		super.init(element, elementType)
 	}
 	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Methods
+	// ----------------------------------------------------------------------------------------------------
 	
 	public override func setup()
 	{

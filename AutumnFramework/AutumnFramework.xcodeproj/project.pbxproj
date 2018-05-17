@@ -85,7 +85,6 @@
 		629413ED20A2E587002BCA8E /* Declare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B020A2E587002BCA8E /* Declare.swift */; };
 		629413EE20A2E587002BCA8E /* LaunchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B120A2E587002BCA8E /* LaunchApp.swift */; };
 		629413EF20A2E587002BCA8E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B220A2E587002BCA8E /* Login.swift */; };
-		629413F020A2E587002BCA8E /* LoginRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B320A2E587002BCA8E /* LoginRandom.swift */; };
 		629413F120A2E587002BCA8E /* Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B420A2E587002BCA8E /* Tap.swift */; };
 		629413F220A2E587002BCA8E /* TypePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B520A2E587002BCA8E /* TypePassword.swift */; };
 		629413F320A2E587002BCA8E /* TypeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629413B620A2E587002BCA8E /* TypeText.swift */; };
@@ -179,7 +178,6 @@
 		629413B020A2E587002BCA8E /* Declare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Declare.swift; sourceTree = "<group>"; };
 		629413B120A2E587002BCA8E /* LaunchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchApp.swift; sourceTree = "<group>"; };
 		629413B220A2E587002BCA8E /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		629413B320A2E587002BCA8E /* LoginRandom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRandom.swift; sourceTree = "<group>"; };
 		629413B420A2E587002BCA8E /* Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
 		629413B520A2E587002BCA8E /* TypePassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypePassword.swift; sourceTree = "<group>"; };
 		629413B620A2E587002BCA8E /* TypeText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeText.swift; sourceTree = "<group>"; };
@@ -401,7 +399,6 @@
 				629413B020A2E587002BCA8E /* Declare.swift */,
 				629413B120A2E587002BCA8E /* LaunchApp.swift */,
 				629413B220A2E587002BCA8E /* Login.swift */,
-				629413B320A2E587002BCA8E /* LoginRandom.swift */,
 				629413B420A2E587002BCA8E /* Tap.swift */,
 				629413B520A2E587002BCA8E /* TypePassword.swift */,
 				629413B620A2E587002BCA8E /* TypeText.swift */,
@@ -608,7 +605,6 @@
 				629413BB20A2E587002BCA8E /* Bundle.swift in Sources */,
 				629413E220A2E587002BCA8E /* AutumnUI.swift in Sources */,
 				629413C120A2E587002BCA8E /* Int.swift in Sources */,
-				629413F020A2E587002BCA8E /* LoginRandom.swift in Sources */,
 				6220334F20A2F53D00EC3E33 /* TestRailCustomTestStepResult.swift in Sources */,
 				6220335520A2F53D00EC3E33 /* TestRailStatus.swift in Sources */,
 				6220335A20A2F53D00EC3E33 /* TestRailTestPlan.swift in Sources */,
