@@ -93,6 +93,33 @@ open class AutumnTestStep : Hashable, Equatable
 	}
 	
 	
+	/**
+	 * Helper method to convert a string ACI to a Swift tuple ACI.
+	 * The string should contain AutumnStringConstant.STRING_ACI_DELIMITER separating name and id of the element.
+	 */
+	public class func getACIFromString(_ str:String) -> (name:String, id:String)
+	{
+		var aci = (name: "nil", id: "nil")
+		let components = str.split(AutumnStringConstant.STRING_ACI_DELIMITER)
+		if components.count < 1
+		{
+			fatalError("String ACI must not be empty!")
+		}
+		else if components.count == 1
+		{
+			aci.name = components[0]
+			aci.id = components[0]
+		}
+		else
+		{
+			aci.name = components[0]
+			aci.id = components[1]
+		}
+		
+		return aci
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
@@ -158,6 +185,21 @@ open class AutumnUITestStep : AutumnTestStep
 	public init(_ dict:NSDictionary, _ elementType:XCUIElement.ElementType = .any)
 	{
 		let aci = AutumnTestStep.getACIFromDict(dict)
+		self.elementID = aci.id
+		self.elementName = aci.name
+		self.elementType = elementType
+		self.element = AutumnUI.getElement(elementID, elementType)
+		super.init()
+	}
+	
+	
+	/**
+	 * Initializes the step with a string. The string should contain a AutumnStringConstant.STRING_ACI_DELIMITER
+	 * to separate name and id of the UI element.
+	 */
+	public init(_ str:String, _ elementType:XCUIElement.ElementType = .any)
+	{
+		let aci = AutumnTestStep.getACIFromString(str)
 		self.elementID = aci.id
 		self.elementName = aci.name
 		self.elementType = elementType

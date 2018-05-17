@@ -32,6 +32,12 @@ public class ClearInputField : AutumnUITestStep
 	}
 	
 	
+	public init(_ str:String)
+	{
+		super.init(str)
+	}
+	
+	
 	public init(_ element:XCUIElement)
 	{
 		super.init(element, .textField)

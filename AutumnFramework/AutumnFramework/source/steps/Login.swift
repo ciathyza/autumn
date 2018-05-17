@@ -98,6 +98,38 @@ public class Login : AutumnTestStep
 	}
 	
 	
+	public init(_ userNameInputStr:String, _ passwordInputStr:String, _ loginButtonStr:String, _ user:AutumnUser? = nil)
+	{
+		_userNameInputACI = AutumnTestStep.getACIFromString(userNameInputStr)
+		_passwordInputACI = AutumnTestStep.getACIFromString(passwordInputStr)
+		_loginButtonACI = AutumnTestStep.getACIFromString(loginButtonStr)
+		
+		_userNameInput = AutumnUI.getElement(_userNameInputACI.id, .textField)
+		_passwordInput = AutumnUI.getElement(_passwordInputACI.id, .secureTextField)
+		if _passwordInput == nil
+		{
+			_passwordInput = AutumnUI.getElement(_passwordInputACI.id, .textField)
+			if _passwordInput != nil
+			{
+				AutumnLog.warning("Password input field \"\(_passwordInputACI.id)\" is not a secure text field.")
+			}
+		}
+		_loginButton = AutumnUI.getElement(_loginButtonACI.id, .button)
+		
+		if let user = user
+		{
+			_user = user
+		}
+		else
+		{
+			_user = AutumnTestRunner.instance.getRandomUser() ?? AutumnTestRunner.instance.getFallbackUser()
+			_isRandomUser = true
+		}
+		
+		super.init()
+	}
+	
+	
 	public init(_ userNameInput:XCUIElement, _ passwordInput:XCUIElement, _ loginButton:XCUIElement, _ user:AutumnUser? = nil)
 	{
 		_userNameInputACI = (name: "the \(userNameInput.description)", id: "\(userNameInput.description)")

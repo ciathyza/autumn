@@ -36,6 +36,20 @@ public class TypeText : AutumnUITestStep
 	}
 	
 	
+	public init(_ dict:NSDictionary, _ text:String, _ elementType:XCUIElement.ElementType = .textField)
+	{
+		_text = text
+		super.init(dict, elementType)
+	}
+	
+	
+	public init(_ str:String, _ text:String, _ elementType:XCUIElement.ElementType = .textField)
+	{
+		_text = text
+		super.init(str, elementType)
+	}
+	
+	
 	public init(_ element:XCUIElement, _ text:String, _ elementType:XCUIElement.ElementType = .textField)
 	{
 		_text = text

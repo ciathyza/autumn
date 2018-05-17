@@ -41,6 +41,13 @@ public class Swipe : AutumnUITestStep
 	}
 	
 	
+	public init(_ str:String, _ direction:AutumnUI.SwipeDirection, _ elementType:XCUIElement.ElementType = .any)
+	{
+		_direction = direction
+		super.init(str, elementType)
+	}
+	
+	
 	public init(_ element:XCUIElement, _ direction:AutumnUI.SwipeDirection, _ elementType:XCUIElement.ElementType = .any)
 	{
 		_direction = direction
