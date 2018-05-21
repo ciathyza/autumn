@@ -1,6 +1,6 @@
 {
   "name": "Autumn",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": {
     "type": "Proprietary",
     "file": "LICENSE"
@@ -15,7 +15,7 @@
   },
   "source": {
     "git": "https://git.rakuten-it.com/scm/~ts-balkau.sascha/autumn.git",
-    "tag": "1.0.1"
+    "tag": "1.0.2"
   },
   "source_files": "AutumnFramework/AutumnFramework/source/**/*.{swift,h,m}",
   "pod_target_xcconfig": {

@@ -22,7 +22,7 @@ open class AutumnTestRunner : XCTestCase
 	// ----------------------------------------------------------------------------------------------------
 	
 	public static let FRAMEWORK_NAME        = "Autumn"
-	public static let FRAMEWORK_VERSION     = "1.0.1"
+	public static let FRAMEWORK_VERSION     = "1.0.2"
 	public static let FRAMEWORK_DESCRIPTION = "UI Automation Framework"
 	
 	
