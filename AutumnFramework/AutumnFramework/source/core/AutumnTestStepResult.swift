@@ -39,6 +39,19 @@ public class AutumnTestStepResult
 	
 	
 	/**
+	 * Allows to add other results to this result. This way you can use other step classes inside this step class,
+	 * e.g. result.add(Wait(5).execute())
+	 */
+	public func add(_ result:AutumnTestStepResult)
+	{
+		for i in result.instructions
+		{
+			instructions.append((i.instruction, i.result))
+		}
+	}
+	
+	
+	/**
 	 * Evaluates all instructions to have the test step succeeded or failed.
 	 * Only returns true if all instructions have succeeded.
 	 */
