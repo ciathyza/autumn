@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 	spec.name                = 'Autumn'
-	spec.version             = '1.0.4'
+	spec.version             = '1.0.5'
 	spec.license             = { :type => "Proprietary", :file => "LICENSE" }
 	spec.homepage            = 'https://git.rakuten-it.com/users/ts-balkau.sascha/repos/autumn'
 	spec.authors             = { "Sascha Balkau" => "ts-balkau.sascha@rakuten.com" }

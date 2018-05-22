@@ -315,6 +315,8 @@ open class AutumnFeature : AutumnHashable
 		}
 		else
 		{
+			runner.session.stats.scenariosStarted += 1
+			
 			if scenario.resetBefore
 			{
 				AutumnUI.sleep(2)

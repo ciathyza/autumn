@@ -24,6 +24,7 @@ public class AutumnStats
 	public var featuresTotal:Int        = 0
 	public var featuresExecuted:Int     = 0
 	public var scenariosTotal:Int       = 0
+	public var scenariosStarted:Int     = 0
 	public var scenariosUnsupported:Int = 0
 	public var scenariosPending:Int     = 0
 	public var scenariosExecuted:Int    = 0
@@ -53,7 +54,7 @@ public class AutumnStats
 	 */
 	public var successRate:Double
 	{
-		let v = ((Double(scenariosPassed) / Double(scenariosTotal)) * 100).rounded(1)
+		let v = ((Double(scenariosPassed) / Double(scenariosStarted)) * 100).rounded(1)
 		if v.isNaN { return 0 }
 		return v
 	}
@@ -84,6 +85,7 @@ public class AutumnStats
 		table.add(["Features total", "\(featuresTotal)"])
 		table.add(["Features executed", "\(featuresExecuted)"])
 		table.add(["Scenarios total", "\(scenariosTotal)"])
+		table.add(["Scenarios started", "\(scenariosStarted)"])
 		table.add(["Scenarios pending", "\(scenariosPending)"])
 		table.add(["Scenarios unsupported", "\(scenariosUnsupported)"])
 		table.add(["Scenarios effective", "\(scenariosEffective)"])
