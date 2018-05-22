@@ -7,126 +7,129 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A98275B1FE01DC1336983E1773E49B /* TestRailStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D777FC135A3042E87F8051E959AAC0A1 /* TestRailStatus.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		00E153632A414101E0A66AE23569802B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60BC9955B4F7FFA62D7440CB385C11 /* Result.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		025DCB6E8ECAF0B234D97386BD6FA318 /* ExecutionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E867DF170BE9185D1A3009413942 /* ExecutionTimer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		027CC20F5FF35321B2758D15FA66AEC2 /* AutumnSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C94C05749D4E10C4DB07E316B5519C /* AutumnSession.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		034B50007471EA928256D04C50960BCE /* Pods-AutumnDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C2BE0EDC736EDF530C567C38D21CFD /* Pods-AutumnDemo-dummy.m */; };
-		06CCF8B042F79BBE51FA0D1566CFA677 /* TestRailTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB347AABFD4C03AD46FDF8787A603C6 /* TestRailTestCase.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0419D8CF0F75F8CE40BE78DFA46DA159 /* AutumnTestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21A80EECBF46DD358305A3496E6CAE8 /* AutumnTestRunner.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		053A0E3D8F56F00773728231AA58B9AF /* AutumnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5781F621450AD5DD142A836755989C /* AutumnModel.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		070CA1A7F17BCCF5F49202E961B6E115 /* Pods-AutumnDemoUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A718EEA0584FCC1F4F20CF07E83607B /* Pods-AutumnDemoUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		079D990738735591330332B5F2551AE4 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A8AA5F9EDED0A0BDDE7E830BF4AEE0 /* NetworkReachabilityManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0824E79C7F7EF86282E193F4BD5E1099 /* TestRailTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C73C0D1F2222F4E1C1AE314D72DB287 /* TestRailTemplate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0AFB2B95BA89B32CBB1F5C93D51A06A3 /* TestRailTestRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E18C62150DF30EC4493F45FBD0BBAD8 /* TestRailTestRun.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1191BF82BDA397D235F368D0FF6BBE53 /* AssertExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A2210982E797E792035F968229CCCD /* AssertExists.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		12DD8B03E7892A94EC9ABB3B4C299ADE /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E97DEE688562A0CF82799977E940D6 /* Log.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		13258A9F4DCE538D68CA47D1E51139BC /* TabularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18884A5B35824E112A5C2A281EDC5842 /* TabularText.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		137E418D71647D321919834BA6482396 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EEB4179F750EB4AB763CD8CC895256 /* XCTest.framework */; };
+		0A651C11B9843A858CB047901E767D15 /* AutumnUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1EFDD32851FD86F9B39236E19F2481 /* AutumnUser.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0B36EEE3C71394009EA3B1EF314BF566 /* WaitForNotHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062B7A0DBF4F501314A48E3DC63535B /* WaitForNotHittable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		10B420D942BE27BB2918819249BB9406 /* WaitForExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB76BF049175527330EDBFE867C694 /* WaitForExists.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		13125B9EF5B655B7126A27A580F47D62 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E718ED75F6B4D3B9687C782E6BD15CE1 /* Login.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		14CECE238604E1D44104E5BCD14EB2BE /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		15756E58CC11E2408321E17013F981C9 /* TestRailTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D867186256911986EDAD1BE9A9CE81A /* TestRailTestResult.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		15B96D7BDA4494BF161D1AF478B035EA /* TestRailTestPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E9FF8636C0260477BD097AA5FD080E /* TestRailTestPlan.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		15B4D097519B82FE43B04C1E7B9C2FE4 /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2091B44029F718E0D9ABE7C963658CE8 /* SortedArray.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		164781197625A3149B3BDBCAA2AC8CC3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		17C8533AB16B2A4D58AA713D5B0BFF52 /* WaitForNotExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B8F8535E065995954BFFB3CEB02D4C /* WaitForNotExists.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1905784F3264BA7D53B031DD7BCE8EE5 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DA002B5CEBB02ABB701CD8A266234 /* UIApplication.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1B8F774F21EC40A781FE4DDEA8EFDA00 /* LaunchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC01CC26CD2BBEE1E46B5CFB1E1330A2 /* LaunchApp.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DECE84DC850B04690604AB7C521277 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C6115245DE8F0BC1D8DF44052CA10EF /* Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FB342D964D6DD7C3B229DA9C6AF177 /* Tap.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		204944D67267632DD7CD4BEFB60AC389 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F47F5C9CDB035C5AFADEBA5BF44F1C /* Response.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		21554A5E3B1672A79C6B5C6F4F9C0409 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C9F053EC439F86001BB5BB10E86F2 /* NSObject.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2248D8E16C1F2EFD46EDC805A72EEC00 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C9484D856C35955B4E527E4790BAC /* UIDevice.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		24D10D4EB92896E806ADBB1EA0564BD8 /* WaitForHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861F08CE9DBFC16EE6A44C2BBFA5E806 /* WaitForHittable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		26E028012FFE6BED577953801D596849 /* Autumn-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADB139A337FEB0EA59815D205C4795A7 /* Autumn-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2B06659E54B9A32298F78064E3150650 /* AutumnTestRailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A40ABB69476A86D1AE2C134F0738F6 /* AutumnTestRailClient.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		20F2DBA21D79983E75CB7E1FB04D8029 /* LogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804E0C3E1C0285DBFBB5F385F1885A1 /* LogFile.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		254EAF3EE7E4FC493FBF334DDF6B0933 /* Metatype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DBE1E575461DF4D229D1FD62FD7C6 /* Metatype.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		28FB9B73F386848B3704FE8BDC27BACD /* AutumnHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5D7D1389F957F9202B2453A71F5C7 /* AutumnHashable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2B58B070F9D7324583D01EE906BC918C /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDAC6C1187C5467E576980E1062C8B /* SessionManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		30B612A871A245A12ED63D4D7DBA4110 /* TypeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D4209B24F293F75CF02128C893D365 /* TypeText.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		31E6DF55CC8E6635B2B30AEDCC8E4728 /* AssertHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0069110177FF963588E1475C97E274 /* AssertHittable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		322B9DD920B3314DF86F083D36B892FD /* Autumn-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE494A74D1D71B439896B1F66DD7A355 /* Autumn-dummy.m */; };
-		327B0372C3B8163E6639C937B4161A17 /* AutumnTestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9FC573E2688BCC5EAE3C06792D24E2 /* AutumnTestRunner.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		339137CB5B9DE435618C55EA7C4E59D3 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A594C28066B5B212E190F4F3C398D8A6 /* Array.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2E54A1A872132C834B77FCCF5EFE2461 /* DispatchTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EC9F37A8A67157F62213C7B37508D8 /* DispatchTimeInterval.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2FD341FB8898CEB67EE4C7A27E448516 /* TestRailProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A21554D3AA76D5D97AE03D26679E5 /* TestRailProject.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2FEDC3DA88025CC3C31D038A17F9B9DD /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC53F7E0F6C61902802C8F027360274 /* JSON.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		300EB58F89AAFBD652E7048319F23C59 /* TestRailTestResultField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C0411D8C3ADF55DF5A523EFD53416 /* TestRailTestResultField.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		304FC3E1CED925324AE4F7B4320A0A22 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0EBC56D41E904BB71891CFFD20710A /* Double.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		33F3804B3A3740A289A091C6E22F0A60 /* AutumnFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39866AB2E953FBC1C6F5E1DBDA92F665 /* AutumnFeature.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		343B30C989188B77FB1149FED753A63C /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B030D27CAC730C5EB0F22390645310 /* ServerTrustPolicy.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		362DFD3DA462B21203E479E3BE4B064C /* ExecutionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3676F44EA786A3A4D5072080CE608B1F /* ExecutionTimer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		36389F009BB1C755B6258318B5A8A8AE /* TestRailCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12EBE185E68B5C7FCFC2EEDD92E9F48 /* TestRailCodable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		37FC90DE48D64D79D3D69A561F49A7AC /* AutumnLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8B98DDBA9D3E633031208ACA57BD5 /* AutumnLog.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		383650570090C0DDB4043CE91903543D /* AutumnUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A3025B99282FAEC56D72A653893B02 /* AutumnUser.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		394C719ED43CA25EF15691D6F0271F1B /* TestRailStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BDE678E089D518847FC43EE56D5EBD /* TestRailStatus.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		39BA65B73D60EA9FA694948ACC05D056 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3522C2093D67EAD5E236D15E967233E /* File.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3BF7797DACDB85DE59557945C1C4C480 /* WaitForNotHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417890A3DBF59BB8AFC8C25C1AF412F9 /* WaitForNotHittable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3D782B40B91E3BE81D57A6F8404D8935 /* TestRailTestCaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC41CE5433FA60CC2ECB639A674D766 /* TestRailTestCaseType.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3E4E84ADDEB9D794DC9214365F060D66 /* Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03086761C7E3EDD07D02C7999F6B094C /* Wait.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4377BD2128C9E5F70D4EF4984655EFA9 /* TestRailTestResultField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3161005018BDB21B865762CCAD218AF3 /* TestRailTestResultField.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4B299045BD766A996F11BFADA19676F8 /* TypePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD35D0591B7903CD603CC6E90B4E30 /* TypePassword.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4B8D6A8D6466F371F6213A770B3652AD /* AutumnFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5B7679F88E900C8A96604017027335 /* AutumnFeature.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4B9B2BB8032785C4F79732815B97A47F /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C57D72773B907ADDA05DC0F4745B70 /* Dictionary.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3AB430B41522CE66C8A8045C9ACB3C21 /* AutumnViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DB8C5C9B215BF3CB5B29A471A79DF /* AutumnViewProxy.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3BEA32F6C036AB0B8BFF94CEEC2A9FAF /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09851D9493DD465C78D215FD0175CA79 /* UIDevice.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3E51975B4DAD5C757A2963F62260FCC1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A727702ED635C79CE07C05BDBD8327A3 /* UIColor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3F37FA0F57D5F7AEB971EB903CCBCD8E /* TestRailPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F1FF7EA9A2BF60493665001D7F7835 /* TestRailPriority.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3FE34AA7437BEEB5D54FCD9C0F22BF76 /* WaitForHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673F5D40B3ABB11F0B8C2B18E4F9506C /* WaitForHittable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		431C6296C337DAF3ADB316D9271BD338 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB857546E312F2CFA3B38CE637CFD0 /* Character.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4AEDCD141BBF540F2BC5422AF79E5191 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3BD6A38BD3D1A324B59B745D0691F6 /* UInt.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4B5228755C3C61504E7531E99D1172BF /* HashID.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD03ACB8D771B052B9F27EA4D9423335 /* HashID.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4C306D744BC4A6BA1607ABEECD943320 /* AutumnTestStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422FFB03EAB0BF85E4E095E0899BBBF1 /* AutumnTestStep.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		4DDBC9E08D01343992E908C8F90ED241 /* Pods-AutumnDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E8C2C147F568B85D1AE9061AC0F613 /* Pods-AutumnDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DE752279217D318DA29DE1FA1260FC2 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0FDE9FE9C2877DD78E5C23ACDAA5C /* Encodable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		50C5A794E1C6930B601AB5C7DE5D1F5F /* AssertNotHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D1FBC273F1D7B13F77342BA921465 /* AssertNotHittable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		513180110188947E4D66218AB5D36BBA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F02A739100B7422F36AE23783BE8C24 /* Alamofire.framework */; };
+		4FC77AE45084DD33A15E7DE372990940 /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC679CE04429E5999D616C480BA5DD59 /* Springboard.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		501FDC403F901038DB0D5ED903D3F6B1 /* AssertNotExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FD890267BB74D58594E6666336DC46 /* AssertNotExists.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		50A50031A1C2D8DE924603E741D1FA23 /* TestRailTestCaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CADE6E65B85E913866CC20DD4922B7 /* TestRailTestCaseField.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5426F254B78F137C242B99B894181801 /* AutumnEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5A57604CDDE23596D512E840D33AE5 /* AutumnEnums.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		55A17D8AB8F7E5C6E8A2FBD0C87A304D /* TapMulti.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3F5F0EAAD5DAB6B8AF31693EBC5C1 /* TapMulti.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		55B0C681FC1DFCD719398200E2A570B6 /* Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B92B7439193CDA4185D5FCBC950A89 /* Wait.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		55C8228619AC50194F536A0DA02AC1B4 /* AutumnLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590D4DDE39A29EE6DB73C13D111EFD1B /* AutumnLog.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		56214710A8CF133F6317DA44064465B4 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4C2857317E245D513EEC6CB443762B /* Bundle.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		587A04652FC64B7FAB880CE536D24AC1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F02A739100B7422F36AE23783BE8C24 /* Alamofire.framework */; };
 		58812AABBC0A1E7AE019752424DF31A7 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155538D91ACEEEDF82069ACF6C1A02E7 /* MultipartFormData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		5A04C110A7AB29224F99851095DAE311 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF8227D586D7C79B58E11596E161D4 /* Foundation.framework */; };
 		5B13CDC51D28C71A74D37DE203C56416 /* Pods-AutumnDemoUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8AC50D50A2810EC3FA405510CEF63E /* Pods-AutumnDemoUITests-dummy.m */; };
-		5C6C7F6336B5106A44FA2C6D00C244E5 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E538D7119B3FD9A4F5591EB350E6AE13 /* Bundle.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5CE81431FEE4B5F88B12A385A54BE36C /* AlamofireNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C35762FFD7FAB06A5856AFAF258B479 /* AlamofireNetworkClient.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5DDCFEC5AC4D50555F84BCE90B18D49C /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176343D9D6CFEEF3432E7ED8CEFC1DF /* NSObject.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		5E25BCD30BDE2E7A68D1A6FAF7253AD4 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5EF37B22BC6637CBCD24BF5E0C668962 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C58144FD1D17BA907FB0C6EE7DBE5 /* Dice.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		63081FB475730568C1E1FC7A152099DD /* AutumnTestStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42440692BC550BDD36735A7BFC9E9DA9 /* AutumnTestStep.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6463BDC3A0858670EFF8979B3DAA4407 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B607C20584A7113564DB8BFC17BC7C3D /* StopWatch.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		615180FA45FB9E8BF317C8188D882761 /* TestRailTestRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486486CC8B0CBF338B3C25C4F383447E /* TestRailTestRun.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6505D8F8062D673FE62C9D1AFB408D2C /* TestRailMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FA4AC59F11EE0779726AA462BFFBFB /* TestRailMilestone.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		6540CC4D369A32F6DE54AFA8D5D6FAF9 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F50F37DFB6DC0B7B9D8C373E5A3EAE /* Alamofire-dummy.m */; };
-		65905CEF7F4B56B51A725CB87597045E /* TestRailSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ED85DF512FFB1FFA1EE3ACA6427FA1 /* TestRailSuite.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		65DE829BA84EF4BBF4BB00100D294549 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94113A683D630991C30ED5796D310DB8 /* Double.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		67C303D2D88A54A50696B08068C07B42 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D920C25B218708889A2459AD00107F0 /* UIView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6D6F2DA08C020EF6103F8073CE743DF0 /* DispatchTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733673968A72918B56317FAA701A952B /* DispatchTimeInterval.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6DC571E0BA4AD6C14F1F82EBA948AAB6 /* TestRailTestCaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3F531ACACE524850AC6102D7D9EC6C /* TestRailTestCaseField.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		72585F2CC173AE70D33A8705EB22091B /* Metatype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4C2B811F08BAE0CA9018443B8B96B3 /* Metatype.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		730FFC452BB1644C8FFCED8115C04FB0 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C7A97A1170F21F3C8815F6B63EC42 /* UInt.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		74129826128DAC66F71C6FC70DD24C0A /* AlamofireNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C937A721280739F0DB84DFF4252A3791 /* AlamofireNetworkClient.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		75545645B7D3B43EEEC0D3F4E5607B31 /* AutumnUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7962318D8DD639AB1B5F892BBA73EEFE /* AutumnUI.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		65E5F6EEEE439E5B8AE29C996C15FF98 /* TestRailCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062761BB4B0791CAD4B93EDE15C4CCB8 /* TestRailCodable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6900D72ACA943263E25BACE3AB9494EA /* TestRailTestCaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134839AA7370D3ECD428C1AC17B45B7E /* TestRailTestCaseType.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6D2C37E1B4FCF281D22EF82ABC0FF357 /* FrequencyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF66B27BD5487AE4149ED3B437710BF /* FrequencyTable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7216DBB669D9F48D0FD352C46FD3DD7B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EEB4179F750EB4AB763CD8CC895256 /* XCTest.framework */; };
+		7299A3744B42D0A902ED30E22E1D42CB /* TestRailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439EAA80886112F163A58F7F9DD2C61 /* TestRailSection.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		75B64C51D438515EC49EA2C82C50A7C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF8227D586D7C79B58E11596E161D4 /* Foundation.framework */; };
-		785CCCD232CF0B95C47FD8376926DC3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF8227D586D7C79B58E11596E161D4 /* Foundation.framework */; };
+		766EF5BFF338476D4BEE01C00B7224FE /* AutumnScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715FB2F2C23D58F41F376EFBDFBCD70 /* AutumnScenario.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		78F4229B4A746A38341474FEB9DADB25 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6639346628280A0D0FAD35196BF56108 /* ParameterEncoding.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7B14B96FE502C526BE7C77CE94AFC300 /* WaitForExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F837D7E7C034E006CEFA93DA17EE4C /* WaitForExists.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7B910405302B7BA10999AA30C963456F /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514651AB0DCFF6F3F75456B05763C8C7 /* UIApplication.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7C64193341E67321116A1E57F8066A8A /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B2A782C7E7EDF79D2F50C8B6287CD /* UIColor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7E0DDCBA8C60353B49646BFFF07E5D99 /* AutumnHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB48A51296431CD2878C2CE5803BEF /* AutumnHashable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		79143DD8124805F895A0670510791FD3 /* Hammer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DCD8B33ACBECA929A6C89ABB733A9D /* Hammer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		799105F8D210D8EAA995AB9708D27160 /* Declare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027B3C16E95C8A7C0EA96600B10206B2 /* Declare.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7C672ED8B5D2907895F2E2B23C236D53 /* AssertHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D4C2F8EF0A9B59BE2CFE9036C0D11E /* AssertHittable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7F4FB5855C5CE8D10DBA4F69039A42A0 /* TabularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ECE510612B6818C7DA5B07597F6DA6 /* TabularText.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7F8075134FB82E59DA89AAF35D7777CC /* AutumnTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2370EA1363CB82A81C1D8C9045015F /* AutumnTestStepResult.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		819DE4E5C09DAA7A782BB5A761BCC6C3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4154BD6896A3DCF25C5E2DB11588A69A /* Globals.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		824C9AC6A5D0B4D9C41AD9C85E7210DC /* TestRailTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C4F1E18DD63A425C741E20ADD6885E /* TestRailTestCase.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		834F4D9819C6010E611A7E151B8899C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF8227D586D7C79B58E11596E161D4 /* Foundation.framework */; };
-		8F3E4BA0BF397700702F337E75635E81 /* TestRailMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669F47EB8C8ED9C1721C9AD3C4A94AC /* TestRailMilestone.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		86F9A9755D903B73FCDDB725A7C7A650 /* TestRailTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA21C0FC5354A90D0F3DDF48D86880D /* TestRailTemplate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		88113FBEC75EFA6E16A669C9BDC0A85C /* TypeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C83D32F787C4C15D4A3FBE9B48A2D9 /* TypeText.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		889166EFF5480752364ABCD455F77792 /* TestRailTestPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D464E7AF952961A73C6418B391AF48 /* TestRailTestPlan.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8C0D2649838DBC6D82CADFD41DD29899 /* TestRailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7881DA44A52750E003A6274BE23AD4 /* TestRailTest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8F5C0849D2757FC5A7C81B81BA3813C3 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9510473F6FFD7AA66524DB16C2263 /* ResponseSerialization.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9488AC480E46E902166D9763CBD49E84 /* AutumnTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B56800F307E6A237E374F85256E2BF7 /* AutumnTestStepResult.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		96CD63C5F6CEAAD7626A3980DC7A45CA /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2162D1A4B627ECFD9223E2A5A6036B9 /* TimeInterval.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		981EFF1371FCE40F1907DA262743B93E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A46F517F0AF7E85A16D723F6406896 /* Notifications.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9B5E6930F88F9CF2B11DB51A3853588C /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77EEF6FA0862EAB6F700C74EA7290D2 /* Springboard.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9C19315BDF0091F760E5B785F7D0614B /* FrequencyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC547F7F45A85403EA429D233A2E8E1 /* FrequencyTable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9D9ECA2AD1B6280D39A3078BEE39F317 /* AutumnConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DF0D85E3CFC2B7631D7DE1E70D582A /* AutumnConstants.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9E6D986873FD6A1CA914502BBF421145 /* TestRailConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD222159F58A1410350BC59F1210F8AE /* TestRailConfig.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		9E78779BBD26C06EB7C329FBC4CC7012 /* Pods-AutumnFramework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E29C04CF332C9CCC894A52C601C35951 /* Pods-AutumnFramework-dummy.m */; };
-		A151B1E1802EBF04BBD37E6A9C2BE78C /* AutumnEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284C73E11AE65BBF1DAD8364072114FA /* AutumnEnums.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A20DF215FADE5055666423D0306FC7C2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8349D0E592D1C5B1B4A4A0896E386DC /* String.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A2BD27978D3C1A57B684C4721F9D4946 /* TestRailPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4A0D189BC4D1F07CE55E3F31C3440 /* TestRailPriority.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A2D0DB9B0B69A4AC85810B546DBBC23C /* ClearInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3091F2181A22CF1D31E4267C3F192EF /* ClearInputField.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A87CDB5A61AB60C78C47B58396AABC43 /* AutumnStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE30F9EC56F94BAB10945AE7D6E33F1 /* AutumnStats.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A7848C7D6236895E5CDC78337BCE7CE2 /* AutumnTestRailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1DD741F30787E39C2D729AAF21AC44 /* AutumnTestRailClient.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A829791E00594AA66817F304FD9204C5 /* AssertExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840ECFEE3CEC95AB02C7ADCF67879B0B /* AssertExists.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		AD2C576F50E67B2417C1D17FBF5E32B2 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF006B0AD5765D1BFA8253C2DCBB126 /* AFError.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		AE084502CCC6ED434F951E7CB63B4B97 /* AutumnViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3E81E118CBC6F0980408C793D64C7 /* AutumnViewProxy.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B1A6F9EC8E3F115879405EB74FAB81C9 /* TestRailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E7BC5A16FC392266E52E292905C51 /* TestRailTest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B68075EFD2B4C238DF497FBDE7154269 /* TestRailCustomTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33B03529FBAE215422DE15FD1449D05 /* TestRailCustomTestStepResult.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B7ABC36C41AF5C116FFD11D7C2BE67AF /* AutumnSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35B5B775F3A537A929F5F5942B2CCB /* AutumnSession.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BAF8CCA089F229D997A88520D013496C /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB7F654FE20A010958D86B33EEF8CD8 /* Login.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BD81D922646580F9A31B7FAAE9265B5F /* AutumnScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CFE7C9E37F8EAB10D6DB48F04B6787 /* AutumnScenario.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BF527B4B76B9C450B76716175F19B279 /* AutumnFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 184C53526D247A70A4707DD5BCD6878A /* AutumnFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C15D8275C1F266AF34334B7109E37F84 /* AssertNotExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1CD71E23976A9C6CE63E2B7D6EB1C /* AssertNotExists.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C23CBB25C05E454789018DAE9C609B02 /* Declare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C213037AF53C53540612CB35ACC3DFB /* Declare.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C3627554F9AE54B5E9D1DFA31DC82E6F /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090273129E3A392C11F68AF33093850E /* SortedArray.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C3F4360226D9A2F00E4534ABB4699709 /* TestRailProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A2EF609DC0B7EDF66E9B55806BEA80 /* TestRailProject.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AFCCF92C461A96D276063F32402AE73B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF8227D586D7C79B58E11596E161D4 /* Foundation.framework */; };
+		B0549E1946707F744646579E9BC95712 /* TypePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0DB41F181BF4EC994E054977846351 /* TypePassword.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B06B031E377F44D50BB3EF822E10846B /* AutumnStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDA5A8077D15B947A6EF0ED1C53FE2E /* AutumnStats.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B3039FCF5490FA46B1625A7D04DC2A7A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25659C8B4CE655DA526B04F6E6DA67FD /* Log.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B3A8604D34CD8AD8C5D15657714A6672 /* TestRailSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723921169242E9E36A730F842D44B3C7 /* TestRailSuite.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B4E03AA942A50585DEAC397869018992 /* Autumn-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 32E6BF9AA80CBD004C1F82F8A4BE8207 /* Autumn-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B59775DEE7414B70498263C17ABEBA7F /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF7D6E3251E8D2B7250AC685D4B69C0 /* Interval.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BAFBBB0D8D74CEA46CC799D4FB2128BC /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02715A89DFF1A73480273EB7D22CD2 /* Int.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BB228C1A6AF84B423DDFA02557C1D60E /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236BFC65FC3C2C4DA3452584288C8D2 /* Encodable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BE030BE8D872C02C80C793BB1EBC9E12 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24119AA595BD103C910114C010985D0B /* UIView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C12FE9C03EB3BDEE36F0E8F4DFBB364A /* AutumnUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C298B10A9A8DF66796D4DA0C09435906 /* AutumnUI.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C1A726516F79EB0AF7E4DF52F90C3FA8 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583F8052503F250CDC9F0D61167A1359 /* Dice.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C21CD938EB4188D5CE8E0C0257E4819A /* Autumn-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D467E71DBD8655B1B357C5EF3C2717B4 /* Autumn-dummy.m */; };
 		C5FD57751548EFFA6567AFD2EB47CD56 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E230A0448B394DE26E688DAC8E6201E /* Request.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C9F1C939A29A5515A3BE0F99476E43D9 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8E01739E0AD53661C4C12877517ADB /* Globals.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CC103C17278887BA74D3AD27829F34AD /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01013332397363C1CE3CB650EDC981 /* Int.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CC4D7DF0D9480E52A0E90CF7843382D7 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEDA47CE7A70BF2A1D57A83C120B832 /* JSON.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CEB90C4F9A2515D551D903569DDBD7A0 /* LogFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E3AAD6DC1FF7051D85DD7CF960CBC /* LogFile.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C70DA19597BD8485336F611EFFB2F535 /* AutumnFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0A08F2231ACCCA60009981FFC44BDD /* AutumnFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC5DE7430D3769FBCA3E19819539A6CA /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EFD8CF95C1C68BD34C0A20C8A65BE0 /* Dictionary.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CD236CF1E73E32D94F97292973A113DA /* WaitForNotExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB132F4130788373609F3C3FE4D2DCA3 /* WaitForNotExists.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D1C7C963C6DF16DC4AEA0498A77319C8 /* TestRailTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B85A1CB9B64E0E35E33E15115010395 /* TestRailTestResult.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D2E34FBF1937A2CB6CA910E18E122519 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B8FBE72A4329F137E14DF8F44A7DE5 /* String.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D385F81592A84848853E781B9DAEC139 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4165229040890A80EFCEFBCFECC1BC4 /* File.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		D5686072DEC1A0E14F8C100FCC873F73 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C037B4034EDA3D7955BC5E4E9D9D6 /* TaskDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D5746428B4E21281D6B99517E466CBF1 /* AutumnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E71D9CD521E3CED5F2A09D99E2DB458 /* AutumnModel.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DC29E9D4FB3DDBDD2CFC9EC94D148E4F /* AutumnConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EA111B93336F5EAFD417FEF26078E9 /* AutumnConfig.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DE0C65441ECC37DA301DC9C1171618A9 /* HashID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F9958DA271C862558B4DE829513331 /* HashID.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D9D330BDEDE4523440FF43BBE2523220 /* TestRailCustomTestStepResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6618BDBAE0D9907F68BC26A1B678E811 /* TestRailCustomTestStepResult.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DBD05D2B9913FE84F3B761D523B9A1CE /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F72975B117BE76578B2DE37B19D24C /* Array.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DC9AFC70B66E89FB682AC056AD0B528B /* AutumnConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EA8B6A22AF0DB05A2855C149047B57 /* AutumnConfig.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DCDB1C1104B2F400EC0D5D2B34656108 /* TapOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A7388FD5592C8F96727B4917FE2539 /* TapOptional.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E198F398404F07805E5189165F3C1E64 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87882A1F5A92C8138D54545E51D51E6F /* Timeline.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E2B7E38B172244C756CFF3AFAE4BCF5D /* LaunchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96D3B09D9123636B6787B67609D78D /* LaunchApp.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		E58BD891DD6DFC7BAD5A955BE2783B1D /* Pods-AutumnFramework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADA89CD44B99EFFBFD0EE3F1263B640 /* Pods-AutumnFramework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB12AD2BA4930803EEBAB3504FA0E527 /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2A9285D5A6FDC909C9599E3A7684A /* Swipe.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		EB482CFE0ECC24001CEF8AE299B65F76 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = D467947296110AEF598FD10F3EDDBFA5 /* Character.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E626E60025FE9567B9A36D604FA86EAA /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDD505893AE3E1BD7E528DB9BE10326 /* TimeInterval.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EB7DCAC6655E202B909B25016091B484 /* ClearInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F49202F76727EC8AF8382ABFC9F06 /* ClearInputField.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		EBA0781A1E2822CF7DFD56ACD394A63E /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ED98BAA40FAA3BB821B1458CD7BF9EBB /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F86BBCE601876F37E7480594B598A4 /* StopWatch.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		EEFA566A2BF345201D93E26F93AFE376 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF8227D586D7C79B58E11596E161D4 /* Foundation.framework */; };
-		F0098F54EC2F8B5B697CF4D8D5526628 /* TestRailUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EA8CA9E522FC3E361B019DA7A7A4BE /* TestRailUser.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F01C85013D878D52ACFA5F4FF53B0A4F /* TestRailConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93354AA34C79FF7DC78233F2DF485B /* TestRailConfig.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F6D196FA30F48BCB7E94CEC4F7F32351 /* TestRailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A793EE89496444965EE0D722FEAF8B /* TestRailSection.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F8D248B97EF9D2072B3502EA567E1279 /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F915560D1E927BADE5662313792946 /* Interval.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FC6951EADA7A54C55AEA14B109B7C012 /* Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9902F8FAA0C3C1145FE408AA18BEAAE /* Tap.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F273BC719049B33820463DA3F4CCD1F1 /* TestRailUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0F436A357D332B63E1E68510749AC /* TestRailUser.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F4E090D2935D0F9D466EEFDC109BDC57 /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E3CAA35A5A546DF32B10FAECA52C99 /* Swipe.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FC51472AF70061C5DB962DD9A7709A37 /* AutumnConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF73396D881683DB625F38FD4E59E51D /* AutumnConstants.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FFE5BC9C5B728C6B0469014215D2ACE4 /* AssertNotHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD201C2BD5F95D3F2B43DB60F8B2E228 /* AssertNotHittable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,17 +144,10 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 90DB0C775F41D650ADD44C546021FE3A;
+			remoteGlobalIDString = 742B6CF4F98E6C4550ABB3C4C46EB750;
 			remoteInfo = Autumn;
 		};
 		A1D5DC4E1CE6FCA3F0FCFC79D78BF227 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
-			remoteInfo = Alamofire;
-		};
-		CC227974560DDCF8EAE143DAACCC76E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -165,178 +161,178 @@
 			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
 			remoteInfo = Alamofire;
 		};
+		E29D0448E732377726566A6FE2E1CB1C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		000D1FBC273F1D7B13F77342BA921465 /* AssertNotHittable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AssertNotHittable.swift; sourceTree = "<group>"; };
-		03086761C7E3EDD07D02C7999F6B094C /* Wait.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Wait.swift; sourceTree = "<group>"; };
+		027B3C16E95C8A7C0EA96600B10206B2 /* Declare.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Declare.swift; sourceTree = "<group>"; };
+		02EC9F37A8A67157F62213C7B37508D8 /* DispatchTimeInterval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DispatchTimeInterval.swift; sourceTree = "<group>"; };
 		03436A6CB8D4625D4FC2D8E103413B3D /* Pods-AutumnDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AutumnDemo-resources.sh"; sourceTree = "<group>"; };
 		03DECE84DC850B04690604AB7C521277 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
 		04F47F5C9CDB035C5AFADEBA5BF44F1C /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		05D4C2F8EF0A9B59BE2CFE9036C0D11E /* AssertHittable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AssertHittable.swift; sourceTree = "<group>"; };
+		062761BB4B0791CAD4B93EDE15C4CCB8 /* TestRailCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailCodable.swift; sourceTree = "<group>"; };
 		0676AAF71A09A0B8EBB40C8C072FBB46 /* Pods-AutumnDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AutumnDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		090273129E3A392C11F68AF33093850E /* SortedArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
+		09851D9493DD465C78D215FD0175CA79 /* UIDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		0A1BC11C918534A822E321DE2EE6E3B2 /* Pods-AutumnDemoUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AutumnDemoUITests-frameworks.sh"; sourceTree = "<group>"; };
 		0B8AC50D50A2810EC3FA405510CEF63E /* Pods-AutumnDemoUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AutumnDemoUITests-dummy.m"; sourceTree = "<group>"; };
-		0C4C2B811F08BAE0CA9018443B8B96B3 /* Metatype.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Metatype.swift; sourceTree = "<group>"; };
+		0C35762FFD7FAB06A5856AFAF258B479 /* AlamofireNetworkClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkClient.swift; sourceTree = "<group>"; };
+		0CF7D6E3251E8D2B7250AC685D4B69C0 /* Interval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		0EFB54AE3D50A087BBF4D86EF7063685 /* Pods-AutumnDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutumnDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
-		0FE30F9EC56F94BAB10945AE7D6E33F1 /* AutumnStats.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnStats.swift; sourceTree = "<group>"; };
-		10EA111B93336F5EAFD417FEF26078E9 /* AutumnConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnConfig.swift; sourceTree = "<group>"; };
 		117EFB31D9AD9673BAF51B48596F19E2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13DF0D85E3CFC2B7631D7DE1E70D582A /* AutumnConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnConstants.swift; sourceTree = "<group>"; };
-		13EA8CA9E522FC3E361B019DA7A7A4BE /* TestRailUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailUser.swift; sourceTree = "<group>"; };
+		128F49202F76727EC8AF8382ABFC9F06 /* ClearInputField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ClearInputField.swift; sourceTree = "<group>"; };
+		134839AA7370D3ECD428C1AC17B45B7E /* TestRailTestCaseType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseType.swift; sourceTree = "<group>"; };
+		140C0411D8C3ADF55DF5A523EFD53416 /* TestRailTestResultField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestResultField.swift; sourceTree = "<group>"; };
 		155538D91ACEEEDF82069ACF6C1A02E7 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		184C53526D247A70A4707DD5BCD6878A /* AutumnFramework.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AutumnFramework.h; path = AutumnFramework/AutumnFramework/source/AutumnFramework.h; sourceTree = "<group>"; };
-		18884A5B35824E112A5C2A281EDC5842 /* TabularText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabularText.swift; sourceTree = "<group>"; };
+		18F2E867DF170BE9185D1A3009413942 /* ExecutionTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExecutionTimer.swift; sourceTree = "<group>"; };
 		195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
-		19E4A0D189BC4D1F07CE55E3F31C3440 /* TestRailPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailPriority.swift; sourceTree = "<group>"; };
-		1C73C0D1F2222F4E1C1AE314D72DB287 /* TestRailTemplate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTemplate.swift; sourceTree = "<group>"; };
+		1C3BD6A38BD3D1A324B59B745D0691F6 /* UInt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
 		1E230A0448B394DE26E688DAC8E6201E /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
-		1E71D9CD521E3CED5F2A09D99E2DB458 /* AutumnModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnModel.swift; sourceTree = "<group>"; };
+		2091B44029F718E0D9ABE7C963658CE8 /* SortedArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
 		210971763CB2FC0DC4E378271A37BE32 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
-		26B8F8535E065995954BFFB3CEB02D4C /* WaitForNotExists.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WaitForNotExists.swift; sourceTree = "<group>"; };
+		24119AA595BD103C910114C010985D0B /* UIView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		24F5D7D1389F957F9202B2453A71F5C7 /* AutumnHashable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnHashable.swift; sourceTree = "<group>"; };
+		25659C8B4CE655DA526B04F6E6DA67FD /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		27568C377E9C02BE1EBBF8FCBCE9CEEB /* Pods-AutumnFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutumnFramework.release.xcconfig"; sourceTree = "<group>"; };
-		284C73E11AE65BBF1DAD8364072114FA /* AutumnEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnEnums.swift; sourceTree = "<group>"; };
-		2A93354AA34C79FF7DC78233F2DF485B /* TestRailConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailConfig.swift; sourceTree = "<group>"; };
+		282A84CE8F6E6D446A8008047095AF49 /* Autumn.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Autumn.xcconfig; sourceTree = "<group>"; };
+		29B8FBE72A4329F137E14DF8F44A7DE5 /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2ADA89CD44B99EFFBFD0EE3F1263B640 /* Pods-AutumnFramework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AutumnFramework-umbrella.h"; sourceTree = "<group>"; };
+		2BDA5A8077D15B947A6EF0ED1C53FE2E /* AutumnStats.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnStats.swift; sourceTree = "<group>"; };
+		3062B7A0DBF4F501314A48E3DC63535B /* WaitForNotHittable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WaitForNotHittable.swift; sourceTree = "<group>"; };
 		306A6EE289F882341B44EB6AAF7E650B /* Pods-AutumnDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AutumnDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3161005018BDB21B865762CCAD218AF3 /* TestRailTestResultField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestResultField.swift; sourceTree = "<group>"; };
 		31C2BE0EDC736EDF530C567C38D21CFD /* Pods-AutumnDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AutumnDemo-dummy.m"; sourceTree = "<group>"; };
-		32A793EE89496444965EE0D722FEAF8B /* TestRailSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailSection.swift; sourceTree = "<group>"; };
+		324DA002B5CEBB02ABB701CD8A266234 /* UIApplication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		32B030D27CAC730C5EB0F22390645310 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		32E6BF9AA80CBD004C1F82F8A4BE8207 /* Autumn-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Autumn-umbrella.h"; sourceTree = "<group>"; };
 		33A04B5D27E86AF4B84D95E21CF3F452 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		33D20A0D2928B8ACD48D7B7B6B5065A9 /* Autumn.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = Autumn.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		35A7412A275B0676162E32304446A7D8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3676F44EA786A3A4D5072080CE608B1F /* ExecutionTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExecutionTimer.swift; sourceTree = "<group>"; };
-		3A96D3B09D9123636B6787B67609D78D /* LaunchApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LaunchApp.swift; sourceTree = "<group>"; };
-		3A9FC573E2688BCC5EAE3C06792D24E2 /* AutumnTestRunner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestRunner.swift; sourceTree = "<group>"; };
+		37F1FF7EA9A2BF60493665001D7F7835 /* TestRailPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailPriority.swift; sourceTree = "<group>"; };
+		39866AB2E953FBC1C6F5E1DBDA92F665 /* AutumnFeature.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnFeature.swift; sourceTree = "<group>"; };
+		3A0EBC56D41E904BB71891CFFD20710A /* Double.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		3B8EEE4C8EA4F99D182046B639E1BCF4 /* Pods_AutumnFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AutumnFramework.framework; path = "Pods-AutumnFramework.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C5A57604CDDE23596D512E840D33AE5 /* AutumnEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnEnums.swift; sourceTree = "<group>"; };
 		3D60BC9955B4F7FFA62D7440CB385C11 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
-		3D867186256911986EDAD1BE9A9CE81A /* TestRailTestResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestResult.swift; sourceTree = "<group>"; };
-		3D920C25B218708889A2459AD00107F0 /* UIView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3F0C49459EC7A377094CCB9C3DCE46B0 /* Pods-AutumnDemoUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AutumnDemoUITests.modulemap"; sourceTree = "<group>"; };
-		417890A3DBF59BB8AFC8C25C1AF412F9 /* WaitForNotHittable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WaitForNotHittable.swift; sourceTree = "<group>"; };
-		42440692BC550BDD36735A7BFC9E9DA9 /* AutumnTestStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestStep.swift; sourceTree = "<group>"; };
+		4154BD6896A3DCF25C5E2DB11588A69A /* Globals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		422FFB03EAB0BF85E4E095E0899BBBF1 /* AutumnTestStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestStep.swift; sourceTree = "<group>"; };
+		4236BFC65FC3C2C4DA3452584288C8D2 /* Encodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		45E3CAA35A5A546DF32B10FAECA52C99 /* Swipe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Swipe.swift; sourceTree = "<group>"; };
 		468178D8CDB16C1C8CF57FE95A8E1C1C /* Pods-AutumnDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutumnDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		46CDAC6C1187C5467E576980E1062C8B /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
+		47C4F1E18DD63A425C741E20ADD6885E /* TestRailTestCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestCase.swift; sourceTree = "<group>"; };
+		486486CC8B0CBF338B3C25C4F383447E /* TestRailTestRun.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestRun.swift; sourceTree = "<group>"; };
+		48CB76BF049175527330EDBFE867C694 /* WaitForExists.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WaitForExists.swift; sourceTree = "<group>"; };
 		4A718EEA0584FCC1F4F20CF07E83607B /* Pods-AutumnDemoUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AutumnDemoUITests-umbrella.h"; sourceTree = "<group>"; };
+		4ABB857546E312F2CFA3B38CE637CFD0 /* Character.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		4AF006B0AD5765D1BFA8253C2DCBB126 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
-		4B56800F307E6A237E374F85256E2BF7 /* AutumnTestStepResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestStepResult.swift; sourceTree = "<group>"; };
-		4CC547F7F45A85403EA429D233A2E8E1 /* FrequencyTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FrequencyTable.swift; sourceTree = "<group>"; };
-		4D5B7679F88E900C8A96604017027335 /* AutumnFeature.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnFeature.swift; sourceTree = "<group>"; };
-		4DFC28AC86EDCC1B5965B00DECB8D57B /* Autumn-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Autumn-prefix.pch"; sourceTree = "<group>"; };
-		4DFE5C2A6505FD98194B63DEAC86B42D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E8E01739E0AD53661C4C12877517ADB /* Globals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
-		4F3F531ACACE524850AC6102D7D9EC6C /* TestRailTestCaseField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseField.swift; sourceTree = "<group>"; };
+		4B4C2857317E245D513EEC6CB443762B /* Bundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		4D1EFDD32851FD86F9B39236E19F2481 /* AutumnUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnUser.swift; sourceTree = "<group>"; };
 		4FFF8227D586D7C79B58E11596E161D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		514651AB0DCFF6F3F75456B05763C8C7 /* UIApplication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
-		517E7BC5A16FC392266E52E292905C51 /* TestRailTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTest.swift; sourceTree = "<group>"; };
-		555B2A782C7E7EDF79D2F50C8B6287CD /* UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		55D2A9285D5A6FDC909C9599E3A7684A /* Swipe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Swipe.swift; sourceTree = "<group>"; };
-		55E97DEE688562A0CF82799977E940D6 /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		5ACD35D0591B7903CD603CC6E90B4E30 /* TypePassword.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TypePassword.swift; sourceTree = "<group>"; };
-		5DD73C30494BAA94E56A0ABA2ABA9D1C /* Autumn.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Autumn.xcconfig; sourceTree = "<group>"; };
+		52BBC156A813AAC58FE0FEFADF74EAB8 /* Autumn-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Autumn-prefix.pch"; sourceTree = "<group>"; };
+		54C83D32F787C4C15D4A3FBE9B48A2D9 /* TypeText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TypeText.swift; sourceTree = "<group>"; };
+		54FB342D964D6DD7C3B229DA9C6AF177 /* Tap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
+		5736907DFDF354C55DFC4212A4A827D0 /* Autumn.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Autumn.modulemap; sourceTree = "<group>"; };
+		57B92B7439193CDA4185D5FCBC950A89 /* Wait.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Wait.swift; sourceTree = "<group>"; };
+		583F8052503F250CDC9F0D61167A1359 /* Dice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		590D4DDE39A29EE6DB73C13D111EFD1B /* AutumnLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnLog.swift; sourceTree = "<group>"; };
 		61D920D6E48023BCBF18CD83450D05F5 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		623DC6BED17555439CE11C3899419053 /* Pods-AutumnDemoUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AutumnDemoUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		62C5B5CF38026403A818894AB1C4DACD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65ECE510612B6818C7DA5B07597F6DA6 /* TabularText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabularText.swift; sourceTree = "<group>"; };
+		6618BDBAE0D9907F68BC26A1B678E811 /* TestRailCustomTestStepResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailCustomTestStepResult.swift; sourceTree = "<group>"; };
 		6639346628280A0D0FAD35196BF56108 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		66A46F517F0AF7E85A16D723F6406896 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
-		6C213037AF53C53540612CB35ACC3DFB /* Declare.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Declare.swift; sourceTree = "<group>"; };
+		673F5D40B3ABB11F0B8C2B18E4F9506C /* WaitForHittable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WaitForHittable.swift; sourceTree = "<group>"; };
+		6C02715A89DFF1A73480273EB7D22CD2 /* Int.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		71403BE6C0EE3169B54A12883AADBC89 /* Pods-AutumnDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AutumnDemo-frameworks.sh"; sourceTree = "<group>"; };
-		733673968A72918B56317FAA701A952B /* DispatchTimeInterval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DispatchTimeInterval.swift; sourceTree = "<group>"; };
-		74B0FDE9FE9C2877DD78E5C23ACDAA5C /* Encodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
-		78F915560D1E927BADE5662313792946 /* Interval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
-		7962318D8DD639AB1B5F892BBA73EEFE /* AutumnUI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnUI.swift; sourceTree = "<group>"; };
+		723921169242E9E36A730F842D44B3C7 /* TestRailSuite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailSuite.swift; sourceTree = "<group>"; };
+		73EFD8CF95C1C68BD34C0A20C8A65BE0 /* Dictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		7804E0C3E1C0285DBFBB5F385F1885A1 /* LogFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogFile.swift; sourceTree = "<group>"; };
 		80834EE7029054733B2BEB127754C137 /* Pods_AutumnDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AutumnDemo.framework; path = "Pods-AutumnDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F896922275FD0A620A22BAF5ADDCF6 /* Pods-AutumnFramework-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AutumnFramework-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8409582FE7D610EDADDAFF14FA77EF54 /* Pods-AutumnDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutumnDemo.release.xcconfig"; sourceTree = "<group>"; };
+		840ECFEE3CEC95AB02C7ADCF67879B0B /* AssertExists.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AssertExists.swift; sourceTree = "<group>"; };
 		847A940929CFEB4BD24AF4240B3A0B91 /* Pods-AutumnDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutumnDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		84F8B98DDBA9D3E633031208ACA57BD5 /* AutumnLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnLog.swift; sourceTree = "<group>"; };
-		861F08CE9DBFC16EE6A44C2BBFA5E806 /* WaitForHittable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WaitForHittable.swift; sourceTree = "<group>"; };
-		870E01EFD3CCA68A40B8AAADEBA95881 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		87882A1F5A92C8138D54545E51D51E6F /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
-		90D4209B24F293F75CF02128C893D365 /* TypeText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TypeText.swift; sourceTree = "<group>"; };
-		92ED85DF512FFB1FFA1EE3ACA6427FA1 /* TestRailSuite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailSuite.swift; sourceTree = "<group>"; };
+		88FA4AC59F11EE0779726AA462BFFBFB /* TestRailMilestone.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailMilestone.swift; sourceTree = "<group>"; };
+		8CC53F7E0F6C61902802C8F027360274 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		92F86BBCE601876F37E7480594B598A4 /* StopWatch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		940222359DC79388C3462A0E7F97E3B8 /* Pods-AutumnDemoUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AutumnDemoUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		94113A683D630991C30ED5796D310DB8 /* Double.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
-		94F837D7E7C034E006CEFA93DA17EE4C /* WaitForExists.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WaitForExists.swift; sourceTree = "<group>"; };
-		9AC41CE5433FA60CC2ECB639A674D766 /* TestRailTestCaseType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseType.swift; sourceTree = "<group>"; };
-		9B01013332397363C1CE3CB650EDC981 /* Int.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
-		9E18C62150DF30EC4493F45FBD0BBAD8 /* TestRailTestRun.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestRun.swift; sourceTree = "<group>"; };
+		945DBE1E575461DF4D229D1FD62FD7C6 /* Metatype.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Metatype.swift; sourceTree = "<group>"; };
+		9B85A1CB9B64E0E35E33E15115010395 /* TestRailTestResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestResult.swift; sourceTree = "<group>"; };
+		9C5781F621450AD5DD142A836755989C /* AutumnModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnModel.swift; sourceTree = "<group>"; };
+		9D2E7054567ADE5B1EC8DD0763791D39 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		9F02A739100B7422F36AE23783BE8C24 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FB347AABFD4C03AD46FDF8787A603C6 /* TestRailTestCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestCase.swift; sourceTree = "<group>"; };
 		A01C037B4034EDA3D7955BC5E4E9D9D6 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
+		A06A21554D3AA76D5D97AE03D26679E5 /* TestRailProject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailProject.swift; sourceTree = "<group>"; };
+		A1D464E7AF952961A73C6418B391AF48 /* TestRailTestPlan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestPlan.swift; sourceTree = "<group>"; };
+		A3A3F5F0EAAD5DAB6B8AF31693EBC5C1 /* TapMulti.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TapMulti.swift; sourceTree = "<group>"; };
 		A3DFF10BFA0DB07A520B4C65E3322D14 /* Pods-AutumnFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AutumnFramework.modulemap"; sourceTree = "<group>"; };
+		A439EAA80886112F163A58F7F9DD2C61 /* TestRailSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailSection.swift; sourceTree = "<group>"; };
 		A48E92C97DB9ADBF4B92E736EC823D1B /* Pods-AutumnDemoUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AutumnDemoUITests-resources.sh"; sourceTree = "<group>"; };
 		A4E27B32A1580C12BCF3A2D6A164A60E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A594C28066B5B212E190F4F3C398D8A6 /* Array.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		A6F0087379126520201C943B4BB70DAF /* Autumn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Autumn.framework; path = Autumn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD2E3AAD6DC1FF7051D85DD7CF960CBC /* LogFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogFile.swift; sourceTree = "<group>"; };
-		ADB139A337FEB0EA59815D205C4795A7 /* Autumn-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Autumn-umbrella.h"; sourceTree = "<group>"; };
-		AF0069110177FF963588E1475C97E274 /* AssertHittable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AssertHittable.swift; sourceTree = "<group>"; };
+		A727702ED635C79CE07C05BDBD8327A3 /* UIColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		AB1DD741F30787E39C2D729AAF21AC44 /* AutumnTestRailClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestRailClient.swift; sourceTree = "<group>"; };
+		AD222159F58A1410350BC59F1210F8AE /* TestRailConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailConfig.swift; sourceTree = "<group>"; };
+		AF2370EA1363CB82A81C1D8C9045015F /* AutumnTestStepResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestStepResult.swift; sourceTree = "<group>"; };
 		B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
-		B0A40ABB69476A86D1AE2C134F0738F6 /* AutumnTestRailClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestRailClient.swift; sourceTree = "<group>"; };
-		B4E9FF8636C0260477BD097AA5FD080E /* TestRailTestPlan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestPlan.swift; sourceTree = "<group>"; };
-		B607C20584A7113564DB8BFC17BC7C3D /* StopWatch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		B1EA8B6A22AF0DB05A2855C149047B57 /* AutumnConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnConfig.swift; sourceTree = "<group>"; };
+		B2FD890267BB74D58594E6666336DC46 /* AssertNotExists.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AssertNotExists.swift; sourceTree = "<group>"; };
 		B6F04E891C562DF771FED8CB6CB0C3D9 /* Pods-AutumnFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AutumnFramework.debug.xcconfig"; sourceTree = "<group>"; };
-		B8A2EF609DC0B7EDF66E9B55806BEA80 /* TestRailProject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailProject.swift; sourceTree = "<group>"; };
 		B8E8C2C147F568B85D1AE9061AC0F613 /* Pods-AutumnDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AutumnDemo-umbrella.h"; sourceTree = "<group>"; };
-		B9902F8FAA0C3C1145FE408AA18BEAAE /* Tap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
-		BA36C11240ADD08049C671C8D6C873BA /* Autumn.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Autumn.modulemap; sourceTree = "<group>"; };
-		BB35B5B775F3A537A929F5F5942B2CCB /* AutumnSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnSession.swift; sourceTree = "<group>"; };
-		BEB3E81E118CBC6F0980408C793D64C7 /* AutumnViewProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnViewProxy.swift; sourceTree = "<group>"; };
-		BF4C58144FD1D17BA907FB0C6EE7DBE5 /* Dice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
-		BFEDA47CE7A70BF2A1D57A83C120B832 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		BB132F4130788373609F3C3FE4D2DCA3 /* WaitForNotExists.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WaitForNotExists.swift; sourceTree = "<group>"; };
+		BBF66B27BD5487AE4149ED3B437710BF /* FrequencyTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FrequencyTable.swift; sourceTree = "<group>"; };
+		BD201C2BD5F95D3F2B43DB60F8B2E228 /* AssertNotHittable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AssertNotHittable.swift; sourceTree = "<group>"; };
+		BF5DB8C5C9B215BF3CB5B29A471A79DF /* AutumnViewProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnViewProxy.swift; sourceTree = "<group>"; };
 		C27FB51CE4282C7420C289340D86B7B4 /* Pods_AutumnDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AutumnDemoUITests.framework; path = "Pods-AutumnDemoUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3522C2093D67EAD5E236D15E967233E /* File.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		C3A3025B99282FAEC56D72A653893B02 /* AutumnUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnUser.swift; sourceTree = "<group>"; };
+		C298B10A9A8DF66796D4DA0C09435906 /* AutumnUI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnUI.swift; sourceTree = "<group>"; };
 		C492A10A04D99D14A663F2E1E6419DBC /* Pods-AutumnFramework-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AutumnFramework-acknowledgements.plist"; sourceTree = "<group>"; };
-		C4A2210982E797E792035F968229CCCD /* AssertExists.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AssertExists.swift; sourceTree = "<group>"; };
-		C4C57D72773B907ADDA05DC0F4745B70 /* Dictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
-		C4F9958DA271C862558B4DE829513331 /* HashID.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HashID.swift; sourceTree = "<group>"; };
 		C6917212AAD12126C938FCFA2ED2CD5B /* Pods-AutumnDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AutumnDemo.modulemap"; sourceTree = "<group>"; };
-		C937A721280739F0DB84DFF4252A3791 /* AlamofireNetworkClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkClient.swift; sourceTree = "<group>"; };
-		C9BDE678E089D518847FC43EE56D5EBD /* TestRailStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailStatus.swift; sourceTree = "<group>"; };
 		C9EEB4179F750EB4AB763CD8CC895256 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CB7C9F053EC439F86001BB5BB10E86F2 /* NSObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
-		CE8C9484D856C35955B4E527E4790BAC /* UIDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
-		CFB7F654FE20A010958D86B33EEF8CD8 /* Login.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		D12EBE185E68B5C7FCFC2EEDD92E9F48 /* TestRailCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailCodable.swift; sourceTree = "<group>"; };
+		CE7881DA44A52750E003A6274BE23AD4 /* TestRailTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTest.swift; sourceTree = "<group>"; };
+		CF73396D881683DB625F38FD4E59E51D /* AutumnConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnConstants.swift; sourceTree = "<group>"; };
 		D1F50F37DFB6DC0B7B9D8C373E5A3EAE /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		D33B03529FBAE215422DE15FD1449D05 /* TestRailCustomTestStepResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailCustomTestStepResult.swift; sourceTree = "<group>"; };
-		D467947296110AEF598FD10F3EDDBFA5 /* Character.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		D669F47EB8C8ED9C1721C9AD3C4A94AC /* TestRailMilestone.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailMilestone.swift; sourceTree = "<group>"; };
-		D8349D0E592D1C5B1B4A4A0896E386DC /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		D9C1CD71E23976A9C6CE63E2B7D6EB1C /* AssertNotExists.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AssertNotExists.swift; sourceTree = "<group>"; };
-		DA710DDA4F6C8B4220CCB7825D21A8C7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		DEFB48A51296431CD2878C2CE5803BEF /* AutumnHashable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnHashable.swift; sourceTree = "<group>"; };
+		D467E71DBD8655B1B357C5EF3C2717B4 /* Autumn-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Autumn-dummy.m"; sourceTree = "<group>"; };
+		D715FB2F2C23D58F41F376EFBDFBCD70 /* AutumnScenario.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnScenario.swift; sourceTree = "<group>"; };
+		D777FC135A3042E87F8051E959AAC0A1 /* TestRailStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailStatus.swift; sourceTree = "<group>"; };
+		DBB0F436A357D332B63E1E68510749AC /* TestRailUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailUser.swift; sourceTree = "<group>"; };
+		DBDD505893AE3E1BD7E528DB9BE10326 /* TimeInterval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		DC01CC26CD2BBEE1E46B5CFB1E1330A2 /* LaunchApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LaunchApp.swift; sourceTree = "<group>"; };
+		DC679CE04429E5999D616C480BA5DD59 /* Springboard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
+		DE1B15ED96A358B1B9E5736A5D8AC6E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		DEA21C0FC5354A90D0F3DDF48D86880D /* TestRailTemplate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTemplate.swift; sourceTree = "<group>"; };
 		DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		E29C04CF332C9CCC894A52C601C35951 /* Pods-AutumnFramework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AutumnFramework-dummy.m"; sourceTree = "<group>"; };
 		E2F9510473F6FFD7AA66524DB16C2263 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
-		E538D7119B3FD9A4F5591EB350E6AE13 /* Bundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		E5A8AA5F9EDED0A0BDDE7E830BF4AEE0 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		E6CBB96E332C60CE746815D6502DF753 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E718ED75F6B4D3B9687C782E6BD15CE1 /* Login.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		E7A7388FD5592C8F96727B4917FE2539 /* TapOptional.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TapOptional.swift; sourceTree = "<group>"; };
+		EB0DB41F181BF4EC994E054977846351 /* TypePassword.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TypePassword.swift; sourceTree = "<group>"; };
+		EC0A08F2231ACCCA60009981FFC44BDD /* AutumnFramework.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AutumnFramework.h; path = AutumnFramework/AutumnFramework/source/AutumnFramework.h; sourceTree = "<group>"; };
 		ED1B50A7EB98C5CCF50976DC2DE4DA24 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F2162D1A4B627ECFD9223E2A5A6036B9 /* TimeInterval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
-		F3091F2181A22CF1D31E4267C3F192EF /* ClearInputField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ClearInputField.swift; sourceTree = "<group>"; };
-		F5C16F9E5404DF566AC2500F0E24228A /* Autumn.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = Autumn.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F5CFE7C9E37F8EAB10D6DB48F04B6787 /* AutumnScenario.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnScenario.swift; sourceTree = "<group>"; };
-		F77EEF6FA0862EAB6F700C74EA7290D2 /* Springboard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
-		FD3C7A97A1170F21F3C8815F6B63EC42 /* UInt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
+		F176343D9D6CFEEF3432E7ED8CEFC1DF /* NSObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		F21A80EECBF46DD358305A3496E6CAE8 /* AutumnTestRunner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnTestRunner.swift; sourceTree = "<group>"; };
+		F4165229040890A80EFCEFBCFECC1BC4 /* File.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		F7C94C05749D4E10C4DB07E316B5519C /* AutumnSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutumnSession.swift; sourceTree = "<group>"; };
+		F7CADE6E65B85E913866CC20DD4922B7 /* TestRailTestCaseField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TestRailTestCaseField.swift; sourceTree = "<group>"; };
+		F7F72975B117BE76578B2DE37B19D24C /* Array.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		F8DCD8B33ACBECA929A6C89ABB733A9D /* Hammer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Hammer.swift; sourceTree = "<group>"; };
+		FD03ACB8D771B052B9F27EA4D9423335 /* HashID.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HashID.swift; sourceTree = "<group>"; };
 		FD714F0C2F6F9C6F7C15E7F31DC33486 /* Pods-AutumnFramework-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AutumnFramework-resources.sh"; sourceTree = "<group>"; };
-		FE494A74D1D71B439896B1F66DD7A355 /* Autumn-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Autumn-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		20498E2501342569203C9B0794B73BB9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				513180110188947E4D66218AB5D36BBA /* Alamofire.framework in Frameworks */,
-				785CCCD232CF0B95C47FD8376926DC3B /* Foundation.framework in Frameworks */,
-				137E418D71647D321919834BA6482396 /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		99195E4207764744AEC07ECCBCD550EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,25 +365,62 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1BEE9D52090B5C4A93088A581B359A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				587A04652FC64B7FAB880CE536D24AC1 /* Alamofire.framework in Frameworks */,
+				AFCCF92C461A96D276063F32402AE73B /* Foundation.framework in Frameworks */,
+				7216DBB669D9F48D0FD352C46FD3DD7B /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DBE699A14026EA58A85C8D3E86DA43F /* testrail */ = {
+			isa = PBXGroup;
+			children = (
+				AB1DD741F30787E39C2D729AAF21AC44 /* AutumnTestRailClient.swift */,
+				1C3219344467698D8FF0452658B93556 /* model */,
+			);
+			name = testrail;
+			path = AutumnFramework/AutumnFramework/source/testrail;
+			sourceTree = "<group>";
+		};
 		1A9FB47E685424F2FC6A8F504FB94163 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8FB06095A62BBE7FC1B4356812454B39 /* Autumn */,
+				58699DF0B31567FBC263ED75396FADED /* Autumn */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		1DB96992018A5FAD887B8544AC915E0A /* structs */ = {
+		1C3219344467698D8FF0452658B93556 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				4CC547F7F45A85403EA429D233A2E8E1 /* FrequencyTable.swift */,
-				090273129E3A392C11F68AF33093850E /* SortedArray.swift */,
+				062761BB4B0791CAD4B93EDE15C4CCB8 /* TestRailCodable.swift */,
+				AD222159F58A1410350BC59F1210F8AE /* TestRailConfig.swift */,
+				6618BDBAE0D9907F68BC26A1B678E811 /* TestRailCustomTestStepResult.swift */,
+				88FA4AC59F11EE0779726AA462BFFBFB /* TestRailMilestone.swift */,
+				37F1FF7EA9A2BF60493665001D7F7835 /* TestRailPriority.swift */,
+				A06A21554D3AA76D5D97AE03D26679E5 /* TestRailProject.swift */,
+				A439EAA80886112F163A58F7F9DD2C61 /* TestRailSection.swift */,
+				D777FC135A3042E87F8051E959AAC0A1 /* TestRailStatus.swift */,
+				723921169242E9E36A730F842D44B3C7 /* TestRailSuite.swift */,
+				DEA21C0FC5354A90D0F3DDF48D86880D /* TestRailTemplate.swift */,
+				CE7881DA44A52750E003A6274BE23AD4 /* TestRailTest.swift */,
+				47C4F1E18DD63A425C741E20ADD6885E /* TestRailTestCase.swift */,
+				F7CADE6E65B85E913866CC20DD4922B7 /* TestRailTestCaseField.swift */,
+				134839AA7370D3ECD428C1AC17B45B7E /* TestRailTestCaseType.swift */,
+				A1D464E7AF952961A73C6418B391AF48 /* TestRailTestPlan.swift */,
+				9B85A1CB9B64E0E35E33E15115010395 /* TestRailTestResult.swift */,
+				140C0411D8C3ADF55DF5A523EFD53416 /* TestRailTestResultField.swift */,
+				486486CC8B0CBF338B3C25C4F383447E /* TestRailTestRun.swift */,
+				DBB0F436A357D332B63E1E68510749AC /* TestRailUser.swift */,
 			);
-			name = structs;
-			path = structs;
+			name = model;
+			path = model;
 			sourceTree = "<group>";
 		};
 		200D10EB20F0397D47F022B50CF0433F /* Alamofire */ = {
@@ -416,6 +449,16 @@
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
+		2CF997429475B15950ABDFE39E0D0CB3 /* structs */ = {
+			isa = PBXGroup;
+			children = (
+				BBF66B27BD5487AE4149ED3B437710BF /* FrequencyTable.swift */,
+				2091B44029F718E0D9ABE7C963658CE8 /* SortedArray.swift */,
+			);
+			name = structs;
+			path = structs;
+			sourceTree = "<group>";
+		};
 		2E5925946A4DE3B8F7E4137BACAD9618 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,28 +473,13 @@
 			path = "../Target Support Files/Alamofire";
 			sourceTree = "<group>";
 		};
-		304EC6176B3D36CE3F52ADC35004B58C /* extensions */ = {
+		3012878F87E4D54E3BE6094919606EF8 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				A594C28066B5B212E190F4F3C398D8A6 /* Array.swift */,
-				E538D7119B3FD9A4F5591EB350E6AE13 /* Bundle.swift */,
-				D467947296110AEF598FD10F3EDDBFA5 /* Character.swift */,
-				C4C57D72773B907ADDA05DC0F4745B70 /* Dictionary.swift */,
-				733673968A72918B56317FAA701A952B /* DispatchTimeInterval.swift */,
-				94113A683D630991C30ED5796D310DB8 /* Double.swift */,
-				74B0FDE9FE9C2877DD78E5C23ACDAA5C /* Encodable.swift */,
-				9B01013332397363C1CE3CB650EDC981 /* Int.swift */,
-				CB7C9F053EC439F86001BB5BB10E86F2 /* NSObject.swift */,
-				D8349D0E592D1C5B1B4A4A0896E386DC /* String.swift */,
-				F2162D1A4B627ECFD9223E2A5A6036B9 /* TimeInterval.swift */,
-				514651AB0DCFF6F3F75456B05763C8C7 /* UIApplication.swift */,
-				555B2A782C7E7EDF79D2F50C8B6287CD /* UIColor.swift */,
-				CE8C9484D856C35955B4E527E4790BAC /* UIDevice.swift */,
-				FD3C7A97A1170F21F3C8815F6B63EC42 /* UInt.swift */,
-				3D920C25B218708889A2459AD00107F0 /* UIView.swift */,
+				0C35762FFD7FAB06A5856AFAF258B479 /* AlamofireNetworkClient.swift */,
 			);
-			name = extensions;
-			path = extensions;
+			name = network;
+			path = AutumnFramework/AutumnFramework/source/network;
 			sourceTree = "<group>";
 		};
 		35F128EB69B6F7FB7DA93BBF6C130FAE /* Pods */ = {
@@ -460,6 +488,20 @@
 				200D10EB20F0397D47F022B50CF0433F /* Alamofire */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		44BAF65AA38FD87D2ABF7DB2B1036115 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5736907DFDF354C55DFC4212A4A827D0 /* Autumn.modulemap */,
+				282A84CE8F6E6D446A8008047095AF49 /* Autumn.xcconfig */,
+				D467E71DBD8655B1B357C5EF3C2717B4 /* Autumn-dummy.m */,
+				52BBC156A813AAC58FE0FEFADF74EAB8 /* Autumn-prefix.pch */,
+				32E6BF9AA80CBD004C1F82F8A4BE8207 /* Autumn-umbrella.h */,
+				62C5B5CF38026403A818894AB1C4DACD /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/Autumn";
 			sourceTree = "<group>";
 		};
 		45B430EF179DD7E52C680AB4BE511D43 /* Products */ = {
@@ -474,65 +516,59 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4ACB336D93090727707523962344371F /* steps */ = {
+		4BBEFCA599F655447CA72B9A8C2A2B73 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C4A2210982E797E792035F968229CCCD /* AssertExists.swift */,
-				AF0069110177FF963588E1475C97E274 /* AssertHittable.swift */,
-				D9C1CD71E23976A9C6CE63E2B7D6EB1C /* AssertNotExists.swift */,
-				000D1FBC273F1D7B13F77342BA921465 /* AssertNotHittable.swift */,
-				F3091F2181A22CF1D31E4267C3F192EF /* ClearInputField.swift */,
-				6C213037AF53C53540612CB35ACC3DFB /* Declare.swift */,
-				3A96D3B09D9123636B6787B67609D78D /* LaunchApp.swift */,
-				CFB7F654FE20A010958D86B33EEF8CD8 /* Login.swift */,
-				55D2A9285D5A6FDC909C9599E3A7684A /* Swipe.swift */,
-				B9902F8FAA0C3C1145FE408AA18BEAAE /* Tap.swift */,
-				5ACD35D0591B7903CD603CC6E90B4E30 /* TypePassword.swift */,
-				90D4209B24F293F75CF02128C893D365 /* TypeText.swift */,
-				03086761C7E3EDD07D02C7999F6B094C /* Wait.swift */,
-				94F837D7E7C034E006CEFA93DA17EE4C /* WaitForExists.swift */,
-				861F08CE9DBFC16EE6A44C2BBFA5E806 /* WaitForHittable.swift */,
-				26B8F8535E065995954BFFB3CEB02D4C /* WaitForNotExists.swift */,
-				417890A3DBF59BB8AFC8C25C1AF412F9 /* WaitForNotHittable.swift */,
+				F7F72975B117BE76578B2DE37B19D24C /* Array.swift */,
+				4B4C2857317E245D513EEC6CB443762B /* Bundle.swift */,
+				4ABB857546E312F2CFA3B38CE637CFD0 /* Character.swift */,
+				73EFD8CF95C1C68BD34C0A20C8A65BE0 /* Dictionary.swift */,
+				02EC9F37A8A67157F62213C7B37508D8 /* DispatchTimeInterval.swift */,
+				3A0EBC56D41E904BB71891CFFD20710A /* Double.swift */,
+				4236BFC65FC3C2C4DA3452584288C8D2 /* Encodable.swift */,
+				6C02715A89DFF1A73480273EB7D22CD2 /* Int.swift */,
+				F176343D9D6CFEEF3432E7ED8CEFC1DF /* NSObject.swift */,
+				29B8FBE72A4329F137E14DF8F44A7DE5 /* String.swift */,
+				DBDD505893AE3E1BD7E528DB9BE10326 /* TimeInterval.swift */,
+				324DA002B5CEBB02ABB701CD8A266234 /* UIApplication.swift */,
+				A727702ED635C79CE07C05BDBD8327A3 /* UIColor.swift */,
+				09851D9493DD465C78D215FD0175CA79 /* UIDevice.swift */,
+				1C3BD6A38BD3D1A324B59B745D0691F6 /* UInt.swift */,
+				24119AA595BD103C910114C010985D0B /* UIView.swift */,
 			);
-			name = steps;
-			path = AutumnFramework/AutumnFramework/source/steps;
+			name = extensions;
+			path = extensions;
 			sourceTree = "<group>";
 		};
-		51F462018796731F369F6660EA288218 /* network */ = {
+		58699DF0B31567FBC263ED75396FADED /* Autumn */ = {
 			isa = PBXGroup;
 			children = (
-				C937A721280739F0DB84DFF4252A3791 /* AlamofireNetworkClient.swift */,
+				EC0A08F2231ACCCA60009981FFC44BDD /* AutumnFramework.h */,
+				F101C071807ED97001F7ED3F077E3A3B /* core */,
+				C3A8721253D4F36A4981AD5477156472 /* ios */,
+				D39B4E7780592BA24CA17D5898C7AD48 /* lib */,
+				73AE98206DA4BB416C0EF839F5C7AD6F /* model */,
+				3012878F87E4D54E3BE6094919606EF8 /* network */,
+				A1E3D2377F172A899B8EFF0F69BD3E64 /* Pod */,
+				952E43DC6B49E451A10D4CC7E10A183A /* steps */,
+				44BAF65AA38FD87D2ABF7DB2B1036115 /* Support Files */,
+				0DBE699A14026EA58A85C8D3E86DA43F /* testrail */,
 			);
-			name = network;
-			path = AutumnFramework/AutumnFramework/source/network;
+			name = Autumn;
+			path = ..;
 			sourceTree = "<group>";
 		};
-		70BFD9791DA661485AD5E22723C24578 /* model */ = {
+		73AE98206DA4BB416C0EF839F5C7AD6F /* model */ = {
 			isa = PBXGroup;
 			children = (
-				D12EBE185E68B5C7FCFC2EEDD92E9F48 /* TestRailCodable.swift */,
-				2A93354AA34C79FF7DC78233F2DF485B /* TestRailConfig.swift */,
-				D33B03529FBAE215422DE15FD1449D05 /* TestRailCustomTestStepResult.swift */,
-				D669F47EB8C8ED9C1721C9AD3C4A94AC /* TestRailMilestone.swift */,
-				19E4A0D189BC4D1F07CE55E3F31C3440 /* TestRailPriority.swift */,
-				B8A2EF609DC0B7EDF66E9B55806BEA80 /* TestRailProject.swift */,
-				32A793EE89496444965EE0D722FEAF8B /* TestRailSection.swift */,
-				C9BDE678E089D518847FC43EE56D5EBD /* TestRailStatus.swift */,
-				92ED85DF512FFB1FFA1EE3ACA6427FA1 /* TestRailSuite.swift */,
-				1C73C0D1F2222F4E1C1AE314D72DB287 /* TestRailTemplate.swift */,
-				517E7BC5A16FC392266E52E292905C51 /* TestRailTest.swift */,
-				9FB347AABFD4C03AD46FDF8787A603C6 /* TestRailTestCase.swift */,
-				4F3F531ACACE524850AC6102D7D9EC6C /* TestRailTestCaseField.swift */,
-				9AC41CE5433FA60CC2ECB639A674D766 /* TestRailTestCaseType.swift */,
-				B4E9FF8636C0260477BD097AA5FD080E /* TestRailTestPlan.swift */,
-				3D867186256911986EDAD1BE9A9CE81A /* TestRailTestResult.swift */,
-				3161005018BDB21B865762CCAD218AF3 /* TestRailTestResultField.swift */,
-				9E18C62150DF30EC4493F45FBD0BBAD8 /* TestRailTestRun.swift */,
-				13EA8CA9E522FC3E361B019DA7A7A4BE /* TestRailUser.swift */,
+				39866AB2E953FBC1C6F5E1DBDA92F665 /* AutumnFeature.swift */,
+				24F5D7D1389F957F9202B2453A71F5C7 /* AutumnHashable.swift */,
+				D715FB2F2C23D58F41F376EFBDFBCD70 /* AutumnScenario.swift */,
+				4D1EFDD32851FD86F9B39236E19F2481 /* AutumnUser.swift */,
+				BF5DB8C5C9B215BF3CB5B29A471A79DF /* AutumnViewProxy.swift */,
 			);
 			name = model;
-			path = model;
+			path = AutumnFramework/AutumnFramework/source/model;
 			sourceTree = "<group>";
 		};
 		7B05826141F5DEB7AF13094100054778 /* Frameworks */ = {
@@ -556,47 +592,32 @@
 			);
 			sourceTree = "<group>";
 		};
-		8C759DFC13799E081D112E5357E43694 /* model */ = {
+		952E43DC6B49E451A10D4CC7E10A183A /* steps */ = {
 			isa = PBXGroup;
 			children = (
-				4D5B7679F88E900C8A96604017027335 /* AutumnFeature.swift */,
-				DEFB48A51296431CD2878C2CE5803BEF /* AutumnHashable.swift */,
-				F5CFE7C9E37F8EAB10D6DB48F04B6787 /* AutumnScenario.swift */,
-				C3A3025B99282FAEC56D72A653893B02 /* AutumnUser.swift */,
-				BEB3E81E118CBC6F0980408C793D64C7 /* AutumnViewProxy.swift */,
+				840ECFEE3CEC95AB02C7ADCF67879B0B /* AssertExists.swift */,
+				05D4C2F8EF0A9B59BE2CFE9036C0D11E /* AssertHittable.swift */,
+				B2FD890267BB74D58594E6666336DC46 /* AssertNotExists.swift */,
+				BD201C2BD5F95D3F2B43DB60F8B2E228 /* AssertNotHittable.swift */,
+				128F49202F76727EC8AF8382ABFC9F06 /* ClearInputField.swift */,
+				027B3C16E95C8A7C0EA96600B10206B2 /* Declare.swift */,
+				F8DCD8B33ACBECA929A6C89ABB733A9D /* Hammer.swift */,
+				DC01CC26CD2BBEE1E46B5CFB1E1330A2 /* LaunchApp.swift */,
+				E718ED75F6B4D3B9687C782E6BD15CE1 /* Login.swift */,
+				45E3CAA35A5A546DF32B10FAECA52C99 /* Swipe.swift */,
+				54FB342D964D6DD7C3B229DA9C6AF177 /* Tap.swift */,
+				A3A3F5F0EAAD5DAB6B8AF31693EBC5C1 /* TapMulti.swift */,
+				E7A7388FD5592C8F96727B4917FE2539 /* TapOptional.swift */,
+				EB0DB41F181BF4EC994E054977846351 /* TypePassword.swift */,
+				54C83D32F787C4C15D4A3FBE9B48A2D9 /* TypeText.swift */,
+				57B92B7439193CDA4185D5FCBC950A89 /* Wait.swift */,
+				48CB76BF049175527330EDBFE867C694 /* WaitForExists.swift */,
+				673F5D40B3ABB11F0B8C2B18E4F9506C /* WaitForHittable.swift */,
+				BB132F4130788373609F3C3FE4D2DCA3 /* WaitForNotExists.swift */,
+				3062B7A0DBF4F501314A48E3DC63535B /* WaitForNotHittable.swift */,
 			);
-			name = model;
-			path = AutumnFramework/AutumnFramework/source/model;
-			sourceTree = "<group>";
-		};
-		8FB06095A62BBE7FC1B4356812454B39 /* Autumn */ = {
-			isa = PBXGroup;
-			children = (
-				184C53526D247A70A4707DD5BCD6878A /* AutumnFramework.h */,
-				C6A150CD81981225698C9C87C4C18094 /* core */,
-				E36B63717FAB9610E3070221DBBABE38 /* ios */,
-				9BBA5E0E64B7D88CFD94E4B882418C00 /* lib */,
-				8C759DFC13799E081D112E5357E43694 /* model */,
-				51F462018796731F369F6660EA288218 /* network */,
-				DB2EB8BE85EFD4F6E7FB98390FC4AE27 /* Pod */,
-				4ACB336D93090727707523962344371F /* steps */,
-				AD8EBFC70BF8B532876F4F65A1F7503D /* Support Files */,
-				D071EC757D18A21B6311A86F3F0B4CDA /* testrail */,
-			);
-			name = Autumn;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		9BBA5E0E64B7D88CFD94E4B882418C00 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				4E8E01739E0AD53661C4C12877517ADB /* Globals.swift */,
-				304EC6176B3D36CE3F52ADC35004B58C /* extensions */,
-				1DB96992018A5FAD887B8544AC915E0A /* structs */,
-				9F0B169E2EFEE5A350C8384AF2F743D7 /* utils */,
-			);
-			name = lib;
-			path = AutumnFramework/AutumnFramework/source/lib;
+			name = steps;
+			path = AutumnFramework/AutumnFramework/source/steps;
 			sourceTree = "<group>";
 		};
 		9D2E031CCCDF5C9208D433AB5522D075 /* Pods-AutumnDemo */ = {
@@ -617,23 +638,14 @@
 			path = "Target Support Files/Pods-AutumnDemo";
 			sourceTree = "<group>";
 		};
-		9F0B169E2EFEE5A350C8384AF2F743D7 /* utils */ = {
+		A1E3D2377F172A899B8EFF0F69BD3E64 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				BF4C58144FD1D17BA907FB0C6EE7DBE5 /* Dice.swift */,
-				3676F44EA786A3A4D5072080CE608B1F /* ExecutionTimer.swift */,
-				C3522C2093D67EAD5E236D15E967233E /* File.swift */,
-				C4F9958DA271C862558B4DE829513331 /* HashID.swift */,
-				78F915560D1E927BADE5662313792946 /* Interval.swift */,
-				BFEDA47CE7A70BF2A1D57A83C120B832 /* JSON.swift */,
-				55E97DEE688562A0CF82799977E940D6 /* Log.swift */,
-				AD2E3AAD6DC1FF7051D85DD7CF960CBC /* LogFile.swift */,
-				0C4C2B811F08BAE0CA9018443B8B96B3 /* Metatype.swift */,
-				B607C20584A7113564DB8BFC17BC7C3D /* StopWatch.swift */,
-				18884A5B35824E112A5C2A281EDC5842 /* TabularText.swift */,
+				33D20A0D2928B8ACD48D7B7B6B5065A9 /* Autumn.podspec */,
+				DE1B15ED96A358B1B9E5736A5D8AC6E0 /* LICENSE */,
+				9D2E7054567ADE5B1EC8DD0763791D39 /* README.md */,
 			);
-			name = utils;
-			path = utils;
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		A43AFED696D4A788C7C62E581F4F215A /* Targets Support Files */ = {
@@ -646,18 +658,23 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		AD8EBFC70BF8B532876F4F65A1F7503D /* Support Files */ = {
+		ADE0A85FD0D6B76C7D21F7CEA7A73CCE /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				BA36C11240ADD08049C671C8D6C873BA /* Autumn.modulemap */,
-				5DD73C30494BAA94E56A0ABA2ABA9D1C /* Autumn.xcconfig */,
-				FE494A74D1D71B439896B1F66DD7A355 /* Autumn-dummy.m */,
-				4DFC28AC86EDCC1B5965B00DECB8D57B /* Autumn-prefix.pch */,
-				ADB139A337FEB0EA59815D205C4795A7 /* Autumn-umbrella.h */,
-				4DFE5C2A6505FD98194B63DEAC86B42D /* Info.plist */,
+				583F8052503F250CDC9F0D61167A1359 /* Dice.swift */,
+				18F2E867DF170BE9185D1A3009413942 /* ExecutionTimer.swift */,
+				F4165229040890A80EFCEFBCFECC1BC4 /* File.swift */,
+				FD03ACB8D771B052B9F27EA4D9423335 /* HashID.swift */,
+				0CF7D6E3251E8D2B7250AC685D4B69C0 /* Interval.swift */,
+				8CC53F7E0F6C61902802C8F027360274 /* JSON.swift */,
+				25659C8B4CE655DA526B04F6E6DA67FD /* Log.swift */,
+				7804E0C3E1C0285DBFBB5F385F1885A1 /* LogFile.swift */,
+				945DBE1E575461DF4D229D1FD62FD7C6 /* Metatype.swift */,
+				92F86BBCE601876F37E7480594B598A4 /* StopWatch.swift */,
+				65ECE510612B6818C7DA5B07597F6DA6 /* TabularText.swift */,
 			);
-			name = "Support Files";
-			path = "Pods/Target Support Files/Autumn";
+			name = utils;
+			path = utils;
 			sourceTree = "<group>";
 		};
 		B344F95F7CDDD85B62DEAC9334B0FC12 /* Pods-AutumnDemoUITests */ = {
@@ -678,23 +695,13 @@
 			path = "Target Support Files/Pods-AutumnDemoUITests";
 			sourceTree = "<group>";
 		};
-		C6A150CD81981225698C9C87C4C18094 /* core */ = {
+		C3A8721253D4F36A4981AD5477156472 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				10EA111B93336F5EAFD417FEF26078E9 /* AutumnConfig.swift */,
-				13DF0D85E3CFC2B7631D7DE1E70D582A /* AutumnConstants.swift */,
-				284C73E11AE65BBF1DAD8364072114FA /* AutumnEnums.swift */,
-				84F8B98DDBA9D3E633031208ACA57BD5 /* AutumnLog.swift */,
-				1E71D9CD521E3CED5F2A09D99E2DB458 /* AutumnModel.swift */,
-				BB35B5B775F3A537A929F5F5942B2CCB /* AutumnSession.swift */,
-				0FE30F9EC56F94BAB10945AE7D6E33F1 /* AutumnStats.swift */,
-				3A9FC573E2688BCC5EAE3C06792D24E2 /* AutumnTestRunner.swift */,
-				42440692BC550BDD36735A7BFC9E9DA9 /* AutumnTestStep.swift */,
-				4B56800F307E6A237E374F85256E2BF7 /* AutumnTestStepResult.swift */,
-				7962318D8DD639AB1B5F892BBA73EEFE /* AutumnUI.swift */,
+				DC679CE04429E5999D616C480BA5DD59 /* Springboard.swift */,
 			);
-			name = core;
-			path = AutumnFramework/AutumnFramework/source/core;
+			name = ios;
+			path = AutumnFramework/AutumnFramework/source/ios;
 			sourceTree = "<group>";
 		};
 		C7AB0809D254E38008BABB05556477C5 /* Pods-AutumnFramework */ = {
@@ -714,24 +721,16 @@
 			path = "Target Support Files/Pods-AutumnFramework";
 			sourceTree = "<group>";
 		};
-		D071EC757D18A21B6311A86F3F0B4CDA /* testrail */ = {
+		D39B4E7780592BA24CA17D5898C7AD48 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				B0A40ABB69476A86D1AE2C134F0738F6 /* AutumnTestRailClient.swift */,
-				70BFD9791DA661485AD5E22723C24578 /* model */,
+				4154BD6896A3DCF25C5E2DB11588A69A /* Globals.swift */,
+				4BBEFCA599F655447CA72B9A8C2A2B73 /* extensions */,
+				2CF997429475B15950ABDFE39E0D0CB3 /* structs */,
+				ADE0A85FD0D6B76C7D21F7CEA7A73CCE /* utils */,
 			);
-			name = testrail;
-			path = AutumnFramework/AutumnFramework/source/testrail;
-			sourceTree = "<group>";
-		};
-		DB2EB8BE85EFD4F6E7FB98390FC4AE27 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				F5C16F9E5404DF566AC2500F0E24228A /* Autumn.podspec */,
-				DA710DDA4F6C8B4220CCB7825D21A8C7 /* LICENSE */,
-				870E01EFD3CCA68A40B8AAADEBA95881 /* README.md */,
-			);
-			name = Pod;
+			name = lib;
+			path = AutumnFramework/AutumnFramework/source/lib;
 			sourceTree = "<group>";
 		};
 		E35F2148A241E9D2B6987F758376D6F2 /* iOS */ = {
@@ -743,13 +742,23 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		E36B63717FAB9610E3070221DBBABE38 /* ios */ = {
+		F101C071807ED97001F7ED3F077E3A3B /* core */ = {
 			isa = PBXGroup;
 			children = (
-				F77EEF6FA0862EAB6F700C74EA7290D2 /* Springboard.swift */,
+				B1EA8B6A22AF0DB05A2855C149047B57 /* AutumnConfig.swift */,
+				CF73396D881683DB625F38FD4E59E51D /* AutumnConstants.swift */,
+				3C5A57604CDDE23596D512E840D33AE5 /* AutumnEnums.swift */,
+				590D4DDE39A29EE6DB73C13D111EFD1B /* AutumnLog.swift */,
+				9C5781F621450AD5DD142A836755989C /* AutumnModel.swift */,
+				F7C94C05749D4E10C4DB07E316B5519C /* AutumnSession.swift */,
+				2BDA5A8077D15B947A6EF0ED1C53FE2E /* AutumnStats.swift */,
+				F21A80EECBF46DD358305A3496E6CAE8 /* AutumnTestRunner.swift */,
+				422FFB03EAB0BF85E4E095E0899BBBF1 /* AutumnTestStep.swift */,
+				AF2370EA1363CB82A81C1D8C9045015F /* AutumnTestStepResult.swift */,
+				C298B10A9A8DF66796D4DA0C09435906 /* AutumnUI.swift */,
 			);
-			name = ios;
-			path = AutumnFramework/AutumnFramework/source/ios;
+			name = core;
+			path = AutumnFramework/AutumnFramework/source/core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -760,15 +769,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DDBC9E08D01343992E908C8F90ED241 /* Pods-AutumnDemo-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6717359DC28DA5F05D084747BDF37500 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				26E028012FFE6BED577953801D596849 /* Autumn-umbrella.h in Headers */,
-				BF527B4B76B9C450B76716175F19B279 /* AutumnFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,6 +788,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C03D32D4BFF1E80D600177AC82E7A0AB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4E03AA942A50585DEAC397869018992 /* Autumn-umbrella.h in Headers */,
+				C70DA19597BD8485336F611EFFB2F535 /* AutumnFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D98DB80C5560ED25B4C820F2430D4635 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -799,6 +808,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		742B6CF4F98E6C4550ABB3C4C46EB750 /* Autumn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B83B8C895479B85AC5A7F2925A6EAA9 /* Build configuration list for PBXNativeTarget "Autumn" */;
+			buildPhases = (
+				4CA5D287831A269736086572398F7F88 /* Sources */,
+				F1BEE9D52090B5C4A93088A581B359A6 /* Frameworks */,
+				C03D32D4BFF1E80D600177AC82E7A0AB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E39F495352DA1D3D51FD0249DAEEC7AC /* PBXTargetDependency */,
+			);
+			name = Autumn;
+			productName = Autumn;
+			productReference = A6F0087379126520201C943B4BB70DAF /* Autumn.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 419E5D95491847CD79841B971A8A3277 /* Build configuration list for PBXNativeTarget "Alamofire" */;
@@ -814,24 +841,6 @@
 			name = Alamofire;
 			productName = Alamofire;
 			productReference = A4E27B32A1580C12BCF3A2D6A164A60E /* Alamofire.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		90DB0C775F41D650ADD44C546021FE3A /* Autumn */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DE3FF12AF2A35F874E72AA3883A043B5 /* Build configuration list for PBXNativeTarget "Autumn" */;
-			buildPhases = (
-				64749915D317E03475966FCE34C733C5 /* Sources */,
-				20498E2501342569203C9B0794B73BB9 /* Frameworks */,
-				6717359DC28DA5F05D084747BDF37500 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BF6547C645BDE34AC6C2E72FFE1C9D87 /* PBXTargetDependency */,
-			);
-			name = Autumn;
-			productName = Autumn;
-			productReference = A6F0087379126520201C943B4BB70DAF /* Autumn.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		9FF38A3ACF7E634A21E2AEE940970418 /* Pods-AutumnFramework */ = {
@@ -911,7 +920,7 @@
 			projectRoot = "";
 			targets = (
 				88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */,
-				90DB0C775F41D650ADD44C546021FE3A /* Autumn */,
+				742B6CF4F98E6C4550ABB3C4C46EB750 /* Autumn */,
 				AB46AB6B4325DB9DE5033E704253F7F8 /* Pods-AutumnDemo */,
 				A63133A767C3EF7FA373CBAA01270AEE /* Pods-AutumnDemoUITests */,
 				9FF38A3ACF7E634A21E2AEE940970418 /* Pods-AutumnFramework */,
@@ -961,96 +970,99 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		64749915D317E03475966FCE34C733C5 /* Sources */ = {
+		4CA5D287831A269736086572398F7F88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74129826128DAC66F71C6FC70DD24C0A /* AlamofireNetworkClient.swift in Sources */,
-				339137CB5B9DE435618C55EA7C4E59D3 /* Array.swift in Sources */,
-				1191BF82BDA397D235F368D0FF6BBE53 /* AssertExists.swift in Sources */,
-				31E6DF55CC8E6635B2B30AEDCC8E4728 /* AssertHittable.swift in Sources */,
-				C15D8275C1F266AF34334B7109E37F84 /* AssertNotExists.swift in Sources */,
-				50C5A794E1C6930B601AB5C7DE5D1F5F /* AssertNotHittable.swift in Sources */,
-				322B9DD920B3314DF86F083D36B892FD /* Autumn-dummy.m in Sources */,
-				DC29E9D4FB3DDBDD2CFC9EC94D148E4F /* AutumnConfig.swift in Sources */,
-				9D9ECA2AD1B6280D39A3078BEE39F317 /* AutumnConstants.swift in Sources */,
-				A151B1E1802EBF04BBD37E6A9C2BE78C /* AutumnEnums.swift in Sources */,
-				4B8D6A8D6466F371F6213A770B3652AD /* AutumnFeature.swift in Sources */,
-				7E0DDCBA8C60353B49646BFFF07E5D99 /* AutumnHashable.swift in Sources */,
-				37FC90DE48D64D79D3D69A561F49A7AC /* AutumnLog.swift in Sources */,
-				D5746428B4E21281D6B99517E466CBF1 /* AutumnModel.swift in Sources */,
-				BD81D922646580F9A31B7FAAE9265B5F /* AutumnScenario.swift in Sources */,
-				B7ABC36C41AF5C116FFD11D7C2BE67AF /* AutumnSession.swift in Sources */,
-				A87CDB5A61AB60C78C47B58396AABC43 /* AutumnStats.swift in Sources */,
-				2B06659E54B9A32298F78064E3150650 /* AutumnTestRailClient.swift in Sources */,
-				327B0372C3B8163E6639C937B4161A17 /* AutumnTestRunner.swift in Sources */,
-				63081FB475730568C1E1FC7A152099DD /* AutumnTestStep.swift in Sources */,
-				9488AC480E46E902166D9763CBD49E84 /* AutumnTestStepResult.swift in Sources */,
-				75545645B7D3B43EEEC0D3F4E5607B31 /* AutumnUI.swift in Sources */,
-				383650570090C0DDB4043CE91903543D /* AutumnUser.swift in Sources */,
-				AE084502CCC6ED434F951E7CB63B4B97 /* AutumnViewProxy.swift in Sources */,
-				5C6C7F6336B5106A44FA2C6D00C244E5 /* Bundle.swift in Sources */,
-				EB482CFE0ECC24001CEF8AE299B65F76 /* Character.swift in Sources */,
-				A2D0DB9B0B69A4AC85810B546DBBC23C /* ClearInputField.swift in Sources */,
-				C23CBB25C05E454789018DAE9C609B02 /* Declare.swift in Sources */,
-				5EF37B22BC6637CBCD24BF5E0C668962 /* Dice.swift in Sources */,
-				4B9B2BB8032785C4F79732815B97A47F /* Dictionary.swift in Sources */,
-				6D6F2DA08C020EF6103F8073CE743DF0 /* DispatchTimeInterval.swift in Sources */,
-				65DE829BA84EF4BBF4BB00100D294549 /* Double.swift in Sources */,
-				4DE752279217D318DA29DE1FA1260FC2 /* Encodable.swift in Sources */,
-				362DFD3DA462B21203E479E3BE4B064C /* ExecutionTimer.swift in Sources */,
-				39BA65B73D60EA9FA694948ACC05D056 /* File.swift in Sources */,
-				9C19315BDF0091F760E5B785F7D0614B /* FrequencyTable.swift in Sources */,
-				C9F1C939A29A5515A3BE0F99476E43D9 /* Globals.swift in Sources */,
-				DE0C65441ECC37DA301DC9C1171618A9 /* HashID.swift in Sources */,
-				CC103C17278887BA74D3AD27829F34AD /* Int.swift in Sources */,
-				F8D248B97EF9D2072B3502EA567E1279 /* Interval.swift in Sources */,
-				CC4D7DF0D9480E52A0E90CF7843382D7 /* JSON.swift in Sources */,
-				E2B7E38B172244C756CFF3AFAE4BCF5D /* LaunchApp.swift in Sources */,
-				12DD8B03E7892A94EC9ABB3B4C299ADE /* Log.swift in Sources */,
-				CEB90C4F9A2515D551D903569DDBD7A0 /* LogFile.swift in Sources */,
-				BAF8CCA089F229D997A88520D013496C /* Login.swift in Sources */,
-				72585F2CC173AE70D33A8705EB22091B /* Metatype.swift in Sources */,
-				21554A5E3B1672A79C6B5C6F4F9C0409 /* NSObject.swift in Sources */,
-				C3627554F9AE54B5E9D1DFA31DC82E6F /* SortedArray.swift in Sources */,
-				9B5E6930F88F9CF2B11DB51A3853588C /* Springboard.swift in Sources */,
-				6463BDC3A0858670EFF8979B3DAA4407 /* StopWatch.swift in Sources */,
-				A20DF215FADE5055666423D0306FC7C2 /* String.swift in Sources */,
-				EB12AD2BA4930803EEBAB3504FA0E527 /* Swipe.swift in Sources */,
-				13258A9F4DCE538D68CA47D1E51139BC /* TabularText.swift in Sources */,
-				FC6951EADA7A54C55AEA14B109B7C012 /* Tap.swift in Sources */,
-				36389F009BB1C755B6258318B5A8A8AE /* TestRailCodable.swift in Sources */,
-				F01C85013D878D52ACFA5F4FF53B0A4F /* TestRailConfig.swift in Sources */,
-				B68075EFD2B4C238DF497FBDE7154269 /* TestRailCustomTestStepResult.swift in Sources */,
-				8F3E4BA0BF397700702F337E75635E81 /* TestRailMilestone.swift in Sources */,
-				A2BD27978D3C1A57B684C4721F9D4946 /* TestRailPriority.swift in Sources */,
-				C3F4360226D9A2F00E4534ABB4699709 /* TestRailProject.swift in Sources */,
-				F6D196FA30F48BCB7E94CEC4F7F32351 /* TestRailSection.swift in Sources */,
-				394C719ED43CA25EF15691D6F0271F1B /* TestRailStatus.swift in Sources */,
-				65905CEF7F4B56B51A725CB87597045E /* TestRailSuite.swift in Sources */,
-				0824E79C7F7EF86282E193F4BD5E1099 /* TestRailTemplate.swift in Sources */,
-				B1A6F9EC8E3F115879405EB74FAB81C9 /* TestRailTest.swift in Sources */,
-				06CCF8B042F79BBE51FA0D1566CFA677 /* TestRailTestCase.swift in Sources */,
-				6DC571E0BA4AD6C14F1F82EBA948AAB6 /* TestRailTestCaseField.swift in Sources */,
-				3D782B40B91E3BE81D57A6F8404D8935 /* TestRailTestCaseType.swift in Sources */,
-				15B96D7BDA4494BF161D1AF478B035EA /* TestRailTestPlan.swift in Sources */,
-				15756E58CC11E2408321E17013F981C9 /* TestRailTestResult.swift in Sources */,
-				4377BD2128C9E5F70D4EF4984655EFA9 /* TestRailTestResultField.swift in Sources */,
-				0AFB2B95BA89B32CBB1F5C93D51A06A3 /* TestRailTestRun.swift in Sources */,
-				F0098F54EC2F8B5B697CF4D8D5526628 /* TestRailUser.swift in Sources */,
-				96CD63C5F6CEAAD7626A3980DC7A45CA /* TimeInterval.swift in Sources */,
-				4B299045BD766A996F11BFADA19676F8 /* TypePassword.swift in Sources */,
-				30B612A871A245A12ED63D4D7DBA4110 /* TypeText.swift in Sources */,
-				7B910405302B7BA10999AA30C963456F /* UIApplication.swift in Sources */,
-				7C64193341E67321116A1E57F8066A8A /* UIColor.swift in Sources */,
-				2248D8E16C1F2EFD46EDC805A72EEC00 /* UIDevice.swift in Sources */,
-				730FFC452BB1644C8FFCED8115C04FB0 /* UInt.swift in Sources */,
-				67C303D2D88A54A50696B08068C07B42 /* UIView.swift in Sources */,
-				3E4E84ADDEB9D794DC9214365F060D66 /* Wait.swift in Sources */,
-				7B14B96FE502C526BE7C77CE94AFC300 /* WaitForExists.swift in Sources */,
-				24D10D4EB92896E806ADBB1EA0564BD8 /* WaitForHittable.swift in Sources */,
-				17C8533AB16B2A4D58AA713D5B0BFF52 /* WaitForNotExists.swift in Sources */,
-				3BF7797DACDB85DE59557945C1C4C480 /* WaitForNotHittable.swift in Sources */,
+				5CE81431FEE4B5F88B12A385A54BE36C /* AlamofireNetworkClient.swift in Sources */,
+				DBD05D2B9913FE84F3B761D523B9A1CE /* Array.swift in Sources */,
+				A829791E00594AA66817F304FD9204C5 /* AssertExists.swift in Sources */,
+				7C672ED8B5D2907895F2E2B23C236D53 /* AssertHittable.swift in Sources */,
+				501FDC403F901038DB0D5ED903D3F6B1 /* AssertNotExists.swift in Sources */,
+				FFE5BC9C5B728C6B0469014215D2ACE4 /* AssertNotHittable.swift in Sources */,
+				C21CD938EB4188D5CE8E0C0257E4819A /* Autumn-dummy.m in Sources */,
+				DC9AFC70B66E89FB682AC056AD0B528B /* AutumnConfig.swift in Sources */,
+				FC51472AF70061C5DB962DD9A7709A37 /* AutumnConstants.swift in Sources */,
+				5426F254B78F137C242B99B894181801 /* AutumnEnums.swift in Sources */,
+				33F3804B3A3740A289A091C6E22F0A60 /* AutumnFeature.swift in Sources */,
+				28FB9B73F386848B3704FE8BDC27BACD /* AutumnHashable.swift in Sources */,
+				55C8228619AC50194F536A0DA02AC1B4 /* AutumnLog.swift in Sources */,
+				053A0E3D8F56F00773728231AA58B9AF /* AutumnModel.swift in Sources */,
+				766EF5BFF338476D4BEE01C00B7224FE /* AutumnScenario.swift in Sources */,
+				027CC20F5FF35321B2758D15FA66AEC2 /* AutumnSession.swift in Sources */,
+				B06B031E377F44D50BB3EF822E10846B /* AutumnStats.swift in Sources */,
+				A7848C7D6236895E5CDC78337BCE7CE2 /* AutumnTestRailClient.swift in Sources */,
+				0419D8CF0F75F8CE40BE78DFA46DA159 /* AutumnTestRunner.swift in Sources */,
+				4C306D744BC4A6BA1607ABEECD943320 /* AutumnTestStep.swift in Sources */,
+				7F8075134FB82E59DA89AAF35D7777CC /* AutumnTestStepResult.swift in Sources */,
+				C12FE9C03EB3BDEE36F0E8F4DFBB364A /* AutumnUI.swift in Sources */,
+				0A651C11B9843A858CB047901E767D15 /* AutumnUser.swift in Sources */,
+				3AB430B41522CE66C8A8045C9ACB3C21 /* AutumnViewProxy.swift in Sources */,
+				56214710A8CF133F6317DA44064465B4 /* Bundle.swift in Sources */,
+				431C6296C337DAF3ADB316D9271BD338 /* Character.swift in Sources */,
+				EB7DCAC6655E202B909B25016091B484 /* ClearInputField.swift in Sources */,
+				799105F8D210D8EAA995AB9708D27160 /* Declare.swift in Sources */,
+				C1A726516F79EB0AF7E4DF52F90C3FA8 /* Dice.swift in Sources */,
+				CC5DE7430D3769FBCA3E19819539A6CA /* Dictionary.swift in Sources */,
+				2E54A1A872132C834B77FCCF5EFE2461 /* DispatchTimeInterval.swift in Sources */,
+				304FC3E1CED925324AE4F7B4320A0A22 /* Double.swift in Sources */,
+				BB228C1A6AF84B423DDFA02557C1D60E /* Encodable.swift in Sources */,
+				025DCB6E8ECAF0B234D97386BD6FA318 /* ExecutionTimer.swift in Sources */,
+				D385F81592A84848853E781B9DAEC139 /* File.swift in Sources */,
+				6D2C37E1B4FCF281D22EF82ABC0FF357 /* FrequencyTable.swift in Sources */,
+				819DE4E5C09DAA7A782BB5A761BCC6C3 /* Globals.swift in Sources */,
+				79143DD8124805F895A0670510791FD3 /* Hammer.swift in Sources */,
+				4B5228755C3C61504E7531E99D1172BF /* HashID.swift in Sources */,
+				BAFBBB0D8D74CEA46CC799D4FB2128BC /* Int.swift in Sources */,
+				B59775DEE7414B70498263C17ABEBA7F /* Interval.swift in Sources */,
+				2FEDC3DA88025CC3C31D038A17F9B9DD /* JSON.swift in Sources */,
+				1B8F774F21EC40A781FE4DDEA8EFDA00 /* LaunchApp.swift in Sources */,
+				B3039FCF5490FA46B1625A7D04DC2A7A /* Log.swift in Sources */,
+				20F2DBA21D79983E75CB7E1FB04D8029 /* LogFile.swift in Sources */,
+				13125B9EF5B655B7126A27A580F47D62 /* Login.swift in Sources */,
+				254EAF3EE7E4FC493FBF334DDF6B0933 /* Metatype.swift in Sources */,
+				5DDCFEC5AC4D50555F84BCE90B18D49C /* NSObject.swift in Sources */,
+				15B4D097519B82FE43B04C1E7B9C2FE4 /* SortedArray.swift in Sources */,
+				4FC77AE45084DD33A15E7DE372990940 /* Springboard.swift in Sources */,
+				ED98BAA40FAA3BB821B1458CD7BF9EBB /* StopWatch.swift in Sources */,
+				D2E34FBF1937A2CB6CA910E18E122519 /* String.swift in Sources */,
+				F4E090D2935D0F9D466EEFDC109BDC57 /* Swipe.swift in Sources */,
+				7F4FB5855C5CE8D10DBA4F69039A42A0 /* TabularText.swift in Sources */,
+				1C6115245DE8F0BC1D8DF44052CA10EF /* Tap.swift in Sources */,
+				55A17D8AB8F7E5C6E8A2FBD0C87A304D /* TapMulti.swift in Sources */,
+				DCDB1C1104B2F400EC0D5D2B34656108 /* TapOptional.swift in Sources */,
+				65E5F6EEEE439E5B8AE29C996C15FF98 /* TestRailCodable.swift in Sources */,
+				9E6D986873FD6A1CA914502BBF421145 /* TestRailConfig.swift in Sources */,
+				D9D330BDEDE4523440FF43BBE2523220 /* TestRailCustomTestStepResult.swift in Sources */,
+				6505D8F8062D673FE62C9D1AFB408D2C /* TestRailMilestone.swift in Sources */,
+				3F37FA0F57D5F7AEB971EB903CCBCD8E /* TestRailPriority.swift in Sources */,
+				2FD341FB8898CEB67EE4C7A27E448516 /* TestRailProject.swift in Sources */,
+				7299A3744B42D0A902ED30E22E1D42CB /* TestRailSection.swift in Sources */,
+				00A98275B1FE01DC1336983E1773E49B /* TestRailStatus.swift in Sources */,
+				B3A8604D34CD8AD8C5D15657714A6672 /* TestRailSuite.swift in Sources */,
+				86F9A9755D903B73FCDDB725A7C7A650 /* TestRailTemplate.swift in Sources */,
+				8C0D2649838DBC6D82CADFD41DD29899 /* TestRailTest.swift in Sources */,
+				824C9AC6A5D0B4D9C41AD9C85E7210DC /* TestRailTestCase.swift in Sources */,
+				50A50031A1C2D8DE924603E741D1FA23 /* TestRailTestCaseField.swift in Sources */,
+				6900D72ACA943263E25BACE3AB9494EA /* TestRailTestCaseType.swift in Sources */,
+				889166EFF5480752364ABCD455F77792 /* TestRailTestPlan.swift in Sources */,
+				D1C7C963C6DF16DC4AEA0498A77319C8 /* TestRailTestResult.swift in Sources */,
+				300EB58F89AAFBD652E7048319F23C59 /* TestRailTestResultField.swift in Sources */,
+				615180FA45FB9E8BF317C8188D882761 /* TestRailTestRun.swift in Sources */,
+				F273BC719049B33820463DA3F4CCD1F1 /* TestRailUser.swift in Sources */,
+				E626E60025FE9567B9A36D604FA86EAA /* TimeInterval.swift in Sources */,
+				B0549E1946707F744646579E9BC95712 /* TypePassword.swift in Sources */,
+				88113FBEC75EFA6E16A669C9BDC0A85C /* TypeText.swift in Sources */,
+				1905784F3264BA7D53B031DD7BCE8EE5 /* UIApplication.swift in Sources */,
+				3E51975B4DAD5C757A2963F62260FCC1 /* UIColor.swift in Sources */,
+				3BEA32F6C036AB0B8BFF94CEEC2A9FAF /* UIDevice.swift in Sources */,
+				4AEDCD141BBF540F2BC5422AF79E5191 /* UInt.swift in Sources */,
+				BE030BE8D872C02C80C793BB1EBC9E12 /* UIView.swift in Sources */,
+				55B0C681FC1DFCD719398200E2A570B6 /* Wait.swift in Sources */,
+				10B420D942BE27BB2918819249BB9406 /* WaitForExists.swift in Sources */,
+				3FE34AA7437BEEB5D54FCD9C0F22BF76 /* WaitForHittable.swift in Sources */,
+				CD236CF1E73E32D94F97292973A113DA /* WaitForNotExists.swift in Sources */,
+				0B36EEE3C71394009EA3B1EF314BF566 /* WaitForNotHittable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1086,18 +1098,53 @@
 		BBB61D01359BB384CE3EA3CD55BE5DF0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Autumn;
-			target = 90DB0C775F41D650ADD44C546021FE3A /* Autumn */;
+			target = 742B6CF4F98E6C4550ABB3C4C46EB750 /* Autumn */;
 			targetProxy = 4A1C907F431333BF8D9B7B97D53B3818 /* PBXContainerItemProxy */;
 		};
-		BF6547C645BDE34AC6C2E72FFE1C9D87 /* PBXTargetDependency */ = {
+		E39F495352DA1D3D51FD0249DAEEC7AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
 			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
-			targetProxy = CC227974560DDCF8EAE143DAACCC76E7 /* PBXContainerItemProxy */;
+			targetProxy = E29D0448E732377726566A6FE2E1CB1C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3AF3C46F04B74987B016B737E8D25CA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 282A84CE8F6E6D446A8008047095AF49 /* Autumn.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/Autumn/Autumn-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Autumn/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Autumn/Autumn.modulemap";
+				PRODUCT_MODULE_NAME = Autumn;
+				PRODUCT_NAME = Autumn;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		464A080B4EA68BFBFCC466D95AA17542 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8409582FE7D610EDADDAFF14FA77EF54 /* Pods-AutumnDemo.release.xcconfig */;
@@ -1360,75 +1407,6 @@
 			};
 			name = Release;
 		};
-		6B1BCEB8D49D3BDD922450C8A2D7313E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DD73C30494BAA94E56A0ABA2ABA9D1C /* Autumn.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/Autumn/Autumn-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Autumn/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Autumn/Autumn.modulemap";
-				PRODUCT_MODULE_NAME = Autumn;
-				PRODUCT_NAME = Autumn;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		72F14C526BA253E937770F387B04B20E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DD73C30494BAA94E56A0ABA2ABA9D1C /* Autumn.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/Autumn/Autumn-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Autumn/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Autumn/Autumn.modulemap";
-				PRODUCT_MODULE_NAME = Autumn;
-				PRODUCT_NAME = Autumn;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		756020E3BA50422C1C5097AB8A4D2BE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27568C377E9C02BE1EBBF8FCBCE9CEEB /* Pods-AutumnFramework.release.xcconfig */;
@@ -1465,6 +1443,40 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		AA99B1D5D4BAFCC487062F860D031E6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 282A84CE8F6E6D446A8008047095AF49 /* Autumn.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/Autumn/Autumn-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Autumn/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Autumn/Autumn.modulemap";
+				PRODUCT_MODULE_NAME = Autumn;
+				PRODUCT_NAME = Autumn;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		AE73F413116DBDE7B5721B4A6CF37C44 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1577,6 +1589,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2B83B8C895479B85AC5A7F2925A6EAA9 /* Build configuration list for PBXNativeTarget "Autumn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA99B1D5D4BAFCC487062F860D031E6C /* Debug */,
+				3AF3C46F04B74987B016B737E8D25CA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1618,15 +1639,6 @@
 			buildConfigurations = (
 				F30A6FC4DF25AABCE8F8A77AB7DC4DA0 /* Debug */,
 				756020E3BA50422C1C5097AB8A4D2BE2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DE3FF12AF2A35F874E72AA3883A043B5 /* Build configuration list for PBXNativeTarget "Autumn" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6B1BCEB8D49D3BDD922450C8A2D7313E /* Debug */,
-				72F14C526BA253E937770F387B04B20E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

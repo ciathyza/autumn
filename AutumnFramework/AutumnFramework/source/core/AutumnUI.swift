@@ -455,6 +455,17 @@ public class AutumnUI
 	
 	
 	/**
+	 * sleeps for x milliseconds.
+	 *
+	 * @param ms The time to wait in ms.
+	 */
+	public class func doze(_ ms:UInt)
+	{
+		usleep(UInt32(ms) * 1000)
+	}
+	
+	
+	/**
 	 * Waits for x seconds.
 	 *
 	 * @param interval The time to wait in seconds.
@@ -676,6 +687,24 @@ public class AutumnUI
 	
 	
 	/**
+	 * Sends a tap event to a hittable point computed for the element.
+	 *
+	 * @param element
+	 */
+	public class func doubleTap(_ element:XCUIElement?) -> AutumnUIActionResult
+	{
+		if let e = element
+		{
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.doubleTap()
+			return .Success
+		}
+		return .FailedIsNil
+	}
+	
+	
+	/**
 	 * Sends a tap event twice to a hittable point computed for the element.
 	 *
 	 * @param element
@@ -696,6 +725,24 @@ public class AutumnUI
 	
 	
 	/**
+	 * Sends several tap events to a hittable point computed for the element.
+	 *
+	 * @param element
+	 */
+	public class func tapMulti(_ element:XCUIElement?, _ numberOfTaps:Int) -> AutumnUIActionResult
+	{
+		if let e = element
+		{
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.tap(withNumberOfTaps: numberOfTaps, numberOfTouches: 1)
+			return .Success
+		}
+		return .FailedIsNil
+	}
+	
+	
+	/**
 	 * Sends a tap event to a hittable point computed for the element. Does not fail if the element isn't hittable or doesn't exist.
 	 *
 	 * @param element
@@ -707,6 +754,36 @@ public class AutumnUI
 			if e.exists && e.isHittable { e.tap() }
 		}
 		return .Success
+	}
+	
+	
+	/**
+	 * Sends multiple randomly timed tap events to a hittable point computed for the element.
+	 *
+	 * @param element
+	 */
+	public class func hammer(_ element:XCUIElement?) -> AutumnUIActionResult
+	{
+		if let e = element
+		{
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			let n = Int(arc4random_uniform(8) + 3)
+			for i in 0 ..< n
+			{
+				let r = UInt(arc4random_uniform(75) + 20)
+				doze(r)
+				AutumnLog.debug("Hammering [\(e)] after \(r)ms")
+				e.tap()
+				if !e.isHittable
+				{
+					AutumnLog.debug("Hammered [\(e)] for \(i + 1) times.")
+					break
+				}
+			}
+			return .Success
+		}
+		return .FailedIsNil
 	}
 	
 	

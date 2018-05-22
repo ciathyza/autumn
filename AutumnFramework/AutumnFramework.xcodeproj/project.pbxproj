@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5E4BC05EB20557DC4DE1905A /* AssertHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCD8A7A4CA0466F0734D6 /* AssertHittable.swift */; };
+		5E4BC15AB90D5E81B280CD77 /* Hammer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC81BFE2EE805978A9E5F /* Hammer.swift */; };
 		5E4BC4309A74DDBC15C39C64 /* WaitForNotHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCC6E91DF132F151C45F7 /* WaitForNotHittable.swift */; };
 		5E4BC57ACD288D9FA47CF119 /* AssertNotHittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC2B79ECF09924E22BEC1 /* AssertNotHittable.swift */; };
+		5E4BC78E1C551E32EE5673A0 /* TapMulti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCAE5AA3521C76434DEE5 /* TapMulti.swift */; };
+		5E4BC97D6BC68942A5B7403C /* TapOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC3468EB20CC9B971541A /* TapOptional.swift */; };
 		5E4BC9AA194E0EC2A0C39C0C /* AssertNotExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCB9AF0C5AE4A24AB7413 /* AssertNotExists.swift */; };
 		5E4BCE8CC90A4BAA26BEE1F1 /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BCFE4AE8DE122F267BB0B /* Swipe.swift */; };
 		5E4BCF4756596413C6575209 /* WaitForNotExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4BC0FB2BE01553686920F2 /* WaitForNotExists.swift */; };
@@ -102,6 +105,9 @@
 /* Begin PBXFileReference section */
 		5E4BC0FB2BE01553686920F2 /* WaitForNotExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForNotExists.swift; sourceTree = "<group>"; };
 		5E4BC2B79ECF09924E22BEC1 /* AssertNotHittable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssertNotHittable.swift; sourceTree = "<group>"; };
+		5E4BC3468EB20CC9B971541A /* TapOptional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapOptional.swift; sourceTree = "<group>"; };
+		5E4BC81BFE2EE805978A9E5F /* Hammer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hammer.swift; sourceTree = "<group>"; };
+		5E4BCAE5AA3521C76434DEE5 /* TapMulti.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapMulti.swift; sourceTree = "<group>"; };
 		5E4BCB9AF0C5AE4A24AB7413 /* AssertNotExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssertNotExists.swift; sourceTree = "<group>"; };
 		5E4BCC6E91DF132F151C45F7 /* WaitForNotHittable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForNotHittable.swift; sourceTree = "<group>"; };
 		5E4BCD8A7A4CA0466F0734D6 /* AssertHittable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssertHittable.swift; sourceTree = "<group>"; };
@@ -415,6 +421,9 @@
 				5E4BCFE4AE8DE122F267BB0B /* Swipe.swift */,
 				5E4BC0FB2BE01553686920F2 /* WaitForNotExists.swift */,
 				5E4BCC6E91DF132F151C45F7 /* WaitForNotHittable.swift */,
+				5E4BC81BFE2EE805978A9E5F /* Hammer.swift */,
+				5E4BCAE5AA3521C76434DEE5 /* TapMulti.swift */,
+				5E4BC3468EB20CC9B971541A /* TapOptional.swift */,
 			);
 			path = steps;
 			sourceTree = "<group>";
@@ -625,6 +634,9 @@
 				5E4BCE8CC90A4BAA26BEE1F1 /* Swipe.swift in Sources */,
 				5E4BCF4756596413C6575209 /* WaitForNotExists.swift in Sources */,
 				5E4BC4309A74DDBC15C39C64 /* WaitForNotHittable.swift in Sources */,
+				5E4BC15AB90D5E81B280CD77 /* Hammer.swift in Sources */,
+				5E4BC78E1C551E32EE5673A0 /* TapMulti.swift in Sources */,
+				5E4BC97D6BC68942A5B7403C /* TapOptional.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
