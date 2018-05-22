@@ -80,6 +80,7 @@ open class AutumnScenario : AutumnHashable
 	public var elapsed:String?
 	public var status = AutumnTestStatus.None
 	public var unsupportedReason = AutumnUnsupportedReason.None
+	public var repeats = 0
 	
 	public var uninstallBefore = true
 	public var resetBefore     = false
@@ -161,7 +162,13 @@ open class AutumnScenario : AutumnHashable
 	// MARK: - Methods
 	// ----------------------------------------------------------------------------------------------------
 	
-	func resetNameRecords()
+	internal func reset()
+	{
+		resetNameRecords()
+	}
+	
+	
+	internal func resetNameRecords()
 	{
 		preconditionStrings = [String]()
 		executionStrings = [String]()

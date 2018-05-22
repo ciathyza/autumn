@@ -44,6 +44,7 @@ open class AutumnFeature : AutumnHashable
 	private var _scenarioQueue:[Metatype<AutumnScenario>] = []
 	private var _interval = Interval()
 	private var _scenarioTimer = ExecutionTimer()
+	private var _scenarioRepeatCount = 0
 	
 	
 	// ----------------------------------------------------------------------------------------------------
@@ -257,6 +258,7 @@ open class AutumnFeature : AutumnHashable
 	 */
 	func startNextScenario()
 	{
+		_scenarioRepeatCount = 0
 		if let scenarioClass = getNextScenarioClass()
 		{
 			startScenario(scenarioClass)
@@ -270,103 +272,108 @@ open class AutumnFeature : AutumnHashable
 	}
 	
 	
-	/**
-	 * Executes a specific scenario.
-	 */
 	func startScenario(_ scenarioClass:AutumnScenario.Type)
 	{
 		runner.session.currentScenarioIndex += 1
 		
 		if let scenarioClass = runner.model.scenarioClasses[scenarioClass.metatype]
 		{
-			var scenario = scenarioClass.init(self) as AutumnScenario
-			
+			let scenario = scenarioClass.init(self) as AutumnScenario
 			/* Use scenario ID that was retrieved from the class name. */
 			if let scenarioID = runner.model.scenarioIDs[scenarioClass.metatype]
 			{
 				scenario.id = scenarioID
 			}
-			
-			let scenarioLink = scenario.link.length > 0 ? scenario.link : runner.config.testrailFeatureBaseURL.length > 0 ? runner.config.testrailFeatureBaseURL + "\(scenario.id)" : ""
-			scenario.tags = scenario.tags + tags
-			
-			runner.session.currentScenario = scenario
-			
-			/* Is the scenario unsupported? */
-			if scenario.status == .Pending || scenario.status == .Unsupported
-			{
-				AutumnLog.debug("Skipping \(scenario.status.rawValue) scenario: \"[\(scenario.id)] \(scenario.title)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
-				runner.session.stats.scenariosIgnored += 1
-				runner.submitTestResult(scenario)
-				waitForScenarioComplete(scenario)
-				onScenarioComplete(true)
-			}
-			else
-			{
-				if scenario.resetBefore
-				{
-					AutumnUI.sleep(2)
-					AutumnLog.debug("Resetting app state before scenario ...")
-					_ = resetApp()
-				}
-				if scenario.uninstallBefore
-				{
-					AutumnUI.sleep(2)
-					AutumnLog.debug("Uninstalling app before scenario ...")
-					_ = AutumnUI.uninstallApp()
-				}
-				
-				AutumnLog.delimiter()
-				AutumnLog.debug("Starting scenario: \"[\(scenario.id)] \(scenario.title)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
-				
-				/* Actual test case execution part. */
-				AutumnLog.debug("Establishing scenario preconditions ...")
-				scenario.status = .Started
-				scenario.phase = .Precondition
-				_scenarioTimer.start()
-				scenario.establish()
-				AutumnLog.debug("Executing scenario steps ...")
-				scenario.phase = .Execute
-				scenario.execute()
-				_scenarioTimer.stop()
-				runner.session.stats.scenariosExecuted += 1
-				
-				scenario.elapsed = _scenarioTimer.timeShort
-				AutumnLog.debug("The scenario was executed in \(_scenarioTimer.timeLong).")
-				
-				let result = session.evaluateScenario(&scenario)
-				if result.success
-				{
-					runner.session.stats.scenariosPassed += 1
-				}
-				else
-				{
-					runner.session.stats.scenariosFailed += 1
-				}
-				
-				AutumnLog.debug(result.logText)
-				runner.submitTestResult(scenario)
-				waitForScenarioComplete(scenario)
-				
-				if scenario.terminateAfter
-				{
-					_ = AutumnUI.terminateApp()
-				}
-				else
-				{
-					if scenario.resetAfter
-					{
-						AutumnLog.debug("Resetting app state after scenario [\(scenario.title)] ...")
-						_ = resetApp()
-					}
-				}
-				
-				onScenarioComplete(true)
-			}
+			startScenario(scenario)
 		}
 		else
 		{
 			AutumnLog.notice("No scenario was registered for class [\(scenarioClass.metatype)].")
+		}
+	}
+	
+	
+	/**
+	 * Executes a specific scenario.
+	 */
+	func startScenario(_ scenario:AutumnScenario)
+	{
+		var scenario = scenario
+		let scenarioLink = scenario.link.length > 0 ? scenario.link : runner.config.testrailFeatureBaseURL.length > 0 ? runner.config.testrailFeatureBaseURL + "\(scenario.id)" : ""
+		scenario.tags = scenario.tags + tags
+		
+		runner.session.currentScenario = scenario
+		
+		/* Is the scenario unsupported? */
+		if scenario.status == .Pending || scenario.status == .Unsupported
+		{
+			AutumnLog.debug("Skipping \(scenario.status.rawValue) scenario: \"[\(scenario.id)] \(scenario.title)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
+			runner.session.stats.scenariosIgnored += 1
+			runner.submitTestResult(scenario)
+			waitForScenarioComplete(scenario)
+			onScenarioComplete(scenario, true)
+		}
+		else
+		{
+			if scenario.resetBefore
+			{
+				AutumnUI.sleep(2)
+				AutumnLog.debug("Resetting app state before scenario ...")
+				_ = resetApp()
+			}
+			if scenario.uninstallBefore
+			{
+				AutumnUI.sleep(2)
+				AutumnLog.debug("Uninstalling app before scenario ...")
+				_ = AutumnUI.uninstallApp()
+			}
+			
+			AutumnLog.delimiter()
+			AutumnLog.debug("Starting scenario: \"[\(scenario.id)] \(scenario.title)\" (Link: \(scenarioLink), Tags: \(scenario.tagsString))")
+			
+			/* Actual test case execution part. */
+			AutumnLog.debug("Establishing scenario preconditions ...")
+			scenario.status = .Started
+			scenario.phase = .Precondition
+			_scenarioTimer.start()
+			scenario.establish()
+			AutumnLog.debug("Executing scenario steps ...")
+			scenario.phase = .Execute
+			scenario.execute()
+			_scenarioTimer.stop()
+			runner.session.stats.scenariosExecuted += 1
+			
+			scenario.elapsed = _scenarioTimer.timeShort
+			AutumnLog.debug("The scenario was executed in \(_scenarioTimer.timeLong).")
+			
+			let result = session.evaluateScenario(&scenario)
+			if result.success
+			{
+				runner.session.stats.scenariosPassed += 1
+			}
+			else
+			{
+				runner.session.stats.scenariosFailed += 1
+			}
+			
+			AutumnLog.debug(result.logText)
+			runner.submitTestResult(scenario)
+			waitForScenarioComplete(scenario)
+			
+			if scenario.terminateAfter
+			{
+				_ = AutumnUI.terminateApp()
+			}
+			else
+			{
+				if scenario.resetAfter
+				{
+					AutumnLog.debug("Resetting app state after scenario [\(scenario.title)] ...")
+					_ = resetApp()
+				}
+			}
+			
+			onScenarioComplete(scenario, true)
 		}
 	}
 	
@@ -424,11 +431,22 @@ open class AutumnFeature : AutumnHashable
 	/**
 	 * Invoked when a scenario has completed test execution.
 	 */
-	func onScenarioComplete(_ success:Bool)
+	func onScenarioComplete(_ scenario:AutumnScenario, _ success:Bool)
 	{
 		AutumnTestRunner.instance.tearDown()
 		AutumnUI.sleep(1)
-		startNextScenario()
+		
+		if scenario.repeats > 0 && _scenarioRepeatCount < scenario.repeats
+		{
+			_scenarioRepeatCount += 1
+			AutumnLog.debug("Repeating scenario \(scenario.id) (\(_scenarioRepeatCount) of \(scenario.repeats)) ...")
+			scenario.reset()
+			startScenario(scenario)
+		}
+		else
+		{
+			startNextScenario()
+		}
 	}
 }
 
