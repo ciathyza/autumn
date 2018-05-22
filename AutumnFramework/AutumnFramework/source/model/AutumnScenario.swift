@@ -164,6 +164,9 @@ open class AutumnScenario : AutumnHashable
 	
 	internal func reset()
 	{
+		steps = [AutumnTestStep]()
+		results = [(step:AutumnTestStep, result:AutumnTestStepResult)]()
+		result = ScenarioResult()
 		resetNameRecords()
 	}
 	
