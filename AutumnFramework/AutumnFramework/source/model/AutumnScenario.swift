@@ -67,25 +67,55 @@ open class AutumnScenario : AutumnHashable
 	
 	
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Flags
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * If true the app will be uninstalled before the scenario is executed.
+	 */
+	public var uninstall = true
+	
+	/**
+	 * If true the location and privacy warning alerts are reset before the scenario is executed.
+	 */
+	public var resetWarnings = false
+	
+	/**
+	 * If true the Safari browser data is erased before the scenario is executed.
+	 */
+	public var clearBrowserData = false
+	
+	/**
+	 * If true the app should reset its data before the scenario is executed.
+	 */
+	public var resetBefore = false
+	
+	/**
+	 * If true the app should reset its data after the scenario is executed.
+	 */
+	public var resetAfter = false
+	
+	/**
+	 * If true the app will be terminated after the scenario is executed.
+	 */
+	public var terminate = true
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Properties
 	// ----------------------------------------------------------------------------------------------------
 	
-	public var id       = ""
-	public var title    = ""
-	public var descr    = ""
-	public var link     = ""
-	public var tags     = [String]()
-	public var priority = TestRailTestCasePriorityOption.Medium
+	public var id                = ""
+	public var title             = ""
+	public var descr             = ""
+	public var link              = ""
+	public var repeats           = 0
+	public var tags              = [String]()
+	public var priority          = TestRailTestCasePriorityOption.Medium
+	public var status            = AutumnTestStatus.None
+	public var unsupportedReason = AutumnUnsupportedReason.None
 	public var estimate:String?
 	public var elapsed:String?
-	public var status = AutumnTestStatus.None
-	public var unsupportedReason = AutumnUnsupportedReason.None
-	public var repeats = 0
-	
-	public var uninstallBefore = true
-	public var resetBefore     = false
-	public var resetAfter      = false
-	public var terminateAfter  = true
 	
 	public private(set) var feature:AutumnFeature
 	public private(set) var app:XCUIApplication

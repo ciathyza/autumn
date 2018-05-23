@@ -53,9 +53,4 @@ class AutumnDemoUITests : AutumnTestRunner
 		registerFeature(TestMenuScreenFeature.self)
 		registerFeature(CoffeeScreenFeature.self)
 	}
-	
-	
-//	func testRecord()
-//	{
-//	}
 }

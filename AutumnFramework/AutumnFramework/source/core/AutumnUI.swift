@@ -17,6 +17,13 @@ import XCTest
 public class AutumnUI
 {
 	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Constants
+	// ----------------------------------------------------------------------------------------------------
+	
+	private static let MAX_SWIPES = 10
+	
+	
+	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Enums
 	// ----------------------------------------------------------------------------------------------------
 	
@@ -427,15 +434,15 @@ public class AutumnUI
 	
 	
 	/**
-	 * Uninstalls the app.
+	 * Resets the iOS state for the app as far as possible.
 	 */
-	public class func uninstallApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
+	public class func resetIOSState(_ app:XCUIApplication? = nil, _ uninstall:Bool = true, _ resetWarnings:Bool = true, _ clearBrowserData:Bool = true) -> AutumnUIActionResult
 	{
 		if let app = app
 		{
-			return Springboard.uninstallApp(app: app) ? .Success : .FailedOperationFailed
+			return Springboard.resetState(app: app, uninstall, resetWarnings, clearBrowserData) ? .Success : .FailedOperationFailed
 		}
-		return Springboard.uninstallApp(app: AutumnTestRunner.app) ? .Success : .FailedOperationFailed
+		return Springboard.resetState(app: AutumnTestRunner.app, uninstall, resetWarnings, clearBrowserData) ? .Success : .FailedOperationFailed
 	}
 	
 	
@@ -493,6 +500,17 @@ public class AutumnUI
 			return success
 		}
 		return .FailedIsNil
+	}
+	
+	
+	/**
+	 * Waits for and then taps the given element.
+	 */
+	public class func waitForHittableAndTap(_ element:XCUIElement?, timeout:UInt = 0) -> AutumnUIActionResult
+	{
+		let result = AutumnUI.waitForHittable(element, timeout: timeout)
+		if result == AutumnUIActionResult.Success { return AutumnUI.tap(element) }
+		return result
 	}
 	
 	
@@ -662,16 +680,51 @@ public class AutumnUI
 	{
 		if (AutumnTestRunner.instance.config.slowSeconds > 0) { _ = AutumnUI.wait(AutumnTestRunner.instance.config.slowSeconds) }
 	}
-
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// MARK: - Device Interaction
+	// ----------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Presses the Device Home button.
+	 */
+	public class func pressHomeButton()
+	{
+		XCUIDevice.shared.press(.home)
+	}
+	
+	
+	/**
+	 * Goes to the first springboard page.
+	 */
+	public class func goToFirstSpringboardPage()
+	{
+		XCUIDevice.shared.press(.home)
+		XCUIDevice.shared.press(.home)
+	}
+	
 	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - UI Interaction
 	// ----------------------------------------------------------------------------------------------------
 	
 	/**
+	 * Sends a tap event to a hittable point computed for the coordinate.
+	 */
+	public class func tap(_ coord:XCUICoordinate?) -> AutumnUIActionResult
+	{
+		if let c = coord
+		{
+			c.tap()
+			return .Success
+		}
+		return .FailedIsNil
+	}
+	
+	
+	/**
 	 * Sends a tap event to a hittable point computed for the element.
-	 *
-	 * @param element
 	 */
 	public class func tap(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
@@ -688,8 +741,6 @@ public class AutumnUI
 	
 	/**
 	 * Sends a tap event to a hittable point computed for the element.
-	 *
-	 * @param element
 	 */
 	public class func doubleTap(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
@@ -706,8 +757,6 @@ public class AutumnUI
 	
 	/**
 	 * Sends a tap event twice to a hittable point computed for the element.
-	 *
-	 * @param element
 	 */
 	public class func tapTwice(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
@@ -726,8 +775,6 @@ public class AutumnUI
 	
 	/**
 	 * Sends several tap events to a hittable point computed for the element.
-	 *
-	 * @param element
 	 */
 	public class func tapMulti(_ element:XCUIElement?, _ numberOfTaps:Int) -> AutumnUIActionResult
 	{
@@ -744,8 +791,6 @@ public class AutumnUI
 	
 	/**
 	 * Sends a tap event to a hittable point computed for the element. Does not fail if the element isn't hittable or doesn't exist.
-	 *
-	 * @param element
 	 */
 	public class func tapOptional(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
@@ -758,9 +803,23 @@ public class AutumnUI
 	
 	
 	/**
+	 * Presses the given element for duration.
+	 */
+	public class func press(_ element:XCUIElement?, _ duration:TimeInterval) -> AutumnUIActionResult
+	{
+		if let e = element
+		{
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.press(forDuration: duration)
+			return .Success
+		}
+		return .FailedIsNil
+	}
+	
+	
+	/**
 	 * Sends multiple randomly timed tap events to a hittable point computed for the element.
-	 *
-	 * @param element
 	 */
 	public class func hammer(_ element:XCUIElement?) -> AutumnUIActionResult
 	{
@@ -837,6 +896,32 @@ public class AutumnUI
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
 			e.swipeUp()
+			return .Success
+		}
+		return .FailedIsNil
+	}
+	
+	
+	/**
+	 * Swipes up until a given element becomes hitable.
+	 * @param element
+	 */
+	public class func swipeUpUntilHittable(_ swipeElement:XCUIElement?, _ hitElement:XCUIElement?) -> AutumnUIActionResult
+	{
+		if let swipeElement = swipeElement, let hitElement = hitElement
+		{
+			if !swipeElement.exists { return .FailedNotExist }
+			if !swipeElement.isHittable { return .FailedNotHittable }
+			var swipeCount = 0
+			while !hitElement.isHittable
+			{
+				swipeElement.swipeUp()
+				if !swipeElement.isHittable { Log.debug(">>>", "swipeElement has become unhittable")}
+				if swipeCount >= AutumnUI.MAX_SWIPES || !swipeElement.isHittable { break }
+				swipeCount += 1
+			}
+			if !hitElement.exists { return .FailedNotExist }
+			if !hitElement.isHittable { return .FailedNotHittable }
 			return .Success
 		}
 		return .FailedIsNil

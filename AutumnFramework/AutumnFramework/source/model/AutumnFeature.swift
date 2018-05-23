@@ -323,11 +323,11 @@ open class AutumnFeature : AutumnHashable
 				AutumnLog.debug("Resetting app state before scenario ...")
 				_ = resetApp()
 			}
-			if scenario.uninstallBefore
+			if scenario.uninstall
 			{
 				AutumnUI.sleep(2)
 				AutumnLog.debug("Uninstalling app before scenario ...")
-				_ = AutumnUI.uninstallApp()
+				_ = AutumnUI.resetIOSState(AutumnTestRunner.app, scenario.uninstall, scenario.resetWarnings, scenario.clearBrowserData)
 			}
 			
 			AutumnLog.delimiter()
@@ -362,7 +362,7 @@ open class AutumnFeature : AutumnHashable
 			runner.submitTestResult(scenario)
 			waitForScenarioComplete(scenario)
 			
-			if scenario.terminateAfter
+			if scenario.terminate
 			{
 				_ = AutumnUI.terminateApp()
 			}

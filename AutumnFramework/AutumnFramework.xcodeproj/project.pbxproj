@@ -405,25 +405,25 @@
 			isa = PBXGroup;
 			children = (
 				629413AE20A2E587002BCA8E /* AssertExists.swift */,
+				5E4BCD8A7A4CA0466F0734D6 /* AssertHittable.swift */,
+				5E4BCB9AF0C5AE4A24AB7413 /* AssertNotExists.swift */,
+				5E4BC2B79ECF09924E22BEC1 /* AssertNotHittable.swift */,
 				629413AF20A2E587002BCA8E /* ClearInputField.swift */,
 				629413B020A2E587002BCA8E /* Declare.swift */,
+				5E4BC81BFE2EE805978A9E5F /* Hammer.swift */,
 				629413B120A2E587002BCA8E /* LaunchApp.swift */,
 				629413B220A2E587002BCA8E /* Login.swift */,
+				5E4BCFE4AE8DE122F267BB0B /* Swipe.swift */,
 				629413B420A2E587002BCA8E /* Tap.swift */,
+				5E4BCAE5AA3521C76434DEE5 /* TapMulti.swift */,
+				5E4BC3468EB20CC9B971541A /* TapOptional.swift */,
 				629413B520A2E587002BCA8E /* TypePassword.swift */,
 				629413B620A2E587002BCA8E /* TypeText.swift */,
 				629413B720A2E587002BCA8E /* Wait.swift */,
 				629413B820A2E587002BCA8E /* WaitForExists.swift */,
 				629413B920A2E587002BCA8E /* WaitForHittable.swift */,
-				5E4BCD8A7A4CA0466F0734D6 /* AssertHittable.swift */,
-				5E4BCB9AF0C5AE4A24AB7413 /* AssertNotExists.swift */,
-				5E4BC2B79ECF09924E22BEC1 /* AssertNotHittable.swift */,
-				5E4BCFE4AE8DE122F267BB0B /* Swipe.swift */,
 				5E4BC0FB2BE01553686920F2 /* WaitForNotExists.swift */,
 				5E4BCC6E91DF132F151C45F7 /* WaitForNotHittable.swift */,
-				5E4BC81BFE2EE805978A9E5F /* Hammer.swift */,
-				5E4BCAE5AA3521C76434DEE5 /* TapMulti.swift */,
-				5E4BC3468EB20CC9B971541A /* TapOptional.swift */,
 			);
 			path = steps;
 			sourceTree = "<group>";

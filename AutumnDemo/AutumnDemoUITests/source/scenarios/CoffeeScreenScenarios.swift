@@ -17,6 +17,7 @@ class ScenarioCoffeeScreen001: AutumnScenario
 		id = "SCS001"
 		title = "Check Coffee Screen Display"
 		descr = "Checks correct display of all coffee screen UI elements."
+		clearBrowserData = true
 	}
 	
 	override func establish()

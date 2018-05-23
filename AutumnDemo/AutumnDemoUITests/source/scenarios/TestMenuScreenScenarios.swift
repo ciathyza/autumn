@@ -17,6 +17,8 @@ class ScenarioTestMenuScreen001: AutumnScenario
 		id = "STMS001"
 		title = "Enter Test Menu Screen"
 		descr = "Tests that the test menu screen can be entered and displayed."
+		resetWarnings = true
+		clearBrowserData = true
 	}
 	
 	override func establish()

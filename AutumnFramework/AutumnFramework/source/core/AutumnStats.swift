@@ -24,9 +24,9 @@ public class AutumnStats
 	public var featuresTotal:Int        = 0
 	public var featuresExecuted:Int     = 0
 	public var scenariosTotal:Int       = 0
-	public var scenariosStarted:Int     = 0
 	public var scenariosUnsupported:Int = 0
 	public var scenariosPending:Int     = 0
+	public var scenariosStarted:Int     = 0
 	public var scenariosExecuted:Int    = 0
 	public var scenariosPassed:Int      = 0
 	public var scenariosFailed:Int      = 0
@@ -85,10 +85,10 @@ public class AutumnStats
 		table.add(["Features total", "\(featuresTotal)"])
 		table.add(["Features executed", "\(featuresExecuted)"])
 		table.add(["Scenarios total", "\(scenariosTotal)"])
-		table.add(["Scenarios started", "\(scenariosStarted)"])
 		table.add(["Scenarios pending", "\(scenariosPending)"])
 		table.add(["Scenarios unsupported", "\(scenariosUnsupported)"])
 		table.add(["Scenarios effective", "\(scenariosEffective)"])
+		table.add(["Scenarios started", "\(scenariosStarted)"])
 		table.add(["Scenarios executed", "\(scenariosExecuted)"])
 		table.add(["Scenarios passed", "\(scenariosPassed)"])
 		table.add(["Scenarios failed", "\(scenariosFailed)"])

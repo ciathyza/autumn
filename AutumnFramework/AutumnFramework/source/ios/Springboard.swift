@@ -65,9 +65,10 @@ class Springboard
 	}
 	
 	
-	/// Uninstalls the app via springboard.
-	///
-	class func uninstallApp(app:XCUIApplication) -> Bool
+	/**
+	 * Resets iOS state for the application.
+	 */
+	class func resetState(app:XCUIApplication, _ uninstall:Bool = true, _ resetWarnings:Bool = true, _ clearBrowserData:Bool = true) -> Bool
 	{
 		app.terminate()
 		
@@ -75,45 +76,104 @@ class Springboard
 		{
 			springboard.activate()
 			
-			/* Force delete the app from the springboard. */
-			if let icon = getAppIcon()
+			if uninstall
 			{
-				let iconFrame = icon.frame
-				let springboardFrame = springboard.frame
-				icon.press(forDuration: 1.3)
-				
-				/* Tap the little "X" button at approximately where it is. The X is not exposed directly. */
-				springboard.coordinate(withNormalizedOffset: CGVector(dx: (iconFrame.minX + 3) / springboardFrame.maxX, dy: (iconFrame.minY + 3) / springboardFrame.maxY)).tap()
-				springboard.alerts.buttons["Delete"].tap()
-				
-				/* Press home once to make the icons stop wiggling. */
-				XCUIDevice.shared.press(.home)
+				if let appIcon = getAppIcon()
+				{
+					let appIconFrame = appIcon.frame
+					let springboardFrame = springboard.frame
+					_ = AutumnUI.press(appIcon, 1.3)
+					
+					/* Tap the little "X" button at approximately where it is. The X is not exposed directly. */
+					let vector = CGVector(dx: (appIconFrame.minX + 3) / springboardFrame.maxX, dy: (appIconFrame.minY + 3) / springboardFrame.maxY)
+					_ = AutumnUI.tap(springboard.coordinate(withNormalizedOffset: vector))
+					_ = AutumnUI.tap(springboard.alerts.buttons["Delete"])
+					
+					/* Press home once to make the icons stop wiggling. */
+					AutumnUI.pressHomeButton()
+					_ = AutumnUI.wait(1)
+				}
+				else
+				{
+					AutumnLog.notice("App icon for \(AutumnTestRunner.instance.config.appName) not found!")
+				}
+			}
+			
+			if resetWarnings || clearBrowserData
+			{
 				/* Press home again to go to the first page of the springboard. */
-				XCUIDevice.shared.press(.home)
+				AutumnUI.pressHomeButton()
 				
 				if let settings = settings
 				{
 					let settingsIcon = springboard.icons["Settings"]
 					
-					/* Still not back on the first page? */
+					/* Still not back on the first springboard page? */
 					if !settingsIcon.isHittable
 					{
-						XCUIDevice.shared.press(.home)
+						AutumnUI.pressHomeButton()
 						_ = AutumnUI.waitForHittable(settingsIcon)
 					}
 					
 					if settingsIcon.isHittable
 					{
-						settingsIcon.tap()
-						_ = AutumnUI.waitForHittable(settings.tables.staticTexts["General"])
-						settings.tables.staticTexts["General"].tap()
-						_ = AutumnUI.waitForHittable(settings.tables.staticTexts["Reset"])
-						settings.tables.staticTexts["Reset"].tap()
-						_ = AutumnUI.waitForHittable(settings.tables.staticTexts["Reset Location & Privacy"])
-						settings.tables.staticTexts["Reset Location & Privacy"].tap()
-						_ = AutumnUI.waitForHittable(settings.buttons["Reset Warnings"])
-						settings.buttons["Reset Warnings"].tap()
-						settings.terminate()
+						/* Enter device settings. */
+						_ = AutumnUI.tap(settingsIcon)
+						
+						if resetWarnings
+						{
+							let settingsGeneralFolder = settings.tables.staticTexts["General"]
+							let settingsResetFolder = settings.tables.staticTexts["Reset"]
+							let settingsResetLocationButton = settings.tables.staticTexts["Reset Location & Privacy"]
+							let settingsResetWarningsButton = settings.buttons["Reset Warnings"]
+							
+							if AutumnUI.waitForHittableAndTap(settingsGeneralFolder) == AutumnUIActionResult.Success
+							{
+								if AutumnUI.waitForHittableAndTap(settingsResetFolder) == AutumnUIActionResult.Success
+								{
+									if AutumnUI.waitForHittableAndTap(settingsResetLocationButton) == AutumnUIActionResult.Success
+									{
+										if AutumnUI.waitForHittableAndTap(settingsResetWarningsButton) == AutumnUIActionResult.Success
+										{
+											AutumnLog.debug("Reset locations and privacy warnings.")
+										}
+									}
+								}
+							}
+							
+							if clearBrowserData
+							{
+								/* Go back to Settings main page. */
+								let settingsResetBackButton = settings.navigationBars["Reset"].buttons["General"]
+								let settingsGeneralBackButton = settings.navigationBars["General"].buttons["Settings"]
+								_ = AutumnUI.tap(settingsResetBackButton)
+								_ = AutumnUI.waitForHittableAndTap(settingsGeneralBackButton)
+								_ = AutumnUI.waitForHittable(settingsGeneralFolder)
+							}
+						}
+						
+						if clearBrowserData
+						{
+							let settingsSafariFolder = settings.tables.staticTexts["Safari"]
+							let settingsSafariTable = settings.tables.element(boundBy: 0)
+							let settingsSafariClearHistoryButton = settings.tables.staticTexts["Clear History and Website Data"]
+							let settingsSafariClearHistorySheetButton = settings.sheets["Clearing will remove history, cookies, and other browsing data."].buttons["Clear History and Data"]
+							
+							_ = AutumnUI.waitForHittableAndTap(settingsSafariFolder)
+							if AutumnUI.swipeUpUntilHittable(settingsSafariTable, settingsSafariClearHistoryButton) == AutumnUIActionResult.Success
+							{
+								if AutumnUI.tap(settingsSafariClearHistoryButton) == AutumnUIActionResult.Success
+								{
+									if AutumnUI.tap(settingsSafariClearHistorySheetButton) == AutumnUIActionResult.Success
+									{
+										AutumnLog.debug("Cleared browser data.")
+									}
+								}
+							}
+							
+							_ = AutumnUI.wait(1)
+							settings.terminate()
+						}
 					}
 					else
 					{
@@ -126,10 +186,6 @@ class Springboard
 					AutumnLog.error("iOS Settings app not found!")
 					return false
 				}
-			}
-			else
-			{
-				AutumnLog.notice("App icon for \(AutumnTestRunner.instance.config.appName) not found!")
 			}
 		}
 		else
