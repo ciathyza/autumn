@@ -140,5 +140,6 @@ class ObtainCoffeeViewController : UIViewController
 	
 	@IBAction func onBrewButtonTap(_ sender:UIButton)
 	{
+		showAlert(title: "Brewing ...", message: "You coffee is being brewed ...")
 	}
 }
