@@ -29,7 +29,6 @@ class ScenarioTestMenuScreen001: AutumnScenario
 	override func execute()
 	{
 		when(EnterTestMenuScreen())
-		then(AssertHittable(DEMO_TEST_MENU_SCREEN_VIEW_ACI))
-		when(TapMulti(DEMO_TEST_MENU_SCREEN_BUTTON2_ACI))
+		then(AssertHittable(DEMO_TEST_MENU_SCREEN_VIEW_ACI, .other))
 	}
 }

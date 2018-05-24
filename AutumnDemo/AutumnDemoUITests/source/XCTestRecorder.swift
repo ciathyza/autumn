@@ -27,5 +27,7 @@ class XCTestRecorder : XCTestCase
 	
 	func testExample()
 	{
+		
+		
 	}
 }

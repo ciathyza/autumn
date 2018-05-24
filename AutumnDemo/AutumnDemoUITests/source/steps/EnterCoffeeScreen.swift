@@ -19,7 +19,7 @@ class EnterCoffeeScreen : AutumnUITestStep
 {
 	public init()
 	{
-		super.init(DEMO_COFFEE_VIEW_ACI, .any)
+		super.init(DEMO_COFFEE_VIEW_ACI, .other)
 	}
 	
 	

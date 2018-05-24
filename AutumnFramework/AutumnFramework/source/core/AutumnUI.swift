@@ -150,7 +150,11 @@ public class AutumnUI
 				for t in AutumnUI.elementTypeValues
 				{
 					if t == XCUIElement.ElementType.any { continue }
-					if let e = AutumnUI.getElement(id, t) { return e }
+					if let e = AutumnUI.getElement(id, t)
+					{
+						AutumnLog.debug("Found element \"\(id)\" as \(AutumnUI.getElementTypeName(t)).")
+						return e
+					}
 				}
 				return nil
 			case .other:              query = app.otherElements

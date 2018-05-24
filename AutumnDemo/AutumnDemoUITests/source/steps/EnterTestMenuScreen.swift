@@ -19,7 +19,7 @@ class EnterTestMenuScreen : AutumnUITestStep
 {
 	public init()
 	{
-		super.init(DEMO_TEST_MENU_SCREEN_VIEW_ACI, .any)
+		super.init(DEMO_TEST_MENU_SCREEN_VIEW_ACI, .other)
 	}
 	
 	
