@@ -25,6 +25,7 @@ class WebKitViewController : UIViewController, WKNavigationDelegate
 	{
 		super.viewDidLoad()
 		webKitView.navigationDelegate = self
+		
 		setupAccessibilityIdentifiers()
 		
 		let url = URL(string: "https://duckduckgo.com")!
@@ -45,6 +46,8 @@ class WebKitViewController : UIViewController, WKNavigationDelegate
 	
 	func setupAccessibilityIdentifiers()
 	{
+		view.accessibilityIdentifier = DEMO_WKWEBVIEW_VIEW_ACI.id
+		webKitView.accessibilityIdentifier = DEMO_WKWEBVIEW_ACI.id
 	}
 	
 	

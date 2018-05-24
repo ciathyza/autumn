@@ -33,3 +33,9 @@ let DEMO_COFFEE_EXTRA_CAFFEINE_LABEL_ACI       = (name: "the coffee extra caffei
 let DEMO_COFFEE_EXTRA_CAFFEINE_VALUE_LABEL_ACI = (name: "the coffee extra caffeine value label", id: "coffee_extra_caffeine_value_label")
 let DEMO_COFFEE_EXTRA_CAFFEINE_STEPPER_ACI     = (name: "the coffee extra caffeine stepper",     id: "coffee_extra_caffeine_stepper")
 let DEMO_COFFEE_BREW_BUTTON_ACI                = (name: "the coffee brew button",                id: "coffee_brew_button")
+
+let DEMO_UIWEBVIEW_VIEW_ACI                    = (name: "the UIWebView view",                    id: "uiwebview_view")
+let DEMO_UIWEBVIEW_ACI                         = (name: "the UI web view",                       id: "uiwebview")
+
+let DEMO_WKWEBVIEW_VIEW_ACI                    = (name: "the WKWebView view",                    id: "wkwebview_view")
+let DEMO_WKWEBVIEW_ACI                         = (name: "the WK web view",                       id: "wkwebview")

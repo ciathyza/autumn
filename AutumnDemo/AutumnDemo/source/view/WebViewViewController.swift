@@ -45,6 +45,8 @@ class WebViewViewController : UIViewController, UIWebViewDelegate
 	
 	func setupAccessibilityIdentifiers()
 	{
+		view.accessibilityIdentifier = DEMO_UIWEBVIEW_VIEW_ACI.id
+		webView.accessibilityIdentifier = DEMO_UIWEBVIEW_ACI.id
 	}
 	
 	
