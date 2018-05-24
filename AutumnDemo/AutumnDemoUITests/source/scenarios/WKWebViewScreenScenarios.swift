@@ -27,7 +27,7 @@ class WKWebViewScreenScenario001 : AutumnScenario
 	override func execute()
 	{
 		when(Tap(DEMO_TEST_MENU_SCREEN_BUTTON3_ACI, .button))
-		when(WaitForHittable(DEMO_WKWEBVIEW_ACI, .any))
+		then(WaitForHittable(DEMO_WKWEBVIEW_ACI, .any))
 		AutumnLog.dumpViewStructure()
 	}
 }

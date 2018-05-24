@@ -13,7 +13,7 @@ class WKWebViewScreenFeature : AutumnFeature
 {
 	override func setup()
 	{
-		name = "WKWebView Screen Feature"
+		name = "WKWebView Screen"
 		descr = "Test scenarios for the demo app WKWebView screen"
 		tags = ["WKWebView", "demo"]
 	}

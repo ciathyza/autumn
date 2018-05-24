@@ -13,7 +13,7 @@ class CoffeeScreenFeature : AutumnFeature
 {
 	override func setup()
 	{
-		name = "Coffee Screen Feature"
+		name = "Coffee Screen"
 		descr = "Test scenarios for the demo app coffee screen"
 		tags = ["coffee screen", "demo"]
 	}

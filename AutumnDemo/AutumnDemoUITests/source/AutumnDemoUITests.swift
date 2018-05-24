@@ -13,20 +13,21 @@ class AutumnDemoUITests : AutumnTestRunner
 {
 	override func configure()
 	{
-		config.networkRequestTimeout = 20
-
-		config.projectName           = "PointPartner"
-		config.appName               = "AutumnDemo"
-		config.appID                 = "com.ciathyza.AutumnDemo"
-		config.testrailHost          = "https://pointpartner.testrail.net"
-		config.testrailUserEmail     = "ts-balkau.sascha@rakuten.com"
-		config.testrailPassword      = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
-		config.testrailMilestoneName = "App 4.2.0"
-		config.testrailProjectID     = 4
-		config.testrailTestType      = .Functional
-		config.isStagingBuild        = true
-		config.logInstructions       = true
-		config.debug                 = true
+		config.networkRequestTimeout          = 20
+		config.projectName                    = "PointPartner"
+		config.appName                        = "AutumnDemo"
+		config.appID                          = "com.ciathyza.AutumnDemo"
+		config.testrailHost                   = "https://pointpartner.testrail.net"
+		config.testrailUserEmail              = "ts-balkau.sascha@rakuten.com"
+		config.testrailPassword               = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
+		config.testrailMilestoneName          = "App 4.2.0"
+		config.testrailRootSectionName        = "Autumn Demo App"
+		config.testrailRootSectionDescription = "Test cases for the Autumn framework demo app."
+		config.testrailProjectID              = 4
+		config.testrailTestType               = .Functional
+		config.isStagingBuild                 = true
+		config.logInstructions                = true
+		config.debug                          = false
 	}
 
 

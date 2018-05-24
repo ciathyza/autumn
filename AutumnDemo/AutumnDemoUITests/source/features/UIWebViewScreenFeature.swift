@@ -13,7 +13,7 @@ class UIWebViewScreenFeature : AutumnFeature
 {
 	override func setup()
 	{
-		name = "UIWebView Screen Feature"
+		name = "UIWebView Screen"
 		descr = "Test scenarios for the demo app UIWebView screen"
 		tags = ["UIWebView", "demo"]
 	}
