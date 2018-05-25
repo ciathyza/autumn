@@ -42,7 +42,7 @@ public class AutumnConfig : NSObject
 	/**
 	 * Needs to set to STG from app if this is a STG build.
 	 */
-	public var isStagingBuild = false
+	public var serverType = AutumnServerType.STG
 	
 	
 	// ----------------------------------------------------------------------------------------------------

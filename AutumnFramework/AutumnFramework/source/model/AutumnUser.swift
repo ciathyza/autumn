@@ -20,8 +20,9 @@ open class AutumnUser : AutumnHashable
 	// ----------------------------------------------------------------------------------------------------
 	
 	public var id:String
-	public var email:String?
 	public var password:String
+	public var type = AutumnServerType.STG
+	public var email:String?
 	public var nickname:String?
 	public var easyID:String?
 	public var nameLast:String?
@@ -47,11 +48,12 @@ open class AutumnUser : AutumnHashable
 	// MARK: - Initializers
 	// ----------------------------------------------------------------------------------------------------
 	
-	public init(_ id:String, _ password:String, _ nickname:String? = nil)
+	public init(_ id:String, _ password:String, _ nickname:String? = nil, _ type:AutumnServerType = .STG)
 	{
 		self.id = id
 		self.password = password
 		self.nickname = nickname
+		self.type = type
 	}
 	
 	

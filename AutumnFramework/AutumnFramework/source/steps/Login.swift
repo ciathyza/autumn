@@ -58,7 +58,7 @@ public class Login : AutumnTestStep
 		}
 		else
 		{
-			_user = AutumnTestRunner.instance.getRandomUser() ?? AutumnTestRunner.instance.getFallbackUser()
+			_user = AutumnTestRunner.instance.getRandomUser()
 			_isRandomUser = true
 		}
 		
@@ -90,7 +90,7 @@ public class Login : AutumnTestStep
 		}
 		else
 		{
-			_user = AutumnTestRunner.instance.getRandomUser() ?? AutumnTestRunner.instance.getFallbackUser()
+			_user = AutumnTestRunner.instance.getRandomUser()
 			_isRandomUser = true
 		}
 		
@@ -122,7 +122,7 @@ public class Login : AutumnTestStep
 		}
 		else
 		{
-			_user = AutumnTestRunner.instance.getRandomUser() ?? AutumnTestRunner.instance.getFallbackUser()
+			_user = AutumnTestRunner.instance.getRandomUser()
 			_isRandomUser = true
 		}
 		
@@ -145,7 +145,7 @@ public class Login : AutumnTestStep
 		}
 		else
 		{
-			_user = AutumnTestRunner.instance.getRandomUser() ?? AutumnTestRunner.instance.getFallbackUser()
+			_user = AutumnTestRunner.instance.getRandomUser()
 			_isRandomUser = true
 		}
 		

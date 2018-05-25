@@ -26,6 +26,13 @@ public enum AutumnPlatform : String
 	case iOS     = "iOS"
 }
 
+public enum AutumnServerType : String
+{
+	case ANY = "ANY"
+	case STG = "STG"
+	case PRD = "PRD"
+}
+
 public enum AutumnTestStatus : String
 {
 	case None        = "None"

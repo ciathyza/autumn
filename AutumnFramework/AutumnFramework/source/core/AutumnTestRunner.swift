@@ -43,7 +43,7 @@ open class AutumnTestRunner : XCTestCase
 	internal private(set) var model:AutumnModel!
 	
 	private var _testrailClient:AutumnTestRailClient!
-	private let _fallbackUser = AutumnUser("fallbackUser", "NONE", "Fallback User")
+	private let _fallbackUser = AutumnUser("fallbackUser", "NONE", "Fallback User", AutumnServerType.ANY)
 	
 	internal static let app = XCUIApplication()
 	internal static var isTestCalledOnce = false
@@ -98,26 +98,29 @@ open class AutumnTestRunner : XCTestCase
 	/**
 	 * Registers a test user.
 	 */
-	public func registerUser(_ user:AutumnUser, isDefaultSTG:Bool = false, isDefaultPRD:Bool = false)
+	public func registerUser(_ user:AutumnUser, isDefault:Bool = false)
 	{
 		if (model.users[user.id] == nil)
 		{
 			model.users[user.id] = user
 			session.stats.testUserTotal += 1
-			if isDefaultSTG
+			if isDefault
 			{
-				session.defaultUserSTG = user
-				if config.isStagingBuild && session.currentTestUser == nil
+				if user.type == AutumnServerType.STG
 				{
-					session.currentTestUser = session.defaultUserSTG
+					session.defaultUserSTG = user
+					if config.serverType == .STG && session.currentTestUser == nil
+					{
+						session.currentTestUser = session.defaultUserSTG
+					}
 				}
-			}
-			if isDefaultPRD
-			{
-				session.defaultUserPRD = user
-				if config.isStagingBuild && session.currentTestUser == nil
+				else if user.type == AutumnServerType.PRD
 				{
-					session.currentTestUser = session.defaultUserPRD
+					session.defaultUserPRD = user
+					if config.serverType == .PRD && session.currentTestUser == nil
+					{
+						session.currentTestUser = session.defaultUserPRD
+					}
 				}
 			}
 		}
@@ -145,12 +148,19 @@ open class AutumnTestRunner : XCTestCase
 	/**
 	 * Returns a random test user.
 	 */
-	public func getRandomUser() -> AutumnUser?
+	public func getRandomUser() -> AutumnUser
 	{
-		if model.users.count < 1 { return nil }
-		let i = Int(arc4random_uniform(UInt32(model.users.count)))
-		let v = Array(model.users.values)[i]
-		return v
+		var users = [AutumnUser]()
+		for (_, user) in model.users
+		{
+			if config.serverType == AutumnServerType.STG && user.type == AutumnServerType.STG { users.append(user) }
+			else if config.serverType == AutumnServerType.PRD && user.type == AutumnServerType.PRD { users.append(user) }
+			else { users.append(user) }
+		}
+		
+		if users.count < 1 { return getFallbackUser() }
+		let i = Int(arc4random_uniform(UInt32(users.count)))
+		return users[i]
 	}
 	
 	

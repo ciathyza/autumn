@@ -25,7 +25,7 @@ class AutumnDemoUITests : AutumnTestRunner
 		config.testrailRootSectionDescription = "Test cases for the Autumn framework demo app."
 		config.testrailProjectID              = 4
 		config.testrailTestType               = .Functional
-		config.isStagingBuild                 = true
+		config.serverType                     = .STG
 		config.logInstructions                = true
 		config.debug                          = false
 	}
@@ -33,8 +33,8 @@ class AutumnDemoUITests : AutumnTestRunner
 
 	override func registerUsers()
 	{
-		registerUser(AutumnUser("James Seth Lynch", "MyUltraSecretExtraLongPassword12345%!", "Lynch"), isDefaultSTG: true)
-		registerUser(AutumnUser("Norman Bates", "MyMotherIsMyLove", "Bates"), isDefaultPRD: true)
+		registerUser(AutumnUser("James Seth Lynch", "MyUltraSecretExtraLongPassword12345%!", "Lynch"), isDefault: true)
+		registerUser(AutumnUser("Norman Bates", "MyMotherIsMyLove", "Bates"))
 		registerUser(AutumnUser("Patrick Bateman", "HeadsInFridges", "Bateman"))
 		registerUser(AutumnUser("Fred Kraeger", "Claws666!LOLwut#", "Freddy"))
 		registerUser(AutumnUser("Hannibal Lecter", "Bodies123OmnomnomFTW$", "Lecter"))
