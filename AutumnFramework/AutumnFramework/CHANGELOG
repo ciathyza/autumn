@@ -1,0 +1,33 @@
+v1.0.8
+- Added changelog.
+
+v1.0.7
+- Added webview testcases to demo app.
+- When using an element type of .any Autumn will now show in the log under which concrete element type the element can be found (because using the concrete type is faster than using .any).
+
+v1.0.6
+- Added functionality to Springboard class to erase the Safari browser data.
+- Improved whole logic of Sprinboard class.
+- When definfing scenarions one can now use flags to determine if the browser cache should be cleared or the warning alerts should be reset, etc. before the scenario is executed.
+
+v1.0.5
+- Fixed: Stats will now correctly calculate success rate if scenario repetition is used.
+
+v1.0.4
+- Fixed: Scenario data is correctly reset if the scenario is repeated.
+
+v1.0.3
+- Added ability to repeatedly execute scenarios.
+- Added ability for multi-tap and hammering buttons.
+
+v1.0.2
+- Step classes can now be used inside other step classes by calling execute() on them, e.g. result.add(Wait(5).execute(). The results of the step will be added to the results of the step class that 'wraps' the executed step.
+
+v1.0.1
+- Added WaitForNotExists and WaitForNotHittable step classes.
+- Added support for using string-based ACIs.
+- Added support for NSDictionary-based ACIs (for ObjC projects).
+
+v1.0.0
+- initial release.
+- Added Fastlane to project.
