@@ -982,6 +982,40 @@ public class AutumnUI
 	}
 	
 	
+	/**
+	 * Adjusts a picker wheel to a value.
+	 * @param element
+	 */
+	public class func adjustPickerWheel(_ element:XCUIElement?, _ value:String) -> AutumnUIActionResult
+	{
+		if let e = element
+		{
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.adjust(toPickerWheelValue: value)
+			return .Success
+		}
+		return .FailedIsNil
+	}
+	
+	
+	/**
+	 * Adjusts a slider to a value.
+	 * @param element
+	 */
+	public class func adjustSlider(_ element:XCUIElement?, _ position:Float) -> AutumnUIActionResult
+	{
+		if let e = element
+		{
+			if !e.exists { return .FailedNotExist }
+			if !e.isHittable { return .FailedNotHittable }
+			e.adjust(toNormalizedSliderPosition: CGFloat(position))
+			return .Success
+		}
+		return .FailedIsNil
+	}
+	
+	
 	// Currently unsupported!
 	//public class func customSwipe(refElement:XCUIElement, startCoord:CGVector, endCoord:CGVector)
 	//{

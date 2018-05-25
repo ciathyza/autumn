@@ -1,5 +1,7 @@
 v1.0.8
 - Added changelog.
+- Changes to test user registration to distinguish between STG and PRD users.
+- Added UI interaction API for adjusting picker wheel and slider values.
 
 v1.0.7
 - Added webview testcases to demo app.
