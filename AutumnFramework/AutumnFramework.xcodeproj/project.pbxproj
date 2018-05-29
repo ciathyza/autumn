@@ -263,12 +263,12 @@
 		6294133920A2E2FB002BCA8E /* AutumnFramework */ = {
 			isa = PBXGroup;
 			children = (
+				5E4BC4725F85E275D0804FF5 /* CHANGELOG */,
 				62FC40D020A3C80A00FD6969 /* LICENSE */,
 				62FC40D220A3C84500FD6969 /* README.md */,
 				6294133B20A2E2FC002BCA8E /* Info.plist */,
 				62FC40CE20A3C80200FD6969 /* Autumn.podspec */,
 				6294137220A2E3D0002BCA8E /* source */,
-				5E4BC4725F85E275D0804FF5 /* CHANGELOG */,
 			);
 			path = AutumnFramework;
 			sourceTree = "<group>";

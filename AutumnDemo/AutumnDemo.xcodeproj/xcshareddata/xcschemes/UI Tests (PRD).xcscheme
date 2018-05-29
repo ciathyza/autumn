@@ -40,6 +40,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "AutumnDemoUITests/testRecord()">
+               </Test>
+               <Test
                   Identifier = "XCTestRecorder">
                </Test>
             </SkippedTests>

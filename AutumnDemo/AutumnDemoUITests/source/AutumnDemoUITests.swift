@@ -51,4 +51,9 @@ class AutumnDemoUITests : AutumnTestRunner
 		registerFeature(UIWebViewScreenFeature.self)
 		registerFeature(WKWebViewScreenFeature.self)
 	}
+	
+	
+	func testRecord()
+	{
+	}
 }

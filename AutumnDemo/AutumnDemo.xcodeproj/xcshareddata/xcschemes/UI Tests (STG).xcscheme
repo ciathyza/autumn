@@ -40,11 +40,23 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "AutumnDemoUITests/testRecord()">
+               </Test>
+               <Test
                   Identifier = "XCTestRecorder">
                </Test>
             </SkippedTests>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6294134A20A2E338002BCA8E"
+            BuildableName = "AutumnDemo.app"
+            BlueprintName = "AutumnDemo"
+            ReferencedContainer = "container:AutumnDemo.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -59,15 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6294135E20A2E339002BCA8E"
-            BuildableName = "AutumnDemoUITests.xctest"
-            BlueprintName = "AutumnDemoUITests"
+            BlueprintIdentifier = "6294134A20A2E338002BCA8E"
+            BuildableName = "AutumnDemo.app"
+            BlueprintName = "AutumnDemo"
             ReferencedContainer = "container:AutumnDemo.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
       <LocationScenarioReference
@@ -81,6 +94,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6294135E20A2E339002BCA8E"
+            BuildableName = "AutumnDemoUITests.xctest"
+            BlueprintName = "AutumnDemoUITests"
+            ReferencedContainer = "container:AutumnDemo.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

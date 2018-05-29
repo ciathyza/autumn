@@ -450,6 +450,19 @@ public class AutumnUI
 	}
 	
 	
+	/**
+	 * Tries to change the device time.
+	 */
+	public class func changeDeviceTime(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
+	{
+		if let app = app
+		{
+			return Springboard.changeDeviceTime(app: app) ? .Success : .FailedOperationFailed
+		}
+		return Springboard.changeDeviceTime(app: AutumnTestRunner.app) ? .Success : .FailedOperationNotSupported
+	}
+	
+	
 	// ----------------------------------------------------------------------------------------------------
 	// MARK: - Wait
 	// ----------------------------------------------------------------------------------------------------

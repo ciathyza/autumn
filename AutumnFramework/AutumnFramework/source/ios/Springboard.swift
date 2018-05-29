@@ -198,6 +198,97 @@ class Springboard
 	}
 	
 	
+	class func changeDeviceTime(app:XCUIApplication) -> Bool
+	{
+		app.terminate()
+		
+		if let springboard = springboard
+		{
+			springboard.activate()
+			
+			/* Press home again to go to the first page of the springboard. */
+			AutumnUI.pressHomeButton()
+			
+			if let settings = settings
+			{
+				let settingsIcon = springboard.icons["Settings"]
+				
+				/* Still not back on the first springboard page? */
+				if !settingsIcon.isHittable
+				{
+					AutumnUI.pressHomeButton()
+					_ = AutumnUI.waitForHittable(settingsIcon)
+				}
+				
+				if settingsIcon.isHittable
+				{
+					/* Enter device settings. */
+					_ = AutumnUI.tap(settingsIcon)
+					
+					let settingsGeneralTable = settings.tables.element(boundBy: 0)
+					let settingsGeneralFolder = settings.tables.staticTexts["General"]
+					let settingsGeneralDateTimeButton = settings.tables.staticTexts["Date & Time"]
+					let settingsGeneralDateTimeAutomaticSwitch = settings.tables.switches["Set Automatically"]
+					let settingsGeneralDateTimePickerWheel = settings.tables.pickerWheels.element(boundBy: 0)
+					
+					if !settingsGeneralFolder.isHittable
+					{
+						AutumnUI.swipeUpUntilHittable(settingsGeneralTable, settingsGeneralFolder)
+					}
+					if settingsGeneralFolder.isHittable
+					{
+						_ = AutumnUI.waitForHittableAndTap(settingsGeneralFolder)
+						if AutumnUI.swipeUpUntilHittable(settingsGeneralTable, settingsGeneralDateTimeButton) == AutumnUIActionResult.Success
+						{
+							if AutumnUI.tap(settingsGeneralDateTimeButton) == AutumnUIActionResult.Success
+							{
+								if AutumnUI.tap(settingsGeneralDateTimeAutomaticSwitch) == AutumnUIActionResult.Success
+								{
+									if AutumnUI.tap(settingsGeneralDateTimePickerWheel) == AutumnUIActionResult.Success
+									{
+										// TODO
+									}
+								}
+							}
+						}
+						else
+						{
+							AutumnLog.error("iOS Settings Date & Time button is not hittable!")
+							return false
+						}
+					}
+					else
+					{
+						AutumnLog.error("iOS Settings General category button is not hittable!")
+						return false
+					}
+					
+					
+					_ = AutumnUI.wait(1)
+					settings.terminate()
+				}
+				else
+				{
+					AutumnLog.error("iOS Settings app is not hittable!")
+					return false
+				}
+			}
+			else
+			{
+				AutumnLog.error("iOS Settings app not found!")
+				return false
+			}
+		}
+		else
+		{
+			AutumnLog.error("Springboard not found!")
+			return false
+		}
+		
+		return true
+	}
+	
+	
 	class func getAppIcon() -> XCUIElement?
 	{
 		if let icon = springboard?.icons[AutumnTestRunner.instance.config.appName]
