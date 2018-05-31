@@ -14,6 +14,8 @@ class AutumnDemoUITests : AutumnTestRunner
 	override func configure()
 	{
 		config.networkRequestTimeout          = 20
+		config.slowSeconds                    = 0
+		
 		config.projectName                    = "PointPartner"
 		config.appName                        = "AutumnDemo"
 		config.appID                          = "com.ciathyza.AutumnDemo"

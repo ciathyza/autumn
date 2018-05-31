@@ -480,6 +480,7 @@ public class AutumnUI
 	 */
 	public class func sleep(_ interval:UInt)
 	{
+		AutumnLog.debug("Sleeping for \(interval) seconds ...")
 		Darwin.sleep(UInt32(interval))
 	}
 	
@@ -701,7 +702,10 @@ public class AutumnUI
 	 */
 	public class func decelerate()
 	{
-		if (AutumnTestRunner.instance.config.slowSeconds > 0) { _ = AutumnUI.sleep(AutumnTestRunner.instance.config.slowSeconds) }
+		if (AutumnTestRunner.instance.config.slowSeconds > 0)
+		{
+			_ = AutumnUI.sleep(AutumnTestRunner.instance.config.slowSeconds)
+		}
 	}
 	
 	
