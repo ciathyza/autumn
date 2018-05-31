@@ -382,6 +382,7 @@ public class AutumnUI
 	 */
 	public class func launchApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
+		AutumnUI.decelerate()
 		if let app = app
 		{
 			app.launchArguments = ["--uitesting", "--Reset", "-StartFromCleanState", "YES"]
@@ -399,6 +400,7 @@ public class AutumnUI
 	 */
 	public class func activateApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
+		AutumnUI.decelerate()
 		if let app = app
 		{
 			app.activate()
@@ -414,6 +416,7 @@ public class AutumnUI
 	 */
 	public class func terminateApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
+		AutumnUI.decelerate()
 		if let app = app
 		{
 			app.terminate()
@@ -429,6 +432,7 @@ public class AutumnUI
 	 */
 	public class func killApp(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
+		AutumnUI.decelerate()
 		if let app = app
 		{
 			return Springboard.killApp(app: app) ? .Success : .FailedOperationNotSupported
@@ -442,6 +446,7 @@ public class AutumnUI
 	 */
 	public class func resetIOSState(_ app:XCUIApplication? = nil, _ uninstall:Bool = true, _ resetWarnings:Bool = true, _ clearBrowserData:Bool = true) -> AutumnUIActionResult
 	{
+		AutumnUI.decelerate()
 		if let app = app
 		{
 			return Springboard.resetState(app: app, uninstall, resetWarnings, clearBrowserData) ? .Success : .FailedOperationFailed
@@ -455,6 +460,7 @@ public class AutumnUI
 	 */
 	public class func changeDeviceTime(_ app:XCUIApplication? = nil) -> AutumnUIActionResult
 	{
+		AutumnUI.decelerate()
 		if let app = app
 		{
 			return Springboard.changeDeviceTime(app: app) ? .Success : .FailedOperationFailed
@@ -695,7 +701,7 @@ public class AutumnUI
 	 */
 	public class func decelerate()
 	{
-		if (AutumnTestRunner.instance.config.slowSeconds > 0) { _ = AutumnUI.wait(AutumnTestRunner.instance.config.slowSeconds) }
+		if (AutumnTestRunner.instance.config.slowSeconds > 0) { _ = AutumnUI.sleep(AutumnTestRunner.instance.config.slowSeconds) }
 	}
 	
 	
@@ -708,6 +714,7 @@ public class AutumnUI
 	 */
 	public class func pressHomeButton()
 	{
+		AutumnUI.decelerate()
 		XCUIDevice.shared.press(.home)
 	}
 	
@@ -717,7 +724,9 @@ public class AutumnUI
 	 */
 	public class func goToFirstSpringboardPage()
 	{
+		AutumnUI.decelerate()
 		XCUIDevice.shared.press(.home)
+		AutumnUI.decelerate()
 		XCUIDevice.shared.press(.home)
 	}
 	
@@ -733,6 +742,7 @@ public class AutumnUI
 	{
 		if let c = coord
 		{
+			AutumnUI.decelerate()
 			c.tap()
 			return .Success
 		}
@@ -749,6 +759,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.tap()
 			return .Success
 		}
@@ -765,6 +776,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.doubleTap()
 			return .Success
 		}
@@ -781,6 +793,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.tap()
 			AutumnUI.sleep(1)
 			e.tap()
@@ -799,6 +812,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.tap(withNumberOfTaps: numberOfTaps, numberOfTouches: 1)
 			return .Success
 		}
@@ -813,7 +827,11 @@ public class AutumnUI
 	{
 		if let e = element
 		{
-			if e.exists && e.isHittable { e.tap() }
+			if e.exists && e.isHittable
+			{
+				AutumnUI.decelerate()
+				e.tap()
+			}
 		}
 		return .Success
 	}
@@ -828,6 +846,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.press(forDuration: duration)
 			return .Success
 		}
@@ -844,6 +863,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			let n = Int(arc4random_uniform(8) + 3)
 			for i in 0 ..< n
 			{
@@ -879,6 +899,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.typeText(text)
 			return .Success
 		}
@@ -912,6 +933,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.swipeUp()
 			return .Success
 		}
@@ -930,10 +952,11 @@ public class AutumnUI
 			if !swipeElement.exists { return .FailedNotExist }
 			if !swipeElement.isHittable { return .FailedNotHittable }
 			var swipeCount = 0
+			AutumnUI.decelerate()
 			while !hitElement.isHittable
 			{
 				swipeElement.swipeUp()
-				if !swipeElement.isHittable { Log.debug(">>>", "swipeElement has become unhittable")}
+				if !swipeElement.isHittable { Log.debug(">>>", "swipeElement has become unhittable") }
 				if swipeCount >= AutumnUI.MAX_SWIPES || !swipeElement.isHittable { break }
 				swipeCount += 1
 			}
@@ -955,6 +978,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.swipeDown()
 			return .Success
 		}
@@ -972,6 +996,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.swipeLeft()
 			return .Success
 		}
@@ -988,6 +1013,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.swipeRight()
 			return .Success
 		}
@@ -1005,6 +1031,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.adjust(toPickerWheelValue: value)
 			return .Success
 		}
@@ -1022,6 +1049,7 @@ public class AutumnUI
 		{
 			if !e.exists { return .FailedNotExist }
 			if !e.isHittable { return .FailedNotHittable }
+			AutumnUI.decelerate()
 			e.adjust(toNormalizedSliderPosition: CGFloat(position))
 			return .Success
 		}
