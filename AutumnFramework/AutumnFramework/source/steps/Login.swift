@@ -28,6 +28,7 @@ public class Login : AutumnTestStep
 	internal var _passwordInput:XCUIElement?
 	internal var _loginButton:XCUIElement?
 	internal var _user:AutumnUser
+	internal var _slow = false
 	internal var _isRandomUser = false
 	
 	
@@ -35,7 +36,7 @@ public class Login : AutumnTestStep
 	// MARK: - Init
 	// ----------------------------------------------------------------------------------------------------
 	
-	public init(_ userNameInputACI:(name:String, id:String), _ passwordInputACI:(name:String, id:String), _ loginButtonACI:(name:String, id:String), _ user:AutumnUser? = nil)
+	public init(_ userNameInputACI:(name:String, id:String), _ passwordInputACI:(name:String, id:String), _ loginButtonACI:(name:String, id:String), _ user:AutumnUser? = nil, _ slow:Bool = false)
 	{
 		_userNameInputACI = userNameInputACI
 		_passwordInputACI = passwordInputACI
@@ -61,12 +62,13 @@ public class Login : AutumnTestStep
 			_user = AutumnTestRunner.instance.getRandomUser()
 			_isRandomUser = true
 		}
+		_slow = slow
 		
 		super.init()
 	}
 	
 	
-	public init(_ userNameInputDict:NSDictionary, _ passwordInputDict:NSDictionary, _ loginButtonDict:NSDictionary, _ user:AutumnUser? = nil)
+	public init(_ userNameInputDict:NSDictionary, _ passwordInputDict:NSDictionary, _ loginButtonDict:NSDictionary, _ user:AutumnUser? = nil, _ slow:Bool = false)
 	{
 		_userNameInputACI = AutumnTestStep.getACIFromDict(userNameInputDict)
 		_passwordInputACI = AutumnTestStep.getACIFromDict(passwordInputDict)
@@ -93,12 +95,13 @@ public class Login : AutumnTestStep
 			_user = AutumnTestRunner.instance.getRandomUser()
 			_isRandomUser = true
 		}
+		_slow = slow
 		
 		super.init()
 	}
 	
 	
-	public init(_ userNameInputStr:String, _ passwordInputStr:String, _ loginButtonStr:String, _ user:AutumnUser? = nil)
+	public init(_ userNameInputStr:String, _ passwordInputStr:String, _ loginButtonStr:String, _ user:AutumnUser? = nil, _ slow:Bool = false)
 	{
 		_userNameInputACI = AutumnTestStep.getACIFromString(userNameInputStr)
 		_passwordInputACI = AutumnTestStep.getACIFromString(passwordInputStr)
@@ -125,12 +128,13 @@ public class Login : AutumnTestStep
 			_user = AutumnTestRunner.instance.getRandomUser()
 			_isRandomUser = true
 		}
+		_slow = slow
 		
 		super.init()
 	}
 	
 	
-	public init(_ userNameInput:XCUIElement, _ passwordInput:XCUIElement, _ loginButton:XCUIElement, _ user:AutumnUser? = nil)
+	public init(_ userNameInput:XCUIElement, _ passwordInput:XCUIElement, _ loginButton:XCUIElement, _ user:AutumnUser? = nil, _ slow:Bool = false)
 	{
 		_userNameInputACI = (name: "the \(userNameInput.description)", id: "\(userNameInput.description)")
 		_passwordInputACI = (name: "the \(passwordInput.description)", id: "\(passwordInput.description)")
@@ -148,6 +152,7 @@ public class Login : AutumnTestStep
 			_user = AutumnTestRunner.instance.getRandomUser()
 			_isRandomUser = true
 		}
+		_slow = slow
 		
 		super.init()
 	}
@@ -174,9 +179,11 @@ public class Login : AutumnTestStep
 	{
 		result.add("Tap [\(_userNameInputACI.id)]", AutumnUI.tap(_userNameInput))
 		result.add("Tap [\(_userNameInputACI.id) clear button] if available", AutumnUI.tapOptional(_userNameInput?.buttons[AutumnStringConstant.TEXTFIELD_CLEAR_BUTTON]))
+		if _slow { AutumnUI.sleep(2) }
 		result.add("Enter '\(_user.id)' into [\(_userNameInputACI.id)]", AutumnUI.typeText(_userNameInput, text: _user.id))
 		result.add("Tap [\(_passwordInputACI.id)]", AutumnUI.tap(_passwordInput))
 		result.add("Tap [\(_passwordInputACI.id) clear button] if available", AutumnUI.tapOptional(_passwordInput?.buttons[AutumnStringConstant.TEXTFIELD_CLEAR_BUTTON]))
+		if _slow { AutumnUI.sleep(2) }
 		result.add("Enter '\(_user.password.obscured)' into [\(_passwordInputACI.id)]", AutumnUI.typeText(_passwordInput, text: _user.password))
 		result.add("Tap [\(_loginButtonACI.id)]", AutumnUI.tap(_loginButton))
 		return result
