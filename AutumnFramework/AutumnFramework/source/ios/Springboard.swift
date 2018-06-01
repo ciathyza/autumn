@@ -159,7 +159,8 @@ class Springboard
 							let settingsSafariClearHistoryButton = settings.tables.staticTexts["Clear History and Website Data"]
 							let settingsSafariClearHistorySheetButton = settings.sheets["Clearing will remove history, cookies, and other browsing data."].buttons["Clear History and Data"]
 							
-							_ = AutumnUI.waitForHittableAndPress(settingsSafariFolder)
+							_ = AutumnUI.waitForHittableAndTap(settingsSafariFolder)
+							_ = AutumnUI.tapOptional(settingsSafariFolder)
 							if AutumnUI.swipeUpUntilHittable(settingsSafariTable, settingsSafariClearHistoryButton) == AutumnUIActionResult.Success
 							{
 								if AutumnUI.waitForHittableAndPress(settingsSafariClearHistoryButton) == AutumnUIActionResult.Success
@@ -168,6 +169,24 @@ class Springboard
 									{
 										AutumnLog.debug("Cleared browser data.")
 									}
+								}
+							}
+							else
+							{
+								AutumnLog.notice("Safari History Clear button not hittable! Trying once more ....")
+								if AutumnUI.swipeUpUntilHittable(settingsSafariTable, settingsSafariClearHistoryButton) == AutumnUIActionResult.Success
+								{
+									if AutumnUI.waitForHittableAndPress(settingsSafariClearHistoryButton) == AutumnUIActionResult.Success
+									{
+										if AutumnUI.waitForHittableAndPress(settingsSafariClearHistorySheetButton) == AutumnUIActionResult.Success
+										{
+											AutumnLog.debug("Cleared browser data.")
+										}
+									}
+								}
+								else
+								{
+									AutumnLog.warning("Safari History Clear button not hittable!")
 								}
 							}
 							
