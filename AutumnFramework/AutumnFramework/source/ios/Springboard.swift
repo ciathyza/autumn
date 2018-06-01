@@ -159,19 +159,19 @@ class Springboard
 							let settingsSafariClearHistoryButton = settings.tables.staticTexts["Clear History and Website Data"]
 							let settingsSafariClearHistorySheetButton = settings.sheets["Clearing will remove history, cookies, and other browsing data."].buttons["Clear History and Data"]
 							
-							_ = AutumnUI.waitForHittableAndTap(settingsSafariFolder)
+							_ = AutumnUI.waitForHittableAndPress(settingsSafariFolder)
 							if AutumnUI.swipeUpUntilHittable(settingsSafariTable, settingsSafariClearHistoryButton) == AutumnUIActionResult.Success
 							{
-								if AutumnUI.tap(settingsSafariClearHistoryButton) == AutumnUIActionResult.Success
+								if AutumnUI.waitForHittableAndPress(settingsSafariClearHistoryButton) == AutumnUIActionResult.Success
 								{
-									if AutumnUI.tap(settingsSafariClearHistorySheetButton) == AutumnUIActionResult.Success
+									if AutumnUI.waitForHittableAndPress(settingsSafariClearHistorySheetButton) == AutumnUIActionResult.Success
 									{
 										AutumnLog.debug("Cleared browser data.")
 									}
 								}
 							}
 							
-							_ = AutumnUI.wait(1)
+							_ = AutumnUI.wait(2)
 							settings.terminate()
 						}
 					}
@@ -233,7 +233,7 @@ class Springboard
 					
 					if !settingsGeneralFolder.isHittable
 					{
-						AutumnUI.swipeUpUntilHittable(settingsGeneralTable, settingsGeneralFolder)
+						_ = AutumnUI.swipeUpUntilHittable(settingsGeneralTable, settingsGeneralFolder)
 					}
 					if settingsGeneralFolder.isHittable
 					{

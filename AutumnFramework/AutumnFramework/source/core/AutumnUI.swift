@@ -539,6 +539,17 @@ public class AutumnUI
 	
 	
 	/**
+	 * Waits for and then presses the given element.
+	 */
+	public class func waitForHittableAndPress(_ element:XCUIElement?, timeout:UInt = 0, _ duration:TimeInterval = 1) -> AutumnUIActionResult
+	{
+		let result = AutumnUI.waitForHittable(element, timeout: timeout)
+		if result == AutumnUIActionResult.Success { return AutumnUI.press(element, duration) }
+		return result
+	}
+	
+	
+	/**
 	 * Wait until an element is no longer hittable (might still exist, but is either not visible
 	 * or not onscreen).
 	 *

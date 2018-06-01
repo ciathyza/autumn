@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.6.0)
-  - Autumn (1.0.11):
+  - Autumn (1.0.12):
     - Alamofire (~> 4.5)
 
 DEPENDENCIES:
@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  Autumn: c7297fa08414172941c9e390cd19c0223910cca2
+  Autumn: 8684be34170d16ced7a0ec16405459a3e91c907a
 
 PODFILE CHECKSUM: fc920f94374cf2932a438a8a5b9aea4e31e38cd2
 
