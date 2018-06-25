@@ -7,9 +7,12 @@ Test cases are defined in the code, incl. their readable test instructions for T
 
 ### Framework Source
 
-The Autumn framework in this repository can be found under ```autumn/AutumnDemo/AutumnDemoUITests/Source/Framework```.
+The Autumn framework in this repository is found under ```AutumnFramework/AutumnFramework/source/```.
 
-### Get list of Emulator IDs
+The demo app source is found under
+```AutumnDemo/AutumnDemo/source``` and the UI test source is found under ```AutumnDemo/AutumnDemoUITests```.
+
+### Get list of iOS Emulator IDs
 
 ```
 $ xcrun instruments -s devices
@@ -123,3 +126,5 @@ class AutumnTestUITests : AutumnTestRunner
 10. Create scenarios for the features by sub-classing ```AutumnScenario```. Register them in ```registerScenarios()``` of the respective feature class you've defined before.
 11. Create necessary step classes by sub-classing ```AutumnTestStep```, or re-use factory step classes.
 13. Use the steps (and pre-defined steps) in your scenario classes by executing them with ```given()```, ```when()```, and ```then()```.
+
+Please check the included demo source code to understand how test scenarios are written.
