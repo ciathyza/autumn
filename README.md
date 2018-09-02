@@ -65,7 +65,7 @@ Another important building block are **View Proxies**. A view proxy class acts a
 5. Add the following line to the UI test target in your Podfile:
 
 ```
-pod 'Autumn', :git => 'https://git.rakuten-it.com/scm/~ts-balkau.sascha/autumn.git', :tag => '1.0.0'
+pod 'Autumn', :git => 'https://github.com/ciathyza/autumn.git', :tag => '1.0.0'
 ```
 
 Podfile example:
@@ -82,7 +82,7 @@ target 'AutumnTest' do
 	target 'AutumnTestUITests' do
 		use_frameworks!
 		inherit! :search_paths
-		pod 'Autumn', :git => 'https://git.rakuten-it.com/scm/~ts-balkau.sascha/autumn.git', :tag => '1.0.0'
+		pod 'Autumn', :git => 'https://github.com/ciathyza/autumn.git', :tag => '1.0.0'
 	end
 end
 

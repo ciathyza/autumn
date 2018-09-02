@@ -2,7 +2,7 @@
 //  AutumnDemoUITests.swift
 //  AutumnDemoUITests
 //
-//  Created by Sascha Balkau
+//  Created by Ciathyza
 //
 
 import Foundation
@@ -16,13 +16,13 @@ class AutumnDemoUITests : AutumnTestRunner
 		config.networkRequestTimeout          = 20
 		config.slowSeconds                    = 0
 		
-		config.projectName                    = "PointPartner"
+		config.projectName                    = "AutumnDemo"
 		config.appName                        = "AutumnDemo"
 		config.appID                          = "com.ciathyza.AutumnDemo"
-		config.testrailHost                   = "https://pointpartner.testrail.net"
-		config.testrailUserEmail              = "ts-balkau.sascha@rakuten.com"
-		config.testrailPassword               = "4SHoBxMKzQVRcDBdijM4-6Nai8TTWGoUBPKBALBLw"
-		config.testrailMilestoneName          = "App 4.2.0"
+		config.testrailHost                   = "https://autumndemo.testrail.net"
+		config.testrailUserEmail              = "john.foo@email.com"
+		config.testrailPassword               = "7fGRg25REgT54TrGHu1rtEe9erTf"
+		config.testrailMilestoneName          = "App 1.0.0"
 		config.testrailRootSectionName        = "Autumn Demo App"
 		config.testrailRootSectionDescription = "Test cases for the Autumn framework demo app."
 		config.testrailProjectID              = 4

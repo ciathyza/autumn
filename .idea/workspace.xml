@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c6ead7c-cb58-4bd5-b7e6-aa614834fa0d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/AutumnDemo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Autumn.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/Autumn.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/ACI.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/ACI.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/ObtainCoffeeViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/ObtainCoffeeViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/TestMenuScreenViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/TestMenuScreenViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/WebKitViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/WebKitViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/WebViewViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/WebViewViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/AutumnDemoUITests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/AutumnDemoUITests.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/CoffeeScreenFeature.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/CoffeeScreenFeature.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/TestMenuScreenFeature.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/TestMenuScreenFeature.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/UIWebViewScreenFeature.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/UIWebViewScreenFeature.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/WKWebViewScreenFeature.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/WKWebViewScreenFeature.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/CoffeeScreenScenarios.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/CoffeeScreenScenarios.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/TestMenuScreenScenarios.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/TestMenuScreenScenarios.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/UIWebViewScreenScenarios.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/UIWebViewScreenScenarios.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/WKWebViewScreenScenarios.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/WKWebViewScreenScenarios.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/steps/EnterCoffeeScreen.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/steps/EnterCoffeeScreen.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/steps/EnterTestMenuScreen.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/steps/EnterTestMenuScreen.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/AutumnFramework.h" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/AutumnFramework.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnConfig.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnConfig.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnConstants.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnConstants.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnEnums.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnEnums.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnLog.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnLog.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnSession.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnSession.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnStats.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnStats.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnTestRunner.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnTestRunner.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnTestStep.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnTestStep.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnTestStepResult.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnTestStepResult.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnUI.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnUI.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/ios/Springboard.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/ios/Springboard.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/Globals.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/Globals.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Array.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Array.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Bundle.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Bundle.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Character.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Character.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Dictionary.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Dictionary.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/DispatchTimeInterval.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/DispatchTimeInterval.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Double.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Double.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Encodable.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Encodable.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Int.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/Int.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/NSObject.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/NSObject.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/String.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/String.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/TimeInterval.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/TimeInterval.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/UIApplication.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/UIApplication.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/UIColor.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/UIColor.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/UIDevice.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/UIDevice.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/UIView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/UIView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/UInt.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/extensions/UInt.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/structs/FrequencyTable.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/structs/FrequencyTable.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/structs/SortedArray.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/structs/SortedArray.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/Dice.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/Dice.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/ExecutionTimer.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/ExecutionTimer.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/File.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/File.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/HashID.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/HashID.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/Interval.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/Interval.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/JSON.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/JSON.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/Log.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/Log.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/LogFile.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/LogFile.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/Metatype.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/Metatype.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/StopWatch.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/StopWatch.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/TabularText.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/lib/utils/TabularText.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/model/AutumnFeature.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/model/AutumnFeature.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/model/AutumnHashable.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/model/AutumnHashable.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/model/AutumnScenario.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/model/AutumnScenario.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/model/AutumnUser.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/model/AutumnUser.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/model/AutumnViewProxy.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/model/AutumnViewProxy.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/network/AlamofireNetworkClient.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/network/AlamofireNetworkClient.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/AssertExists.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/AssertExists.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/AssertHittable.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/AssertHittable.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/AssertNotExists.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/AssertNotExists.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/AssertNotHittable.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/AssertNotHittable.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/ClearInputField.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/ClearInputField.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Declare.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Declare.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Hammer.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Hammer.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/LaunchApp.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/LaunchApp.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Login.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Login.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Swipe.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Swipe.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Tap.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Tap.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/TapMulti.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/TapMulti.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/TapOptional.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/TapOptional.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/TypePassword.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/TypePassword.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/TypeText.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/TypeText.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Wait.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/Wait.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/WaitForExists.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/WaitForExists.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/WaitForHittable.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/WaitForHittable.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/WaitForNotExists.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/WaitForNotExists.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/WaitForNotHittable.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/WaitForNotHittable.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/AutumnTestRailClient.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/AutumnTestRailClient.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailCodable.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailCodable.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailConfig.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailConfig.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailCustomTestStepResult.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailCustomTestStepResult.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailMilestone.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailMilestone.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailPriority.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailPriority.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailProject.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailProject.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailSection.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailSection.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailStatus.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailStatus.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailSuite.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailSuite.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTemplate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTemplate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTest.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTest.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestCase.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestCase.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestCaseField.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestCaseField.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestCaseType.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestCaseType.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestPlan.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestPlan.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestResult.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestResult.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestResultField.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestResultField.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestRun.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTestRun.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailUser.swift" beforeDir="false" afterPath="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailUser.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pods/Local Podspecs/autumn.podspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Local Podspecs/autumn.podspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_4A914A1C-F43D-4848-AF23-581EAAF8E7C5" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="458011062">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="CHANGELOG" value="1" />
+          <entry key="LICENSE" value="1" />
+          <entry key="Podfile" value="1" />
+          <entry key="h" value="1" />
+          <entry key="md" value="1" />
+          <entry key="podspec" value="1" />
+          <entry key="swift" value="18" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="ObjectiveC" value="1" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Podfile" value="2" />
+          <entry key="Swift" value="18" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="podspec" value="23" />
+          <entry key="swift" value="58" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Podfile" value="23" />
+          <entry key="Swift" value="58" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.appcode.build">
+        <counts>
+          <entry key="xcodebuild" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.cidr.testingFrameworks.usages">
+        <counts>
+          <entry key="XCUITest" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnTestRunner.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Balkau</find>
+      <find>Sascha Balkau</find>
+      <find>Sascha</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Ciathyza</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/AutumnDemo</dir>
+      <dir>$PROJECT_DIR$/AutumnFramework</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/AutumnDemoUITests.swift" />
+        <option value="$PROJECT_DIR$/Autumn.podspec" />
+        <option value="$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/AutumnFramework.h" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="23" />
+    <option name="width" value="1276" />
+    <option name="height" value="777" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Spelling</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Spelling</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="AutumnDemo" type="1d218c8b:XcodeProjectNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="AutumnFramework" type="1d218c8b:XcodeProjectNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="AutumnFramework" type="1d218c8b:XcodeProjectNode" />
+              <item name="AutumnFramework" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="AutumnFramework" type="1d218c8b:XcodeProjectNode" />
+              <item name="AutumnFramework" type="fcab9f18:XcodeViewNode" />
+              <item name="source" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="AutumnFramework" type="1d218c8b:XcodeProjectNode" />
+              <item name="AutumnFramework" type="fcab9f18:XcodeViewNode" />
+              <item name="source" type="fcab9f18:XcodeViewNode" />
+              <item name="core" type="fcab9f18:XcodeViewNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Cidr.FilesView" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="XCTest.UI Tests (STG)">
+    <list>
+      <item itemvalue="Application.AutumnFramework" />
+      <item itemvalue="XCTest.UI Tests (PRD)" />
+      <item itemvalue="XCTest.UI Tests (STG)" />
+      <item itemvalue="Application.AutumnDemo" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c6ead7c-cb58-4bd5-b7e6-aa614834fa0d" name="Default" comment="" />
+      <created>1535876904139</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1535876904139</updated>
+      <workItem from="1535876908388" duration="55000" />
+      <workItem from="1535877132802" duration="1428000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="UI_Tests_(STG) - 2018.09.02 at 17h 56m 24s.xml">
+      <configuration name="UI Tests (STG)" configurationId="OCUnitRunConfiguration" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1483000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="4" y="23" width="1276" height="777" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16045381" />
+      <window_info id="Designer" order="1" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.3291506" />
+      <window_info anchor="bottom" id="Tail" order="1" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32722008" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3996139" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32906404" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" order="0" />
+      <window_info anchor="right" id="Code Outline" order="1" />
+      <window_info anchor="right" id="Commander" order="2" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="right" id="Run" internal_type="SLIDING" order="5" type="SLIDING" weight="0.83711505" />
+      <window_info anchor="right" id="Structure" order="6" sideWeight="0.49655172" side_tool="true" weight="0.14991896" />
+      <window_info anchor="right" id="Messages" internal_type="SLIDING" order="7" type="SLIDING" weight="0.8364583" />
+      <window_info anchor="right" id="Notes" order="8" />
+      <window_info anchor="right" id="Tasks" internal_type="SLIDING" order="9" type="SLIDING" weight="0.22239584" />
+      <window_info anchor="right" id="Version Control" internal_type="SLIDING" order="10" type="SLIDING" weight="0.8375" />
+      <window_info anchor="right" id="Event Log" internal_type="SLIDING" order="11" sideWeight="0.50344825" side_tool="true" type="SLIDING" weight="0.8375" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/AppDelegate.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/WebViewViewController.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/WebKitViewController.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/TestMenuScreenViewController.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/view/ObtainCoffeeViewController.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/AutumnDemoUITests.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/CoffeeScreenFeature.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/TestMenuScreenFeature.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/UIWebViewScreenFeature.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/features/WKWebViewScreenFeature.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/CoffeeScreenScenarios.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/TestMenuScreenScenarios.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/UIWebViewScreenScenarios.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/scenarios/WKWebViewScreenScenarios.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/steps/EnterCoffeeScreen.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-296" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemoUITests/source/steps/EnterTestMenuScreen.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Podfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnFramework/AutumnFramework/CHANGELOG">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Autumn.podspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnDemo/AutumnDemo/source/ACI.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="14" column="128" lean-forward="true" selection-start-line="14" selection-start-column="128" selection-end-line="14" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/AutumnFramework.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/AutumnTestRailClient.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailCodable.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/testrail/model/TestRailTemplate.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/steps/AssertExists.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/ios/Springboard.swift">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutumnFramework/AutumnFramework/source/core/AutumnTestRunner.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

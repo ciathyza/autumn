@@ -5,7 +5,7 @@
  * \____/\__/_/_/___/
  *
  * Utils & Extensions for Swiift Projects..
- * Written by Sascha Balkau
+ * Written by Ciathyza
  */
 
 import UIKit

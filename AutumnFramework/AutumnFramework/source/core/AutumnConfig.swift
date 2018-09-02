@@ -4,7 +4,7 @@
  * |   ||   |  |  |   || | || \ |
  * `   '`---'  `  `---'` ' '`  `'
  *  UI Test Automation Framework for Xcode XCTest.
- *  Written by Sascha Balkau.
+ *  Written by Ciathyza.
  */
 
 import Foundation
